@@ -13,6 +13,8 @@
  */
 final class SWLHooks {
 	
-	
+	public static function onBeforeDataUpdate( SMWStore $store, SMWSemanticData $data ) {
+		
+	}
 	
 }

@@ -25,7 +25,16 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 if ( version_compare( $wgVersion, '1.17', '<' ) ) {
-	die( 'Semantic Watchlist requires MediaWiki 1.17 or above.' );
+	die( '<b>Error:</b> Semantic Watchlist requires MediaWiki 1.17 or above.' );
+}
+
+// Show a warning if Semantic MediaWiki is not loaded.
+if ( ! defined( 'SMW_VERSION' ) ) {
+	die( '<b>Error:</b> You need to have <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed in order to use Semantic Watchlist.' );
+}
+
+if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
+	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.6 or above.' );
 }
 
 define( 'SemanticWatchlist_VERSION', '0.1 alpha' );
@@ -59,3 +68,5 @@ $wgResourceModules['ext.swl'] = $moduleTemplate + array(
 require_once 'SemanticWatchlist.settings.php';
 
 $wgAutoloadClasses['SWLHooks'] = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
+
+$wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onBeforeDataUpdate';
