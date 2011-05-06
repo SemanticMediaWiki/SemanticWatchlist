@@ -67,6 +67,15 @@ $wgResourceModules['ext.swl'] = $moduleTemplate + array(
 
 require_once 'SemanticWatchlist.settings.php';
 
+// This overrides the default value for the setting in SMW, as the behaviour it enables is used by this extension.
+$smwgCheckChangesBeforeUpdate = true;
+
 $wgAutoloadClasses['SWLHooks'] = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
 
-$wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onBeforeDataUpdate';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
+
+$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onBeforeDataUpdate';
+
+if ( $egSWLEnableEmailNotify ) {
+    $wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
+}
