@@ -30,7 +30,7 @@ if ( version_compare( $wgVersion, '1.17', '<' ) ) {
 
 define( 'SemanticWatchlist_VERSION', '0.1 alpha' );
 
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Semantic Watchlist',
 	'version' => SemanticWatchlist_VERSION,
@@ -41,25 +41,21 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'semanticwatchlist-desc'
 );
 
-$egSAScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
+$egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
 $wgExtensionMessagesFiles['SemanticWatchlist'] = dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
 
-$egSAJSMessages = array(
+/*$moduleTemplate = array(
+	'localBasePath' => dirname( __FILE__ ),
+	'remoteBasePath' => $egSWLScriptPath
 );
 
-// For backward compatibility with MW < 1.17.
-if ( defined( 'MW_SUPPORTS_RESOURCE_MODULES' ) ) {
-	$moduleTemplate = array(
-		'localBasePath' => dirname( __FILE__ ),
-		'remoteBasePath' => $egIncWPScriptPath
-	);
-	
-	$wgResourceModules['ext.incwp'] = $moduleTemplate + array(
-		'scripts' => 'ext.incwp.js',
-		'dependencies' => array(),
-		'messages' => $egIncWPJSMessages
-	);
-}
+$wgResourceModules['ext.swl'] = $moduleTemplate + array(
+	'scripts' => 'ext.swl.js',
+	'dependencies' => array(),
+	'messages' => array()
+);*/
 
 require_once 'SemanticWatchlist.settings.php';
+
+$wgAutoloadClasses['SWLHooks'] = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
