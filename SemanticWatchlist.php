@@ -60,6 +60,12 @@ $wgAutoloadClasses['SWLHooks']                      = dirname( __FILE__ ) . '/Se
 $wgAutoloadClasses['ApiQuerySemanticWatchlist']     = dirname( __FILE__ ) . '/api/ApiQuerySemanticWatchlist.php';
 $wgAutoloadClasses['ApiSemanticWatchlist']          = dirname( __FILE__ ) . '/api/ApiSemanticWatchlist.php';
 
+$wgAutoloadClasses['SWLChange']          			= dirname( __FILE__ ) . '/includes/SWL_Change.php';
+$wgAutoloadClasses['SWLChanges']          			= dirname( __FILE__ ) . '/includes/SWL_Changes.php';
+$wgAutoloadClasses['SWLChangeSet']          		= dirname( __FILE__ ) . '/includes/SWL_ChangeSet.php';
+$wgAutoloadClasses['SWLGroup']          			= dirname( __FILE__ ) . '/includes/SWL_Group.php';
+$wgAutoloadClasses['SWLGroups']          			= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
+
 $wgAutoloadClasses['SpecialSemanticWatchlist']      = dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
 $wgAutoloadClasses['SpecialWatchlistConditions']    = dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
 

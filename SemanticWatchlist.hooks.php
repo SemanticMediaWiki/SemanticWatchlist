@@ -25,59 +25,13 @@ final class SWLHooks {
      * @return true
      */
 	public static function onDataChanged( SMWStore $store, SMWSemanticData $data ) {
-        $title = $data->getSubject()->getTitle();
-        $groups = self::getMatchingWatchGroups( $title );
-
-        foreach ( $groups as $group ) {
-            $matches = self::getIfGroupMatches( $group, $title );
-
-            if ( $matches ) {
-                self::notifyUsersForGroup( $group, $data );
-                wfRunHooks( 'SWLGroupNotify', array( $group, $data ) );
-            }
-        }
+        foreach ( SWLGroups::getMatchingWatchGroups( $data->getSubject()->getTitle() ) as $group ) {
+            SWLGroups::notifyUsersForGroup( $group, $data );
+            wfRunHooks( 'SWLGroupNotify', array( $group, $data ) );
+    	}
 
 		return true;
 	}
-
-    /**
-     * Returns all watchlist groups that watch the specified page.
-     *
-     * @since 0.1
-     *
-     * @param Title $title
-     *
-     * @return array
-     */
-    protected static function getMatchingWatchGroups( Title $title ) {
-        $dbr = wfGetDB( DB_SLAVE );
-
-        $groups = $dbr->select( 'swl_groups', array( 'group_id', 'group_categories', 'group_namespaces', 'group_properties' ) );
-
-        $matchingGroups = array();
-
-        foreach ( $groups as $group ) {
-            if ( self::getIfGroupMatches( $group, $title ) ) {
-                $matchingGroups[] = $group;
-            }
-        }
-
-        return $matchingGroups;
-    }
-
-    /**
-     * Determines and returns if the specified watchlist group covers
-     *the provided page or not. 
-     * 
-     * @since 0.1
-     *
-     * @param  $group
-     *
-     * @return boolean
-     */
-    protected static function getIfGroupMatches( $group, Title $title ) {
-
-    }
 
     /**
      * Determines and returns if the specified watchlist group covers
@@ -91,58 +45,7 @@ final class SWLHooks {
      */    
     public static function onGroupNotify( $group, SMWSemanticData $data ) {
         self::notifyUsersForGroup( $group, $data );
-        
         return true;
-    }
-
-    /**
-     * Notifies all users that are watching a group and that should be notified
-     * of the provided changes.
-     *
-     * @since 0.1
-     *
-     * @param  $group
-     * @param SMWSemanticData $data
-     */
-    protected static function notifyUsersForGroup( $group, SMWSemanticData $data ) {
-        $users = self::getUsersForGroup( $group );
-
-        foreach ( $users as $userId ) {
-            if ( self::userShouldBeNotified( $userId ) ) {
-                self::notifyUserOfChangesToGroup( $userId, $group, $data );
-            }
-        }
-    }
-
-    /**
-     * Returns the list of users watching the specified watchlist group.
-     *
-     * @since 0.1
-     *
-     * @param  $group
-     *
-     * @return array
-     */
-    protected static function getUsersForGroup( $group ) {
-
-    }
-
-    /**
-     * Determines and returns if a certain user should be notified of changes
-     * or not (in case this already happened, so this extension doesn't spam).
-     *
-     * @since 0.1
-     *
-     * @param integer $userId
-     *
-     * @return boolean
-     */
-    protected static function userShouldBeNotified( $userId ) {
-
-    }
-
-    protected static function notifyUserOfChangesToGroup( $userId, $group, SMWSemanticData $data ) {
-
     }
 
 	/**
