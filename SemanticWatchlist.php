@@ -53,6 +53,7 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
 $wgExtensionMessagesFiles['SemanticWatchlist']      = dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
+$wgExtensionAliasesFiles['SemanticWatchlist'] 		= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
 
 $wgAutoloadClasses['SWLHooks']                      = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
 
@@ -63,10 +64,10 @@ $wgAutoloadClasses['SpecialSemanticWatchlist']      = dirname( __FILE__ ) . '/sp
 $wgAutoloadClasses['SpecialWatchlistConditions']    = dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
 
 $wgSpecialPages['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
-$wgSpecialPageGroups['SemanticWatchlist'] = 'pagetools'; // TODO
+$wgSpecialPageGroups['SemanticWatchlist'] = 'changes';
 
 $wgSpecialPages['WatchlistConditions'] = 'SpecialWatchlistConditions';
-$wgSpecialPageGroups['WatchlistConditions'] = 'pagetools'; // TODO
+$wgSpecialPageGroups['WatchlistConditions'] = 'changes';
 
 $wgAPIModules['semanticwatchlist'] = 'ApiSemanticWatchlist';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
