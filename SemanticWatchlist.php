@@ -52,7 +52,28 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 
 $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
-$wgExtensionMessagesFiles['SemanticWatchlist'] = dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
+$wgExtensionMessagesFiles['SemanticWatchlist']      = dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
+
+$wgAutoloadClasses['SWLHooks']                      = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
+
+$wgAutoloadClasses['ApiQuerySemanticWatchlist']     = dirname( __FILE__ ) . '/api/ApiQuerySemanticWatchlist.php';
+$wgAutoloadClasses['ApiSemanticWatchlist']          = dirname( __FILE__ ) . '/api/ApiSemanticWatchlist.php';
+
+$wgAutoloadClasses['SpecialSemanticWatchlist']      = dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
+$wgAutoloadClasses['SpecialWatchlistConditions']    = dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
+
+$wgSpecialPages['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
+$wgSpecialPageGroups['SemanticWatchlist'] = 'pagetools'; // TODO
+
+$wgSpecialPages['WatchlistConditions'] = 'SpecialWatchlistConditions';
+$wgSpecialPageGroups['WatchlistConditions'] = 'pagetools'; // TODO
+
+$wgAPIModules['semanticwatchlist'] = 'ApiSemanticWatchlist';
+$wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
+
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
+
+$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onBeforeDataUpdate';
 
 /*$moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
@@ -67,17 +88,11 @@ $wgResourceModules['ext.swl'] = $moduleTemplate + array(
 
 require_once 'SemanticWatchlist.settings.php';
 
-$wgAvailableRights[] = 'semanticwatch';
-$wgAvailableRights[] = 'semanticwatchgroups';
-
 // This overrides the default value for the setting in SMW, as the behaviour it enables is used by this extension.
 $smwgCheckChangesBeforeUpdate = true;
 
-$wgAutoloadClasses['SWLHooks'] = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
-
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
-
-$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onBeforeDataUpdate';
+$wgAvailableRights[] = 'semanticwatch';
+$wgAvailableRights[] = 'semanticwatchgroups';
 
 if ( $egSWLEnableEmailNotify ) {
     $wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
