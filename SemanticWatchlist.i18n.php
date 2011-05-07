@@ -18,10 +18,10 @@ $messages = array();
  * @author Jeroen De Dauw
  */
 $messages['en'] = array(
-	'semanticwatchlist-desc' => 'Semantic Watchlist is an extension that allows specifying groups of semantic properties for one or more categories/namespaces which can then be wacthed for changes.',
+	'semanticwatchlist-desc' => 'Allows specifying groups of semantic properties for one or more categories/namespaces which can then be watched for changes',
 
-    'right-semanticwatch' => 'Required to use the semantic watchlist.',
-    'right-semanticwatchgroups' => 'Required to modify the semantic watchlist groups via [[Special:WatchlistConditions]].',
+	'right-semanticwatch' => 'Use semantic watchlist',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modify]] the semantic watchlist groups',
 );
 
 /** Message documentation (Message documentation)
