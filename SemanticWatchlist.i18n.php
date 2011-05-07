@@ -22,6 +22,9 @@ $messages['en'] = array(
 
 	'right-semanticwatch' => 'Use semantic watchlist',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modify]] the semantic watchlist groups',
+
+	'special-semanticwatchlist' => 'Semantic watchlist page listing changes to watched properties.',
+	'special-watchlistconditions' => 'Interface to modify the semantic watchlist groups.',
 );
 
 /** Message documentation (Message documentation)
