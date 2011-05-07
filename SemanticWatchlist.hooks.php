@@ -21,6 +21,8 @@ final class SWLHooks {
      *
      * @param SMWStore $store
      * @param SMWSemanticData $data
+     * 
+     * @return true
      */
 	public static function onDataChanged( SMWStore $store, SMWSemanticData $data ) {
         $title = $data->getSubject()->getTitle();
@@ -35,7 +37,7 @@ final class SWLHooks {
             }
         }
 
-
+		return true;
 	}
 
     /**
@@ -77,8 +79,20 @@ final class SWLHooks {
 
     }
 
+    /**
+     * Determines and returns if the specified watchlist group covers
+     * the provided page or not. 
+     * 
+     * @since 0.1
+     *
+     * @param  $group
+     *
+     * @return boolean
+     */    
     public static function onGroupNotify( $group, SMWSemanticData $data ) {
         self::notifyUsersForGroup( $group, $data );
+        
+        return true;
     }
 
     /**
@@ -159,6 +173,12 @@ final class SWLHooks {
 			$updater->addExtensionUpdate( array(
                 'addTable',
                 'swl_changes_per_group',
+                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
+                true
+            ) );
+			$updater->addExtensionUpdate( array(
+                'addTable',
+                'swl_users_per_group',
                 dirname( __FILE__ ) . '/SemanticWatchlist.sql',
                 true
             ) );
