@@ -26,3 +26,79 @@ $messages['en'] = array(
 	'special-semanticwatchlist' => 'Semantic Watchlist',
 	'special-watchlistconditions' => 'Semantic watchlist conditions',
 );
+
+/** German (Deutsch)
+ * @author Kghbln
+ */
+$messages['de'] = array(
+	'semanticwatchlist-desc' => 'Ermöglicht das Festlegen von Gruppen semantischer Attribute für eine oder mehrere Kategorien/ Namensräume in Form semantischer Beobachtungslisten',
+	'right-semanticwatch' => 'Semantische Beobachtungslisten verwenden',
+	'right-semanticwatchgroups' => 'Semantische Beobachtungslisten [[Special:WatchlistConditions|anpassen]]',
+	'special-semanticwatchlist' => 'Semantische Beobachtungslisten',
+	'special-watchlistconditions' => 'Einstellungen zu semantischen Beobachtungslisten',
+);
+
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'semanticwatchlist-desc' => 'Permitte specificar gruppos de proprietates semantic pro un o plus categorias o spatios de nomines, le quales pote alora esser observate pro modificationes',
+	'right-semanticwatch' => 'Usar observatorio semantic',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modificar]] le gruppos del observatorio semantic',
+	'special-semanticwatchlist' => 'Observatorio semantic',
+	'special-watchlistconditions' => 'Conditiones del observatorio semantic',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'right-semanticwatch' => 'Semantesch Iwwerwaachungslëscht benotzen',
+	'special-semanticwatchlist' => 'Semantesch Iwwerwaachungslëscht',
+	'special-watchlistconditions' => 'Astellunge vun der semantescher Iwwerwaachnugslëscht',
+);
+
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'semanticwatchlist-desc' => 'Овозможува назначување на групи семантички својства за една или повеќе категории/именски простори што можат да се набљудуваат (дали се измениле)',
+	'right-semanticwatch' => 'Користење на семантички список на набљудувања',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Менување]] на групи од семантички списоци на набљудувања',
+	'special-semanticwatchlist' => 'Семантички список на набљудувања',
+	'special-watchlistconditions' => 'Услови за семантичкиот список на набљудувања',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'semanticwatchlist-desc' => 'Membolehkan penenetuan kumpulan-kumpulan sifat semantik untuk satu atau lebih kategori/ruang nama yang kemudiannya boleh dipantau untuk perubahan',
+	'right-semanticwatch' => 'Gunakan senarai pantau semantik',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Ubah suai]] kumpulan senarai pantau semantik',
+	'special-semanticwatchlist' => 'Senarai Pantau Semantik',
+	'special-watchlistconditions' => 'Syarat-syarat senarai pantau semantik',
+);
+
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'semanticwatchlist-desc' => 'Maakt het mogelijk groepen van semantische eigenschappen aan te geven voor een of meer categorieën of naamruimten, zodat wijzigingen kunnen worden weergegeven',
+	'right-semanticwatch' => 'Semantische volglijst gebruiken',
+	'right-semanticwatchgroups' => 'De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]',
+	'special-semanticwatchlist' => 'Schematische volglijst',
+	'special-watchlistconditions' => 'Voorwaarden voor semantische volglijst',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'semanticwatchlist-desc' => 'Nagpapahintulot ng pagtutukoy ng mga pangkat ng mga pag-aaring semantiko para sa isa o mas marami pang mga kategorya/mga puwang na pampangalan na maaari namang bantayan para sa mga pagbabago',
+	'right-semanticwatch' => 'Gamitin ang semantikong talaan ng binabantayan',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Baguhin]] ang semantikong mga pangkat ng talaan ng binabantayan',
+	'special-semanticwatchlist' => 'Semantikong Talaan ng Binabantayan',
+	'special-watchlistconditions' => 'Mga kalagayan ng semantikong talaan ng binabantayan',
+);
+
