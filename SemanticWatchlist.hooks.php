@@ -20,12 +20,17 @@ final class SWLHooks {
      * @since 0.1
      *
      * @param SMWStore $store
-     * @param SMWSemanticData $data
+     * @param SMWSemanticData $oldData
+     * @param SMWSemanticData $newData
      * 
      * @return true
      */
-	public static function onDataChanged( SMWStore $store, SMWSemanticData $data ) {
-        foreach ( SWLGroups::getMatchingWatchGroups( $data->getSubject()->getTitle() ) as $group ) {
+	public static function onDataChanged( SMWStore $store, SMWSemanticData $oldData, SMWSemanticData $newData ) {
+		$title = Title::makeTitle( $newData->getSubject()->getNamespace(), $newData->getSubject()->getDBkey() );
+		
+		var_dump(SWLGroups::getMatchingWatchGroups( $title ));exit;
+		
+        foreach ( SWLGroups::getMatchingWatchGroups( $title ) as $group ) {
             SWLGroups::notifyUsersForGroup( $group, $data );
             wfRunHooks( 'SWLGroupNotify', array( $group, $data ) );
     	}

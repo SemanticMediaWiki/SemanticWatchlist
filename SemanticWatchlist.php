@@ -80,7 +80,7 @@ $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 
-$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onBeforeDataUpdate';
+$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onDataChanged';
 
 /*$moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),

@@ -13,6 +13,31 @@
  */
 final class SWLGroups {
 	
+	protected static $groups = false;
+	
+    /**
+     * Returns all watchlist groups.
+     *
+     * @since 0.1
+     *
+     * @return array of SWLGroup
+     */	
+	public static function getAll() {
+		if ( self::$groups === false ) {
+			self::$groups = array();
+			
+	        $dbr = wfGetDB( DB_SLAVE );
+	
+	        $groups = $dbr->select( 'swl_groups', array( 'group_id', 'group_categories', 'group_namespaces', 'group_properties' ) );
+	
+	        foreach ( $groups as $group ) {
+	        	self::$groups[] = SWLGroup::newFromDBResult( $group );
+	        }
+		}
+        
+        return self::$groups;
+	}
+	
     /**
      * Returns all watchlist groups that watch the specified page.
      *
@@ -22,14 +47,10 @@ final class SWLGroups {
      *
      * @return array
      */
-    protected static function getMatchingWatchGroups( Title $title ) {
-        $dbr = wfGetDB( DB_SLAVE );
-
-        $groups = $dbr->select( 'swl_groups', array( 'group_id', 'group_categories', 'group_namespaces', 'group_properties' ) );
-
+    public static function getMatchingWatchGroups( Title $title ) {
         $matchingGroups = array();
 
-        foreach ( $groups as $group ) {
+        foreach ( self::getAll() as $group ) {
             if ( self::getIfGroupMatches( $group, $title ) ) {
                 $matchingGroups[] = $group;
             }
@@ -49,8 +70,8 @@ final class SWLGroups {
      *
      * @return boolean
      */
-    protected static function getIfGroupMatches( SWLGroup $group, Title $title ) {
-
+    public static function getIfGroupMatches( SWLGroup $group, Title $title ) {
+		return true; // TODO
     }
 	
     /**
