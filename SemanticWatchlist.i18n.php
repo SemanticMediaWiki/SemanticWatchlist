@@ -29,12 +29,13 @@ $messages['en'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Purodha
  */
 $messages['de'] = array(
 	'semanticwatchlist-desc' => 'Ermöglicht das Festlegen von Gruppen semantischer Attribute für eine oder mehrere Kategorien/ Namensräume in Form semantischer Beobachtungslisten',
 	'right-semanticwatch' => 'Semantische Beobachtungslisten verwenden',
 	'right-semanticwatchgroups' => 'Semantische Beobachtungslisten [[Special:WatchlistConditions|anpassen]]',
-	'special-semanticwatchlist' => 'Semantische Beobachtungslisten',
+	'special-semanticwatchlist' => 'Semantische Beobachtungsliste',
 	'special-watchlistconditions' => 'Einstellungen zu semantischen Beobachtungslisten',
 );
 
@@ -47,6 +48,28 @@ $messages['ia'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modificar]] le gruppos del observatorio semantic',
 	'special-semanticwatchlist' => 'Observatorio semantic',
 	'special-watchlistconditions' => 'Conditiones del observatorio semantic',
+);
+
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
+$messages['id'] = array(
+	'semanticwatchlist-desc' => 'Memungkinkan penetapan kelompok properti semantik untuk satu atau lebih kategori/ruang nama yang kemudian dapat dipantau perubahannya',
+	'right-semanticwatch' => 'Menggunakan daftar pantauan semantik',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah]] kelompok daftar pantauan semantik',
+	'special-semanticwatchlist' => 'Daftar Pantau Semantik',
+	'special-watchlistconditions' => 'Kriteria daftar pantau semantik',
+);
+
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'semanticwatchlist-desc' => 'Määt et müjjelesch, Jroppe vun semantesche Eijeschaffte aanzjävve, för Saachjroppe un Appachtemangs, di dann op en Oppaßleß kumme un bewach wääde, för der Fall, dat se jeändert wääde.',
+	'right-semanticwatch' => 'De semantesche Oppaßleß verwände',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Jroppe ändere]] för de semantesche Oppaßleßte',
+	'special-semanticwatchlist' => 'Semantesch Oppaßleß',
+	'special-watchlistconditions' => 'Enshtällonge för de semantesche Oppaßleßte',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -89,6 +112,17 @@ $messages['nl'] = array(
 	'right-semanticwatchgroups' => 'De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]',
 	'special-semanticwatchlist' => 'Schematische volglijst',
 	'special-watchlistconditions' => 'Voorwaarden voor semantische volglijst',
+);
+
+/** Portuguese (Português)
+ * @author Hamilton Abreu
+ */
+$messages['pt'] = array(
+	'semanticwatchlist-desc' => 'Permite especificar, para uma ou mais categorias ou espaços nominais, grupos de propriedades semânticas que podem depois ser vigiadas',
+	'right-semanticwatch' => 'Usar a lista de propriedades semânticas vigiadas',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Alterar]] os grupos de propriedades semânticas vigiadas',
+	'special-semanticwatchlist' => 'Lista das Propriedades Semânticas Vigiadas',
+	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
 );
 
 /** Tagalog (Tagalog)
