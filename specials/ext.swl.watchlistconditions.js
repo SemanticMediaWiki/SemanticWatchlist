@@ -11,11 +11,16 @@
 	$( '.swl_group' ).each(function( index, domElement ) {
 		var element = $( domElement );
 		
-		buildGroupHtml( element );
+		element.watchlistcondition(
+			{
+				name: element.attr( 'groupname' ),
+				categories: element.attr( 'categories' ).split( '|' ),
+				namespaces: element.attr( 'namespaces' ).split( '|' ),
+				properties: element.attr( 'properties' ).split( '|' ),
+				concepts: element.attr( 'concepts' ).split( '|' ),
+			},
+			{}
+		);
 	}) ;
-	
-	function buildGroupHtml( element ) {
-		element.text( '' ); // element.attr( 'categories' )
-	}
 	
 } ); })(jQuery);

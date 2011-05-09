@@ -81,9 +81,11 @@ class SpecialWatchlistConditions extends SpecialPage {
 			array(
 				'id' => 'swl_group_' . $group->getId(),
 				'class' => 'swl_group',
+				'groupname' => $group->getName(),
 				'categories' => implode( '|', $group->getCategories() ),
 				'namespaces' => implode( '|', $group->getNamespaces() ),
 				'properties' => implode( '|', $group->getProperties() ),
+				'concepts' => implode( '|', $group->getConcepts() ),
 			)
 		);
 	}

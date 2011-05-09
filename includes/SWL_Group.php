@@ -101,6 +101,17 @@ class SWLGroup {
 	}
 	
 	/**
+	 * Returns the group name.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return string
+	 */
+	public function getName() {
+		return $this->name;
+	}	
+	
+	/**
 	 * Returns whether the group contains the specified page.
 	 * 
 	 * @since 0.1

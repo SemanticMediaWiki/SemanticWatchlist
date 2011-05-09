@@ -89,7 +89,10 @@ $moduleTemplate = array(
 
 $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 	'styles' => array( 'specials/ext.swl.watchlistconditions.css' ),
-	'scripts' => array( 'specials/ext.swl.watchlistconditions.js' ),
+	'scripts' => array(
+		'specials/jquery.watchlistcondition.js',
+		'specials/ext.swl.watchlistconditions.js'
+	),
 	'dependencies' => array(),
 	'messages' => array()
 );
