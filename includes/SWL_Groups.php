@@ -28,7 +28,14 @@ final class SWLGroups {
 			
 	        $dbr = wfGetDB( DB_SLAVE );
 	
-	        $groups = $dbr->select( 'swl_groups', array( 'group_id', 'group_categories', 'group_namespaces', 'group_properties' ) );
+	        $groups = $dbr->select( 'swl_groups', array(
+	        	'group_id',
+	        	'group_name',
+	        	'group_categories',
+	        	'group_namespaces',
+	        	'group_properties',
+	        	'group_concepts'
+	        ) );
 	
 	        foreach ( $groups as $group ) {
 	        	self::$groups[] = SWLGroup::newFromDBResult( $group );
@@ -51,7 +58,7 @@ final class SWLGroups {
         $matchingGroups = array();
 
         foreach ( self::getAll() as $group ) {
-            if ( self::getIfGroupMatches( $group, $title ) ) {
+            if ( $group->coversPage( $title ) ) {
                 $matchingGroups[] = $group;
             }
         }
@@ -59,21 +66,6 @@ final class SWLGroups {
         return $matchingGroups;
     }
 
-    /**
-     * Determines and returns if the specified watchlist group covers
-     * the provided page or not. 
-     * 
-     * @since 0.1
-     *
-     * @param SWLGroup $group
-     * @param Title $title
-     *
-     * @return boolean
-     */
-    public static function getIfGroupMatches( SWLGroup $group, Title $title ) {
-		return true; // TODO
-    }
-	
     /**
      * Notifies all users that are watching a group and that should be notified
      * of the provided changes.

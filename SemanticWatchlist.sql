@@ -5,16 +5,18 @@
 -- Watchlist groups
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
   group_id                 SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  group_name               VARCHAR(255)        NOT NULL,
   -- No need to have this stuff relational, so keep it simple.
-  -- These fields keep the IDs (or names in case of the properties), | separated.
-  group_categories         BLOB                NOT NULL,
-  group_namespaces         BLOB                NOT NULL,
-  group_properties         BLOB                NOT NULL
+  -- These fields keep multiple values, | separated.
+  group_categories         BLOB                NOT NULL, -- Category names
+  group_namespaces         BLOB                NOT NULL, -- Namespace IDs
+  group_properties         BLOB                NOT NULL, -- Property names
+  group_concepts           BLOB                NOT NULL -- Concept names
 ) /*$wgDBTableOptions*/;
 
---INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('Locations|People', '', 'Has coordinates|Has age|Has occupation');
---INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('', 'Organizations', '');
---INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('Customers', 'Organizations', 'Has contract status');
+--INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('foo', 'Locations|People', '', 'Has coordinates|Has age|Has occupation', '');
+--INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('bar', '', 102, '', '');
+--INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('baz', 'Customers', 102, 'Has contract status', '');
 
 -- List of all changes made to properties.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
