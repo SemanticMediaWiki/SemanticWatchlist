@@ -24,9 +24,9 @@ class SWLGroup {
 	public static function newFromDBResult( $group ) {
 		return new SWLGroup(
 			$group->group_id,
-			array_map( intval, explode( '|', $group->group_categories ) ),
-			array_map( intval, explode( '|', $group->group_namespaces ) ),
-			explode( '|', $group->group_properties )
+			$group->group_categories == '' ? array() : array_map( 'intval', explode( '|', $group->group_categories ) ),
+			$group->group_namespaces == '' ? array() : array_map( 'intval', explode( '|', $group->group_namespaces ) ),
+			$group->group_properties == '' ? array() : explode( '|', $group->group_properties )
 		);
 	}
 	

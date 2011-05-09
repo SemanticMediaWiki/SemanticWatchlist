@@ -12,6 +12,10 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
   group_properties         BLOB                NOT NULL
 ) /*$wgDBTableOptions*/;
 
+--INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('Locations|People', '', 'Has coordinates|Has age|Has occupation');
+--INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('', 'Organizations', '');
+--INSERT INTO swl_groups (group_categories,group_namespaces,group_properties) VALUES ('Customers', 'Organizations', 'Has contract status');
+
 -- List of all changes made to properties.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
   change_id                INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY,

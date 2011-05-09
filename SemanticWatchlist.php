@@ -82,16 +82,17 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 
 $wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onDataChanged';
 
-/*$moduleTemplate = array(
+$moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteBasePath' => $egSWLScriptPath
 );
 
-$wgResourceModules['ext.swl'] = $moduleTemplate + array(
-	'scripts' => 'ext.swl.js',
+$wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
+	'styles' => array( 'specials/ext.swl.watchlistconditions.css' ),
+	'scripts' => array( 'specials/ext.swl.watchlistconditions.js' ),
 	'dependencies' => array(),
 	'messages' => array()
-);*/
+);
 
 require_once 'SemanticWatchlist.settings.php';
 

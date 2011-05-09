@@ -41,7 +41,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 		$wgOut->setArticleRelated( false );
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
 		$wgOut->setPageTitle( $this->getDescription() );
-	}	
+	}
 	
 	/**
 	 * Main method.
@@ -62,7 +62,30 @@ class SpecialWatchlistConditions extends SpecialPage {
 			return;
 		}
 		
+		//$wgOut->addHTML( Html::element( 'h3', array(), wfMsg( '' ) ) );
 		
+		$groupsHtml = array();
+		
+		foreach ( SWLGroups::getAll() as $group ) {
+			$groupsHtml[] = $this->getGroupHtml( $group );
+		}
+		
+		$wgOut->addHTML( implode( '<br />', $groupsHtml ) );
+		
+		$wgOut->addModules( 'ext.swl.watchlistconditions' );
+	}
+	
+	protected function getGroupHtml( SWLGroup $group ) {
+		return Html::element(
+			'div',
+			array(
+				'id' => 'swl_group_' . $group->getId(),
+				'class' => 'swl_group',
+				'categories' => implode( '|', $group->getCategories() ),
+				'namespaces' => implode( '|', $group->getNamespaces() ),
+				'properties' => implode( '|', $group->getProperties() ),
+			)
+		);
 	}
 	
 }

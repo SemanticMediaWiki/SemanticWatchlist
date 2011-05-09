@@ -19,3 +19,5 @@ $specialPageAliases['en'] = array(
 	'SemanticWatchlist' => array( 'SemanticWatchlist' ),
 	'WatchlistConditions' => array( 'WatchlistConditions' ),
 );
+
+$aliases =& $specialPageAliases;
