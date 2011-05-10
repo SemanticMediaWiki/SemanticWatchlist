@@ -94,7 +94,11 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 		'specials/ext.swl.watchlistconditions.js'
 	),
 	'dependencies' => array(),
-	'messages' => array()
+	'messages' => array(
+		'swl-group-name',
+		'swl-group-properties',
+		'swl-group-remove-property',	
+	)
 );
 
 require_once 'SemanticWatchlist.settings.php';

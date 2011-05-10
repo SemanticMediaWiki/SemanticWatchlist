@@ -76,8 +76,8 @@ class SpecialWatchlistConditions extends SpecialPage {
 	}
 	
 	protected function getGroupHtml( SWLGroup $group ) {
-		return Html::element(
-			'div',
+		return Html::rawElement(
+			'fieldset',
 			array(
 				'id' => 'swl_group_' . $group->getId(),
 				'class' => 'swl_group',
@@ -86,6 +86,11 @@ class SpecialWatchlistConditions extends SpecialPage {
 				'namespaces' => implode( '|', $group->getNamespaces() ),
 				'properties' => implode( '|', $group->getProperties() ),
 				'concepts' => implode( '|', $group->getConcepts() ),
+			),
+			Html::element(
+				'legend',
+				array(),
+				$group->getName()
 			)
 		);
 	}

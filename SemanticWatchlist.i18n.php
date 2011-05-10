@@ -25,6 +25,11 @@ $messages['en'] = array(
 
 	'special-semanticwatchlist' => 'Semantic Watchlist',
 	'special-watchlistconditions' => 'Semantic watchlist conditions',
+
+	// Special:WatchlistConditions
+	'swl-group-name' => 'Group name: ',
+	'swl-group-properties' => 'Properties covered by this group:',
+	'swl-group-remove-property' => 'Remove property',
 );
 
 /** German (Deutsch)

@@ -8,16 +8,25 @@
 
 (function($) { $( document ).ready( function() {
 	
+	function getSplitAttrValue( element, attribute, separator ) {
+		if ( typeof element.attr( attribute ) == 'undefined'
+			|| element.attr( attribute ) == '' ) {
+			return [];
+		}
+		
+		return element.attr( attribute ).split( separator );
+	}
+	
 	$( '.swl_group' ).each(function( index, domElement ) {
 		var element = $( domElement );
 		
 		element.watchlistcondition(
 			{
 				name: element.attr( 'groupname' ),
-				categories: element.attr( 'categories' ).split( '|' ),
-				namespaces: element.attr( 'namespaces' ).split( '|' ),
-				properties: element.attr( 'properties' ).split( '|' ),
-				concepts: element.attr( 'concepts' ).split( '|' ),
+				categories: getSplitAttrValue( element, 'categories', '|' ),
+				namespaces: getSplitAttrValue( element, 'namespaces', '|' ),
+				properties: getSplitAttrValue( element, 'properties', '|' ),
+				concepts: getSplitAttrValue( element, 'concepts', '|' )
 			},
 			{}
 		);

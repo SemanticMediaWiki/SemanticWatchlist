@@ -8,11 +8,42 @@
 
 (function( $ ){ $.fn.watchlistcondition = function( group, options ) {
 
-	this.html( $( '<h3 />' ).text( group.name ) );
+	this.html( $( '<legend />' ).text( group.name ) );
 	
-	nameInput = $( '<input />' ).attr( 'type', 'text' ).attr( 'value', group.name );
+	var table = $( '<table />' ).attr( { 'class': 'swltable' } );
 	
-	this.append( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) ).append( nameInput ) );	
+	var nameInput = $( '<input />' ).attr( { 'type': 'text', 'value': group.name } );
+	
+	table.html( $( '<tr />' ).html( $( '<td />' ).attr( 'colspan', 2 ).html(
+		$( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) ).append( nameInput )
+	) ) );
+	
+	var propTd = $( '<td />' );
+	
+	propTd.html( mediaWiki.msg( 'swl-group-properties' ) );
+	
+	for ( i in group.properties ) {
+		propTd.append( getPropertyDiv( group.properties[i] ) );
+	}
+	
+	table.append( $( '<tr />' ).attr( 'colspan', 2 ).append( propTd ) );
+	
+	this.append( table );
+	
+	function getPropertyDiv( property ) {
+		var propInput = $( '<input />' ).attr( {
+			'type': 'text',
+			'value': property,
+			'size': 30
+		} );
+		
+		var removeButton = $( '<input />' ).attr( {
+			'type': 'button',
+			value: mediaWiki.msg( 'swl-group-remove-property' )
+		} );
+		
+		return $( '<div />' ).attr( 'class', 'propid' ).html( propInput ).append( removeButton );
+	}
 	
 	return this;
 	
