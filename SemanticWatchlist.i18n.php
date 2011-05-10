@@ -42,6 +42,9 @@ $messages['de'] = array(
 	'right-semanticwatchgroups' => 'Semantische Beobachtungslisten [[Special:WatchlistConditions|anpassen]]',
 	'special-semanticwatchlist' => 'Semantische Beobachtungsliste',
 	'special-watchlistconditions' => 'Einstellungen zu semantischen Beobachtungslisten',
+	'swl-group-name' => 'Gruppenname:',
+	'swl-group-properties' => 'Attribute zu dieser Gruppe:',
+	'swl-group-remove-property' => 'Attribut entfernen',
 );
 
 /** Interlingua (Interlingua)
@@ -53,6 +56,9 @@ $messages['ia'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modificar]] le gruppos del observatorio semantic',
 	'special-semanticwatchlist' => 'Observatorio semantic',
 	'special-watchlistconditions' => 'Conditiones del observatorio semantic',
+	'swl-group-name' => 'Nomine del gruppo:',
+	'swl-group-properties' => 'Proprietates coperite per iste gruppo:',
+	'swl-group-remove-property' => 'Remover proprietate',
 );
 
 /** Indonesian (Bahasa Indonesia)
