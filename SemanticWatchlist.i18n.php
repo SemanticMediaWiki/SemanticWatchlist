@@ -101,6 +101,9 @@ $messages['mk'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Менување]] на групи од семантички списоци на набљудувања',
 	'special-semanticwatchlist' => 'Семантички список на набљудувања',
 	'special-watchlistconditions' => 'Услови за семантичкиот список на набљудувања',
+	'swl-group-name' => 'Име на групата:',
+	'swl-group-properties' => 'Својства покриени со оваа група:',
+	'swl-group-remove-property' => 'Отстрани својство',
 );
 
 /** Malay (Bahasa Melayu)
@@ -123,6 +126,9 @@ $messages['nl'] = array(
 	'right-semanticwatchgroups' => 'De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]',
 	'special-semanticwatchlist' => 'Schematische volglijst',
 	'special-watchlistconditions' => 'Voorwaarden voor semantische volglijst',
+	'swl-group-name' => 'Groepsnaam:',
+	'swl-group-properties' => 'Eigenschappen die onder deze groep vallen:',
+	'swl-group-remove-property' => 'Eigenschap verwijderen',
 );
 
 /** Portuguese (Português)
