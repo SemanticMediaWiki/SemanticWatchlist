@@ -97,7 +97,9 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 	'messages' => array(
 		'swl-group-name',
 		'swl-group-properties',
-		'swl-group-remove-property',	
+		'swl-group-remove-property',
+		'swl-group-page-selection',
+		'save',	
 	)
 );
 
