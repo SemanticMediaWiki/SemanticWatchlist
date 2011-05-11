@@ -155,14 +155,14 @@ class SWLGroup {
 	 * @return boolean
 	 */		
 	public function categoriesCoverPage( Title $title ) {
+		$foundMatch = false;
+		
 		if ( count( $this->categories ) > 0 ) {
 			$cats = array_keys( $title->getParentCategories() );
 			
 			if ( count( $cats ) == 0 ) {
 				return false; 
 			}
-			
-			$foundMatch = false;
 			
 			foreach ( $this->categories as $groupCategory ) {
 				$foundMatch = in_array( $groupCategory, $cats );
