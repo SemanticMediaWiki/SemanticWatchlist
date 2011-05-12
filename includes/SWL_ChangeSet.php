@@ -23,6 +23,8 @@ class SWLChangeSet {
 	 */
 	protected $time;
 	
+	protected $id;
+	
 	/**
 	 * The title of the page the changeset holds changes for.
 	 * 
@@ -31,15 +33,40 @@ class SWLChangeSet {
 	protected $title = false;
 	
 	/**
+	 * 
+	 * 
+	 * @param $set
+	 * 
+	 * @return SWLChangeSet
+	 */
+	public static function newFromDBResult( $set ) {
+		$changeSet = new SMWChangeSet(
+			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->cg_page_id ) )
+		);
+		
+		$changeSet = new SWLChangeSet( // swl_change_groups
+			$changeSet,
+			User::newFromName( $set->cg_user_name ),
+			$set->cg_time,
+			$set->cg_id
+		);
+		
+		return $changeSet;
+	}
+	
+	/**
 	 * Constructor.
 	 * 
+	 * @param SMWChangeSet $changeSet
 	 * @param User $user
 	 * @param integer $time
+	 * @param integer $id
 	 */
-	public function __construct( SMWChangeSet $changeSet, /* User */ $user = null, $time = null ) {
+	public function __construct( SMWChangeSet $changeSet, /* User */ $user = null, $time = null, $id = null ) {
 		$this->changeSet = $changeSet;
 		$this->time = $time;
 		$this->user = is_null( $user ) ? $GLOBALS['wgUser'] : $user;
+		$this->id = $id;
 	}
 	
 	/**
@@ -68,8 +95,8 @@ class SWLChangeSet {
 		$dbr->insert(
 			'swl_change_groups',
 			array(
-				'cg_user_name' => $this->getUser(),
-				'cg_page_id' => $this->getTitle(),
+				'cg_user_name' => $this->getUser()->getName(),
+				'cg_page_id' => $this->getTitle()->getArticleID(),
 				'cg_time' => is_null( $this->getTime() ) ? $dbw->timestamp() : $this->getTime() 
 			)
 		);
@@ -83,20 +110,20 @@ class SWLChangeSet {
 		return $this->title;
 	}
 	
-	public function setUser() {
-		
+	public function setUser( User $user ) {
+		$this->user = $user;
 	}
 	
 	public function getUser() {
-		
+		return $this->user;
 	}
 	
-	public function setTime() {
-		
+	public function setTime( $time ) {
+		$this->time = $time;
 	}
 	
 	public function getTime() {
-		
+		return $this->time;
 	}
 	
 }
