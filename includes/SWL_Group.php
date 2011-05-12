@@ -167,8 +167,11 @@ class SWLGroup {
 			return false; 
 		}
 		
+		global $wgContLang;
+		$catPrefix = $wgContLang->getNSText( NS_CATEGORY ) . ':';
+		
 		foreach ( $this->categories as $groupCategory ) {
-			$foundMatch = in_array( $groupCategory, $cats );
+			$foundMatch = in_array( $catPrefix . $groupCategory, $cats );
 			
 			if ( $foundMatch ) {
 				break;

@@ -28,7 +28,6 @@ final class SWLHooks {
 		$title = Title::makeTitle( $changes->getSubject()->getNamespace(), $changes->getSubject()->getDBkey() );
 		
         foreach ( SWLGroups::getMatchingWatchGroups( $title ) as /* SWLGroup */ $group ) {
-        	var_dump($group);exit;
         	$group->notifyWatchingUsers( $changes );
     	}
 
@@ -57,7 +56,8 @@ final class SWLHooks {
     }
     
     protected static function notifyUser( SWLGroup $group, User $user, SMWChangeSet $changes ) {
-    	var_dump($group);var_dump($user);var_dump($changes);exit;
+    	// TODO
+    	//var_dump($group);var_dump($user);var_dump($changes);exit;
     }
 
 	/**
