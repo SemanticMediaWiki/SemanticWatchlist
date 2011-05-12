@@ -226,7 +226,7 @@ class SWLGroup {
 	 * @return array of integer
 	 */
 	public function getWatchingUsers() {
-		$dbr = wfGetDb( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		
 		$users = $dbr->select(
 			'swl_users_per_group',
@@ -255,7 +255,7 @@ class SWLGroup {
 	 * 
 	 * @param SMWChangeSet $changes
 	 */
-	public function notifyWatchingUsers( SMWChangeSet $changes ) {
+	public function notifyWatchingUsers( SWLChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
 		
 		wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );

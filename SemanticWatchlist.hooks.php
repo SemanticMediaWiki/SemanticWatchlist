@@ -25,9 +25,9 @@ final class SWLHooks {
      * @return true
      */
 	public static function onDataChanged( SMWStore $store, SMWChangeSet $changes ) {
-		$title = Title::makeTitle( $changes->getSubject()->getNamespace(), $changes->getSubject()->getDBkey() );
+		$changes = new SWLChangeSet( $changes );
 		
-        foreach ( SWLGroups::getMatchingWatchGroups( $title ) as /* SWLGroup */ $group ) {
+        foreach ( SWLGroups::getMatchingWatchGroups( $changes->getTitle() ) as /* SWLGroup */ $group ) {
         	$group->notifyWatchingUsers( $changes );
     	}
 
@@ -46,7 +46,7 @@ final class SWLHooks {
      *
      * @return true
      */    
-    public static function onGroupNotify( SWLGroup $group, array $userIDs, SMWChangeSet $changes ) {
+    public static function onGroupNotify( SWLGroup $group, array $userIDs, SWLChangeSet $changes ) {
         
     	foreach ( $userIDs as $userID ) {
     		self::notifyUser( $group, User::newFromId( $userID ), $changes );
@@ -55,7 +55,7 @@ final class SWLHooks {
         return true;
     }
     
-    protected static function notifyUser( SWLGroup $group, User $user, SMWChangeSet $changes ) {
+    protected static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changes ) {
     	// TODO
     	//var_dump($group);var_dump($user);var_dump($changes);exit;
     }
