@@ -122,8 +122,8 @@ class SWLGroup {
 	 */
 	public function coversPage( Title $title ) {
 		return $this->categoriesCoverPage( $title ) 
-			|| $this->namespacesCoversPage( $title )
-			|| $this->conceptsCoverPage( $title );
+			&& $this->namespacesCoversPage( $title )
+			&& $this->conceptsCoverPage( $title );
 	}
 	
 	/**
@@ -155,21 +155,23 @@ class SWLGroup {
 	 * @return boolean
 	 */		
 	public function categoriesCoverPage( Title $title ) {
-		$foundMatch = false;
+		if ( count( $this->categories ) == 0 ) {
+			return true;
+		}
 		
-		if ( count( $this->categories ) > 0 ) {
-			$cats = array_keys( $title->getParentCategories() );
+		$foundMatch = false;
+
+		$cats = array_keys( $title->getParentCategories() );
+		
+		if ( count( $cats ) == 0 ) {
+			return false; 
+		}
+		
+		foreach ( $this->categories as $groupCategory ) {
+			$foundMatch = in_array( $groupCategory, $cats );
 			
-			if ( count( $cats ) == 0 ) {
-				return false; 
-			}
-			
-			foreach ( $this->categories as $groupCategory ) {
-				$foundMatch = in_array( $groupCategory, $cats );
-				
-				if ( $foundMatch ) {
-					break;
-				}
+			if ( $foundMatch ) {
+				break;
 			}
 		}
 
@@ -211,6 +213,49 @@ class SWLGroup {
 		}
 		
 		return $foundMatch;
+	}
+	
+	/**
+	 * Returns the IDs of the users watching the group.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array of integer
+	 */
+	public function getWatchingUsers() {
+		$dbr = wfGetDb( DB_SLAVE );
+		
+		$users = $dbr->select(
+			'swl_users_per_group',
+			array(
+				'upg_user_id'
+			),
+			array(
+				'upg_group_id' => $this->getId()
+			)
+		);
+		
+		$userIds = array();
+		
+		foreach ( $users as $user ) {
+			$userIds[] = $user->upg_user_id;
+		}
+		
+		return $userIds;
+	}
+	
+	/**
+	 * Gets all the watching users and passes them, together with the specified
+	 * changes and the group object itself, to the SWLGroupNotify hook.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWChangeSet $changes
+	 */
+	public function notifyWatchingUsers( SMWChangeSet $changes ) {
+		$users = $this->getWatchingUsers();
+		
+		wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
 	}
 	
 }

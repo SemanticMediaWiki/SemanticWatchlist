@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
 --INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('foo', 'Locations|People', '', 'Has coordinates|Has age|Has occupation', '');
 --INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('bar', '', 102, '', '');
 --INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('baz', 'Customers', 102, 'Has contract status', '');
+--INSERT INTO mw_swl_users_per_group (upg_group_id,upg_user_id) VALUES(1,1);
 
 -- List of all changes made to properties.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
