@@ -26,6 +26,7 @@ final class SWLHooks {
      */
 	public static function onDataChanged( SMWStore $store, SMWChangeSet $changes ) {
 		$changes = new SWLChangeSet( $changes );
+		$changes->writeToStore();
 		
         foreach ( SWLGroups::getMatchingWatchGroups( $changes->getTitle() ) as /* SWLGroup */ $group ) {
         	$group->notifyWatchingUsers( $changes );

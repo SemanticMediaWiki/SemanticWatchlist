@@ -13,6 +13,11 @@
  */
 final class SWLGroups {
 	
+	/**
+	 * Cached list of all watchlist groups.
+	 * 
+	 * @var array of SWLGroup
+	 */
 	protected static $groups = false;
 	
     /**

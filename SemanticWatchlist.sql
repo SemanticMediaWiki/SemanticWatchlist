@@ -36,16 +36,16 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_change_groups (
   cg_time                 CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
 ) /*$wgDBTableOptions*/;
 
--- Links changes to watchlist groups.
+-- Links change groups to watchlist groups.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes_per_group (
-  cpg_group_id             SMALLINT unsigned   NOT NULL,
-  cpg_change_id            INT(10) unsigned    NOT NULL,
-  PRIMARY KEY  (cpg_group_id,cpg_change_id)
+  cpg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
+  cpg_change_group_id      INT(10) unsigned    NOT NULL, -- Foreign key: swl_change_groups.cg_id
+  PRIMARY KEY  (cpg_group_id,cpg_change_group_id)
 ) /*$wgDBTableOptions*/;
 
 -- Links users to watchlist groups.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_users_per_group (
-  upg_group_id             SMALLINT unsigned   NOT NULL,
-  upg_user_id              INT(10) unsigned    NOT NULL,
+  upg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
+  upg_user_id              INT(10) unsigned    NOT NULL, -- Foreign key: user.user_id
   PRIMARY KEY  (upg_group_id,upg_user_id)
 ) /*$wgDBTableOptions*/;

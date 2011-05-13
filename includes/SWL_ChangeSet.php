@@ -23,6 +23,11 @@ class SWLChangeSet {
 	 */
 	protected $time;
 	
+	/**
+	 * DB ID of the change set (swl_change_groups.cg_id).
+	 * 
+	 * @var integer
+	 */
 	protected $id;
 	
 	/**
@@ -39,10 +44,29 @@ class SWLChangeSet {
 	 * 
 	 * @return SWLChangeSet
 	 */
-	public static function newFromDBResult( $set ) {
+	public static function newFromDBResult( $set ) {		
 		$changeSet = new SMWChangeSet(
 			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->cg_page_id ) )
 		);
+		
+		$dbr = wfGetDb( DB_SLAVE );
+		
+		$changes = $dbr->select(
+			'swl_changes',
+			array(
+				'change_id',
+				'change_property',
+				'change_old_value',
+				'change_new_value'
+			),
+			array(
+				'change_group_id' => $set->cg_id 
+			)
+		);
+		
+		foreach ( $changes as $change ) {
+			$changeSet->addChange( $change->change_property, SMWPropertyChange( $change->change_old_value, $change->change_new_value ) );
+		}	
 		
 		$changeSet = new SWLChangeSet( // swl_change_groups
 			$changeSet,
@@ -90,9 +114,9 @@ class SWLChangeSet {
 	 * @return boolean Success indicator
 	 */
 	public function writeToStore() {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 		
-		$dbr->insert(
+		$dbw->insert(
 			'swl_change_groups',
 			array(
 				'cg_user_name' => $this->getUser()->getName(),
@@ -100,8 +124,65 @@ class SWLChangeSet {
 				'cg_time' => is_null( $this->getTime() ) ? $dbw->timestamp() : $this->getTime() 
 			)
 		);
+		
+		$id = $dbw->insertId();
+		
+		$changes = array();
+		
+		foreach ( $this->getChanges()->getProperties() as /* SMWDIProperty */ $proprety ) {
+			$propName = $proprety->getLabel();
+			
+			foreach ( $this->getChanges()->getPropertyChanges( $proprety ) as /* SMWPropertyChange */ $change ) {
+				$changes[] = array(
+					'property' => $propName,
+					'old' => $change->getOldValue()->getSerialization(),
+					'new' => $change->getNewValue()->getSerialization()
+				);
+			}
+		}
+		
+		foreach ( $this->getInsertions()->getProperties() as /* SMWDIProperty */ $proprety ) {
+			$propName = $proprety->getLabel();
+			
+			foreach ( $this->getInsertions()->getPropertyValues( $proprety ) as /* SMWDataItem */ $dataItem ) {
+				$changes[] = array(
+					'property' => $propName,
+					'old' => null,
+					'new' => $dataItem->getSerialization()
+				);
+			}
+		}
+
+		foreach ( $this->getDeletions()->getProperties() as /* SMWDIProperty */ $proprety ) {
+			$propName = $proprety->getLabel();
+			
+			foreach ( $this->getDeletions()->getPropertyValues( $proprety ) as /* SMWDataItem */ $dataItem ) {
+				$changes[] = array(
+					'property' => $propName,
+					'old' => $dataItem->getSerialization(),
+					'new' => null
+				);
+			}
+		}		
+		
+		foreach ( $changes as $change ) {
+			$dbw->insert(
+				'swl_changes',
+				array(
+					'change_group_id' => $id,
+					'change_property' => $change['property'],
+					'change_old_value' => $change['old'],
+					'change_new_value' => $change['new']
+				)
+			);			
+		}
 	}
 	
+	/**
+	 * Gets the title of the page these changes belong to.
+	 * 
+	 * @return Title
+	 */
 	public function getTitle() {
 		if ( $this->title === false ) {
 			$this->title = Title::makeTitle( $this->getSubject()->getNamespace(), $this->getSubject()->getDBkey() );
@@ -110,18 +191,38 @@ class SWLChangeSet {
 		return $this->title;
 	}
 	
+	/**
+	 * Sets the user that made the changes.
+	 * 
+	 * @param User $user
+	 */
 	public function setUser( User $user ) {
 		$this->user = $user;
 	}
 	
+	/**
+	 * Gets the user that made the changes.
+	 * 
+	 * @return User
+	 */
 	public function getUser() {
 		return $this->user;
 	}
 	
+	/**
+	 * Sets the time on which the changes where made.
+	 * 
+	 * @param integer $time
+	 */
 	public function setTime( $time ) {
 		$this->time = $time;
 	}
 	
+	/**
+	 * Gets the time on which the changes where made.
+	 * 
+	 * @return integer
+	 */
 	public function getTime() {
 		return $this->time;
 	}
