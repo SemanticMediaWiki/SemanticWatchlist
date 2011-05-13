@@ -25,6 +25,8 @@ class SWLGroup {
 	
 	protected $concepts;
 	
+	protected $watchingUsers = false;
+	
 	public static function newFromDBResult( $group ) {
 		return new SWLGroup(
 			$group->group_id,
@@ -226,25 +228,42 @@ class SWLGroup {
 	 * @return array of integer
 	 */
 	public function getWatchingUsers() {
-		$dbr = wfGetDB( DB_SLAVE );
-		
-		$users = $dbr->select(
-			'swl_users_per_group',
-			array(
-				'upg_user_id'
-			),
-			array(
-				'upg_group_id' => $this->getId()
-			)
-		);
-		
-		$userIds = array();
-		
-		foreach ( $users as $user ) {
-			$userIds[] = $user->upg_user_id;
+		if ( $this->watchingUsers == false ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			
+			$users = $dbr->select(
+				'swl_users_per_group',
+				array(
+					'upg_user_id'
+				),
+				array(
+					'upg_group_id' => $this->getId()
+				)
+			);
+			
+			$userIds = array();
+			
+			foreach ( $users as $user ) {
+				$userIds[] = $user->upg_user_id;
+			}
+			
+			$this->watchingUsers = $userIds;			
 		}
 		
-		return $userIds;
+		return $this->watchingUsers;
+	}
+	
+	/**
+	 * Returns if the group is watched by the specified user or not.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param User $user 
+	 * 
+	 * @return boolean
+	 */	
+	public function isWatchedByUser( User $user ) {
+		return in_array( $user->getId(), $this->getWatchingUsers() );
 	}
 	
 	/**

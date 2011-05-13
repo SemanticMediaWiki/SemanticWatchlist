@@ -57,12 +57,12 @@ final class SWLGroups {
      *
      * @param Title $title
      *
-     * @return array
+     * @return array of SWLGroup
      */
     public static function getMatchingWatchGroups( Title $title ) {
         $matchingGroups = array();
 
-        foreach ( self::getAll() as $group ) {
+        foreach ( self::getAll() as /* SWLGroup */ $group ) {
             if ( $group->coversPage( $title ) ) {
                 $matchingGroups[] = $group;
             }
@@ -71,6 +71,27 @@ final class SWLGroups {
         return $matchingGroups;
     }
 
+    /**
+     * Returns all watchlist groups that are watched by the specified user.
+     *
+     * @since 0.1
+     *
+     * @param User $user
+     *
+     * @return array of SWLGroup
+     */    
+	public static function getGroupsForUser( User $user ) {
+        $matchingGroups = array();
+
+        foreach ( self::getAll() as /* SWLGroup */ $group ) {
+            if ( $group->isWatchedByUser( $user ) ) {
+                $matchingGroups[] = $group;
+            }
+        }
+
+        return $matchingGroups;		
+	} 
+    
     /**
      * Notifies all users that are watching a group and that should be notified
      * of the provided changes.
@@ -88,19 +109,6 @@ final class SWLGroups {
                 self::notifyUserOfChangesToGroup( $userId, $group, $data );
             }
         }
-    }
-
-    /**
-     * Returns the list of users watching the specified watchlist group.
-     *
-     * @since 0.1
-     *
-     * @param  $group
-     *
-     * @return array
-     */
-    protected static function getUsersForGroup( $group ) {
-
     }
 
     /**

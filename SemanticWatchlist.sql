@@ -18,29 +18,31 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
 --INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('bar', '', 102, '', '');
 --INSERT INTO mw_swl_groups (group_name,group_categories,group_namespaces,group_properties,group_concepts) VALUES ('baz', 'Customers', 102, 'Has contract status', '');
 --INSERT INTO mw_swl_users_per_group (upg_group_id,upg_user_id) VALUES(1,1);
+--INSERT INTO mw_swl_sets (set_user_name,set_page_id,set_time) VALUES('jeroen',1,1);
+--INSERT INTO mw_swl_changes (change_set_id,change_property,change_old_value,change_new_value) VALUES(1,'has foobar','baz','bar');
 
 -- List of all changes made to properties.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
   change_id                INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY,
-  change_group_id          INT(10) unsigned    NOT NULL, -- Foreign key: swl_change_groups.cg_id
+  change_set_id            INT(10) unsigned    NOT NULL, -- Foreign key: swl_sets.set_id
   change_property          VARCHAR(255)        NOT NULL, -- Name of the property of which a value was changed
   change_old_value         BLOB                NULL, -- The old value of the property (null for an adittion)
   change_new_value         BLOB                NULL -- The new value of the property (null for a deletion)
 ) /*$wgDBTableOptions*/;
 
--- Groups of changes, as in the set you get when editing a page.
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_change_groups (
-  cg_id                   SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
-  cg_user_name            VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
-  cg_page_id              INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
-  cg_time                 CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
+-- Sets of changes, as in the set you get when editing a page.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets (
+  set_id                   SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  set_user_name            VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
+  set_page_id              INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
+  set_time                 CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
 ) /*$wgDBTableOptions*/;
 
--- Links change groups to watchlist groups.
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes_per_group (
-  cpg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
-  cpg_change_group_id      INT(10) unsigned    NOT NULL, -- Foreign key: swl_change_groups.cg_id
-  PRIMARY KEY  (cpg_group_id,cpg_change_group_id)
+-- Links change sets to watchlist groups.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets_per_group (
+  spg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
+  spg_set_id               INT(10) unsigned    NOT NULL, -- Foreign key: swl_sets.set_id
+  PRIMARY KEY  (spg_group_id,spg_set_id)
 ) /*$wgDBTableOptions*/;
 
 -- Links users to watchlist groups.

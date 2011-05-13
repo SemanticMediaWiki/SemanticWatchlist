@@ -3,7 +3,10 @@
 class SWLChangeSet {
 	
 	/**
-	 * 
+	 * Base object to which calls to unknown methods get routed via __call.
+	 * This is to emulate SWLChangSet deriving from SMWChangeSet, but at the
+	 * same time makes it possible to go from the SMW version to the SWL version
+	 * by passing the former to the constructor of the later.
 	 * 
 	 * @var SMWChangeSet
 	 */
@@ -24,7 +27,7 @@ class SWLChangeSet {
 	protected $time;
 	
 	/**
-	 * DB ID of the change set (swl_change_groups.cg_id).
+	 * DB ID of the change set (swl_sets.set_id).
 	 * 
 	 * @var integer
 	 */
@@ -46,7 +49,7 @@ class SWLChangeSet {
 	 */
 	public static function newFromDBResult( $set ) {		
 		$changeSet = new SMWChangeSet(
-			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->cg_page_id ) )
+			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->set_page_id ) )
 		);
 		
 		$dbr = wfGetDb( DB_SLAVE );
@@ -60,7 +63,7 @@ class SWLChangeSet {
 				'change_new_value'
 			),
 			array(
-				'change_group_id' => $set->cg_id 
+				'change_set_id' => $set->set_id 
 			)
 		);
 		
@@ -68,11 +71,11 @@ class SWLChangeSet {
 			$changeSet->addChange( $change->change_property, SMWPropertyChange( $change->change_old_value, $change->change_new_value ) );
 		}	
 		
-		$changeSet = new SWLChangeSet( // swl_change_groups
+		$changeSet = new SWLChangeSet( // swl_sets
 			$changeSet,
-			User::newFromName( $set->cg_user_name ),
-			$set->cg_time,
-			$set->cg_id
+			User::newFromName( $set->set_user_name ),
+			$set->set_time,
+			$set->set_id
 		);
 		
 		return $changeSet;
@@ -107,7 +110,7 @@ class SWLChangeSet {
 	}	
 	
 	/**
-	 * Save the 
+	 * Save the change set to the database.
 	 * 
 	 * @since 0.1
 	 * 
@@ -117,11 +120,11 @@ class SWLChangeSet {
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$dbw->insert(
-			'swl_change_groups',
+			'swl_sets',
 			array(
-				'cg_user_name' => $this->getUser()->getName(),
-				'cg_page_id' => $this->getTitle()->getArticleID(),
-				'cg_time' => is_null( $this->getTime() ) ? $dbw->timestamp() : $this->getTime() 
+				'set_user_name' => $this->getUser()->getName(),
+				'set_page_id' => $this->getTitle()->getArticleID(),
+				'set_time' => is_null( $this->getTime() ) ? $dbw->timestamp() : $this->getTime() 
 			)
 		);
 		
@@ -166,10 +169,17 @@ class SWLChangeSet {
 		}		
 		
 		foreach ( $changes as $change ) {
+			if ( $change['property'] == '' ) {
+				// When removing the last value for a property of a page,
+				// for some reason it gets inserted for a property without
+				// name, so skip that. Better to fix higher up though.
+				continue;
+			}
+			
 			$dbw->insert(
 				'swl_changes',
 				array(
-					'change_group_id' => $id,
+					'change_set_id' => $id,
 					'change_property' => $change['property'],
 					'change_old_value' => $change['old'],
 					'change_new_value' => $change['new']

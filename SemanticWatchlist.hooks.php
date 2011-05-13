@@ -88,7 +88,13 @@ final class SWLHooks {
             ) );
 			$updater->addExtensionUpdate( array(
                 'addTable',
-                'swl_changes_per_group',
+                'swl_sets',
+                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
+                true
+            ) );
+			$updater->addExtensionUpdate( array(
+                'addTable',
+                'swl_sets_per_group',
                 dirname( __FILE__ ) . '/SemanticWatchlist.sql',
                 true
             ) );

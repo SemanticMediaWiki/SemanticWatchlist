@@ -62,6 +62,53 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			return;
 		}
 		
+		$this->displayWatchlist();
+	}
+	
+	protected function displayWatchlist() {
+		foreach ( $this->getChangeSets() as $set ) {
+			$this->displayChangeSet( $set );
+		}
+	}
+	
+	protected function getChangeSets() {
+		global $wgUser;
+		
+		$dbr = wfGetDb( DB_SLAVE );
+		
+		$sets = $dbr->select(
+			array( 'swl_sets', 'swl_sets_per_group', 'swl_users_per_group' ),
+			array(
+	        	'set_id',
+	        	'set_user_name',
+	        	'set_page_id',
+	        	'set_time',
+			),
+			array(
+				'upg_user_id' => $wgUser->getId()
+			),
+			'DatabaseBase::select',
+			array(
+				'LIMIT' => 2,
+				'ORDER BY' => 'set_time',
+				'SORT DESC'
+			),
+			array(
+				'swl_sets_per_group' => array( 'LEFT JOIN', array( 'set_id=spg_set_id' ) ),
+				'swl_users_per_group' => array( 'LEFT JOIN', array( 'spg_group_id=upg_group_id' ) ),
+			)
+		);
+		
+		$changeSets = array();
+		
+		foreach ( $sets as $set ) {
+			$changeSets[] = SWLChangeSet::newFromDBResult( $set );
+		}
+		
+		return $changeSets;
+	}
+	
+	protected function displayChangeSet( SWLChangeSet $changeSet ) {
 		
 	}
 	
