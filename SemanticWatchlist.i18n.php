@@ -46,6 +46,22 @@ $messages['de'] = array(
 	'swl-group-name' => 'Gruppenname:',
 	'swl-group-properties' => 'Attribute zu dieser Gruppe:',
 	'swl-group-remove-property' => 'Attribut entfernen',
+	'swl-group-page-selection' => 'Seiten in',
+);
+
+/** French (Français)
+ * @author Sherbrooke
+ */
+$messages['fr'] = array(
+	'semanticwatchlist-desc' => 'Permet de définir des groupes de propriétés sémantiques pour une ou plusieurs catégories / espaces de noms qui peuvent ensuite être inscrits sur la liste de suivi sémantique',
+	'right-semanticwatch' => 'Utiliser la liste de suivi sémantique',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modifier]] les groupes de la liste de suivi sémantique',
+	'special-semanticwatchlist' => 'Liste de suivi sémantique',
+	'special-watchlistconditions' => 'Paramètres de la liste de suivi sémantique',
+	'swl-group-name' => 'Nom du groupe:',
+	'swl-group-properties' => 'Propriétés de ce groupe :',
+	'swl-group-remove-property' => 'Retirez la propriété',
+	'swl-group-page-selection' => 'Pages dans la',
 );
 
 /** Interlingua (Interlingua)
@@ -60,6 +76,7 @@ $messages['ia'] = array(
 	'swl-group-name' => 'Nomine del gruppo:',
 	'swl-group-properties' => 'Proprietates coperite per iste gruppo:',
 	'swl-group-remove-property' => 'Remover proprietate',
+	'swl-group-page-selection' => 'Paginas in',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -71,6 +88,9 @@ $messages['id'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah]] kelompok daftar pantauan semantik',
 	'special-semanticwatchlist' => 'Daftar Pantau Semantik',
 	'special-watchlistconditions' => 'Kriteria daftar pantau semantik',
+	'swl-group-name' => 'Nama kelompok:',
+	'swl-group-properties' => 'Properti yang dicakup oleh kelompok ini:',
+	'swl-group-remove-property' => 'Hapus properti',
 );
 
 /** Colognian (Ripoarisch)
@@ -130,6 +150,7 @@ $messages['nl'] = array(
 	'swl-group-name' => 'Groepsnaam:',
 	'swl-group-properties' => 'Eigenschappen die onder deze groep vallen:',
 	'swl-group-remove-property' => 'Eigenschap verwijderen',
+	'swl-group-page-selection' => "Pagina's in",
 );
 
 /** Portuguese (Português)
@@ -141,6 +162,9 @@ $messages['pt'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Alterar]] os grupos de propriedades semânticas vigiadas',
 	'special-semanticwatchlist' => 'Lista das Propriedades Semânticas Vigiadas',
 	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
+	'swl-group-name' => 'Nome de grupo:',
+	'swl-group-properties' => 'Propriedades abrangidas por este grupo:',
+	'swl-group-remove-property' => 'Remover propriedade',
 );
 
 /** Tagalog (Tagalog)
