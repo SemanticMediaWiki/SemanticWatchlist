@@ -69,12 +69,13 @@ class SWLChangeSet {
 		
 		foreach ( $changes as $change ) {
 			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
+			$diType = SMWDataValueFactory::getDataItemId( $property->findPropertyTypeID() );
 			
 			$changeSet->addChange(
 				$property,
 				new SMWPropertyChange( // TODO: directly create the DI, no need to get it via a DV...
-					is_null( $change->change_old_value ) ? null : SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_old_value )->getDataItem(),
-					is_null( $change->change_new_value ) ? null : SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_new_value )->getDataItem()
+					is_null( $change->change_old_value ) ? null : SMWDataItem::unserializeDataItem( $diType, $change->change_old_value ),
+					is_null( $change->change_new_value ) ? null : SMWDataItem::unserializeDataItem( $diType, $change->change_new_value )
 				)
 			);
 		}	
