@@ -69,7 +69,6 @@ class SWLChangeSet {
 		
 		foreach ( $changes as $change ) {
 			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
-			static $foo=0;$foo++;
 			
 			$changeSet->addChange(
 				$property,
