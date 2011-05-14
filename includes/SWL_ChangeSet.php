@@ -63,15 +63,23 @@ class SWLChangeSet {
 				'change_new_value'
 			),
 			array(
-				'change_set_id' => $set->set_id 
+				'change_set_id' => $set->set_id
 			)
 		);
 		
 		foreach ( $changes as $change ) {
-			$changeSet->addChange( $change->change_property, SMWPropertyChange( $change->change_old_value, $change->change_new_value ) );
+			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
+			
+			$changeSet->addChange(
+				$property,
+				new SMWPropertyChange( // TODO: directly create the DI, no need to get it via a DV...
+					SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_old_value )->getDataItem(),
+					SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_new_value )->getDataItem()
+				)
+			);
 		}	
 		
-		$changeSet = new SWLChangeSet( // swl_sets
+		$changeSet = new SWLChangeSet(
 			$changeSet,
 			User::newFromName( $set->set_user_name ),
 			$set->set_time,
@@ -132,41 +140,35 @@ class SWLChangeSet {
 		
 		$changes = array();
 		
-		foreach ( $this->getChanges()->getProperties() as /* SMWDIProperty */ $proprety ) {
-			$propName = $proprety->getLabel();
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+			if ( $property->isUserDefined() ) {
+				$propSerialization = $property->getSerialization();
 			
-			foreach ( $this->getChanges()->getPropertyChanges( $proprety ) as /* SMWPropertyChange */ $change ) {
-				$changes[] = array(
-					'property' => $propName,
-					'old' => $change->getOldValue()->getSerialization(),
-					'new' => $change->getNewValue()->getSerialization()
-				);
-			}
-		}
-		
-		foreach ( $this->getInsertions()->getProperties() as /* SMWDIProperty */ $proprety ) {
-			$propName = $proprety->getLabel();
-			
-			foreach ( $this->getInsertions()->getPropertyValues( $proprety ) as /* SMWDataItem */ $dataItem ) {
-				$changes[] = array(
-					'property' => $propName,
-					'old' => null,
-					'new' => $dataItem->getSerialization()
-				);
-			}
-		}
+				foreach ( $this->getChanges()->getPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
+					$changes[] = array(
+						'property' => $propSerialization,
+						'old' => $change->getOldValue()->getSerialization(),
+						'new' => $change->getNewValue()->getSerialization()
+					);
+				}
 
-		foreach ( $this->getDeletions()->getProperties() as /* SMWDIProperty */ $proprety ) {
-			$propName = $proprety->getLabel();
-			
-			foreach ( $this->getDeletions()->getPropertyValues( $proprety ) as /* SMWDataItem */ $dataItem ) {
-				$changes[] = array(
-					'property' => $propName,
-					'old' => $dataItem->getSerialization(),
-					'new' => null
-				);
+				foreach ( $this->getInsertions()->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+					$changes[] = array(
+						'property' => $propSerialization,
+						'old' => null,
+						'new' => $dataItem->getSerialization()
+					);
+				}
+
+				foreach ( $this->getDeletions()->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+					$changes[] = array(
+						'property' => $propSerialization,
+						'old' => $dataItem->getSerialization(),
+						'new' => null
+					);
+				}				
 			}
-		}		
+		}
 		
 		foreach ( $changes as $change ) {
 			if ( $change['property'] == '' ) {

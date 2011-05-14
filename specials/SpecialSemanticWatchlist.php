@@ -71,6 +71,12 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 	}
 	
+	/**
+	 * Gets a list of change sets belonging to any of the watchlist groups
+	 * watched by the user, newest first.
+	 * 
+	 * @return array of SWLChangeSet
+	 */
 	protected function getChangeSets() {
 		global $wgUser;
 		
@@ -89,13 +95,13 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			),
 			'DatabaseBase::select',
 			array(
-				'LIMIT' => 2,
+				'LIMIT' => 20,
 				'ORDER BY' => 'set_time',
 				'SORT DESC'
 			),
 			array(
-				'swl_sets_per_group' => array( 'LEFT JOIN', array( 'set_id=spg_set_id' ) ),
-				'swl_users_per_group' => array( 'LEFT JOIN', array( 'spg_group_id=upg_group_id' ) ),
+				'swl_sets_per_group' => array( 'INNER JOIN', array( 'set_id=spg_set_id' ) ),
+				'swl_users_per_group' => array( 'INNER JOIN', array( 'spg_group_id=upg_group_id' ) ),
 			)
 		);
 		
@@ -109,7 +115,19 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	}
 	
 	protected function displayChangeSet( SWLChangeSet $changeSet ) {
+		global $wgOut;
 		
+		$wgOut->addHTML( '<h3>' . $changeSet->getTitle()->getText() . '</h3><ul>' );
+		
+		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+			foreach ( $changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
+				$old = SMWDataValueFactory::newDataItemValue( $change->getOldValue() )->getLongWikiText();
+				$new = SMWDataValueFactory::newDataItemValue( $change->getNewValue() )->getLongWikiText();
+				$wgOut->addHTML( '<li>' . $old . ' -> ' . $new . '</li>' );
+			}
+		}
+		
+		$wgOut->addHTML( '</ul>' );
 	}
 	
 }
