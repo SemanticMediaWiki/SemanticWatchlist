@@ -73,7 +73,7 @@ class SWLChangeSet {
 			
 			$changeSet->addChange(
 				$property,
-				new SMWPropertyChange( // TODO: directly create the DI, no need to get it via a DV...
+				new SMWPropertyChange(
 					is_null( $change->change_old_value ) ? null : SMWDataItem::unserializeDataItem( $diType, $change->change_old_value ),
 					is_null( $change->change_new_value ) ? null : SMWDataItem::unserializeDataItem( $diType, $change->change_new_value )
 				)
