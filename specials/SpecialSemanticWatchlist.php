@@ -96,8 +96,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			'DatabaseBase::select',
 			array(
 				'LIMIT' => 20,
-				'ORDER BY' => 'set_time',
-				'SORT DESC'
+				'ORDER BY' => 'set_time DESC',
+				'DISTINCT'
 			),
 			array(
 				'swl_sets_per_group' => array( 'INNER JOIN', array( 'set_id=spg_set_id' ) ),
@@ -121,8 +121,10 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		
 		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
 			foreach ( $changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
-				$old = SMWDataValueFactory::newDataItemValue( $change->getOldValue() )->getLongWikiText();
-				$new = SMWDataValueFactory::newDataItemValue( $change->getNewValue() )->getLongWikiText();
+				$old = $change->getOldValue();
+				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old )->getLongWikiText();
+				$new = $change->getNewValue();
+				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new )->getLongWikiText();
 				$wgOut->addHTML( '<li>' . $old . ' -> ' . $new . '</li>' );
 			}
 		}

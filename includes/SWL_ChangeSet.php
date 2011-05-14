@@ -69,12 +69,13 @@ class SWLChangeSet {
 		
 		foreach ( $changes as $change ) {
 			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
+			static $foo=0;$foo++;
 			
 			$changeSet->addChange(
 				$property,
 				new SMWPropertyChange( // TODO: directly create the DI, no need to get it via a DV...
-					SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_old_value )->getDataItem(),
-					SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_new_value )->getDataItem()
+					is_null( $change->change_old_value ) ? null : SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_old_value )->getDataItem(),
+					is_null( $change->change_new_value ) ? null : SMWDataValueFactory::newTypeIdValue( $property->findPropertyTypeID(), $change->change_new_value )->getDataItem()
 				)
 			);
 		}	
@@ -122,9 +123,24 @@ class SWLChangeSet {
 	 * 
 	 * @since 0.1
 	 * 
-	 * @return boolean Success indicator
+	 * @param array of SWLGroup
+	 * 
+	 * @return integer ID of the inserted row (0 if nothing was inserted).
 	 */
-	public function writeToStore() {
+	public function writeToStore( array $groupsToAssociate ) {
+		$properties = array();
+		
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+			if ( $property->isUserDefined() ) {
+				$properties[] = $property;
+			}
+		}
+		
+		// If there are no changed user properties, don't insert a new entry. 
+		if ( count( $properties ) == 0 ) {
+			return 0;
+		}
+		
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$dbw->insert(
@@ -140,7 +156,7 @@ class SWLChangeSet {
 		
 		$changes = array();
 		
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+		foreach ( $properties as /* SMWDIProperty */ $property ) {
 			if ( $property->isUserDefined() ) {
 				$propSerialization = $property->getSerialization();
 			
@@ -188,6 +204,18 @@ class SWLChangeSet {
 				)
 			);			
 		}
+		
+		foreach ( $groupsToAssociate as /* SWLGroup */ $group ) {
+			$dbw->insert(
+				'swl_sets_per_group',
+				array(
+					'spg_group_id' => $group->getId(),
+					'spg_set_id' => $id
+				)
+			);
+		}
+		
+		return $id;
 	}
 	
 	/**

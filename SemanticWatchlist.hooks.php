@@ -26,11 +26,15 @@ final class SWLHooks {
      */
 	public static function onDataChanged( SMWStore $store, SMWChangeSet $changes ) {
 		$changes = new SWLChangeSet( $changes );
-		$changes->writeToStore();
+		$groups = SWLGroups::getMatchingWatchGroups( $changes->getTitle() );
 		
-        foreach ( SWLGroups::getMatchingWatchGroups( $changes->getTitle() ) as /* SWLGroup */ $group ) {
-        	$group->notifyWatchingUsers( $changes );
-    	}
+		$wasInserted = $changes->writeToStore( $groups ) != 0;
+		
+		if ( $wasInserted ) {
+	        foreach ( $groups as /* SWLGroup */ $group ) {
+        		$group->notifyWatchingUsers( $changes );
+    		}			
+		}
 
 		return true;
 	}
