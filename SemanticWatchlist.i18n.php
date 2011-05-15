@@ -64,6 +64,21 @@ $messages['fr'] = array(
 	'swl-group-page-selection' => 'Pages dans la',
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'semanticwatchlist-desc' => 'Permite especificar grupos de propiedades semánticas para unha ou varias categorías ou espazos de nomes que poden ser vixiados despois',
+	'right-semanticwatch' => 'Empregar a lista de vixilancia semántica',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modificar]] os grupos da lista de vixilancia semántica',
+	'special-semanticwatchlist' => 'Lista de vixilancia semántica',
+	'special-watchlistconditions' => 'Condicións da lista de vixilancia semántica',
+	'swl-group-name' => 'Nome do grupo:',
+	'swl-group-properties' => 'Propiedades cubertas por este grupo:',
+	'swl-group-remove-property' => 'Eliminar a propiedade',
+	'swl-group-page-selection' => 'Páxinas en',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
@@ -125,6 +140,7 @@ $messages['mk'] = array(
 	'swl-group-name' => 'Име на групата:',
 	'swl-group-properties' => 'Својства покриени со оваа група:',
 	'swl-group-remove-property' => 'Отстрани својство',
+	'swl-group-page-selection' => 'Страници во',
 );
 
 /** Malay (Bahasa Melayu)
@@ -165,6 +181,7 @@ $messages['pt'] = array(
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:',
 	'swl-group-remove-property' => 'Remover propriedade',
+	'swl-group-page-selection' => 'Páginas em',
 );
 
 /** Tagalog (Tagalog)
