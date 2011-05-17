@@ -84,7 +84,7 @@ class SWLChangeSet {
 		
 		$changeSet = new SWLChangeSet(
 			$changeSet,
-			User::newFromName( $set->set_user_name ),
+			User::newFromName( $set->set_user_name, false ),
 			$set->set_time,
 			$set->set_id
 		);
@@ -124,7 +124,7 @@ class SWLChangeSet {
 		
 		$changeSet = new SWLChangeSet(
 			$changeSet,
-			User::newFromName( $changeSetArray['user_name'] ),
+			User::newFromName( $changeSetArray['user_name'], false ),
 			$changeSetArray['time'],
 			$changeSetArray['id']
 		);		

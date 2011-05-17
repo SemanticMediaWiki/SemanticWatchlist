@@ -65,6 +65,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$this->displayWatchlist();
 	}
 	
+	/**
+	 * Displays the watchlist.
+	 * 
+	 * @since 0.1
+	 */
 	protected function displayWatchlist() {
 		global $wgOut, $wgLang;
 		
@@ -82,11 +87,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		
 		krsort( $changeSetsHTML );
 		
-		foreach ( $changeSetsHTML as $daySets ) {
+		foreach ( $changeSetsHTML as $dayKey => $daySets ) {
 			$wgOut->addHTML( HTML::element(
 				'h4',
 				array(),
-				$wgLang->date( str_pad( $set->getTime(), 14, '0' ) )
+				$wgLang->date( str_pad( $dayKey, 14, '0' ) )
 			) );
 			
 			$wgOut->addHTML( '<ul>' );
@@ -104,6 +109,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	/**
 	 * Gets a list of change sets belonging to any of the watchlist groups
 	 * watched by the user, newest first.
+	 * 
+	 * @since 0.1
 	 * 
 	 * @return array of SWLChangeSet
 	 */
@@ -128,6 +135,15 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		return $changeSets;
 	}
 	
+	/**
+	 * Gets the HTML for a single change set (edit).
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SWLChangeSet $changeSet
+	 * 
+	 * @return string
+	 */
 	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
 		global $wgLang;
 		
@@ -147,7 +163,29 @@ class SpecialSemanticWatchlist extends SpecialPage {
 					'a',
 					array( 'href' => $changeSet->getTitle()->getLocalURL( 'action=history' ) ),
 					wfMsg( 'hist' )
-				) . ')' .
+				) . ') . . ' .
+				HTML::element(
+					'a',
+					array( 'href' => $changeSet->getUser()->getUserPage()->getLocalURL() ),
+					$changeSet->getUser()->getName()
+				) . ' (' .
+				HTML::element(
+					'a',
+					array( 'href' => $changeSet->getUser()->getTalkPage()->getLocalURL() ),
+					wfMsg( 'talkpagelinktext' )
+				) . ' | ' .
+				( $changeSet->getUser()->isAnon() ? '' :
+					HTML::element(
+						'a',
+						array( 'href' => SpecialPage::getTitleFor( 'Contributions', $changeSet->getUser()->getName() )->getLocalURL() ),
+						wfMsg( 'contribslink' )						
+					) . ' | '
+				) .
+				HTML::element(
+					'a',
+					array( 'href' => SpecialPage::getTitleFor( 'Block', $changeSet->getUser()->getName() )->getLocalURL() ),
+					wfMsg( 'blocklink' )
+				) . ')' .		
 			'</p>'
 		;
 		
@@ -164,6 +202,14 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		return $html;
 	}
 	
+	/**
+	 * Returns the HTML for the changes to a single propety.
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param array of SMWPropertyChange $changes
+	 * 
+	 * @return string
+	 */
 	protected function getPropertyHTML( SMWDIProperty $property, array $changes ) {
 		$html = '';
 		
