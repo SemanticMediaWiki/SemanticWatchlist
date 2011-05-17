@@ -66,9 +66,39 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	}
 	
 	protected function displayWatchlist() {
+		global $wgOut, $wgLang;
+		
+		$changeSetsHTML = array();
+		
 		foreach ( $this->getChangeSets() as $set ) {
-			$this->displayChangeSet( $set );
+			$dayKey = substr( $set->getTime(), 0, 8 ); // Get the YYYYMMDD part.
+			
+			if ( !array_key_exists( $dayKey, $changeSetsHTML ) ) {
+				$changeSetsHTML[$dayKey] = array();
+			}
+			
+			$changeSetsHTML[$dayKey][] = $this->getChangeSetHTML( $set );
 		}
+		
+		krsort( $changeSetsHTML );
+		
+		foreach ( $changeSetsHTML as $daySets ) {
+			$wgOut->addHTML( HTML::element(
+				'h4',
+				array(),
+				$wgLang->date( str_pad( $set->getTime(), 14, '0' ) )
+			) );
+			
+			$wgOut->addHTML( '<ul>' );
+			
+			foreach ( $daySets as $setHTML ) {
+				$wgOut->addHTML( $setHTML );
+			}
+			
+			$wgOut->addHTML( '</ul>' );
+		}
+		
+		SMWOutputs::commitToOutputPage( $wgOut );
 	}
 	
 	/**
@@ -98,24 +128,54 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		return $changeSets;
 	}
 	
-	protected function displayChangeSet( SWLChangeSet $changeSet ) {
-		global $wgOut;
+	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
+		global $wgLang;
 		
-		$wgOut->addHTML( '<h3>' . $changeSet->getTitle()->getText() . '</h3><ul>' );
+		$html = '';
+		
+		$html .= '<li>';
+		
+		$html .= 
+			'<p>' .
+				$wgLang->time( $changeSet->getTime(), true ) . ' ' .
+				HTML::element(
+					'a',
+					array( 'href' => $changeSet->getTitle()->getLocalURL() ),
+					$changeSet->getTitle()->getText()
+				) . ' (' .
+				HTML::element(
+					'a',
+					array( 'href' => $changeSet->getTitle()->getLocalURL( 'action=history' ) ),
+					wfMsg( 'hist' )
+				) . ')' .
+			'</p>'
+		;
+		
+		$propertyHTML= array();
 		
 		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
-			foreach ( $changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
-				$old = $change->getOldValue();
-				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongHTMLText();
-				$new = $change->getNewValue();
-				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongHTMLText();
-				$wgOut->addHTML( '<li>' . $old . ' -> ' . $new . '</li>' );
-			}
+			$propertyHTML[] = $this->getPropertyHTML( $property, $changeSet->getAllPropertyChanges( $property ) );
 		}
 		
-		SMWOutputs::commitToOutputPage( $wgOut );
+		$html .= implode( '', $propertyHTML );
 		
-		$wgOut->addHTML( '</ul>' );
+		$html .=  '</li>';
+		
+		return $html;
+	}
+	
+	protected function getPropertyHTML( SMWDIProperty $property, array $changes ) {
+		$html = '';
+		
+		foreach ( $changes as /* SMWPropertyChange */ $change ) {
+			$old = $change->getOldValue();
+			$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongHTMLText();
+			$new = $change->getNewValue();
+			$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongHTMLText();
+			$html .= '* ' . $old . ' -> ' . $new;
+		}
+		
+		return $html;
 	}
 	
 }
