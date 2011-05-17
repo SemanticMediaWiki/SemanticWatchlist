@@ -106,12 +106,14 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
 			foreach ( $changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
 				$old = $change->getOldValue();
-				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongWikiText();
+				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongHTMLText();
 				$new = $change->getNewValue();
-				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongWikiText();
+				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongHTMLText();
 				$wgOut->addHTML( '<li>' . $old . ' -> ' . $new . '</li>' );
 			}
 		}
+		
+		SMWOutputs::commitToOutputPage( $wgOut );
 		
 		$wgOut->addHTML( '</ul>' );
 	}
