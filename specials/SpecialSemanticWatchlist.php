@@ -78,37 +78,21 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @return array of SWLChangeSet
 	 */
 	protected function getChangeSets() {
-		global $wgUser;
-		
-		$dbr = wfGetDb( DB_SLAVE );
-		
-		$sets = $dbr->select(
-			array( 'swl_sets', 'swl_sets_per_group', 'swl_users_per_group' ),
-			array(
-	        	'set_id',
-	        	'set_user_name',
-	        	'set_page_id',
-	        	'set_time',
-			),
-			array(
-				'upg_user_id' => $wgUser->getId()
-			),
-			'DatabaseBase::select',
-			array(
-				'LIMIT' => 20,
-				'ORDER BY' => 'set_time DESC',
-				'DISTINCT'
-			),
-			array(
-				'swl_sets_per_group' => array( 'INNER JOIN', array( 'set_id=spg_set_id' ) ),
-				'swl_users_per_group' => array( 'INNER JOIN', array( 'spg_group_id=upg_group_id' ) ),
-			)
+		$requestData = array(
+			'action' => 'query',
+			'list' => 'semanticwatchlist',
+			'format' => 'json',
+			'swuserid' => $GLOBALS['wgUser']->getId()
 		);
+		
+		$api = new ApiMain( new FauxRequest( $requestData, true ), true );
+		$api->execute();
+		$response = $api->getResultData();
 		
 		$changeSets = array();
 		
-		foreach ( $sets as $set ) {
-			$changeSets[] = SWLChangeSet::newFromDBResult( $set );
+		foreach ( $response['sets'] as $set ) {
+			$changeSets[] = SWLChangeSet::newFromArray( $set );
 		}
 		
 		return $changeSets;
@@ -122,9 +106,9 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
 			foreach ( $changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
 				$old = $change->getOldValue();
-				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old )->getLongWikiText();
+				$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongWikiText();
 				$new = $change->getNewValue();
-				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new )->getLongWikiText();
+				$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongWikiText();
 				$wgOut->addHTML( '<li>' . $old . ' -> ' . $new . '</li>' );
 			}
 		}

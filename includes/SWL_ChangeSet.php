@@ -35,13 +35,19 @@ class SWLChangeSet {
 	
 	/**
 	 * The title of the page the changeset holds changes for.
+	 * The title will be constructed from the subject of the SMWChangeSet
+	 * the first time getTitle is called, so it should be accessed via this
+	 * method.
 	 * 
 	 * @var Title or false
 	 */
 	protected $title = false;
 	
 	/**
+	 * Creates and returns a new SWLChangeSet instance from a database result
+	 * obtained by doing a select on swl_sets. 
 	 * 
+	 * @since 0.1
 	 * 
 	 * @param $set
 	 * 
@@ -69,14 +75,10 @@ class SWLChangeSet {
 		
 		foreach ( $changes as $change ) {
 			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
-			$diType = SMWDataValueFactory::getDataItemId( $property->findPropertyTypeID() );
 			
 			$changeSet->addChange(
 				$property,
-				new SMWPropertyChange(
-					is_null( $change->change_old_value ) ? null : SMWDataItem::newFromSerialization( $diType, $change->change_old_value ),
-					is_null( $change->change_new_value ) ? null : SMWDataItem::newFromSerialization( $diType, $change->change_new_value )
-				)
+				SMWPropertyChange::newFromSerialization( $property, $change->change_old_value, $change->change_new_value )
 			);
 		}	
 		
@@ -91,7 +93,49 @@ class SWLChangeSet {
 	}
 	
 	/**
+	 * Creates and returns a new SWLChangeSet instance from a database result
+	 * obtained by doing a select on swl_sets. 
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $changeSetArray
+	 * 
+	 * @return SWLChangeSet
+	 */
+	public static function newFromArray( array $changeSetArray ) {
+		$changeSet = new SMWChangeSet(
+			SMWDIWikiPage::newFromTitle( Title::newFromID( $changeSetArray['page_id'] ) )
+		);
+		
+		foreach ( $changeSetArray['changes'] as $propName => $changes ) {
+			$property = SMWDIProperty::doUnserialize( $propName, '__pro' );
+
+			foreach ( $changes as $change ) {
+				$changeSet->addChange(
+					$property,
+					SMWPropertyChange::newFromSerialization(
+						$property,
+						array_key_exists( 'old', $change ) ? $change['old'] : null,
+						array_key_exists( 'new', $change ) ? $change['new'] : null
+					)
+				);					
+			}
+		}
+		
+		$changeSet = new SWLChangeSet(
+			$changeSet,
+			User::newFromName( $changeSetArray['user_name'] ),
+			$changeSetArray['time'],
+			$changeSetArray['id']
+		);		
+
+		return $changeSet;
+	}
+	
+	/**
 	 * Constructor.
+	 * 
+	 * @since 0.1
 	 * 
 	 * @param SMWChangeSet $changeSet
 	 * @param User $user
@@ -116,7 +160,47 @@ class SWLChangeSet {
 	 */
 	public function __call( $name, array $arguments ) {
 		return call_user_func_array( array( $this->changeSet, $name ), $arguments );
-	}	
+	}
+	
+	/**
+	 * Serializes the object as an associative array, which can be passed
+	 * to newFromArray to create a new instance.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array
+	 */
+	public function toArray() {
+ 		$changeSet = array(
+			'id' => $this->id,
+			'user_name' => $this->user->getName(),
+			'page_id' => $this->getTitle()->getArticleID(),
+			'time' => $this->time,
+ 			'changes' => array()
+		);
+		
+		foreach ( $this->changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+			$propChanges = array();
+			
+			foreach ( $this->changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
+				$propChange = array();
+				
+				if ( is_object( $change->getOldValue() ) ) {
+					$propChange['old'] = $change->getOldValue()->getSerialization();
+				}
+				
+				if ( is_object( $change->getNewValue() ) ) {
+					$propChange['new'] = $change->getNewValue()->getSerialization();
+				}
+
+				$propChanges[] = $propChange;
+			}
+			
+			$changeSet['changes'][$property->getSerialization()] = $propChanges;
+		}
+		
+		return $changeSet;
+	}
 	
 	/**
 	 * Save the change set to the database.

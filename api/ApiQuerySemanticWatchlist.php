@@ -37,12 +37,13 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 				break;
 			}
 			
-			$resultSets[] = array(
-				'id' => $set->set_id,
-				'user_name' => $set->set_user_name,
-				'page_id' => $set->set_page_id,
-				'time' => $set->set_time,
-			);
+			$set = SWLChangeSet::newFromDBResult( $set )->toArray();
+			
+			foreach ( $set['changes'] as $propName => $changes ) {
+				$this->getResult()->setIndexedTagName( $set['changes'][$propName], 'change' );
+			}
+			
+			$resultSets[] = $set;
 		}
 		
 		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
