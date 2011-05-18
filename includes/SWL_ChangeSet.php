@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Wrapper around SMWChangeSet that holds extra info such as user and time,
+ * and has methods for (un)serialization and database interaction. 
+ * 
+ * @since 0.1
+ * 
+ * @file SWL_ChangeSet.php
+ * @ingroup SemanticWatchlist
+ * 
+ * @licence GNU GPL v3 or later
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class SWLChangeSet {
 	
 	/**

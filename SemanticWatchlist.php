@@ -88,6 +88,15 @@ $moduleTemplate = array(
 	'remoteBasePath' => $egSWLScriptPath
 );
 
+$wgResourceModules['ext.swl.watchlist'] = $moduleTemplate + array(
+	'styles' => array( 'specials/ext.swl.watchlist.css' ),
+	'scripts' => array(
+	),
+	'dependencies' => array(),
+	'messages' => array(
+	)
+);
+
 $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 	'styles' => array( 'specials/ext.swl.watchlistconditions.css' ),
 	'scripts' => array(

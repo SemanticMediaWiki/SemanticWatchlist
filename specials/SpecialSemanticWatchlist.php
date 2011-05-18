@@ -50,7 +50,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * 
 	 * @param string $arg
 	 */
-	public function execute( $arg ) {
+	public function execute( $subPage ) {
 		global $wgOut, $wgUser, $wgRequest, $wgLang;
 		
 		$this->setHeaders();
@@ -74,28 +74,94 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			$sets[] = SWLChangeSet::newFromArray( $set );
 		}		
 		
-		$hasContinue = array_key_exists( 'query-continue', $changeSetData );
+		$newContinue = false;
 		
-		if ( $hasContinue ) {
+		if ( array_key_exists( 'query-continue', $changeSetData ) ) {
 			$newContinue = $changeSetData['query-continue']['semanticwatchlist']['swcontinue'];
 		}
 		
 		$wgOut->addHTML( '<p>' . wfMsgExt(
-			'swl-wacthlist-position',
+			'swl-watchlist-position',
 			array( 'parseinline' ),
 			$wgLang->formatNum( count( $sets ) ),
 			$wgLang->formatNum( $offset + 1 )
 		) . '</p>' );
 		
-		$wgOut->addHTML( wfViewPrevNext(
-			$offset,
-			$limit,
-			$this->getTitle( $arg ),
-			$hasContinue ? 'continue=' . $newContinue : '',
-			!$hasContinue
-		) );		
+		$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );		
 		
 		$this->displayWatchlist( $sets );
+	}
+	
+	/**
+	 * @since 0.1
+	 * 
+	 * @return string
+	 */
+	protected function getPagingControlHTML( $limit, $currentContinue, $subPage, $newContinue, $offset ) {
+		global $wgLang;
+		
+		$nextMsg = wfMsgExt( 'nextn', array( 'parsemag', 'escape' ), $limit );
+		$firstMsg = wfMsgExt( 'swl-watchlist-firstn', array( 'parsemag', 'escape' ), $limit );
+		
+		if ( $newContinue === false ) {
+			$nextLink = $nextMsg;
+		}
+		else {
+			$nextLink = Html::element(
+				'a',
+				array(
+					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array(
+						'limit' => $limit,
+						'continue' => $newContinue,
+						'offset' => $offset + $limit
+					) ) ),
+					'title' => wfMsgExt( 'nextn-title', array( 'parsemag', 'escape' ), $limit ),
+					'class' => 'mw-nextlink'
+				),
+				$nextMsg
+			);
+		}
+		
+		$limitLinks = array();
+		$limitLinkArgs = array();
+		
+		if ( $currentContinue == '' ) {
+			$firstLink = $firstMsg;
+		}
+		else {
+			$limitLinkArgs['continue'] = $currentContinue;
+			
+			$firstLink = Html::element(
+				'a',
+				array(
+					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array( 'limit' => $limit ) ) ),
+					'title' => wfMsgExt( 'swl-watchlist-firstn-title', array( 'parsemag', 'escape' ), $limit )
+				),
+				$firstMsg
+			);			
+		}
+		
+		foreach ( array( 20, 50, 100, 250, 500 ) as $limitValue ) {
+			$limitLinkArgs['limit'] = $limitValue;
+			if ( $offset != 0 ) {
+				$limitLinkArgs['offset'] = $offset;
+			}
+			
+			$limitLinks[] = Html::element(
+				'a',
+				array(
+					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( $limitLinkArgs ) ),
+					'title' => wfMsgExt( 'shown-title', array( 'parsemag', 'escape' ), $limitValue )
+				),
+				$wgLang->formatNum( $limitValue )
+			);
+		}
+		
+		return Html::rawElement(
+			'p',
+			array(),
+			wfMsgHtml( 'swl-watchlist-pagincontrol', $wgLang->pipeList( array( $firstLink, $nextLink ) ), $wgLang->pipeList( $limitLinks ) )
+		);
 	}
 	
 	/**
@@ -123,7 +189,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		krsort( $changeSetsHTML );
 		
 		foreach ( $changeSetsHTML as $dayKey => $daySets ) {
-			$wgOut->addHTML( HTML::element(
+			$wgOut->addHTML( Html::element(
 				'h4',
 				array(),
 				$wgLang->date( str_pad( $dayKey, 14, '0' ) )
@@ -139,6 +205,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 		
 		SMWOutputs::commitToOutputPage( $wgOut );
+		
+		$wgOut->addModules( 'ext.swl.watchlist' );
 	}
 	
 	/**
@@ -185,34 +253,34 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$html .= 
 			'<p>' .
 				$wgLang->time( $changeSet->getTime(), true ) . ' ' .
-				HTML::element(
+				Html::element(
 					'a',
 					array( 'href' => $changeSet->getTitle()->getLocalURL() ),
 					$changeSet->getTitle()->getText()
 				) . ' (' .
-				HTML::element(
+				Html::element(
 					'a',
 					array( 'href' => $changeSet->getTitle()->getLocalURL( 'action=history' ) ),
 					wfMsg( 'hist' )
 				) . ') . . ' .
-				HTML::element(
+				Html::element(
 					'a',
 					array( 'href' => $changeSet->getUser()->getUserPage()->getLocalURL() ),
 					$changeSet->getUser()->getName()
 				) . ' (' .
-				HTML::element(
+				Html::element(
 					'a',
 					array( 'href' => $changeSet->getUser()->getTalkPage()->getLocalURL() ),
 					wfMsg( 'talkpagelinktext' )
 				) . ' | ' .
 				( $changeSet->getUser()->isAnon() ? '' :
-					HTML::element(
+					Html::element(
 						'a',
 						array( 'href' => SpecialPage::getTitleFor( 'Contributions', $changeSet->getUser()->getName() )->getLocalURL() ),
 						wfMsg( 'contribslink' )						
 					) . ' | '
 				) .
-				HTML::element(
+				Html::element(
 					'a',
 					array( 'href' => SpecialPage::getTitleFor( 'Block', $changeSet->getUser()->getName() )->getLocalURL() ),
 					wfMsg( 'blocklink' )
@@ -242,15 +310,36 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @return string
 	 */
 	protected function getPropertyHTML( SMWDIProperty $property, array $changes ) {
-		$html = '';
+		$insertions = array();
+		$deletions = array();
 		
+		// Convert the changes into a list of insertions and a list of deletions.
 		foreach ( $changes as /* SMWPropertyChange */ $change ) {
-			$old = $change->getOldValue();
-			$old = is_null( $old ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $old, $property )->getLongHTMLText();
-			$new = $change->getNewValue();
-			$new = is_null( $new ) ? wfMsg( 'swl-novalue' ) : SMWDataValueFactory::newDataItemValue( $new, $property )->getLongHTMLText();
-			$html .= '* ' . $old . ' -> ' . $new;
+			if ( !is_null( $change->getOldValue() ) ) {
+				$deletions[] = SMWDataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getLongHTMLText();
+			}
+			if ( !is_null( $change->getNewValue() ) ) {
+				$insertions[] = SMWDataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getLongHTMLText();
+			}
 		}
+		
+		$lines = array();
+		
+		if ( count( $insertions ) > 0 ) {
+			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-insertions' ), wfMsg( 'swl-watchlist-insertions' ) ) . ' ' . implode( ', ', $insertions );
+		}
+		
+		if ( count( $deletions ) > 0 ) {
+			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-deletions' ), wfMsg( 'swl-watchlist-deletions' ) ) . ' ' . implode( ', ', $deletions );
+		}		
+		
+		$html = Html::element( 'b', array(), $property->getLabel() );
+		
+		$html .= Html::rawElement(
+			'div',
+			array( 'class' => 'swl-prop-div' ),
+			implode( '<br />', $lines )
+		);
 		
 		return $html;
 	}

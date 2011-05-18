@@ -33,7 +33,12 @@ $messages['en'] = array(
 	'swl-group-page-selection' => 'Pages in ',
 
 	// Special:SemanticWatchlist
-	'swl-wacthlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
+	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
+	'swl-watchlist-insertions' => 'Added:',
+	'swl-watchlist-deletions' => 'Deleted:',
+	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
+	'swl-watchlist-firstn' => 'First $1',
+	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
 );
 
 /** German (Deutsch)

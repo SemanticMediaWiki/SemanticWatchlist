@@ -75,6 +75,15 @@ class SpecialWatchlistConditions extends SpecialPage {
 		$wgOut->addModules( 'ext.swl.watchlistconditions' );
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SWLGroup $group
+	 * 
+	 * @return string
+	 */
 	protected function getGroupHtml( SWLGroup $group ) {
 		return Html::rawElement(
 			'fieldset',
