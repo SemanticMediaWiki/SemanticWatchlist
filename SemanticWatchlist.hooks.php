@@ -75,6 +75,74 @@ final class SWLHooks {
     	
         return true;
     }
+    
+    /**
+     * Adds the preferences of Semantic Watchlist to the list of available ones.
+     * 
+     * @since 0.1
+     * 
+     * @param User $user
+     * @param array $preferences
+     * 
+     * @return true
+     */
+	public static function onGetPreferences( User $user, array &$preferences ) {
+		$groups = SWLGroups::getAll();
+		
+		$preferences['swlemail'] = array(
+			'type' => 'toggle',
+			'label-message' => 'swl-prefs-emailnofity',
+			'section' => 'swl/swlnotification',
+		);		
+		
+		foreach ( $groups as /* SWLGroup */ $group ) {
+			if ( count( $group->getProperties() ) == 0 ) {
+				continue;
+			}
+			
+			switch ( true ) {
+				case count( $group->getCategories() ) > 0 :
+					$type = 'swl-prefs-category';
+					$name = $group->getCategories();
+					$name = $name[0];
+					break;
+				case count( $group->getNamespaces() ) > 0 :
+					$type = 'swl-prefs-namespace';
+					$name = $group->getNamespaces();
+					$name = $name[0] == 0 ? wfMsg( 'main' ) : MWNamespace::getCanonicalName( $name[0] );
+					break;
+				case count( $group->getConcepts() ) > 0 :
+					$type = 'swl-prefs-concept';
+					$name = $group->getConcepts();
+					$name = $item[0];
+					break;
+			}
+			
+			$type = wfMsg( $type );
+			
+			$properties = $group->getProperties();
+			
+			foreach ( $properties as &$property ) {
+				$property = "''$property''";
+			}
+			
+			$preferences['swlwatchgroup-' . $group->getId()] = array(
+				'type' => 'toggle',
+				'label' => wfMsgExt(
+					'swl-prefs-label',
+					'parseinline',
+					$group->getName(),
+					count( $group->getProperties() ),
+					$GLOBALS['wgLang']->listToText( $properties ),
+					$type,
+					$name
+				),
+				'section' => 'swl/swlgroup',
+			);
+		}
+
+		return true;
+	}    
 
 	/**
 	 * Schema update to set up the needed database tables.

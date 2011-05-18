@@ -81,6 +81,8 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 
 $wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onDataChanged';
 
+$wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
+
 $moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteBasePath' => $egSWLScriptPath
