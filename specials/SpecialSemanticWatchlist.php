@@ -172,7 +172,16 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @param array of SWLChangeSet $sets
 	 */
 	protected function displayWatchlist( array $sets ) {
-		global $wgOut, $wgLang;
+		global $wgOut, $wgLang, $wgUser;
+		
+		$lastViewed = $wgUser->getOption( 'swl_last_view' );
+		
+		if ( is_null( $lastViewed ) ) {
+			$lastViewed = wfTimestampNow();
+		}
+		
+		$wgUser->setOption( 'swl_last_view', wfTimestampNow() );
+		$wgUser->saveSettings();
 		
 		$changeSetsHTML = array();
 		
@@ -183,7 +192,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				$changeSetsHTML[$dayKey] = array();
 			}
 			
-			$changeSetsHTML[$dayKey][] = $this->getChangeSetHTML( $set );
+			$changeSetsHTML[$dayKey][] = $this->getChangeSetHTML( $set, $lastViewed );
 		}
 		
 		krsort( $changeSetsHTML );
@@ -240,10 +249,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @since 0.1
 	 * 
 	 * @param SWLChangeSet $changeSet
+	 * @param integer $lastViewed The MW timestamp of when the user last viewed the watchlist
 	 * 
 	 * @return string
 	 */
-	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
+	protected function getChangeSetHTML( SWLChangeSet $changeSet, $lastViewed ) {
 		global $wgLang;
 		
 		$html = '';
@@ -284,7 +294,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 					'a',
 					array( 'href' => SpecialPage::getTitleFor( 'Block', $changeSet->getUser()->getName() )->getLocalURL() ),
 					wfMsg( 'blocklink' )
-				) . ')' .		
+				) . ')' .
+				( $changeSet->getTime() > $lastViewed ? ' [NEW]' : '' )	.
 			'</p>'
 		;
 		
@@ -333,7 +344,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-deletions' ), wfMsg( 'swl-watchlist-deletions' ) ) . ' ' . implode( ', ', $deletions );
 		}		
 		
-		$html = Html::element( 'b', array(), $property->getLabel() );
+		$html = Html::element( 'span', array( 'class' => 'swl-watchlist-prop' ), $property->getLabel() );
 		
 		$html .= Html::rawElement(
 			'div',

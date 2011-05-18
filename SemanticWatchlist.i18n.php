@@ -39,6 +39,10 @@ $messages['en'] = array(
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
 	'swl-watchlist-firstn' => 'First $1',
 	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
+
+	// Email
+	'swl-email-propschanged' => 'Properties have changed',
+	'swl-email-propschanged' => 'Properties have changed',
 );
 
 /** German (Deutsch)

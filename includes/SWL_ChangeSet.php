@@ -156,7 +156,7 @@ class SWLChangeSet {
 	 */
 	public function __construct( SMWChangeSet $changeSet, /* User */ $user = null, $time = null, $id = null ) {
 		$this->changeSet = $changeSet;
-		$this->time = $time;
+		$this->time = is_null( $time ) ? wfTimestampNow() : $time;
 		$this->user = is_null( $user ) ? $GLOBALS['wgUser'] : $user;
 		$this->id = $id;
 	}

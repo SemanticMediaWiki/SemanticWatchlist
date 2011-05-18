@@ -40,8 +40,7 @@ final class SWLHooks {
 	}
 
     /**
-     * Determines and returns if the specified watchlist group covers
-     * the provided page or not. 
+     * Handles group notification.
      * 
      * @since 0.1
      *
@@ -52,17 +51,42 @@ final class SWLHooks {
      * @return true
      */    
     public static function onGroupNotify( SWLGroup $group, array $userIDs, SWLChangeSet $changes ) {
-        
     	foreach ( $userIDs as $userID ) {
-    		self::notifyUser( $group, User::newFromId( $userID ), $changes );
+    		$user = User::newFromId( $userID );
+    		
+    		if ( Sanitizer::validateEmail( $user->getEmail() ) ) {
+				$lastNotify = $user->getOption( 'swl_last_notify' );
+				$lastWatch = $user->getOption( 'swl_last_watch' );
+    		
+	    		if ( is_null( $lastNotify ) || is_null( $lastWatch ) || $lastNotify < $lastWatch ) {
+	    			self::notifyUser( $group, $user, $changes );
+	    			$user->setOption( 'swl_last_notify', wfTimestampNow() );
+	    			$user->saveSettings();
+	    		}    			
+    		}
     	}
     	
         return true;
     }
     
+    /**
+     * Notifies a single user of the changes made to properties in a single edit.
+     * 
+     * @param SWLGroup $group
+     * @param User $user
+     * @param SWLChangeSet $changes
+     * 
+     * @return Status
+     */
     protected static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changes ) {
+    	$emailText = '';
+    	
     	// TODO
-    	//var_dump($group);var_dump($user);var_dump($changes);exit;
+    	
+    	return $user->sendMail(
+    		wfMsgReal( 'swl-email-propschanged', array(), true, $user->getOption( 'language' ) ),
+    		$emailText
+    	);
     }
 
 	/**
