@@ -60,6 +60,15 @@ $messages['de'] = array(
 	'swl-group-properties' => 'Attribute zu dieser Gruppe:',
 	'swl-group-remove-property' => 'Attribut entfernen',
 	'swl-group-page-selection' => 'Seiten in',
+	'swl-watchlist-position' => "Anzeige der letzten '''$1''' Änderungen beginnend mit '''#$2'''.",
+	'swl-watchlist-insertions' => 'Hinzugefügt:',
+	'swl-watchlist-deletions' => 'Gelöscht:',
+	'swl-watchlist-pagincontrol' => 'Zeige ($1) ($2)',
+	'swl-watchlist-firstn' => 'erstes $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}',
+	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
+	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden am $4 von Benutzer '''$2''' geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
+	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
 );
 
 /** French (Français)
@@ -119,6 +128,7 @@ $messages['id'] = array(
 	'swl-group-name' => 'Nama kelompok:',
 	'swl-group-properties' => 'Properti yang dicakup oleh kelompok ini:',
 	'swl-group-remove-property' => 'Hapus properti',
+	'swl-group-page-selection' => 'Halaman dalam',
 );
 
 /** Colognian (Ripoarisch)
