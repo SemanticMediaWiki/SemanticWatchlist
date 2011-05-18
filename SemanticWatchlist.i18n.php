@@ -41,8 +41,9 @@ $messages['en'] = array(
 	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
 
 	// Email
-	'swl-email-propschanged' => 'Properties have changed',
-	'swl-email-propschanged' => 'Properties have changed',
+	'swl-email-propschanged' => 'Properties have changed at $1',
+	'swl-email-propschanged-long' => "One or more properties you watch at '''$1''' have been changed by user '''$2''' at $4. You can view these and other changes on [$3 your semantic watchlist].",
+	'swl-email-changes' => 'Property changes on [$2 $1]:',
 );
 
 /** German (Deutsch)

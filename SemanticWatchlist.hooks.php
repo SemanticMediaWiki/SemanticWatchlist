@@ -59,7 +59,7 @@ final class SWLHooks {
 				$lastWatch = $user->getOption( 'swl_last_watch' );
     		
 	    		if ( is_null( $lastNotify ) || is_null( $lastWatch ) || $lastNotify < $lastWatch ) {
-	    			self::notifyUser( $group, $user, $changes );
+	    			SWLEmailer::notifyUser( $group, $user, $changes );
 	    			$user->setOption( 'swl_last_notify', wfTimestampNow() );
 	    			$user->saveSettings();
 	    		}    			
@@ -67,26 +67,6 @@ final class SWLHooks {
     	}
     	
         return true;
-    }
-    
-    /**
-     * Notifies a single user of the changes made to properties in a single edit.
-     * 
-     * @param SWLGroup $group
-     * @param User $user
-     * @param SWLChangeSet $changes
-     * 
-     * @return Status
-     */
-    protected static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changes ) {
-    	$emailText = '';
-    	
-    	// TODO
-    	
-    	return $user->sendMail(
-    		wfMsgReal( 'swl-email-propschanged', array(), true, $user->getOption( 'language' ) ),
-    		$emailText
-    	);
     }
 
 	/**

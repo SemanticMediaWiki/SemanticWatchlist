@@ -61,9 +61,7 @@ $wgAutoloadClasses['ApiQuerySemanticWatchlist']     = dirname( __FILE__ ) . '/ap
 $wgAutoloadClasses['ApiSemanticWatchlist']          = dirname( __FILE__ ) . '/api/ApiSemanticWatchlist.php';
 
 $wgAutoloadClasses['SWLChangeSet']          		= dirname( __FILE__ ) . '/includes/SWL_ChangeSet.php';
-$wgAutoloadClasses['SWLChange']          			= dirname( __FILE__ ) . '/includes/SWL_Change.php';
-$wgAutoloadClasses['SWLChanges']          			= dirname( __FILE__ ) . '/includes/SWL_Changes.php';
-$wgAutoloadClasses['SWLChangeSet']          		= dirname( __FILE__ ) . '/includes/SWL_ChangeSet.php';
+$wgAutoloadClasses['SWLEmailer']          			= dirname( __FILE__ ) . '/includes/SWL_Emailer.php';
 $wgAutoloadClasses['SWLGroup']          			= dirname( __FILE__ ) . '/includes/SWL_Group.php';
 $wgAutoloadClasses['SWLGroups']          			= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
 
