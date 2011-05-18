@@ -21,10 +21,11 @@ final class SWLEmailer {
      * @param SWLGroup $group
      * @param User $user
      * @param SWLChangeSet $changeSet
+     * @param boolean $describeChanges
      * 
      * @return Status
      */
-    public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet ) {
+    public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet, $describeChanges ) {
     	$emailText = wfMsgExt(
     		'swl-email-propschanged-long',
     		'parse', 
@@ -34,14 +35,16 @@ final class SWLEmailer {
     		$GLOBALS['wgLang']->timeanddate( $changeSet->getTime() )
     	);
     	
-    	$emailText .= '<h3> ' . wfMsgExt(
-    		'swl-email-changes',
-    		'parse', 
-    		$changeSet->getTitle()->getFullText(),
-    		$changeSet->getTitle()->getFullURL()
-    	) . ' </h3>';
-    	
-    	$emailText .= self::getChangeListHTML( $changeSet );
+    	if ( $describeChanges ) {
+	    	$emailText .= '<h3> ' . wfMsgExt(
+	    		'swl-email-changes',
+	    		'parse', 
+	    		$changeSet->getTitle()->getFullText(),
+	    		$changeSet->getTitle()->getFullURL()
+	    	) . ' </h3>';
+	    	
+	    	$emailText .= self::getChangeListHTML( $changeSet );    		
+    	}
     	
     	//echo $emailText;exit;
     	
