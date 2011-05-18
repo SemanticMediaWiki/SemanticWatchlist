@@ -51,7 +51,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @param string $arg
 	 */
 	public function execute( $arg ) {
-		global $wgOut, $wgUser, $wgRequest;
+		global $wgOut, $wgUser, $wgRequest, $wgLang;
 		
 		$this->setHeaders();
 		$this->outputHeader();
@@ -62,20 +62,55 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			return;
 		}
 		
-		$this->displayWatchlist();
+		$limit = $wgRequest->getInt( 'limit', 20 );
+		$offset = $wgRequest->getInt( 'offset', 0 );
+		$continue = $wgRequest->getVal( 'continue' );
+		
+		$changeSetData = $this->getChangeSetsData( $limit, $continue );
+		
+		$sets = array();
+		
+		foreach ( $changeSetData['sets'] as $set ) {
+			$sets[] = SWLChangeSet::newFromArray( $set );
+		}		
+		
+		$hasContinue = array_key_exists( 'query-continue', $changeSetData );
+		
+		if ( $hasContinue ) {
+			$newContinue = $changeSetData['query-continue']['semanticwatchlist']['swcontinue'];
+		}
+		
+		$wgOut->addHTML( '<p>' . wfMsgExt(
+			'swl-wacthlist-position',
+			array( 'parseinline' ),
+			$wgLang->formatNum( count( $sets ) ),
+			$wgLang->formatNum( $offset + 1 )
+		) . '</p>' );
+		
+		$wgOut->addHTML( wfViewPrevNext(
+			$offset,
+			$limit,
+			$this->getTitle( $arg ),
+			$hasContinue ? 'continue=' . $newContinue : '',
+			!$hasContinue
+		) );		
+		
+		$this->displayWatchlist( $sets );
 	}
 	
 	/**
 	 * Displays the watchlist.
 	 * 
 	 * @since 0.1
+	 * 
+	 * @param array of SWLChangeSet $sets
 	 */
-	protected function displayWatchlist() {
+	protected function displayWatchlist( array $sets ) {
 		global $wgOut, $wgLang;
 		
 		$changeSetsHTML = array();
 		
-		foreach ( $this->getChangeSets() as $set ) {
+		foreach ( $sets as $set ) {
 			$dayKey = substr( $set->getTime(), 0, 8 ); // Get the YYYYMMDD part.
 			
 			if ( !array_key_exists( $dayKey, $changeSetsHTML ) ) {
@@ -107,32 +142,28 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	}
 	
 	/**
-	 * Gets a list of change sets belonging to any of the watchlist groups
-	 * watched by the user, newest first.
+	 * Returns the response of an internal request to the API semanticwatchlist query module.
 	 * 
 	 * @since 0.1
 	 * 
-	 * @return array of SWLChangeSet
+	 * @param integer $limit
+	 * @param string $continue
+	 * 
+	 * @return array
 	 */
-	protected function getChangeSets() {
+	protected function getChangeSetsData( $limit, $continue ) {
 		$requestData = array(
 			'action' => 'query',
 			'list' => 'semanticwatchlist',
 			'format' => 'json',
-			'swuserid' => $GLOBALS['wgUser']->getId()
+			'swuserid' => $GLOBALS['wgUser']->getId(),
+			'swlimit' => $limit,
+			'swcontinue' => $continue
 		);
 		
 		$api = new ApiMain( new FauxRequest( $requestData, true ), true );
 		$api->execute();
-		$response = $api->getResultData();
-		
-		$changeSets = array();
-		
-		foreach ( $response['sets'] as $set ) {
-			$changeSets[] = SWLChangeSet::newFromArray( $set );
-		}
-		
-		return $changeSets;
+		return $api->getResultData();
 	}
 	
 	/**

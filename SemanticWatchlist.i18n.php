@@ -31,6 +31,9 @@ $messages['en'] = array(
 	'swl-group-properties' => 'Properties covered by this group:',
 	'swl-group-remove-property' => 'Remove property',
 	'swl-group-page-selection' => 'Pages in ',
+
+	// Special:SemanticWatchlist
+	'swl-wacthlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
 );
 
 /** German (Deutsch)
