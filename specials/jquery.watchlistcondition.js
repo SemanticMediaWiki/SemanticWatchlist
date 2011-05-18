@@ -33,7 +33,7 @@
 			'value': group.name,
 			'size': 30
 		} );
-		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) ).append( nameInput ) );
+		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( nameInput ) );
 		table.append( $( '<tr />' ).html( nameTd ) );
 		
 		var conditionNameInput = $( '<input />' ).attr( {
@@ -41,7 +41,7 @@
 			'value': group.name,
 			'size': 30
 		} );
-		var conditionTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) ).append( conditionNameInput ) );
+		var conditionTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' ).append( conditionNameInput ) );
 		table.append( $( '<tr />' ).html( conditionTd ) );
 		
 		this.append( table );

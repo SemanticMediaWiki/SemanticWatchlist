@@ -27,10 +27,10 @@ $messages['en'] = array(
 	'special-watchlistconditions' => 'Semantic watchlist conditions',
 
 	// Special:WatchlistConditions
-	'swl-group-name' => 'Group name: ',
+	'swl-group-name' => 'Group name:',
 	'swl-group-properties' => 'Properties covered by this group:',
 	'swl-group-remove-property' => 'Remove property',
-	'swl-group-page-selection' => 'Pages in ',
+	'swl-group-page-selection' => 'Pages in',
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
