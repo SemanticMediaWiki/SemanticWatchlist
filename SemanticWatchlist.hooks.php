@@ -59,9 +59,14 @@ final class SWLHooks {
 				$lastWatch = $user->getOption( 'swl_last_watch' );
     		
 	    		if ( is_null( $lastNotify ) || is_null( $lastWatch ) || $lastNotify < $lastWatch ) {
-	    			SWLEmailer::notifyUser( $group, $user, $changes );
-	    			$user->setOption( 'swl_last_notify', wfTimestampNow() );
-	    			$user->saveSettings();
+	    			$mailCount = $user->getOption( 'swl_mail_count', 0 );
+	    			
+	    			if ( $mailCount < $egSWLMaxMails ) {
+		    			SWLEmailer::notifyUser( $group, $user, $changes );
+		    			$user->setOption( 'swl_last_notify', wfTimestampNow() );
+		    			$user->setOption( 'swl_mail_count', $mailCount + 1 );
+		    			$user->saveSettings();	    				
+	    			}
 	    		}    			
     		}
     	}

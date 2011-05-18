@@ -14,6 +14,15 @@
 class SpecialSemanticWatchlist extends SpecialPage {
 	
 	/**
+	 * MediaWiki timestamp of when the watchlist was last viewed by the current user.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var integer
+	 */
+	protected $lastViewed;
+	
+	/**
 	 * Constructor.
 	 * 
 	 * @since 0.1
@@ -62,6 +71,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			return;
 		}
 		
+		$this->registerUserView( $wgUser );
+		
 		$limit = $wgRequest->getInt( 'limit', 20 );
 		$offset = $wgRequest->getInt( 'offset', 0 );
 		$continue = $wgRequest->getVal( 'continue' );
@@ -90,6 +101,27 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );		
 		
 		$this->displayWatchlist( $sets );
+	}
+	
+	/**
+	 * Register the user viewed the watchlist,
+	 * so we know that following chnages should
+	 * result into notification emails is desired.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param User $user
+	 */
+	protected function registerUserView( User $user ) {
+		$this->lastViewed = $user->getOption( 'swl_last_view' );
+		
+		if ( is_null( $this->lastViewed ) ) {
+			$this->lastViewed = wfTimestampNow();
+		}
+		
+		$user->setOption( 'swl_last_view', wfTimestampNow() );
+		$user->setOption( 'swl_mail_count',0 );
+		$user->saveSettings();		
 	}
 	
 	/**
@@ -172,16 +204,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @param array of SWLChangeSet $sets
 	 */
 	protected function displayWatchlist( array $sets ) {
-		global $wgOut, $wgLang, $wgUser;
-		
-		$lastViewed = $wgUser->getOption( 'swl_last_view' );
-		
-		if ( is_null( $lastViewed ) ) {
-			$lastViewed = wfTimestampNow();
-		}
-		
-		$wgUser->setOption( 'swl_last_view', wfTimestampNow() );
-		$wgUser->saveSettings();
+		global $wgOut, $wgLang;
 		
 		$changeSetsHTML = array();
 		
@@ -192,7 +215,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				$changeSetsHTML[$dayKey] = array();
 			}
 			
-			$changeSetsHTML[$dayKey][] = $this->getChangeSetHTML( $set, $lastViewed );
+			$changeSetsHTML[$dayKey][] = $this->getChangeSetHTML( $set );
 		}
 		
 		krsort( $changeSetsHTML );
@@ -249,11 +272,10 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @since 0.1
 	 * 
 	 * @param SWLChangeSet $changeSet
-	 * @param integer $lastViewed The MW timestamp of when the user last viewed the watchlist
 	 * 
 	 * @return string
 	 */
-	protected function getChangeSetHTML( SWLChangeSet $changeSet, $lastViewed ) {
+	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
 		global $wgLang;
 		
 		$html = '';
@@ -295,7 +317,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 					array( 'href' => SpecialPage::getTitleFor( 'Block', $changeSet->getUser()->getName() )->getLocalURL() ),
 					wfMsg( 'blocklink' )
 				) . ')' .
-				( $changeSet->getTime() > $lastViewed ? ' [NEW]' : '' )	.
+				( $changeSet->getTime() > $this->lastViewed ? ' [NEW]' : '' )	.
 			'</p>'
 		;
 		

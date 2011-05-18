@@ -35,3 +35,6 @@ $wgGroupPermissions['sysop'        ]['semanticwatchgroups'] = true;
 
 # Enable email notification or not?
 $egSWLEnableEmailNotify = true;
+
+# The maximum amount of emails to send about changes untill the user actually checks his semantic watchlist.
+$egSWLMaxMails = 1;
