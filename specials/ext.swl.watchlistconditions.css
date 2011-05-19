@@ -21,5 +21,10 @@ fieldset .swl_group {
 
 */div .propid {
 	width: 100%;
+	padding-bottom: 2px;
 	/*border: 1px solid black;*/
+}
+
+.swl-group-prop {
+	
 }

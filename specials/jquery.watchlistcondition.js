@@ -153,7 +153,7 @@
 			propDiv.remove();
 		} );
 		
-		return propDiv.html( propInput ).append( removeButton );
+		return propDiv.html( propInput ).append( '&nbsp;' ).append( removeButton );
 	}
 	
 	this.getProperties = function() {
