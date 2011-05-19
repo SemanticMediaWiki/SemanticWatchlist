@@ -27,18 +27,29 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		
 		$params = $this->extractRequestParams();
 		
-		$dbw = wfGetDB( DB_MASTER );
+		$everythingOk = true;
 		
+		$dbw = wfGetDB( DB_MASTER );
 		$dbw->begin();
 		
 		foreach ( $params['ids'] as $id ) {
-			$dbw->delete(
+			$result = $dbw->delete(
 				'swl_groups',
 				array( 'group_id' => $id )
-			);			
+			);
+
+			if ( $result === false ) {
+				$everythingOk = false;
+			}
 		}
 		
 		$dbw->commit();
+		
+		$this->getResult()->addValue(
+			null,
+			'success',
+			$everythingOk
+		);
 	}
 
 	public function getAllowedParams() {

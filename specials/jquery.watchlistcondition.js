@@ -99,7 +99,16 @@
 			} ).click( function() {
 				if ( confirm( mediaWiki.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
 					this.disabled = true;
-					self.doDelete( function() { this.disabled = false; } );					
+					
+					self.doDelete( function( success ) {
+						if ( success ) {
+							self.slideUp( 'fast' );
+						}
+						else {
+							alert( 'Could not delete the watchlist group.' );
+							this.disabled = false;
+						}
+					} );					
 				}
 			} )
 		);
@@ -148,7 +157,7 @@
 				'ids': this.group.id
 			},
 			function( data ) {
-				callback();
+				callback( data.success );
 			}
 		);		
 	}
