@@ -49,10 +49,9 @@ $messages['en'] = array(
 	'prefs-swl' => 'Semantic watchlist',
 	'prefs-swlgroup' => 'Groups to watch',
 	'prefs-swlnotification' => 'Notification options',
-	'swl-prefs-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from $4 ''$5''.",
-	'swl-prefs-category' => 'category',
-	'swl-prefs-namespace' => 'namespace',
-	'swl-prefs-concept' => 'concept',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from category ''$4''.",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from namespace ''$4''.",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from concept ''$4''.",
 	'swl-prefs-emailnofity' => 'E-mail me on changes to properties I am watching'
 );
 

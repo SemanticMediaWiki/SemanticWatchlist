@@ -102,23 +102,21 @@ final class SWLHooks {
 			
 			switch ( true ) {
 				case count( $group->getCategories() ) > 0 :
-					$type = 'swl-prefs-category';
+					$type = 'category';
 					$name = $group->getCategories();
 					$name = $name[0];
 					break;
 				case count( $group->getNamespaces() ) > 0 :
-					$type = 'swl-prefs-namespace';
+					$type = 'namespace';
 					$name = $group->getNamespaces();
 					$name = $name[0] == 0 ? wfMsg( 'main' ) : MWNamespace::getCanonicalName( $name[0] );
 					break;
 				case count( $group->getConcepts() ) > 0 :
-					$type = 'swl-prefs-concept';
+					$type = 'concept';
 					$name = $group->getConcepts();
 					$name = $item[0];
 					break;
 			}
-			
-			$type = wfMsg( $type );
 			
 			$properties = $group->getProperties();
 			
@@ -129,12 +127,11 @@ final class SWLHooks {
 			$preferences['swlwatchgroup-' . $group->getId()] = array(
 				'type' => 'toggle',
 				'label' => wfMsgExt(
-					'swl-prefs-label',
+					"swl-prefs-$type-label",
 					'parseinline',
 					$group->getName(),
 					count( $group->getProperties() ),
 					$GLOBALS['wgLang']->listToText( $properties ),
-					$type,
 					$name
 				),
 				'section' => 'swl/swlgroup',
