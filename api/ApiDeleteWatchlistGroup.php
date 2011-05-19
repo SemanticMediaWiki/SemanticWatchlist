@@ -53,6 +53,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 	
 	public function getParamDescription() {
 		return array(
+			'ids' => 'The IDs of the watchlist groups to delete'
 		);
 	}
 	

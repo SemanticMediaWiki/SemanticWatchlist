@@ -70,6 +70,11 @@ class ApiAddWatchlistGroup extends ApiBase {
 	
 	public function getParamDescription() {
 		return array(
+			'name' => 'The name of the group, used for display in the user preferences',
+			'properties' => 'The properties this watchlist group covers',
+			'categories' => 'The categories this watchlist group covers',
+			'namespaces' => 'The namespaces this watchlist group covers',
+			'concepts' => 'The concepts this watchlist group covers',
 		);
 	}
 	

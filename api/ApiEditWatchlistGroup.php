@@ -27,15 +27,59 @@ class ApiEditWatchlistGroup extends ApiBase {
 		
 		$params = $this->extractRequestParams();
 		
+		$group = new SWLGroup(
+			$params['id'],
+			$params['name'],
+			$params['categories'],
+			$params['namespaces'],
+			$params['properties'],
+			$params['concepts']
+		);
+		
+		$group->writeToDB();
 	}
 
 	public function getAllowedParams() {
 		return array(
+			'id' => array(
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'name' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'properties' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_REQUIRED => true,
+			),
+			'categories' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => '',
+			),
+			'namespaces' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => '',
+			),
+			'concepts' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => '',
+			),
 		);
 	}
 	
 	public function getParamDescription() {
 		return array(
+			'id' => 'The ID of the watchlist group to edit',
+			'name' => 'The name of the group, used for display in the user preferences',
+			'properties' => 'The properties this watchlist group covers',
+			'categories' => 'The categories this watchlist group covers',
+			'namespaces' => 'The namespaces this watchlist group covers',
+			'concepts' => 'The concepts this watchlist group covers',
 		);
 	}
 	
@@ -52,7 +96,7 @@ class ApiEditWatchlistGroup extends ApiBase {
 
 	protected function getExamples() {
 		return array(
-			'api.php?action=semanticwatchlist',
+			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
 		);
 	}	
 	
