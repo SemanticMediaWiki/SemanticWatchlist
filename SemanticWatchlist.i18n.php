@@ -46,7 +46,7 @@ $messages['en'] = array(
 
 	// Email
 	'swl-email-propschanged' => 'Properties have changed at $1',
-	'swl-email-propschanged-long' => "One or more properties you watch at '''$1''' have been changed by user '''$2''' at $4. You can view these and other changes on [$3 your semantic watchlist].",
+	'swl-email-propschanged-long' => "One or more properties you watch at '''$1''' have been changed by user '''$2''' at $4 on $5. You can view these and other changes on [$3 your semantic watchlist].",
 	'swl-email-changes' => 'Property changes on [$2 $1]:',
 
 	// Preferences
@@ -57,6 +57,16 @@ $messages['en'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from namespace ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from concept ''$4''",
 	'swl-prefs-emailnofity' => 'E-mail me on changes to properties I am watching',
+);
+
+/** Message documentation (Message documentation)
+ * @author Jeroen De Dauw
+ */
+$messages['qqq'] = array(
+	'semanticwatchlist-desc' => '{{desc}}',
+	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
+	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
+	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
 );
 
 /** German (Deutsch)

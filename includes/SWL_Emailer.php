@@ -26,13 +26,16 @@ final class SWLEmailer {
      * @return Status
      */
     public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet, $describeChanges ) {
+    	global $wgLang;
+    	
     	$emailText = wfMsgExt(
     		'swl-email-propschanged-long',
     		'parse', 
     		$GLOBALS['wgSitename'],
     		$changeSet->getUser()->getName(),
     		SpecialPage::getTitleFor( 'SemanticWatchlist' )->getFullURL(),
-    		$GLOBALS['wgLang']->timeanddate( $changeSet->getTime() )
+    		$wgLang->time( $changeSet->getTime() ),
+    		$wgLang->date( $changeSet->getTime() )
     	);
     	
     	if ( $describeChanges ) {
