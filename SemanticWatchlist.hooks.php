@@ -89,7 +89,7 @@ final class SWLHooks {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		$groups = SWLGroups::getAll();
 		
-		$preferences['swlemail'] = array(
+		$preferences['swl_email'] = array(
 			'type' => 'toggle',
 			'label-message' => 'swl-prefs-emailnofity',
 			'section' => 'swl/swlnotification',
@@ -124,7 +124,7 @@ final class SWLHooks {
 				$property = "''$property''";
 			}
 			
-			$preferences['swlwatchgroup-' . $group->getId()] = array(
+			$preferences['swl_watchgroup_' . $group->getId()] = array(
 				'type' => 'toggle',
 				'label' => wfMsgExt(
 					"swl-prefs-$type-label",

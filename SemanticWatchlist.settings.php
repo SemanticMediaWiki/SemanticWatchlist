@@ -41,3 +41,5 @@ $egSWLMailPerChange = true;
 
 # The maximum amount of generic emails to send about changes untill the user actually checks his semantic watchlist.
 $egSWLMaxMails = 1;
+
+$wgDefaultUserOptions['swl_email'] = false;
