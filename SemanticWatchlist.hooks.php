@@ -139,7 +139,45 @@ final class SWLHooks {
 		}
 
 		return true;
-	}    
+	}   
+	
+	/**
+	 * Called just before saving user preferences/options.
+	 * Find the watchlist groups the user watches, and update the swl_users_per_group table.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param User $user
+	 * @param array $options
+	 * 
+	 * @return true
+	 */
+	public static function onUserSaveOptions( User $user, array &$options ) {
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->begin();
+		
+		$dbw->delete(
+			'swl_users_per_group',
+			array( 'upg_user_id' => $user->getId() )
+		);
+		
+		foreach ( $options as $name => $value ) {
+			if ( strpos( $name, 'swl_watchgroup_' ) === 0 && $value ) {
+				$dbw->insert(
+					'swl_users_per_group',
+					array(
+						'upg_user_id' => $user->getId(),
+						'upg_group_id' => (int)substr( $name, strrpos( $name, '_' ) + 1 )
+					)
+				);				
+			}
+		}
+		
+		$dbw->commit();
+		
+		return true;
+	}
 
 	/**
 	 * Schema update to set up the needed database tables.

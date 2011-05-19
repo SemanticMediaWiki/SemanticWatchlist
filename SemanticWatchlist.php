@@ -83,6 +83,9 @@ $wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onDataChanged';
 
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 
+$wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
+
+
 $moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
 	'remoteBasePath' => $egSWLScriptPath

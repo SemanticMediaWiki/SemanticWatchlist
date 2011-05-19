@@ -52,7 +52,7 @@ $messages['en'] = array(
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from category ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from namespace ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from concept ''$4''",
-	'swl-prefs-emailnofity' => 'E-mail me on changes to properties I am watching'
+	'swl-prefs-emailnofity' => 'E-mail me on changes to properties I am watching',
 );
 
 /** German (Deutsch)
