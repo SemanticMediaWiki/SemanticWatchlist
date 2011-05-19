@@ -17,7 +17,7 @@
 		
 		var propTd = $( '<td />' ).attr( {
 			//'bgcolor': 'gray',
-			'rowspan': 2
+			'rowspan': 3
 		} );
 		
 		propTd.html( mediaWiki.msg( 'swl-group-properties' ) );
@@ -36,12 +36,47 @@
 		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( nameInput ) );
 		table.append( $( '<tr />' ).html( nameTd ) );
 		
+		var conditionValue, conditionType;
+		
+		switch ( true ) {
+			case group.categories.length > 0:
+				conditionValue = group.categories[0];
+				conditionType = 'category';
+				break;
+			case group.namespaces.length > 0:
+				conditionValue = group.namespaces[0];
+				conditionType = 'namespace';
+				break;
+			case group.concepts.length > 0:
+				conditionValue = group.concepts[0];
+				conditionType = 'concept';
+				break;
+		}
+		
+		var conditionTypeInput = $( '<select />' );
+		var conditionTypes = [ 'category', 'namespace', 'concept' ];
+		
+		for ( i in conditionTypes ) {
+			var optionElement = $( '<option />' ).text( mediaWiki.msg( 'swl-group-' + conditionTypes[i] ) ).attr( 'value', conditionTypes[i] );
+			
+			if ( conditionType == conditionTypes[i] ) {
+				optionElement.attr( 'selected', 'selected' );
+			}
+			
+			conditionTypeInput.append( optionElement );
+		}
+		
 		var conditionNameInput = $( '<input />' ).attr( {
 			'type': 'text',
-			'value': group.name,
+			'value': conditionValue,
 			'size': 30
 		} );
-		var conditionTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' ).append( conditionNameInput ) );
+		var conditionTd = $( '<td />' ).html( 
+			$( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' )
+			.append( conditionTypeInput )
+			.append( conditionNameInput )
+		);
+		
 		table.append( $( '<tr />' ).html( conditionTd ) );
 		
 		this.append( table );
@@ -49,7 +84,7 @@
 		this.append(
 			$( '<input />' ).attr( {
 				'type': 'button',
-				'value': mediaWiki.msg( 'save' )
+				'value': mediaWiki.msg( 'swl-group-save' )
 			} ).click( function() {
 				this.disabled = true;
 				self.doSave( function() { this.disabled = false; } );

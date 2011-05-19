@@ -31,6 +31,10 @@ $messages['en'] = array(
 	'swl-group-properties' => 'Properties covered by this group:',
 	'swl-group-remove-property' => 'Remove property',
 	'swl-group-page-selection' => 'Pages in',
+	'swl-group-save' => 'Save',
+	'swl-group-category' => 'category',
+	'swl-group-namespace' => 'namespace',
+	'swl-group-concept' => 'concept',
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",

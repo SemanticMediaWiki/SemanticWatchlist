@@ -70,7 +70,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			$groupsHtml[] = $this->getGroupHtml( $group );
 		}
 		
-		$wgOut->addHTML( implode( '<br />', $groupsHtml ) );
+		$wgOut->addHTML( implode( '', $groupsHtml ) );
 		
 		$wgOut->addModules( 'ext.swl.watchlistconditions' );
 	}
@@ -85,6 +85,12 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 * @return string
 	 */
 	protected function getGroupHtml( SWLGroup $group ) {
+		$namespaces = $group->getNamespaces();
+		
+		foreach ( $namespaces as &$ns ) {
+			$ns = MWNamespace::getCanonicalName( $ns );
+		}
+		
 		return Html::rawElement(
 			'fieldset',
 			array(
@@ -92,7 +98,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 				'class' => 'swl_group',
 				'groupname' => $group->getName(),
 				'categories' => implode( '|', $group->getCategories() ),
-				'namespaces' => implode( '|', $group->getNamespaces() ),
+				'namespaces' => implode( '|', $namespaces ),
 				'properties' => implode( '|', $group->getProperties() ),
 				'concepts' => implode( '|', $group->getConcepts() ),
 			),

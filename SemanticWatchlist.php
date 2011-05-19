@@ -112,7 +112,10 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 		'swl-group-properties',
 		'swl-group-remove-property',
 		'swl-group-page-selection',
-		'save',	
+		'swl-group-save',
+		'swl-group-category',
+		'swl-group-namespace',
+		'swl-group-concept',
 	)
 );
 
