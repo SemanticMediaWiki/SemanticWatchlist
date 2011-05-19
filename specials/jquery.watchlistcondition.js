@@ -16,8 +16,7 @@
 		var table = $( '<table />' ).attr( { 'class': 'swltable' } );
 		
 		var propTd = $( '<td />' ).attr( {
-			//'bgcolor': 'gray',
-			'rowspan': 3
+			'rowspan': 2
 		} );
 		
 		propTd.html( mediaWiki.msg( 'swl-group-properties' ) );
@@ -26,15 +25,13 @@
 			propTd.append( this.getPropertyDiv( group.properties[i] ) );
 		}
 		
-		table.append( $( '<tr />' ).html( $( '<td />' ) ).append( propTd ) );
-		
 		var nameInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': group.name,
 			'size': 30
 		} );
 		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( nameInput ) );
-		table.append( $( '<tr />' ).html( nameTd ) );
+		table.append( $( '<tr />' ).html( nameTd ).append( propTd ) );
 		
 		var conditionValue, conditionType;
 		
@@ -114,6 +111,18 @@
 	}
 	
 	this.doSave = function( callback ) {
+		$.getJSON(
+			wgScriptPath + '/api.php',
+			{
+				'action': 'semanticwatchlist',
+				'format': 'json',
+				'images': images.join( '|' ), 
+				'targets': targetUrl
+			},
+			function( data ) {
+				callback();
+			}
+		);
 		
 	}
 	

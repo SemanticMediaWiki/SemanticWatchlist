@@ -5,7 +5,7 @@
  * 
  * Documentation:	 		http://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
  * Support					http://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
- * Source code:             http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/SemanticWatchlist
+ * Source code:			 http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/SemanticWatchlist
  *
  * @file SemanticWatchlist.php
  * @ingroup SemanticWatchlist
@@ -52,21 +52,23 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 
 $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
-$wgExtensionMessagesFiles['SemanticWatchlist']      = dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
+$wgExtensionMessagesFiles['SemanticWatchlist']	  	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
 $wgExtensionAliasesFiles['SemanticWatchlist'] 		= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
 
-$wgAutoloadClasses['SWLHooks']                      = dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
+$wgAutoloadClasses['SWLHooks']					  	= dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
 
-$wgAutoloadClasses['ApiQuerySemanticWatchlist']     = dirname( __FILE__ ) . '/api/ApiQuerySemanticWatchlist.php';
-$wgAutoloadClasses['ApiSemanticWatchlist']          = dirname( __FILE__ ) . '/api/ApiSemanticWatchlist.php';
+$wgAutoloadClasses['ApiAddWatchlistGroup']		  	= dirname( __FILE__ ) . '/api/ApiAddWatchlistGroup.php';
+$wgAutoloadClasses['ApiDeleteWatchlistGroup']		= dirname( __FILE__ ) . '/api/ApiDeleteWatchlistGroup.php';
+$wgAutoloadClasses['ApiEditWatchlistGroup']		 	= dirname( __FILE__ ) . '/api/ApiEditWatchlistGroup.php';
+$wgAutoloadClasses['ApiQuerySemanticWatchlist']	 	= dirname( __FILE__ ) . '/api/ApiQuerySemanticWatchlist.php';
 
-$wgAutoloadClasses['SWLChangeSet']          		= dirname( __FILE__ ) . '/includes/SWL_ChangeSet.php';
-$wgAutoloadClasses['SWLEmailer']          			= dirname( __FILE__ ) . '/includes/SWL_Emailer.php';
-$wgAutoloadClasses['SWLGroup']          			= dirname( __FILE__ ) . '/includes/SWL_Group.php';
-$wgAutoloadClasses['SWLGroups']          			= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
+$wgAutoloadClasses['SWLChangeSet']		  			= dirname( __FILE__ ) . '/includes/SWL_ChangeSet.php';
+$wgAutoloadClasses['SWLEmailer']		  			= dirname( __FILE__ ) . '/includes/SWL_Emailer.php';
+$wgAutoloadClasses['SWLGroup']		  				= dirname( __FILE__ ) . '/includes/SWL_Group.php';
+$wgAutoloadClasses['SWLGroups']		  				= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
 
-$wgAutoloadClasses['SpecialSemanticWatchlist']      = dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
-$wgAutoloadClasses['SpecialWatchlistConditions']    = dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
+$wgAutoloadClasses['SpecialSemanticWatchlist']	  	= dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
+$wgAutoloadClasses['SpecialWatchlistConditions']	= dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
 
 $wgSpecialPages['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
 $wgSpecialPageGroups['SemanticWatchlist'] = 'changes';
@@ -74,7 +76,9 @@ $wgSpecialPageGroups['SemanticWatchlist'] = 'changes';
 $wgSpecialPages['WatchlistConditions'] = 'SpecialWatchlistConditions';
 $wgSpecialPageGroups['WatchlistConditions'] = 'changes';
 
-$wgAPIModules['semanticwatchlist'] = 'ApiSemanticWatchlist';
+$wgAPIModules['addswlgroup'] = 'ApiAddWatchlistGroup';
+$wgAPIModules['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
+$wgAPIModules['editswlgroup'] = 'ApiEditWatchlistGroup';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
@@ -128,5 +132,5 @@ $wgAvailableRights[] = 'semanticwatch';
 $wgAvailableRights[] = 'semanticwatchgroups';
 
 if ( $egSWLEnableEmailNotify ) {
-    $wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
+	$wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
 }

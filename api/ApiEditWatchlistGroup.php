@@ -5,19 +5,26 @@
  *
  * @since 0.1
  *
- * @file ApiSemanticWatchlist.php
+ * @file ApiEditWatchlistGroup.php
  * @ingroup SemanticWatchlist
+ * @ingroup API
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiSemanticWatchlist extends ApiBase {
+class ApiEditWatchlistGroup extends ApiBase {
 	
 	public function __construct( $main, $action ) {
 		parent::__construct( $main, $action );
 	}
 	
 	public function execute() {
+		global $wgUser;
+		
+		if ( !$wgUser->isAllowed( 'semanticwatchgroups' ) || $wgUser->isBlocked() ) {
+			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+		}
+		
 		$params = $this->extractRequestParams();
 		
 	}

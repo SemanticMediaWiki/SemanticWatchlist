@@ -47,6 +47,46 @@ class SWLGroup {
 		$this->concepts = $concepts;	
 	}
 	
+	public function writeToDB() {
+		if ( is_null( $this->id ) ) {
+			$this->insertIntoDB();
+		}
+		else {
+			$this->updateInDB();
+		}
+	}
+	
+	protected function updateInDB() {
+		$dbr = wfGetDB( DB_MASTER );
+		
+		$dbr->update(
+			'swl_groups',
+			array(
+				'group_name' => $this->name,
+				'group_properties' => $this->properties,
+				'group_categories' => $this->categories,
+				'group_namespaces' => $this->namespaces,
+				'group_concepts' => $this->concepts,
+			),
+			array( 'group_id' => $this->id )
+		);
+	}
+	
+	protected function insertIntoDB() {
+		$dbr = wfGetDB( DB_MASTER );
+		
+		$dbr->insert(
+			'swl_groups',
+			array(
+				'group_name' => $this->name,
+				'group_properties' => $this->properties,
+				'group_categories' => $this->categories,
+				'group_namespaces' => $this->namespaces,
+				'group_concepts' => $this->concepts,
+			)
+		);
+	}
+	
 	/**
 	 * Returns the categories specified by the group.
 	 * 
