@@ -36,7 +36,11 @@ class ApiEditWatchlistGroup extends ApiBase {
 			$params['concepts']
 		);
 		
-		$group->writeToDB();
+		$this->getResult()->addValue(
+			null,
+			'success',
+			$group->writeToDB()
+		);
 	}
 
 	public function getAllowedParams() {

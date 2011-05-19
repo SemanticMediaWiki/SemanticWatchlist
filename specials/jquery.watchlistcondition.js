@@ -51,29 +51,32 @@
 				break;
 		}
 		
-		var conditionTypeInput = $( '<select />' );
+		this.conditionTypeInput = $( '<select />' );
 		var conditionTypes = [ 'category', 'namespace', 'concept' ];
+		var conditionTypeGroups = [ 'categories', 'namespaces', 'concepts' ];
 		
 		for ( i in conditionTypes ) {
-			var optionElement = $( '<option />' ).text( mediaWiki.msg( 'swl-group-' + conditionTypes[i] ) ).attr( 'value', conditionTypes[i] );
+			var optionElement = $( '<option />' )
+				.text( mediaWiki.msg( 'swl-group-' + conditionTypes[i] ) )
+				.attr( { 'value': conditionTypes[i], 'type': conditionTypeGroups[i] } );
 			
 			if ( conditionType == conditionTypes[i] ) {
 				optionElement.attr( 'selected', 'selected' );
 			}
 			
-			conditionTypeInput.append( optionElement );
+			this.conditionTypeInput.append( optionElement );
 		}
 		
-		var conditionNameInput = $( '<input />' ).attr( {
+		this.conditionNameInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': conditionValue,
 			'size': 30
 		} );
 		var conditionTd = $( '<td />' ).html( 
 			$( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' )
-			.append( conditionTypeInput )
+			.append( this.conditionTypeInput )
 			.append( '&nbsp;' )
-			.append( conditionNameInput )
+			.append( this.conditionNameInput )
 		);
 		
 		table.append( $( '<tr />' ).html( conditionTd ) );
@@ -86,7 +89,18 @@
 				'value': mediaWiki.msg( 'swl-group-save' )
 			} ).click( function() {
 				this.disabled = true;
-				self.doSave( function() { this.disabled = false; } );
+				var button = this;
+				
+				self.doSave( function( success ) {
+					if ( success ) {
+						// TODO: indicate success?
+					}
+					else {
+						alert( 'Could not update the watchlist group.' );
+					}
+					
+					button.disabled = false;
+				} );
 			} )
 		);
 		
@@ -99,6 +113,7 @@
 			} ).click( function() {
 				if ( confirm( mediaWiki.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
 					this.disabled = true;
+					var button = this;
 					
 					self.doDelete( function( success ) {
 						if ( success ) {
@@ -106,7 +121,7 @@
 						}
 						else {
 							alert( 'Could not delete the watchlist group.' );
-							this.disabled = false;
+							button.disabled = false;
 						}
 					} );					
 				}
@@ -120,7 +135,8 @@
 		var propInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': property,
-			'size': 30
+			'size': 30,
+			'class': 'swl-group-prop'
 		} );
 		
 		var removeButton = $( '<input />' ).attr( {
@@ -135,15 +151,32 @@
 		return propDiv.html( propInput ).append( removeButton );
 	}
 	
+	this.getProperties = function() {
+		var props = [];
+		
+		this.find( '.swl-group-prop' ).each( function( index, domElement ) {
+			props.push( $( domElement ).val() );
+		} );
+		
+		return props;
+	}
+	
 	this.doSave = function( callback ) {
+		var args = {
+			'action': 'editswlgroup',
+			'format': 'json',
+			'id': this.group.id,
+			'name': this.nameInput.val(),
+			'properties': this.getProperties().join( '|' )
+		};
+		
+		args[this.conditionTypeInput.find( 'option:selected' ).attr( 'type' )] = this.conditionNameInput.val();
+		
 		$.getJSON(
 			wgScriptPath + '/api.php',
-			{
-				'action': 'editswlgroup',
-				'format': 'json',
-			},
+			args,
 			function( data ) {
-				callback();
+				callback( data.success );
 			}
 		);
 	}
