@@ -9,6 +9,7 @@
 (function( $ ){ $.fn.watchlistcondition = function( group, options ) {
 
 	var self = this;
+	this.group = group;
 	
 	this.buildHtml = function() {
 		this.html( $( '<legend />' ).text( group.name ) );
@@ -25,12 +26,12 @@
 			propTd.append( this.getPropertyDiv( group.properties[i] ) );
 		}
 		
-		var nameInput = $( '<input />' ).attr( {
+		this.nameInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': group.name,
 			'size': 30
 		} );
-		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( nameInput ) );
+		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( this.nameInput ) );
 		table.append( $( '<tr />' ).html( nameTd ).append( propTd ) );
 		
 		var conditionValue, conditionType;
@@ -71,6 +72,7 @@
 		var conditionTd = $( '<td />' ).html( 
 			$( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' )
 			.append( conditionTypeInput )
+			.append( '&nbsp;' )
 			.append( conditionNameInput )
 		);
 		
@@ -86,7 +88,21 @@
 				this.disabled = true;
 				self.doSave( function() { this.disabled = false; } );
 			} )
-		);		
+		);
+		
+		this.append( '&nbsp;' );
+		
+		this.append(
+			$( '<input />' ).attr( {
+				'type': 'button',
+				'value': mediaWiki.msg( 'swl-group-delete' )
+			} ).click( function() {
+				if ( confirm( mediaWiki.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
+					this.disabled = true;
+					self.doDelete( function() { this.disabled = false; } );					
+				}
+			} )
+		);
 	}
 	
 	this.getPropertyDiv = function( property ) {
@@ -114,16 +130,27 @@
 		$.getJSON(
 			wgScriptPath + '/api.php',
 			{
-				'action': 'semanticwatchlist',
+				'action': 'editswlgroup',
 				'format': 'json',
-				'images': images.join( '|' ), 
-				'targets': targetUrl
 			},
 			function( data ) {
 				callback();
 			}
 		);
-		
+	}
+	
+	this.doDelete = function( callback ) {
+		$.getJSON(
+			wgScriptPath + '/api.php',
+			{
+				'action': 'deleteswlgroup',
+				'format': 'json',
+				'ids': this.group.id
+			},
+			function( data ) {
+				callback();
+			}
+		);		
 	}
 	
 	this.buildHtml();

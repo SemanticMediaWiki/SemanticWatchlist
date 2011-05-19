@@ -23,6 +23,7 @@
 		element.watchlistcondition(
 			{
 				name: element.attr( 'groupname' ),
+				id: element.attr( 'groupid' ),
 				categories: getSplitAttrValue( element, 'categories', '|' ),
 				namespaces: getSplitAttrValue( element, 'namespaces', '|' ),
 				properties: getSplitAttrValue( element, 'properties', '|' ),

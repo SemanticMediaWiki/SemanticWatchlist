@@ -95,6 +95,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			'fieldset',
 			array(
 				'id' => 'swl_group_' . $group->getId(),
+				'groupid' => $group->getId(),
 				'class' => 'swl_group',
 				'groupname' => $group->getName(),
 				'categories' => implode( '|', $group->getCategories() ),

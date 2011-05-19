@@ -32,9 +32,11 @@ $messages['en'] = array(
 	'swl-group-remove-property' => 'Remove property',
 	'swl-group-page-selection' => 'Pages in',
 	'swl-group-save' => 'Save',
+	'swl-group-delete' => 'Delete',
 	'swl-group-category' => 'category',
 	'swl-group-namespace' => 'namespace',
 	'swl-group-concept' => 'concept',
+	'swl-group-confirmdelete' => 'Are you sure you want to delete the "$1" watchlist group?',
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
