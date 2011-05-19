@@ -85,6 +85,12 @@ $messages['de'] = array(
 	'swl-group-properties' => 'Attribute zu dieser Gruppe:',
 	'swl-group-remove-property' => 'Attribut entfernen',
 	'swl-group-page-selection' => 'Seiten in',
+	'swl-group-save' => 'Speichern',
+	'swl-group-delete' => 'Löschen',
+	'swl-group-category' => 'Kategorie',
+	'swl-group-namespace' => 'Namensraum',
+	'swl-group-concept' => 'Konzept',
+	'swl-group-confirmdelete' => 'Soll die Beobachtungsliste "$1" tatsächlich gelöscht werden?',
 	'swl-watchlist-position' => "Anzeige der letzten '''$1''' Änderungen beginnend mit '''#$2'''.",
 	'swl-watchlist-insertions' => 'Hinzugefügt:',
 	'swl-watchlist-deletions' => 'Gelöscht:',
@@ -92,11 +98,19 @@ $messages['de'] = array(
 	'swl-watchlist-firstn' => 'erstes $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}',
 	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
-	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden am $4 von Benutzer '''$2''' geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
+	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $4 um $5 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
+	'prefs-swl' => 'Semantische Beobachtungsliste',
+	'prefs-swlgroup' => 'Zu beobachtende Gruppen',
+	'prefs-swlnotification' => 'Benachrichtigungsoptionen',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 in Kategorie ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Namensraum ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Konzept ''$4''",
+	'swl-prefs-emailnofity' => 'Bei Änderungen an beobachteten Attributen E-Mails senden',
 );
 
 /** French (Français)
+ * @author IAlex
  * @author Sherbrooke
  */
 $messages['fr'] = array(
@@ -109,6 +123,11 @@ $messages['fr'] = array(
 	'swl-group-properties' => 'Propriétés de ce groupe :',
 	'swl-group-remove-property' => 'Retirez la propriété',
 	'swl-group-page-selection' => 'Pages dans la',
+	'swl-watchlist-insertions' => 'Ajouté :',
+	'swl-watchlist-deletions' => 'Supprimé :',
+	'swl-watchlist-pagincontrol' => 'Voir ($1) ($2)',
+	'swl-watchlist-firstn' => '$1 premiers',
+	'swl-watchlist-firstn-title' => '$1 {{PLURAL:$1|permier résultat|permiers résultats}}',
 );
 
 /** Galician (Galego)
@@ -124,6 +143,17 @@ $messages['gl'] = array(
 	'swl-group-properties' => 'Propiedades cubertas por este grupo:',
 	'swl-group-remove-property' => 'Eliminar a propiedade',
 	'swl-group-page-selection' => 'Páxinas en',
+	'swl-watchlist-position' => "Mostrando '''$1''' dos últimos cambios, comezando polo '''nº $2'''.",
+	'swl-watchlist-insertions' => 'Engadido:',
+	'swl-watchlist-deletions' => 'Borrado:',
+	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
+	'swl-watchlist-firstn' => '$1 primeiras',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}',
+	'swl-email-propschanged' => 'As propiedades cambiaron ás $1',
+	'swl-email-changes' => 'Cambio nas propiedades en [$2 $1]:',
+	'prefs-swl' => 'Lista de vixilancia semántica',
+	'prefs-swlgroup' => 'Grupos a vixiar',
+	'prefs-swlnotification' => 'Opcións de notificación',
 );
 
 /** Interlingua (Interlingua)
@@ -139,6 +169,22 @@ $messages['ia'] = array(
 	'swl-group-properties' => 'Proprietates coperite per iste gruppo:',
 	'swl-group-remove-property' => 'Remover proprietate',
 	'swl-group-page-selection' => 'Paginas in',
+	'swl-watchlist-position' => "Presenta '''$1''' del ultime modificationes a partir del '''№ $2'''.",
+	'swl-watchlist-insertions' => 'Addite:',
+	'swl-watchlist-deletions' => 'Delite:',
+	'swl-watchlist-pagincontrol' => 'Vider ($1) ($2)',
+	'swl-watchlist-firstn' => 'prime $1',
+	'swl-watchlist-firstn-title' => 'Le prime {{PLURAL:$1|resultato|$1 resultatos}}',
+	'swl-email-propschanged' => 'Proprietates ha cambiate a $1',
+	'swl-email-propschanged-long' => "Un o plus proprietates que tu observa a ''$1''' ha essite cambiate per le usator '''$2''' a $4. Tu pote vider iste e altere cambios in [$3 tu observatorio semantic].",
+	'swl-email-changes' => 'Cambios de proprietate in [$2 $1]:',
+	'prefs-swl' => 'Observatorio semantic',
+	'prefs-swlgroup' => 'Gruppos a observar',
+	'prefs-swlnotification' => 'Optiones de notification',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del categoria ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del spatio de nomines ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del concepto ''$4''",
+	'swl-prefs-emailnofity' => 'Inviar me e-mail in caso de modificationes in proprietates que io observa',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -189,6 +235,19 @@ $messages['mk'] = array(
 	'swl-group-properties' => 'Својства покриени со оваа група:',
 	'swl-group-remove-property' => 'Отстрани својство',
 	'swl-group-page-selection' => 'Страници во',
+	'swl-watchlist-position' => "Приказ на '''$1''' од последните промени, почнувајќи од '''бр. $2'''.",
+	'swl-watchlist-insertions' => 'Додадено:',
+	'swl-watchlist-deletions' => 'Избришано:',
+	'swl-watchlist-pagincontrol' => 'Видете ($1) ($2)',
+	'swl-watchlist-firstn' => 'први $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Прв $1 резултат|Први $1 резултати}}',
+	'swl-email-propschanged' => 'Својствата на $1 се имаат изменето',
+	'swl-email-propschanged-long' => "Едно или повеќе својства на '''$1''' што ги набљудувате се изменети од корисникот '''$2''' на $4. Можете да ги погледате овие и други промени на [$3 вашиот семантички список на набљудувања].",
+	'swl-email-changes' => 'Измени во својства на [$2 $1]:',
+	'prefs-swl' => 'Семантички список на набљудувања',
+	'prefs-swlgroup' => 'Групи за набљудување',
+	'prefs-swlnotification' => 'Можности за известување',
+	'swl-prefs-emailnofity' => 'Испрати ми е-пошта кога ќе се изменат својствата што ги набљудувам',
 );
 
 /** Malay (Bahasa Melayu)
