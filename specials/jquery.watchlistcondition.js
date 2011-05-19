@@ -31,6 +31,11 @@
 			'value': group.name,
 			'size': 30
 		} );
+		
+		this.nameInput.keyup( function() {
+			self.find( 'legend' ).text( $( this ).val() );
+		} );
+		
 		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( this.nameInput ) );
 		table.append( $( '<tr />' ).html( nameTd ).append( propTd ) );
 		
