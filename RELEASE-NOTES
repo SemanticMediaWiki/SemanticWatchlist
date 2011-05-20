@@ -15,4 +15,4 @@ Initial release with these features:
   groups they want to follow, and if they want to recieve emails on changes. 
 * Special:WatchListConditions as administration interface for watchlist groups.
 * API module to query property changes grouped by edit for a single user.
-* API module to modify the watchlist groups.
+* API modules to add, modify and delete the watchlist groups.
