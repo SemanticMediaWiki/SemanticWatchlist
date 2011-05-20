@@ -83,6 +83,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			'upg_user_id' => $userId
 		) );
 		
+		$this->addOption( 'DISTINCT' );
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$this->addOption( 'ORDER BY', 'set_time DESC, set_id DESC' );
 		
