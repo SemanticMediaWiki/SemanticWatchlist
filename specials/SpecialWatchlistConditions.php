@@ -62,8 +62,6 @@ class SpecialWatchlistConditions extends SpecialPage {
 			return;
 		}
 		
-		//$wgOut->addHTML( Html::element( 'h3', array(), wfMsg( '' ) ) );
-		
 		$groupsHtml = array();
 		
 		foreach ( SWLGroups::getAll() as $group ) {
@@ -134,7 +132,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 		$namespaces = $group->getNamespaces();
 		
 		foreach ( $namespaces as &$ns ) {
-			$ns = MWNamespace::getCanonicalName( $ns );
+			$ns = $ns == 0 ? 'Main' : MWNamespace::getCanonicalName( $ns );
 		}
 		
 		return Html::rawElement(

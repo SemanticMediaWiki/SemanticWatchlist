@@ -19,7 +19,7 @@ class SWLGroup {
 	
 	protected $categories;
 	
-	protected $namespaces;
+	protected $namespaces = array();
 	
 	protected $properties;
 	
@@ -27,26 +27,70 @@ class SWLGroup {
 	
 	protected $watchingUsers = false;
 	
+	/**
+	 * Creates a new instance of SWLGroup from a DB result.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param $group
+	 * 
+	 * @return SWLGroup
+	 */
 	public static function newFromDBResult( $group ) {
 		return new SWLGroup(
 			$group->group_id,
 			$group->group_name,
 			$group->group_categories == '' ? array() : explode( '|', $group->group_categories ),
-			$group->group_namespaces == '' ? array() : array_map( 'intval', explode( '|', $group->group_namespaces ) ),
+			$group->group_namespaces == '' ? array() : explode( '|', $group->group_namespaces ),
 			$group->group_properties == '' ? array() : explode( '|', $group->group_properties ),
 			$group->group_concepts == '' ? array() : explode( '|', $group->group_group_concepts )
 		);
 	}
 	
+	/**
+	 * Constructor.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param integer $id Can be null for new groups
+	 * @param string $name
+	 * @param array $categories List of category names
+	 * @param array $namespaces List of namespace names or IDs
+	 * @param array $properties List of property names
+	 * @param array $concepts List of concept names
+	 */
 	public function __construct( $id, $name, array $categories, array $namespaces, array $properties, array $concepts ) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->categories = $categories;
-		$this->namespaces = $namespaces;
 		$this->properties = $properties;	
-		$this->concepts = $concepts;	
+		$this->concepts = $concepts;
+
+		foreach ( $namespaces as $ns ) {
+			if ( preg_match( "/^-?([0-9])+$/", $ns ) ) {
+				$this->namespaces[] = $ns;
+			}
+			elseif ( $ns == '' || strtolower( $ns ) == 'main' ) {
+				$this->namespaces[] = 0;
+			}
+			else {
+				$ns = MWNamespace::getCanonicalIndex( strtolower( $ns ) );
+				
+				if ( !is_null( $ns ) ) {
+					$this->namespaces[] = $ns;
+				}
+			}
+		}
 	}
 	
+	/**
+	 * Writes the group to the database, either updating it
+	 * when it already exists, or inserting it when it doesn't.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return boolean Success indicator
+	 */
 	public function writeToDB() {
 		if ( is_null( $this->id ) ) {
 			return $this->insertIntoDB();
@@ -56,6 +100,13 @@ class SWLGroup {
 		}
 	}
 	
+	/**
+	 * Updates the group in the database.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return boolean Success indicator
+	 */
 	protected function updateInDB() {
 		$dbr = wfGetDB( DB_MASTER );
 		
@@ -72,6 +123,13 @@ class SWLGroup {
 		);
 	}
 	
+	/**
+	 * Inserts the group into the database.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return boolean Success indicator
+	 */
 	protected function insertIntoDB() {
 		$dbr = wfGetDB( DB_MASTER );
 		
