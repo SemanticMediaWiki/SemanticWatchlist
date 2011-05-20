@@ -421,6 +421,19 @@ class SWLGroup {
 	}
 	
 	/**
+	 * Removethe non covered properties.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SWLChangeSet $changes
+	 * 
+	 * @return SWLChangeSet
+	 */
+	public function removeNonCoveredChanges( SWLChangeSet &$changes ) {
+		$changes->filterOnProperties( $this->getProperties() );
+	}
+	
+	/**
 	 * Gets all the watching users and passes them, together with the specified
 	 * changes and the group object itself, to the SWLGroupNotify hook.
 	 * 
@@ -431,7 +444,11 @@ class SWLGroup {
 	public function notifyWatchingUsers( SWLChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
 		
-		wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
+		$this->removeNonCoveredChanges( $changes );
+		
+		if ( $changes->hasChanges( true ) ) {
+			wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
+		}
 	}
 	
 }

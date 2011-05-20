@@ -363,4 +363,19 @@ class SWLChangeSet {
 		return $this->time;
 	}
 	
+	/**
+	 * Remove changes to properties not in the porvided list.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $properties List of property names
+	 */
+	public function filterOnProperties( array $properties ) {
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+			if ( !in_array( $property->getSerialization(), $properties ) ) {
+				$this->changeSet->removeChangesForProperty( $property );
+			}
+		}
+	}
+	
 }
