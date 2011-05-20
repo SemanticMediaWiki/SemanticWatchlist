@@ -33,7 +33,7 @@ $wgGroupPermissions['autoconfirmed']['semanticwatchgroups'] = false;
 $wgGroupPermissions['bot'          ]['semanticwatchgroups'] = false;
 $wgGroupPermissions['sysop'        ]['semanticwatchgroups'] = true;
 
-# Enable email notification or not?
+# Enable email notification by default or not?
 $egSWLEnableEmailNotify = true;
 
 # Send an email for every change (as opossed to a "something changed email" for the first $egSWLMaxMails changes)?

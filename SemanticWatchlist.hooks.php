@@ -56,7 +56,7 @@ final class SWLHooks {
     	foreach ( $userIDs as $userID ) {
     		$user = User::newFromId( $userID );
     		
-    		if ( Sanitizer::validateEmail( $user->getEmail() ) ) {
+    		if ( $user->getOption( 'swl_email', false ) && Sanitizer::validateEmail( $user->getEmail() ) ) {
 				$lastNotify = $user->getOption( 'swl_last_notify' );
 				$lastWatch = $user->getOption( 'swl_last_watch' );
     		
@@ -93,6 +93,7 @@ final class SWLHooks {
 			'type' => 'toggle',
 			'label-message' => 'swl-prefs-emailnofity',
 			'section' => 'swl/swlnotification',
+			'default' => $GLOBALS['egSWLEnableEmailNotify']
 		);		
 		
 		foreach ( $groups as /* SWLGroup */ $group ) {
