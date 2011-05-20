@@ -121,7 +121,8 @@
 		this.append(
 			$( '<input />' ).attr( {
 				'type': 'button',
-				'value': mediaWiki.msg( 'swl-group-save' )
+				'value': mediaWiki.msg( 'swl-group-save' ),
+				'class': 'swl-save'
 			} ).click( function() {
 				this.disabled = true;
 				var button = this;

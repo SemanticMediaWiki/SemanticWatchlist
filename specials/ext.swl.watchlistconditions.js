@@ -33,4 +33,8 @@
 		);
 	});
 	
+	$( '#swl-save-all' ).click( function() {
+		$( '.swl-save' ).click();
+	} );
+	
 } ); })(jQuery);
