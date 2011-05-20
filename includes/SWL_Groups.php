@@ -110,23 +110,5 @@ final class SWLGroups {
             }
         }
     }
-
-    /**
-     * Determines and returns if a certain user should be notified of changes
-     * or not (in case this already happened, so this extension doesn't spam).
-     *
-     * @since 0.1
-     *
-     * @param integer $userId
-     *
-     * @return boolean
-     */
-    protected static function userShouldBeNotified( $userId ) {
-
-    }
-
-    protected static function notifyUserOfChangesToGroup( $userId, $group, SMWSemanticData $data ) {
-
-    }	
 	
 }

@@ -13,18 +13,70 @@
  */
 class SWLGroup {
 
+	/**
+	 * The ID of the group; the group_id field in swl_groups.
+	 * When creating a new group, this will be null, and
+	 * automatically set after writing the group to the DB.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var integer or null
+	 */
 	protected $id;
 	
+	/**
+	 * Name of the group.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var string
+	 */
 	protected $name;
 	
+	/**
+	 * List of categories this group covers.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var array of string
+	 */
 	protected $categories;
 	
+	/**
+	 * List of namespaces IDs of namespaces this group covers.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var array of integer
+	 */
 	protected $namespaces = array();
 	
+	/**
+	 * List of SMW properties this group covers.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var array of string
+	 */
 	protected $properties;
 	
+	/**
+	 * List of SMW concepts this group covers.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var array of string
+	 */
 	protected $concepts;
 	
+	/**
+	 * Cached list of IDs of users that are watching this group,
+	 * or false if this data has not been obtained yet.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @var array of integer or false
+	 */
 	protected $watchingUsers = false;
 	
 	/**
@@ -52,7 +104,7 @@ class SWLGroup {
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param integer $id Can be null for new groups
+	 * @param integer $id Set to null when creating a new group.
 	 * @param string $name
 	 * @param array $categories List of category names
 	 * @param array $namespaces List of namespace names or IDs

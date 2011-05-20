@@ -120,7 +120,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 	}
 	
 	/**
-	 * 
+	 * Creates and returns the HTML for a single watchlist group.
 	 * 
 	 * @since 0.1
 	 * 
