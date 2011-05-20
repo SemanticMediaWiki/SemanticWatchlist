@@ -39,6 +39,8 @@ $messages['en'] = array(
 	'swl-group-concept' => 'concept',
 	'swl-group-confirmdelete' => 'Are you sure you want to delete the "$1" watchlist group?',
 	'swl-group-save-all' => 'Save all',
+	'swl-group-add-new-group' => 'Add a new group',
+	'swl-group-add-group' => 'Add group',
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",

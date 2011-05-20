@@ -17,9 +17,7 @@
 		return element.attr( attribute ).split( separator );
 	}
 	
-	$( '.swl_group' ).each(function( index, domElement ) {
-		var element = $( domElement );
-		
+	function initGroupElement( element ) {
 		element.watchlistcondition(
 			{
 				name: element.attr( 'groupname' ),
@@ -30,11 +28,75 @@
 				concepts: getSplitAttrValue( element, 'concepts', '|' )
 			},
 			{}
-		);
+		);		
+	}
+	
+	$( '.swl_group' ).each(function( index, domElement ) {
+		initGroupElement( $( domElement ) );
 	});
 	
 	$( '#swl-save-all' ).click( function() {
 		$( '.swl-save' ).click();
+	} );
+	
+	function addGroupToDB( groupName, callback ) {
+		$.getJSON(
+			wgScriptPath + '/api.php',
+			{
+				'action': 'addswlgroup',
+				'format': 'json',
+				'name': groupName,
+				'properties': ''
+			},
+			function( data ) {
+				callback( data.success, data.group );
+			}
+		);
+	}
+	
+	function addGroupToGUI( groupName, groupId ) {
+		var newGroup = $( '<fieldset />' ).attr( {
+			'id': 'swl_group_' + groupId,
+			'groupid': groupId,
+			'class': 'swl_group',
+			'groupname': groupName,
+			'categories': '',
+			'namespaces': '',
+			'properties': '',
+			'concepts': ''
+		} )
+		.html( $( '<legend />' ).text( groupName ) );
+		
+		$( '#swl-groups' ).append( newGroup );
+		
+		initGroupElement( newGroup );
+	}
+	
+	$( '#swl-add-group-button' ).click( function() {
+		var input = $( '#swl-add-group-name' );
+		var button = this;
+		
+		button.disabled = true;
+		input.disabled = true;
+		
+		addGroupToDB( input.val(), function( success, group ) {
+			if ( success ) {
+				addGroupToGUI( group.name, group.id );
+				input.val( '' );
+			}
+			else {
+				alert( 'Could not add the group.' );
+			}
+			
+			button.disabled = false;
+			input.disabled = false;
+		} );
+	} );
+	
+	$( '#swl-add-group-name' ).keypress( function( event ) {
+		if ( event.which == '13' ) {
+			$( '#swl-add-group-button' ).click();
+		}
 	} );
 	
 } ); })(jQuery);

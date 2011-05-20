@@ -70,7 +70,44 @@ class SpecialWatchlistConditions extends SpecialPage {
 			$groupsHtml[] = $this->getGroupHtml( $group );
 		}
 		
-		$wgOut->addHTML( implode( '', $groupsHtml ) );
+		$wgOut->addHTML(
+			'<div id="swl-groups">' .
+				implode( '', $groupsHtml ) .
+			'</div>'
+		);
+		
+		$wgOut->addHTML( Html::rawElement(
+			'fieldset',
+			array(
+			
+			),
+			Html::element(
+				'legend',
+				array(),
+				wfMsg( 'swl-group-add-new-group' )
+			) .
+			Html::element(
+				'span',
+				array(),
+				wfMsg( 'swl-group-name' )
+			) . '&nbsp;' .
+			Html::element(
+				'input',
+				array(
+					'type' => 'text',
+					'value' => '',
+					'id' => 'swl-add-group-name'
+				)
+			) . '&nbsp;' .
+			Html::element(
+				'input',
+				array(
+					'type' => 'button',
+					'value' => wfMsg( 'swl-group-add-group' ),
+					'id' => 'swl-add-group-button'
+				)
+			)
+		) );
 		
 		$wgOut->addHTML( Html::element(
 			'input',

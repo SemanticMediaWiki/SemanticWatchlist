@@ -153,7 +153,7 @@
 					
 					self.doDelete( function( success ) {
 						if ( success ) {
-							self.slideUp( 'fast' );
+							self.slideUp( 'fast', function() { self.remove(); } );
 						}
 						else {
 							alert( 'Could not delete the watchlist group.' );

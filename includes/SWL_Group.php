@@ -75,7 +75,7 @@ class SWLGroup {
 	protected function insertIntoDB() {
 		$dbr = wfGetDB( DB_MASTER );
 		
-		$dbr->insert(
+		$result = $dbr->insert(
 			'swl_groups',
 			array(
 				'group_name' => $this->name,
@@ -85,6 +85,10 @@ class SWLGroup {
 				'group_concepts' => $this->concepts,
 			)
 		);
+		
+		$this->id = $dbr->insertId();
+		
+		return $result;
 	}
 	
 	/**
