@@ -16,14 +16,44 @@
 		
 		var table = $( '<table />' ).attr( { 'class': 'swltable' } );
 		
-		var propTd = $( '<td />' ).attr( {
+		propTd = $( '<td />' ).attr( {
 			'rowspan': 2
 		} );
 		
-		propTd.html( mediaWiki.msg( 'swl-group-properties' ) );
+		this.propsDiv = $( '<div />' );
+		
+		var addPropInput = $( '<input />' ).attr( {
+			'type': 'text',
+			'value': '',
+			'size': 30,
+			'class': 'swl-group-add-prop'
+		} );
+		
+		var addButton = $( '<input />' ).attr( {
+			'type': 'button',
+			'value': mediaWiki.msg( 'swl-group-add-property' )
+		} ).click( function() {
+			var propName = addPropInput.val();
+			
+			if ( propName.trim() != '' ) {
+				self.addPropertyDiv( propName );
+				addPropInput.val( '' );
+				addPropInput.focus();
+			}
+		} );
+		
+		addPropInput.keypress( function( event ) {
+			if ( event.which == '13' ) {
+				addButton.click();
+			}
+		} );
+		
+		propTd.html( mediaWiki.msg( 'swl-group-properties' ) )
+			.append( this.propsDiv )
+			.append( $( '<div />' ).html( addPropInput ).append( '&nbsp;' ).append( addButton ) );
 		
 		for ( i in group.properties ) {
-			propTd.append( this.getPropertyDiv( group.properties[i] ) );
+			this.addPropertyDiv( group.properties[i] );
 		}
 		
 		this.nameInput = $( '<input />' ).attr( {
@@ -134,7 +164,7 @@
 		);
 	}
 	
-	this.getPropertyDiv = function( property ) {
+	this.addPropertyDiv = function( property ) {
 		var propDiv = $( '<div />' ).attr( 'class', 'propid' );
 		
 		var propInput = $( '<input />' ).attr( {
@@ -146,14 +176,14 @@
 		
 		var removeButton = $( '<input />' ).attr( {
 			'type': 'button',
-			value: mediaWiki.msg( 'swl-group-remove-property' )
+			'value': mediaWiki.msg( 'swl-group-remove-property' )
 		} );
 		
 		removeButton.click( function() {
 			propDiv.remove();
 		} );
 		
-		return propDiv.html( propInput ).append( '&nbsp;' ).append( removeButton );
+		this.propsDiv.append( propDiv.html( propInput ).append( '&nbsp;' ).append( removeButton ) );
 	}
 	
 	this.getProperties = function() {

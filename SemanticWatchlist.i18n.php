@@ -30,6 +30,7 @@ $messages['en'] = array(
 	'swl-group-name' => 'Group name:',
 	'swl-group-properties' => 'Properties covered by this group:',
 	'swl-group-remove-property' => 'Remove property',
+	'swl-group-add-property' => 'Add property',
 	'swl-group-page-selection' => 'Pages in',
 	'swl-group-save' => 'Save',
 	'swl-group-delete' => 'Delete',
