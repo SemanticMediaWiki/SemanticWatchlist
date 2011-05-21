@@ -91,7 +91,7 @@ final class SWLEmailer {
 		$deletions = array();
 		
 		// Convert the changes into a list of insertions and a list of deletions.
-		foreach ( $changes as /* SMWPropertyChange */ $change ) {
+		foreach ( $changes as /* SWLPropertyChange */ $change ) {
 			if ( !is_null( $change->getOldValue() ) ) {
 				$deletions[] = SMWDataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getShortHTMLText();
 			}

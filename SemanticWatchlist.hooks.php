@@ -24,8 +24,8 @@ final class SWLHooks {
      * 
      * @return true
      */
-	public static function onDataChanged( SMWStore $store, SMWChangeSet $changes ) {
-		$changes = new SWLChangeSet( $changes );
+	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
+		$changes = SWLChangeSet::newFromSemanticData( $store->getSemanticData( $newData->getSubject() ), $newData );
 		$groups = SWLGroups::getMatchingWatchGroups( $changes->getTitle() );
 		
 		$wasInserted = $changes->writeToStore( $groups ) != 0;
@@ -208,6 +208,12 @@ final class SWLHooks {
 			$updater->addExtensionUpdate( array(
                 'addTable',
                 'swl_sets',
+                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
+                true
+            ) );
+			$updater->addExtensionUpdate( array(
+                'addTable',
+                'swl_edits_per_group',
                 dirname( __FILE__ ) . '/SemanticWatchlist.sql',
                 true
             ) );

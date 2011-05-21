@@ -66,6 +66,8 @@ $wgAutoloadClasses['SWLChangeSet']		  			= dirname( __FILE__ ) . '/includes/SWL_
 $wgAutoloadClasses['SWLEmailer']		  			= dirname( __FILE__ ) . '/includes/SWL_Emailer.php';
 $wgAutoloadClasses['SWLGroup']		  				= dirname( __FILE__ ) . '/includes/SWL_Group.php';
 $wgAutoloadClasses['SWLGroups']		  				= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
+$wgAutoloadClasses['SWLPropertyChange']		  		= dirname( __FILE__ ) . '/includes/SWL_PropertyChange.php';
+$wgAutoloadClasses['SWLPropertyChanges']		  	= dirname( __FILE__ ) . '/includes/SWL_PropertyChanges.php';
 
 $wgAutoloadClasses['SpecialSemanticWatchlist']	  	= dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
 $wgAutoloadClasses['SpecialWatchlistConditions']	= dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
@@ -83,7 +85,7 @@ $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 
-$wgHooks['SMWStore::dataChanged'][] = 'SWLHooks::onDataChanged';
+$wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 

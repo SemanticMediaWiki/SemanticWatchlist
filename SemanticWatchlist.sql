@@ -38,6 +38,13 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets (
   set_time                 CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
 ) /*$wgDBTableOptions*/;
 
+-- Links edits to watchlist groups.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits_per_group (
+  epg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
+  epg_edit_id              INT(10) unsigned    NOT NULL, -- Edit ID
+  PRIMARY KEY  (epg_group_id,epg_edit_id)
+) /*$wgDBTableOptions*/;
+
 -- Links change sets to watchlist groups.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets_per_group (
   spg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id

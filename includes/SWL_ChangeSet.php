@@ -15,14 +15,32 @@
 class SWLChangeSet {
 	
 	/**
-	 * Base object to which calls to unknown methods get routed via __call.
-	 * This is to emulate SWLChangSet deriving from SMWChangeSet, but at the
-	 * same time makes it possible to go from the SMW version to the SWL version
-	 * by passing the former to the constructor of the later.
+	 * The subject the changes apply to.
 	 * 
-	 * @var SMWChangeSet
+	 * @var SMWDIWikiPage
 	 */
-	protected $changeSet;
+	protected $subject;
+	
+	/**
+	 * Object holding semantic data that got inserted.
+	 * 
+	 * @var SMWSemanticData
+	 */
+	protected $insertions;
+	
+	/**
+	 * Object holding semantic data that got deleted.
+	 * 
+	 * @var SMWSemanticData
+	 */	
+	protected $deletions;
+	
+	/**
+	 * List of all changes(, not including insertions and deletions).
+	 * 
+	 * @var SWLPropertyChanges
+	 */
+	protected $changes;
 	
 	/**
 	 * The user that made the changes.
@@ -90,7 +108,7 @@ class SWLChangeSet {
 			
 			$changeSet->addChange(
 				$property,
-				SMWPropertyChange::newFromSerialization( $property, $change->change_old_value, $change->change_new_value )
+				SWLPropertyChange::newFromSerialization( $property, $change->change_old_value, $change->change_new_value )
 			);
 		}	
 		
@@ -125,7 +143,7 @@ class SWLChangeSet {
 			foreach ( $changes as $change ) {
 				$changeSet->addChange(
 					$property,
-					SMWPropertyChange::newFromSerialization(
+					SWLPropertyChange::newFromSerialization(
 						$property,
 						array_key_exists( 'old', $change ) ? $change['old'] : null,
 						array_key_exists( 'new', $change ) ? $change['new'] : null
@@ -145,33 +163,252 @@ class SWLChangeSet {
 	}
 	
 	/**
-	 * Constructor.
+	 * Creates and returns a new SMWChangeSet from 2 SMWSemanticData objects.
 	 * 
-	 * @since 0.1
+	 * @param SMWSemanticData $old
+	 * @param SMWSemanticData $new
 	 * 
-	 * @param SMWChangeSet $changeSet
-	 * @param User $user
-	 * @param integer $time
-	 * @param integer $id
+	 * @return SMWChangeSet
 	 */
-	public function __construct( SMWChangeSet $changeSet, /* User */ $user = null, $time = null, $id = null ) {
-		$this->changeSet = $changeSet;
+	public static function newFromSemanticData( SMWSemanticData $old, SMWSemanticData $new ) {
+		$subject = $old->getSubject();
+		
+		if ( $subject != $new->getSubject() ) {
+			return new self( $subject );
+		}
+		
+		$changes = new SWLPropertyChanges();
+		$insertions = new SMWSemanticData( $subject );
+		$deletions = new SMWSemanticData( $subject );
+		
+		$oldProperties = $old->getProperties();
+		$newProperties = $new->getProperties();
+		
+		// Find the deletions.
+		self::findSingleDirectionChanges( $deletions, $oldProperties, $old, $newProperties );
+		
+		// Find the insertions.
+		self::findSingleDirectionChanges( $insertions, $newProperties, $new, $oldProperties );
+		
+		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
+			$oldDataItems = array();
+			$newDataItems = array();
+			
+			// Populate the data item arrays using keys that are their hash, so matches can be found.
+			// Note: this code assumes there are no duplicates.
+			foreach ( $old->getPropertyValues( $diProperty ) as /* SMWDataItem */ $dataItem ) {
+				$oldDataItems[$dataItem->getHash()] = $dataItem;
+			}
+			foreach ( $new->getPropertyValues( $diProperty ) as /* SMWDataItem */ $dataItem ) {
+				$newDataItems[$dataItem->getHash()] = $dataItem;
+			}			
+			
+			$foundMatches = array();
+			
+			// Find values that are both in the old and new version.
+			foreach ( array_keys( $oldDataItems ) as $hash ) {
+				if ( array_key_exists( $hash, $newDataItems ) ) {
+					$foundMatches[] = $hash;
+				}
+			}
+			
+			// Remove the values occuring in both sets, so only changes remain.
+			foreach ( $foundMatches as $foundMatch ) {
+				unset( $oldDataItems[$foundMatch] );
+				unset( $newDataItems[$foundMatch] );
+			}
+			
+			// Find which group is biggest, so it's easy to loop over all values of the smallest.
+			$oldIsBigger = count( $oldDataItems ) > count ( $newDataItems );
+			$bigGroup = $oldIsBigger ? $oldDataItems : $newDataItems;
+			$smallGroup = $oldIsBigger ? $newDataItems : $oldDataItems;
+			
+			// Add all one-to-one changes.
+			while ( $dataItem = array_shift( $smallGroup ) ) {
+				$changes->addPropertyObjectChange( $diProperty, new SWLPropertyChange( $dataItem, array_shift( $bigGroup ) ) );
+			}
+			
+			// If the bigger group is not-equal to the smaller one, items will be left,
+			// that are either insertions or deletions, depending on the group.
+			if ( count( $bigGroup > 0 ) ) {
+				$semanticData = $oldIsBigger ? $deletions : $insertions;
+				
+				foreach ( $bigGroup as /* SMWDataItem */ $dataItem ) {
+					$semanticData->addPropertyObjectValue( $diProperty, $dataItem );
+				}				
+			}
+		}
+		
+		return new self( $subject, $changes, $insertions, $deletions );
+	}
+	
+	/**
+	 * Finds the inserts or deletions and adds them to the passed SMWSemanticData object.
+	 * These values will also be removed from the first list of properties and their values,
+	 * so it can be used for one-to-one change finding later on.  
+	 * 
+	 * @param SMWSemanticData $changeSet
+	 * @param array $oldProperties
+	 * @param SMWSemanticData $oldData
+	 * @param array $newProperties
+	 */
+	protected static function findSingleDirectionChanges( SMWSemanticData &$changeSet,
+		array &$oldProperties, SMWSemanticData $oldData, array $newProperties ) {
+			
+		$deletionKeys = array();
+		
+		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
+			if ( !array_key_exists( $propertyKey, $newProperties ) ) {
+				foreach ( $oldData->getPropertyValues( $diProperty ) as /* SMWDataItem */ $dataItem ) {
+					$changeSet->addPropertyObjectValue( $diProperty, $dataItem );
+				}
+				$deletionKeys[] = $propertyKey;
+			}
+		}
+		
+		foreach ( $deletionKeys as $key ) {
+			unset( $oldProperties[$propertyKey] );
+		}
+	}
+	
+	/**
+	 * Create a new instance of a change set.
+	 * 
+	 * @param SMWDIWikiPage $subject
+	 * @param SWLPropertyChanges $changes Can be null
+	 * @param SMWSemanticData $insertions Can be null
+	 * @param SMWSemanticData $deletions Can be null
+	 */
+	public function __construct( SMWDIWikiPage $subject, /* SWLPropertyChanges */ $changes = null,
+		/* SMWSemanticData */ $insertions = null, /* SMWSemanticData */ $deletions = null,
+		/* User */ $user = null, $time = null, $id = null ) {
+	
+		$this->subject = $subject;
+		$this->changes = is_null( $changes ) ? new SWLPropertyChanges() : $changes;
+		$this->insertions = is_null( $insertions ) ? new SMWSemanticData( $subject ): $insertions;
+		$this->deletions = is_null( $deletions ) ? new SMWSemanticData( $subject ): $deletions;
+		
 		$this->time = is_null( $time ) ? wfTimestampNow() : $time;
 		$this->user = is_null( $user ) ? $GLOBALS['wgUser'] : $user;
 		$this->id = $id;
 	}
 	
 	/**
-	 * SMW thinks this class is a SMWResultPrinter, and calls methods that should
-	 * be forewarded to $this->queryPrinter on it.
+	 * Returns whether the set contains any changes.
 	 * 
-	 * @since 0.1
+	 * @param boolean $refresh
 	 * 
-	 * @param string $name
-	 * @param array $arguments
+	 * @return boolean
 	 */
-	public function __call( $name, array $arguments ) {
-		return call_user_func_array( array( $this->changeSet, $name ), $arguments );
+	public function hasChanges( $refresh = false ) {
+		return $this->changes->hasChanges()
+			|| $this->insertions->hasVisibleProperties( $refresh )
+			|| $this->deletions->hasVisibleProperties( $refresh );
+	}
+	
+	/**
+	 * Returns a SMWSemanticData object holding all inserted SMWDataItem objects.
+	 * 
+	 * @return SMWSemanticData
+	 */
+	public function getInsertions() {
+		return $this->insertions;
+	}
+	
+	/**
+	 * Returns a SMWSemanticData object holding all deleted SMWDataItem objects.
+	 * 
+	 * @return SMWSemanticData
+	 */
+	public function getDeletions() {
+		return $this->deletions;
+	}
+	
+	/**
+	 * Returns a SWLPropertyChanges object holding all SWLPropertyChange objects.
+	 * 
+	 * @return SWLPropertyChanges
+	 */	
+	public function getChanges() {
+		return $this->changes;
+	}
+	
+	/**
+	 * Returns the subject these changes apply to.
+	 * 
+	 * @return SMWDIWikiPage
+	 */
+	public function getSubject() {
+		return $this->subject;		
+	}
+	
+	/**
+	 * Adds a SWLPropertyChange to the set for the specified SMWDIProperty.
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param SWLPropertyChange $change
+	 */
+	public function addChange( SMWDIProperty $property, SWLPropertyChange $change ) {
+		switch ( $change->getType() ) {
+			case SWLPropertyChange::TYPE_UPDATE:
+				$this->changes->addPropertyObjectChange( $property, $change );
+				break;
+			case SWLPropertyChange::TYPE_INSERT:
+				$this->insertions->addPropertyObjectValue( $property, $change->getNewValue() );
+				break;
+			case SWLPropertyChange::TYPE_DELETE:
+				$this->deletions->addPropertyObjectValue( $property, $change->getOldValue() );
+				break;
+		}
+	}
+	
+	/**
+	 * Returns a list of all properties.
+	 * 
+	 * @return array of SMWDIProperty
+	 */
+	public function getAllProperties() {
+		return array_merge(
+			$this->getChanges()->getProperties(),
+			$this->getInsertions()->getProperties(),
+			$this->getDeletions()->getProperties()
+		);
+	}
+	
+	/**
+	 * Removes all changes for a certian property.
+	 * 
+	 * @param SMWDIProperty $property
+	 */
+	public function removeChangesForProperty( SMWDIProperty $property ) {
+		$this->getChanges()->removeChangesForProperty( $property );
+		$this->getInsertions()->removeDataForProperty( $property );
+		$this->getDeletions()->removeDataForProperty( $property );
+	}
+	
+	/**
+	 * Returns a list of ALL changes, including isertions and deletions.
+	 * 
+	 * @param SMWDIProperty $proprety
+	 * 
+	 * @return array of SWLPropertyChange
+	 */
+	public function getAllPropertyChanges( SMWDIProperty $property ) {
+		$changes = array();
+		
+		foreach ( $this->changes->getPropertyChanges( $property ) as /* SWLPropertyChange */ $change ) {
+			$changes[] = $change;
+		}
+		
+		foreach ( $this->insertions->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+			$changes[] = new SWLPropertyChange( null, $dataItem );
+		}
+
+		foreach ( $this->deletions->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+			$changes[] = new SWLPropertyChange( $dataItem, null );
+		}			
+		
+		return $changes;
 	}
 	
 	/**
@@ -191,10 +428,10 @@ class SWLChangeSet {
  			'changes' => array()
 		);
 		
-		foreach ( $this->changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
 			$propChanges = array();
 			
-			foreach ( $this->changeSet->getAllPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
+			foreach ( $this->getAllPropertyChanges( $property ) as /* SWLPropertyChange */ $change ) {
 				$propChange = array();
 				
 				if ( is_object( $change->getOldValue() ) ) {
@@ -256,7 +493,7 @@ class SWLChangeSet {
 			if ( $property->isUserDefined() ) {
 				$propSerialization = $property->getSerialization();
 			
-				foreach ( $this->getChanges()->getPropertyChanges( $property ) as /* SMWPropertyChange */ $change ) {
+				foreach ( $this->getChanges()->getPropertyChanges( $property ) as /* SWLPropertyChange */ $change ) {
 					$changes[] = array(
 						'property' => $propSerialization,
 						'old' => $change->getOldValue()->getSerialization(),
@@ -371,9 +608,10 @@ class SWLChangeSet {
 	 * @param array $properties List of property names
 	 */
 	public function filterOnProperties( array $properties ) {
+		// TODO
 		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
 			if ( !in_array( $property->getSerialization(), $properties ) ) {
-				$this->changeSet->removeChangesForProperty( $property );
+				//$this->changeSet->removeChangesForProperty( $property );
 			}
 		}
 	}

@@ -338,7 +338,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * Returns the HTML for the changes to a single propety.
 	 * 
 	 * @param SMWDIProperty $property
-	 * @param array of SMWPropertyChange $changes
+	 * @param array of SWLPropertyChange $changes
 	 * 
 	 * @return string
 	 */
@@ -347,7 +347,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$deletions = array();
 		
 		// Convert the changes into a list of insertions and a list of deletions.
-		foreach ( $changes as /* SMWPropertyChange */ $change ) {
+		foreach ( $changes as /* SWLPropertyChange */ $change ) {
 			if ( !is_null( $change->getOldValue() ) ) {
 				$deletions[] = SMWDataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getLongHTMLText();
 			}
