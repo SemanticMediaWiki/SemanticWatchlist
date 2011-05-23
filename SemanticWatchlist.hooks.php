@@ -25,8 +25,8 @@ final class SWLHooks {
      * @return true
      */
 	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
-		$changes = SWLChangeSet::newFromSemanticData( $store->getSemanticData( $newData->getSubject() ), $newData );
-		$groups = SWLGroups::getMatchingWatchGroups( $changes->getTitle() );
+		$changeSet = SWLChangeSet::newFromSemanticData( $store->getSemanticData( $newData->getSubject() ), $newData );
+		$groups = SWLGroups::getMatchingWatchGroups( $changeSet->getTitle() );
 		
 		$wasInserted = $changes->writeToStore( $groups ) != 0;
 		

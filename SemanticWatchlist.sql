@@ -30,19 +30,19 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
   change_new_value         BLOB                NULL -- The new value of the property (null for a deletion)
 ) /*$wgDBTableOptions*/;
 
--- Sets of changes, as in the set you get when editing a page.
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets (
-  set_id                   SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
-  set_user_name            VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
-  set_page_id              INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
-  set_time                 CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
+-- Individual edits to pages.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits (
+  edit_id                  SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  edit_user_name           VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
+  edit_page_id             INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
+  edit_time                CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
 ) /*$wgDBTableOptions*/;
 
--- Links edits to watchlist groups.
-CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits_per_group (
-  epg_group_id             SMALLINT unsigned   NOT NULL, -- Foreign key: swl_groups.group_id
-  epg_edit_id              INT(10) unsigned    NOT NULL, -- Edit ID
-  PRIMARY KEY  (epg_group_id,epg_edit_id)
+-- Links change sets their edits.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets_per_edit (
+  spe_set_id               SMALLINT unsigned   NOT NULL, -- Foreign key: swl_sets.set_id
+  spe_edit_id              INT(10) unsigned    NOT NULL, -- Edit ID
+  PRIMARY KEY  (spe_set_id,spe_edit_id)
 ) /*$wgDBTableOptions*/;
 
 -- Links change sets to watchlist groups.
