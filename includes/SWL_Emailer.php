@@ -51,8 +51,12 @@ final class SWLEmailer {
     	
     	//echo $emailText;exit;
     	
+    	$title = wfMsgReal( 'swl-email-propschanged', array(), true, $user->getOption( 'language' ) );
+    	
+    	wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
+    	
     	return $user->sendMail(
-    		wfMsgReal( 'swl-email-propschanged', array(), true, $user->getOption( 'language' ) ),
+    		$title,
     		$emailText
     	);
     }
