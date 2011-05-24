@@ -502,7 +502,7 @@ class SWLChangeSet {
 		
 		$dbw->insert(
 			'swl_sets',
-			array()
+			array( 'set_id' => null )
 		);
 		
 		$id = $dbw->insertId();

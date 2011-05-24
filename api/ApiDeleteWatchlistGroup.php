@@ -55,6 +55,14 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		
 		$dbr = wfGetDB( DB_SLAVE );
 		
+		$setsForGroup = $dbr->select(
+			'swl_sets_per_group',
+			array( 'spg_set_id' ),
+			array(
+				'spg_group_id' => $groupId,
+			)
+		);
+		
 		// Find all edits linked to this group.
 		$editsForGroup = $dbr->select(
 			array( 'swl_sets_per_group', 'swl_sets_per_edit' ),
@@ -105,6 +113,13 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 			$dbw->delete(
 				'swl_sets_per_edit',
 				array( 'spe_edit_id' => $editId )
+			);
+		}
+		
+		foreach ( $setsForGroup as $set ) {
+			$dbw->delete(
+				'swl_sets',
+				array( 'set_id' => $set->spg_set_id )
 			);
 		}
 		
