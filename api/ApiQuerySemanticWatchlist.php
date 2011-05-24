@@ -65,18 +65,20 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 	 * @param string $continue
 	 */
 	protected function setupChangeSetQuery( $userId, $limit, $continue ) {
-		$this->addTables( array( 'swl_sets', 'swl_sets_per_group', 'swl_users_per_group' ) );
+		$this->addTables( array( 'swl_edits', 'swl_sets_per_edit', 'swl_sets_per_group', 'swl_users_per_group' ) );
 
 		$this->addJoinConds( array(
-			'swl_sets_per_group' => array( 'INNER JOIN', array( 'set_id=spg_set_id' ) ),
+			'swl_sets_per_edit' => array( 'INNER JOIN', array( 'edit_id=spe_edit_id' ) ),
+			'swl_sets_per_group' => array( 'INNER JOIN', array( 'spe_set_id=spg_set_id' ) ),
 			'swl_users_per_group' => array( 'INNER JOIN', array( 'spg_group_id=upg_group_id' ) ),
-		) );		
+		) );
 		
 		$this->addFields( array(
-        	'set_id',
-        	'set_user_name',
-        	'set_page_id',
-        	'set_time',
+        	'spe_set_id',
+        	'edit_user_name',
+        	'edit_page_id',
+        	'edit_time',
+			'edit_id'
 		) );
 		
 		$this->addWhere( array(
@@ -85,15 +87,15 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 		
 		$this->addOption( 'DISTINCT' );
 		$this->addOption( 'LIMIT', $limit + 1 );
-		$this->addOption( 'ORDER BY', 'set_time DESC, set_id DESC' );
+		$this->addOption( 'ORDER BY', 'edit_time DESC, spe_set_id DESC' );
 		
 		if ( !is_null( $continue ) ) {
 			$continueParams = explode( '-', $continue );
 			
 			if ( count( $continueParams ) == 2 ) {
 				$dbr = wfGetDB( DB_SLAVE );
-				$this->addWhere( 'set_time <= ' . $dbr->addQuotes( $continueParams[0] ) );
-				$this->addWhere( 'set_id <= ' . $dbr->addQuotes( $continueParams[1] ) );					
+				$this->addWhere( 'edit_time <= ' . $dbr->addQuotes( $continueParams[0] ) );
+				$this->addWhere( 'spe_set_id <= ' . $dbr->addQuotes( $continueParams[1] ) );					
 			}
 			else {
 				// TODO: error

@@ -25,17 +25,36 @@ final class SWLHooks {
      * @return true
      */
 	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
-		$changeSet = SWLChangeSet::newFromSemanticData( $store->getSemanticData( $newData->getSubject() ), $newData );
-		$groups = SWLGroups::getMatchingWatchGroups( $changeSet->getTitle() );
+		$subject = $newData->getSubject();
+		$oldData = $store->getSemanticData( $subject );
+		$title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
 		
-		$wasInserted = $changes->writeToStore( $groups ) != 0;
+		$groups = SWLGroups::getMatchingWatchGroups( $title );
 		
-		if ( $wasInserted ) {
-	        foreach ( $groups as /* SWLGroup */ $group ) {
-        		$group->notifyWatchingUsers( $changes );
-    		}			
+		$edit = false;
+		
+		foreach ( $groups as /* SWLGroup */ $group ) {
+			$changeSet = SWLChangeSet::newFromSemanticData( $oldData, $newData, $group->getProperties() );
+			
+			if ( $changeSet->hasUserDefinedProperties() ) {
+				if ( $edit === false ) {
+					$edit = new SWLEdit(
+						$title->getArticleID(), 
+						$GLOBALS['wgUser'],
+						wfTimestampNow()
+					);
+					
+					$edit->writeToDB();
+				}
+				
+				$setId = $changeSet->writeToStore( $groups, $edit->getId() );
+				
+				if ( $setId != 0 ) {
+					$group->notifyWatchingUsers( $changeSet );
+				}	
+			}
 		}
-
+		
 		return true;
 	}
 

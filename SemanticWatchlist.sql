@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
   group_concepts           BLOB                NOT NULL -- Concept names
 ) /*$wgDBTableOptions*/;
 
--- List of all changes made to properties.
+-- Single value changes to a property.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
   change_id                INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY,
   change_set_id            INT(10) unsigned    NOT NULL, -- Foreign key: swl_sets.set_id
@@ -29,6 +29,11 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits (
   edit_user_name           VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
   edit_page_id             INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
   edit_time                CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
+) /*$wgDBTableOptions*/;
+
+-- Sets of changes. There can be many such sets for one edit, with overlapping changes.
+CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets (
+  set_id                   INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY
 ) /*$wgDBTableOptions*/;
 
 -- Links change sets their edits.

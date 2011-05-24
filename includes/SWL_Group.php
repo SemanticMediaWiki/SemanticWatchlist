@@ -224,7 +224,7 @@ class SWLGroup {
 	}
 
 	/**
-	 * Returns the properties specified by the group.
+	 * Returns the properties specified by the group as strings (serializations of SMWDIProperty).
 	 * 
 	 * @since 0.1
 	 * 
@@ -232,6 +232,23 @@ class SWLGroup {
 	 */
 	public function getProperties() {
 		return $this->properties;
+	}
+	
+	/**
+	 * Returns the properties specified by the group as SMWDIProperty objects.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return array[SMWDIProperty]
+	 */
+	public function getPropertyObjects() {
+		$properties = array();
+		
+		foreach ( $this->properties as $property ) {
+			$properties[] = SMWDIProperty::newFromSerialization( $property );
+		}
+		
+		return $properties;
 	}
 	
 	/**
@@ -421,19 +438,6 @@ class SWLGroup {
 	}
 	
 	/**
-	 * Removethe non covered properties.
-	 * 
-	 * @since 0.1
-	 * 
-	 * @param SWLChangeSet $changes
-	 * 
-	 * @return SWLChangeSet
-	 */
-	public function removeNonCoveredChanges( SWLChangeSet &$changes ) {
-		$changes->filterOnProperties( $this->getProperties() );
-	}
-	
-	/**
 	 * Gets all the watching users and passes them, together with the specified
 	 * changes and the group object itself, to the SWLGroupNotify hook.
 	 * 
@@ -443,8 +447,6 @@ class SWLGroup {
 	 */
 	public function notifyWatchingUsers( SWLChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
-		
-		$this->removeNonCoveredChanges( $changes );
 		
 		if ( $changes->hasChanges( true ) ) {
 			wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );

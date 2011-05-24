@@ -209,7 +209,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$changeSetsHTML = array();
 		
 		foreach ( $sets as $set ) {
-			$dayKey = substr( $set->getTime(), 0, 8 ); // Get the YYYYMMDD part.
+			$dayKey = substr( $set->getEdit()->getTime(), 0, 8 ); // Get the YYYYMMDD part.
 			
 			if ( !array_key_exists( $dayKey, $changeSetsHTML ) ) {
 				$changeSetsHTML[$dayKey] = array();
@@ -278,46 +278,48 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
 		global $wgLang;
 		
+		$edit = $changeSet->getEdit();
+		
 		$html = '';
 		
 		$html .= '<li>';
 		
 		$html .= 
 			'<p>' .
-				$wgLang->time( $changeSet->getTime(), true ) . ' ' .
+				$wgLang->time( $edit->getTime(), true ) . ' ' .
 				Html::element(
 					'a',
-					array( 'href' => $changeSet->getTitle()->getLocalURL() ),
-					$changeSet->getTitle()->getText()
+					array( 'href' => $edit->getTitle()->getLocalURL() ),
+					$edit->getTitle()->getText()
 				) . ' (' .
 				Html::element(
 					'a',
-					array( 'href' => $changeSet->getTitle()->getLocalURL( 'action=history' ) ),
+					array( 'href' => $edit->getTitle()->getLocalURL( 'action=history' ) ),
 					wfMsg( 'hist' )
 				) . ') . . ' .
 				Html::element(
 					'a',
-					array( 'href' => $changeSet->getUser()->getUserPage()->getLocalURL() ),
-					$changeSet->getUser()->getName()
+					array( 'href' => $edit->getUser()->getUserPage()->getLocalURL() ),
+					$edit->getUser()->getName()
 				) . ' (' .
 				Html::element(
 					'a',
-					array( 'href' => $changeSet->getUser()->getTalkPage()->getLocalURL() ),
+					array( 'href' => $edit->getUser()->getTalkPage()->getLocalURL() ),
 					wfMsg( 'talkpagelinktext' )
 				) . ' | ' .
-				( $changeSet->getUser()->isAnon() ? '' :
+				( $edit->getUser()->isAnon() ? '' :
 					Html::element(
 						'a',
-						array( 'href' => SpecialPage::getTitleFor( 'Contributions', $changeSet->getUser()->getName() )->getLocalURL() ),
+						array( 'href' => SpecialPage::getTitleFor( 'Contributions', $edit->getUser()->getName() )->getLocalURL() ),
 						wfMsg( 'contribslink' )						
 					) . ' | '
 				) .
 				Html::element(
 					'a',
-					array( 'href' => SpecialPage::getTitleFor( 'Block', $changeSet->getUser()->getName() )->getLocalURL() ),
+					array( 'href' => SpecialPage::getTitleFor( 'Block', $edit->getUser()->getName() )->getLocalURL() ),
 					wfMsg( 'blocklink' )
 				) . ')' .
-				( $changeSet->getTime() > $this->lastViewed ? ' [NEW]' : '' )	.
+				( $edit->getTime() > $this->lastViewed ? ' [NEW]' : '' )	.
 			'</p>'
 		;
 		

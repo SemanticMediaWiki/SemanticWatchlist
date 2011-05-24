@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Wrapper around SMWChangeSet that holds extra info such as user and time,
- * and has methods for (un)serialization and database interaction. 
+ * 
  * 
  * @since 0.1
  * 
@@ -43,20 +42,6 @@ class SWLChangeSet {
 	protected $changes;
 	
 	/**
-	 * The user that made the changes.
-	 * 
-	 * @var User
-	 */
-	protected $user;
-	
-	/**
-	 * The time on which the changes where made.
-	 * 
-	 * @var integer
-	 */
-	protected $time;
-	
-	/**
 	 * DB ID of the change set (swl_sets.set_id).
 	 * 
 	 * @var integer
@@ -74,6 +59,13 @@ class SWLChangeSet {
 	protected $title = false;
 	
 	/**
+	 * The edit this set of changes belongs to.
+	 * 
+	 * @var SWLEdit
+	 */
+	protected $edit;
+	
+	/**
 	 * Creates and returns a new SWLChangeSet instance from a database result
 	 * obtained by doing a select on swl_sets. 
 	 * 
@@ -83,9 +75,19 @@ class SWLChangeSet {
 	 * 
 	 * @return SWLChangeSet
 	 */
-	public static function newFromDBResult( $set ) {		
-		$changeSet = new SMWChangeSet(
-			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->set_page_id ) )
+	public static function newFromDBResult( $set ) {
+		$changeSet = new SWLChangeSet(
+			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->edit_page_id ) ),
+			null,
+			null,
+			null,
+			$set->spe_set_id,
+			new SWLEdit(
+				$set->edit_page_id,
+				$set->edit_user_name,
+				$set->edit_time,
+				$set->edit_id
+			)
 		);
 		
 		$dbr = wfGetDb( DB_SLAVE );
@@ -99,7 +101,7 @@ class SWLChangeSet {
 				'change_new_value'
 			),
 			array(
-				'change_set_id' => $set->set_id
+				'change_set_id' => $set->spe_set_id
 			)
 		);
 		
@@ -111,13 +113,6 @@ class SWLChangeSet {
 				SWLPropertyChange::newFromSerialization( $property, $change->change_old_value, $change->change_new_value )
 			);
 		}	
-		
-		$changeSet = new SWLChangeSet(
-			$changeSet,
-			User::newFromName( $set->set_user_name, false ),
-			$set->set_time,
-			$set->set_id
-		);
 		
 		return $changeSet;
 	}
@@ -133,10 +128,20 @@ class SWLChangeSet {
 	 * @return SWLChangeSet
 	 */
 	public static function newFromArray( array $changeSetArray ) {
-		$changeSet = new SMWChangeSet(
-			SMWDIWikiPage::newFromTitle( Title::newFromID( $changeSetArray['page_id'] ) )
+		$changeSet = new SWLChangeSet(
+			SMWDIWikiPage::newFromTitle( Title::newFromID( $changeSetArray['page_id'] ) ),
+			null,
+			null,
+			null,
+			$changeSetArray['id'],
+			new SWLEdit(
+				$changeSetArray['page_id'],
+				$changeSetArray['user_name'],
+				$changeSetArray['time'],
+				$changeSetArray['editid']
+			)
 		);
-		
+
 		foreach ( $changeSetArray['changes'] as $propName => $changes ) {
 			$property = SMWDIProperty::doUnserialize( $propName, '__pro' );
 
@@ -150,14 +155,7 @@ class SWLChangeSet {
 					)
 				);					
 			}
-		}
-		
-		$changeSet = new SWLChangeSet(
-			$changeSet,
-			User::newFromName( $changeSetArray['user_name'], false ),
-			$changeSetArray['time'],
-			$changeSetArray['id']
-		);		
+		}		
 
 		return $changeSet;
 	}
@@ -167,10 +165,11 @@ class SWLChangeSet {
 	 * 
 	 * @param SMWSemanticData $old
 	 * @param SMWSemanticData $new
+	 * @param array $filterProperties Optional list of properties (string serializations) to filter on. Null for no filtering.
 	 * 
 	 * @return SMWChangeSet
 	 */
-	public static function newFromSemanticData( SMWSemanticData $old, SMWSemanticData $new ) {
+	public static function newFromSemanticData( SMWSemanticData $old, SMWSemanticData $new, array $filterProperties = null ) {
 		$subject = $old->getSubject();
 		
 		if ( $subject != $new->getSubject() ) {
@@ -181,14 +180,26 @@ class SWLChangeSet {
 		$insertions = new SMWSemanticData( $subject );
 		$deletions = new SMWSemanticData( $subject );
 		
-		$oldProperties = $old->getProperties();
-		$newProperties = $new->getProperties();
+		$oldProperties = array();
+		$newProperties = array();
+		
+		foreach ( $old->getProperties() as $property ) {
+			if ( is_null( $filterProperties ) || in_array( $property->getLabel(), $filterProperties ) ) {
+				$oldProperties[] = $property;
+			}
+		}
+		
+		foreach ( $new->getProperties() as $property ) {
+			if ( is_null( $filterProperties ) || in_array( $property->getLabel(), $filterProperties ) ) {
+				$newProperties[] = $property;
+			}
+		}
 		
 		// Find the deletions.
-		self::findSingleDirectionChanges( $deletions, $oldProperties, $old, $newProperties );
+		self::findSingleDirectionChanges( $deletions, $oldProperties, $old, $newProperties, $filterProperties );
 		
 		// Find the insertions.
-		self::findSingleDirectionChanges( $insertions, $newProperties, $new, $oldProperties );
+		self::findSingleDirectionChanges( $insertions, $newProperties, $new, $oldProperties, $filterProperties );
 		
 		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
 			$oldDataItems = array();
@@ -254,7 +265,7 @@ class SWLChangeSet {
 	 */
 	protected static function findSingleDirectionChanges( SMWSemanticData &$changeSet,
 		array &$oldProperties, SMWSemanticData $oldData, array $newProperties ) {
-			
+		
 		$deletionKeys = array();
 		
 		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
@@ -278,32 +289,52 @@ class SWLChangeSet {
 	 * @param SWLPropertyChanges $changes Can be null
 	 * @param SMWSemanticData $insertions Can be null
 	 * @param SMWSemanticData $deletions Can be null
+	 * @param integer $id Can be null
+	 * @param SWLEdit $edit Can be null
 	 */
 	public function __construct( SMWDIWikiPage $subject, /* SWLPropertyChanges */ $changes = null,
 		/* SMWSemanticData */ $insertions = null, /* SMWSemanticData */ $deletions = null,
-		/* User */ $user = null, $time = null, $id = null ) {
+		$id = null, /* SWLEdit */ $edit = null ) {
 	
 		$this->subject = $subject;
 		$this->changes = is_null( $changes ) ? new SWLPropertyChanges() : $changes;
 		$this->insertions = is_null( $insertions ) ? new SMWSemanticData( $subject ): $insertions;
 		$this->deletions = is_null( $deletions ) ? new SMWSemanticData( $subject ): $deletions;
 		
-		$this->time = is_null( $time ) ? wfTimestampNow() : $time;
-		$this->user = is_null( $user ) ? $GLOBALS['wgUser'] : $user;
 		$this->id = $id;
+		$this->edit = $edit;
+	}
+	
+	/**
+	 * Rteurns if the change set contains (changes for) user defined properties.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return boolean
+	 */
+	public function hasUserDefinedProperties() {
+		$properties = array();
+		
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+			if ( $property->isUserDefined() ) {
+				$properties[] = $property;
+			}
+		}
+		
+		return count( $properties ) != 0;
 	}
 	
 	/**
 	 * Returns whether the set contains any changes.
 	 * 
-	 * @param boolean $refresh
+	 * @since 0.1
 	 * 
 	 * @return boolean
 	 */
-	public function hasChanges( $refresh = false ) {
+	public function hasChanges() {
 		return $this->changes->hasChanges()
-			|| $this->insertions->hasVisibleProperties( $refresh )
-			|| $this->deletions->hasVisibleProperties( $refresh );
+			|| $this->insertions->hasVisibleProperties()
+			|| $this->deletions->hasVisibleProperties();
 	}
 	
 	/**
@@ -422,9 +453,10 @@ class SWLChangeSet {
 	public function toArray() {
  		$changeSet = array(
 			'id' => $this->id,
-			'user_name' => $this->user->getName(),
-			'page_id' => $this->getTitle()->getArticleID(),
-			'time' => $this->time,
+			'user_name' => $this->edit->getUserName(),
+			'page_id' => $this->edit->getPageID(),
+			'time' => $this->edit->getTime(),
+ 			'editid' => $this->edit->getId(),
  			'changes' => array()
 		);
 		
@@ -457,20 +489,12 @@ class SWLChangeSet {
 	 * @since 0.1
 	 * 
 	 * @param array of SWLGroup
+	 * @param integer $editId
 	 * 
 	 * @return integer ID of the inserted row (0 if nothing was inserted).
 	 */
-	public function writeToStore( array $groupsToAssociate ) {
-		$properties = array();
-		
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
-			if ( $property->isUserDefined() ) {
-				$properties[] = $property;
-			}
-		}
-		
-		// If there are no changed user properties, don't insert a new entry. 
-		if ( count( $properties ) == 0 ) {
+	public function writeToStore( array $groupsToAssociate, $editId ) {
+		if ( !$this->hasUserDefinedProperties() ) {
 			return 0;
 		}
 		
@@ -478,18 +502,22 @@ class SWLChangeSet {
 		
 		$dbw->insert(
 			'swl_sets',
-			array(
-				'set_user_name' => $this->getUser()->getName(),
-				'set_page_id' => $this->getTitle()->getArticleID(),
-				'set_time' => is_null( $this->getTime() ) ? $dbw->timestamp() : $this->getTime() 
-			)
+			array()
 		);
 		
 		$id = $dbw->insertId();
 		
+		$dbw->insert(
+			'swl_sets_per_edit',
+			array(
+				'spe_set_id' => $id,
+				'spe_edit_id' => $editId
+			)
+		);
+		
 		$changes = array();
 		
-		foreach ( $properties as /* SMWDIProperty */ $property ) {
+		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
 			if ( $property->isUserDefined() ) {
 				$propSerialization = $property->getSerialization();
 			
@@ -554,6 +582,8 @@ class SWLChangeSet {
 	/**
 	 * Gets the title of the page these changes belong to.
 	 * 
+	 * @since 0.1
+	 * 
 	 * @return Title
 	 */
 	public function getTitle() {
@@ -565,55 +595,14 @@ class SWLChangeSet {
 	}
 	
 	/**
-	 * Sets the user that made the changes.
-	 * 
-	 * @param User $user
-	 */
-	public function setUser( User $user ) {
-		$this->user = $user;
-	}
-	
-	/**
-	 * Gets the user that made the changes.
-	 * 
-	 * @return User
-	 */
-	public function getUser() {
-		return $this->user;
-	}
-	
-	/**
-	 * Sets the time on which the changes where made.
-	 * 
-	 * @param integer $time
-	 */
-	public function setTime( $time ) {
-		$this->time = $time;
-	}
-	
-	/**
-	 * Gets the time on which the changes where made.
-	 * 
-	 * @return integer
-	 */
-	public function getTime() {
-		return $this->time;
-	}
-	
-	/**
-	 * Remove changes to properties not in the porvided list.
+	 * Gets the edit this set of changes belong to.
 	 * 
 	 * @since 0.1
 	 * 
-	 * @param array $properties List of property names
+	 * @return SWLEdit
 	 */
-	public function filterOnProperties( array $properties ) {
-		// TODO
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
-			if ( !in_array( $property->getSerialization(), $properties ) ) {
-				//$this->changeSet->removeChangesForProperty( $property );
-			}
-		}
+	public function getEdit() {
+		return $this->edit;
 	}
 	
 }
