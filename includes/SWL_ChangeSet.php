@@ -498,6 +498,8 @@ class SWLChangeSet {
 			return 0;
 		}
 		
+		wfRunHooks( 'SWLBeforeChangeSetInsert', array( &$this, &$groupsToAssociate, &$editId ) );
+		
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$dbw->insert(
@@ -547,6 +549,8 @@ class SWLChangeSet {
 			}
 		}
 		
+		$dbw->begin();
+		
 		foreach ( $changes as $change ) {
 			if ( $change['property'] == '' ) {
 				// When removing the last value for a property of a page,
@@ -575,6 +579,10 @@ class SWLChangeSet {
 				)
 			);
 		}
+		
+		$dbw->commit();
+		
+		wfRunHooks( 'SWLAfterChangeSetInsert', array( &$this, $groupsToAssociate, $editId ) );
 		
 		return $id;
 	}

@@ -148,6 +148,8 @@ class SWLEdit {
 	 * @return boolean Success indicator
 	 */
 	protected function insertIntoDB() {
+		wfRunHooks( 'SWLBeforeEditInsert', array( &$this ) );
+		
 		$dbr = wfGetDB( DB_MASTER );
 		
 		$result = $dbr->insert(
@@ -160,6 +162,8 @@ class SWLEdit {
 		);
 		
 		$this->id = $dbr->insertId();
+		
+		wfRunHooks( 'SWLAfterEditInsert', array( &$this ) );
 		
 		return $result;
 	}
