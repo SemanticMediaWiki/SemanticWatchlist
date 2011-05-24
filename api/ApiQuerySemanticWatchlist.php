@@ -74,10 +74,10 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 		) );
 		
 		$this->addFields( array(
-        	'spe_set_id',
-        	'edit_user_name',
-        	'edit_page_id',
-        	'edit_time',
+			'spe_set_id',
+			'edit_user_name',
+			'edit_page_id',
+			'edit_time',
 			'edit_id'
 		) );
 		
