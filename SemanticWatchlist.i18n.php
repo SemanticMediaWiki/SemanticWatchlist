@@ -178,6 +178,7 @@ $messages['gl'] = array(
 	'swl-group-category' => 'categoría',
 	'swl-group-namespace' => 'espazo de nomes',
 	'swl-group-concept' => 'concepto',
+	'swl-group-confirmdelete' => 'Está seguro de querer borrar o grupo da lista de vixilancia "$1"?',
 	'swl-group-save-all' => 'Gardar todos',
 	'swl-group-add-new-group' => 'Engadir un novo grupo',
 	'swl-group-add-group' => 'Engadir o grupo',
@@ -188,10 +189,14 @@ $messages['gl'] = array(
 	'swl-watchlist-firstn' => '$1 primeiras',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}',
 	'swl-email-propschanged' => 'As propiedades cambiaron ás $1',
+	'swl-email-propschanged-long' => "O usuario '''$2''' modificou unha ou máis propiedades que vixía en '''$1''' o $5 ás $4. Pode ollar estas e outras modificacións [$3 na súa lista de vixilancia semántica].",
 	'swl-email-changes' => 'Cambio nas propiedades en [$2 $1]:',
 	'prefs-swl' => 'Lista de vixilancia semántica',
 	'prefs-swlgroup' => 'Grupos a vixiar',
 	'prefs-swlnotification' => 'Opcións de notificación',
+	'swl-prefs-category-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 da categoría ''$4''",
+	'swl-prefs-namespace-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do espazo de nomes ''$4''",
+	'swl-prefs-concept-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do concepto ''$4''",
 	'swl-prefs-emailnofity' => 'Enviádeme un correo electrónico se hai cambios nas propiedades que vixío',
 );
 
