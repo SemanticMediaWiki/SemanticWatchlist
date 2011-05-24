@@ -57,10 +57,10 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		
 		// Find all edits linked to this group.
 		$editsForGroup = $dbr->select(
-			array( 'swl_sets_per_group', 'swl_sets_per_edit', 'swl_edits' ),
+			array( 'swl_sets_per_group', 'swl_sets_per_edit' ),
 			array( 'spe_edit_id' ),
 			array(
-				'spg_group_id' => $id,
+				'spg_group_id' => $groupId,
 			),
 			'',
 			array(),
@@ -74,20 +74,21 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		// For each linked edit, find all linked groups, and save those with only one (this one).
 		foreach ( $editsForGroup as $edit ) {
 			$groupsForEdit = $dbr->select(
-				array( 'swl_sets_per_group', 'swl_sets_per_edit', 'swl_groups' ),
+				array( 'swl_sets_per_edit', 'swl_sets_per_group', 'swl_groups' ),
 				array( 'spg_group_id' ),
 				array(
-					'spe_edit_id' => $edit->edit_id,
+					'spe_edit_id' => $edit->spe_edit_id,
 				),
 				'',
 				array(),
 				array(
-					'swl_sets_per_edit' => array( 'INNER JOIN', array( 'spe_set_id=spg_set_id' ) ),
+					'swl_sets_per_group' => array( 'INNER JOIN', array( 'spg_set_id=spe_set_id' ) ),
+					'swl_groups' => array( 'INNER JOIN', array( 'group_id=spg_group_id' ) ),
 				)
 			);
 			
 			if ( $dbr->numRows( $groupsForEdit ) < 2 ) {
-				$editsToDelete[] = $edit->edit_id;
+				$editsToDelete[] = $edit->spe_edit_id;
 			}
 		}
 		
@@ -110,7 +111,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		// Delete sets per group links for this group. 
 		$result = $dbw->delete(
 			'swl_sets_per_group',
-			array( 'spg_group_id' => $id )
+			array( 'spg_group_id' => $groupId )
 		);
 
 		if ( $result === false ) {
@@ -120,7 +121,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		// Delete users per group links for this group.
 		$result = $dbw->delete(
 			'swl_users_per_group',
-			array( 'upg_group_id' => $id )
+			array( 'upg_group_id' => $groupId )
 		);
 
 		if ( $result === false ) {
@@ -130,7 +131,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		// Delete the actual group.
 		$result = $dbw->delete(
 			'swl_groups',
-			array( 'group_id' => $id )
+			array( 'group_id' => $groupId )
 		);
 
 		if ( $result === false ) {
