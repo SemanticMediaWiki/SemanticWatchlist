@@ -41,7 +41,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			if ( ++$count > $params['limit'] ) {
 				// We've reached the one extra which shows that
 				// there are additional pages to be had. Stop here...
-				$this->setContinueEnumParameter( 'continue', $set->set_time . '-' . $set->set_id );
+				$this->setContinueEnumParameter( 'continue', $set->edit_time . '-' . $set->spe_set_id );
 				break;
 			}
 			
@@ -134,6 +134,10 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			'groupids' => array(
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_ISMULTI => true,
+			),
+			'merge' => array(
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_TYPE => false,
 			),
 			'limit' => array(
 				ApiBase :: PARAM_DFLT => 20,
