@@ -63,6 +63,9 @@ $messages['en'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from namespace ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|property|properties}} $3 from concept ''$4''",
 	'swl-prefs-emailnofity' => 'E-mail me on changes to properties I am watching',
+
+	// API
+	'swl-err-userid-xor-groupids' => 'Either the userid or the groupids parameter needs to be specified, but not both.',
 );
 
 /** Message documentation (Message documentation)

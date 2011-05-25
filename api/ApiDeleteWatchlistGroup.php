@@ -11,6 +11,8 @@
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * 
+ * TODO: delete changes
  */
 class ApiDeleteWatchlistGroup extends ApiBase {
 	
@@ -62,6 +64,22 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 				'spg_group_id' => $groupId,
 			)
 		);
+		
+		foreach ( $setsForGroup as $set ) {
+			$changes = $dbr->select(
+				'swl_changes',
+				array( 'change_id' ),
+				array( 'change_set_id' => $set->spg_set_id )
+			);
+			
+			foreach ( $changes as $change ) {
+				$dbr->select( // TODO
+					'swl_changes_per_set',
+					array( 'change_id' ),
+					array( 'change_set_id' => $set->spg_set_id )
+				);
+			}
+		}
 		
 		// Find all edits linked to this group.
 		$editsForGroup = $dbr->select(
