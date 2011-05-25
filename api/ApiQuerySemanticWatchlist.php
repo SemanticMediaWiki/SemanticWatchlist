@@ -35,7 +35,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 		
 		$sets = $this->select( __METHOD__ );
 		$count = 0;	
-		$resultSets = array();	
+		$resultSets = array();
 		
 		foreach ( $sets as $set ) {
 			if ( ++$count > $params['limit'] ) {
@@ -45,16 +45,22 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 				break;
 			}
 			
-			$set = SWLChangeSet::newFromDBResult( $set )->toArray();
+			$resultSets[] = SWLChangeSet::newFromDBResult( $set );
+		}
+		
+		if ( $params['merge'] ) {
+			$this->mergeSets( $resultSets );
+		}
+		
+		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
+		
+		foreach ( $resultSets as &$set ) {
+			$set = $set->toArray();
 			
 			foreach ( $set['changes'] as $propName => $changes ) {
 				$this->getResult()->setIndexedTagName( $set['changes'][$propName], 'change' );
 			}
-			
-			$resultSets[] = $set;
 		}
-		
-		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
 		
 		$this->getResult()->addValue(
 			null,
@@ -120,7 +126,18 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 				// TODO: error
 			}
 		}		
-	}	
+	}
+	
+	/**
+	 * Merge change sets belonging to the same edit into one sinlge change set.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $sets
+	 */
+	protected function mergeSets( array &$sets ) {
+		// TODO
+	}
 	
 	/**
 	 * (non-PHPdoc)
@@ -158,6 +175,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 		return array (
 			'userid' => 'The ID of the user for which to return semantic watchlist data.',
 			'groupids' => 'The IDs of the groups for which to return semantic watchlist data.',
+			'merge' => 'Merge sets of changes that belong to the same edit?',
 			'continue' => 'Offset number from where to continue the query',
 			'limit'   => 'Max amount of words to return',
 		);
