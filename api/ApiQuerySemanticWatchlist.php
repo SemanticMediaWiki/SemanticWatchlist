@@ -52,18 +52,15 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			$this->mergeSets( $resultSets );
 		}
 		
-		//$this->getResult()->setIndexedTagName( $resultSets, 'set' );
-		
 		foreach ( $resultSets as &$set ) {
-			if ( !is_object( $set  )) {
-				var_dump($set);exit;
-			}
 			$set = $set->toArray();
 			
 			foreach ( $set['changes'] as $propName => $changes ) {
 				$this->getResult()->setIndexedTagName( $set['changes'][$propName], 'change' );
 			}
 		}
+		
+		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
 		
 		$this->getResult()->addValue(
 			null,
