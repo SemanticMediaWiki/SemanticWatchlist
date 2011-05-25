@@ -96,5 +96,16 @@ class SWLPropertyChange {
 		}
 	}
 	
+	/**
+	 * Returns a serialized version of the change, suitable to
+	 * do equal comparisions but not to unserialize.
+	 * 
+	 * @return string
+	 */
+	public function getSerialization() {
+		return is_null( $this->oldValue ) ? '' : $this->oldValue->getSerialization() . '|' .
+			is_null( $this->newValue ) ? '' : $this->newValue->getSerialization();
+	}
+	
 }
 	

@@ -376,6 +376,8 @@ class SWLChangeSet {
 	/**
 	 * Adds a SWLPropertyChange to the set for the specified SMWDIProperty.
 	 * 
+	 * @since 0.1
+	 * 
 	 * @param SMWDIProperty $property
 	 * @param SWLPropertyChange $change
 	 */
@@ -385,12 +387,36 @@ class SWLChangeSet {
 				$this->changes->addPropertyObjectChange( $property, $change );
 				break;
 			case SWLPropertyChange::TYPE_INSERT:
-				$this->insertions->addPropertyObjectValue( $property, $change->getNewValue() );
+				$this->addInsertion( $property, $change->getNewValue() );
 				break;
 			case SWLPropertyChange::TYPE_DELETE:
-				$this->deletions->addPropertyObjectValue( $property, $change->getOldValue() );
+				$this->addDeletion(  $property, $change->getOldValue()  );
 				break;
 		}
+	}
+	
+	/**
+	 * Adds a SMWDataItem representing an insertion to the set for the specified SMWDIProperty.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param SMWDataItem $dataItem
+	 */
+	public function addInsertion( SMWDIProperty $property, SMWDataItem $dataItem ) {
+		$this->insertions->addPropertyObjectValue( $property, $dataItem );
+	}
+	
+	/**
+	 * Adds a SMWDataItem representing a deletion to the set for the specified SMWDIProperty.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param SMWDataItem $dataItem
+	 */
+	public function addDeletion( SMWDIProperty $property, SMWDataItem $dataItem ) {
+		$this->deletions->addPropertyObjectValue( $property, $dataItem );
 	}
 	
 	/**
@@ -611,6 +637,106 @@ class SWLChangeSet {
 	 */
 	public function getEdit() {
 		return $this->edit;
+	}
+	
+	/**
+	 * Returns if a certain insertion is present in the set of changes.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param string $value
+	 * 
+	 * @return boolean
+	 */
+	public function hasInsertion( SMWDIProperty $property, $value ) {
+		$has = false;
+		
+		foreach ( $this->insertions->getPropertyValues( $property ) as /* SMWDataItem */ $insertion ) {
+			if ( $insertion->getSerialization() == $value ) {
+				$has = true;
+				break;
+			}
+		}
+		
+		return $has;
+	}
+	
+	/**
+	 * Returns if a certain insertion is present in the set of changes.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param string $value
+	 * 
+	 * @return boolean
+	 */
+	public function hasDeletion( SMWDIProperty $property, $value ) {
+		$has = false;
+		
+		foreach ( $this->deletions->getPropertyValues( $property ) as /* SMWDataItem */ $deletion ) {
+			if ( $deletion->getSerialization() == $value ) {
+				$has = true;
+				break;
+			}
+		}
+		
+		return $has;		
+	}
+	
+	/**
+	 * Returns if a certain change is present in the set of changes.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SMWDIProperty $property
+	 * @param SWLPropertyChange $change
+	 * 
+	 * @return boolean
+	 */
+	public function hasChange( SMWDIProperty $property, SWLPropertyChange $change ) {
+		$has = false;
+		
+		foreach ( $this->changes->getPropertyChanges( $property ) as /* SWLPropertyChange */ $propChange ) {
+			if ( $propChange->getSerialization() == $change->getSerialization() ) {
+				$has = true;
+				break;
+			}
+		}
+		
+		return $has;			
+	}
+	
+	/**
+	 * Merges in the changes of another change set.
+	 * Duplicate changes are detected and only kept as a single change.
+	 * This is usefull for merging sets with (possibly overlapping) changes belonging to a single edit.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SWLChangeSet $set
+	 */
+	public function mergeInChangeSet( SWLChangeSet $set ) {
+		foreach ( $set->getAllProperties() as $property ) {
+			foreach ( $set->getChanges()->getPropertyChanges( $property ) as /* SWLPropertyChange */ $change ) {
+				if ( !$this->hasChange( $property, $change ) ) {
+					$this->addChange( $property, $change );
+				}
+			}
+			
+			foreach ( $set->getInsertions()->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+				if ( !$this->hasInsertion( $property, $dataItem ) ) {
+					$this->addInsertion( $property, $dataItem );
+				}
+			}
+	
+			foreach ( $set->getDeletions()->getPropertyValues( $property ) as /* SMWDataItem */ $dataItem ) {
+				if ( !$this->hasInsertion( $property, $dataItem ) ) {
+					$this->addDeletion( $property, $dataItem );
+				}
+			}		
+		}
 	}
 	
 }

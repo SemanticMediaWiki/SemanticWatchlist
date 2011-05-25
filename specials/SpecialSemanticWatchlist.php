@@ -258,7 +258,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			'format' => 'json',
 			'swuserid' => $GLOBALS['wgUser']->getId(),
 			'swlimit' => $limit,
-			'swcontinue' => $continue
+			'swcontinue' => $continue,
+			'swmerge' => '1'
 		);
 		
 		$api = new ApiMain( new FauxRequest( $requestData, true ), true );

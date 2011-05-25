@@ -52,9 +52,12 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			$this->mergeSets( $resultSets );
 		}
 		
-		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
+		//$this->getResult()->setIndexedTagName( $resultSets, 'set' );
 		
 		foreach ( $resultSets as &$set ) {
+			if ( !is_object( $set  )) {
+				var_dump($set);exit;
+			}
 			$set = $set->toArray();
 			
 			foreach ( $set['changes'] as $propName => $changes ) {
@@ -135,8 +138,37 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 	 * 
 	 * @param array $sets
 	 */
-	protected function mergeSets( array &$sets ) {
-		// TODO
+	protected function mergeSets( array &$sets ) {		
+		if ( count( $sets ) > 1 ) {
+			$setsPerEdits = array();
+			
+			// List the sets per edit.
+			foreach ( $sets as $set ) {
+				if ( !array_key_exists( $set->getEdit()->getId(), $setsPerEdits ) ) {
+					$setsPerEdits[$set->getEdit()->getId()] = array();
+				}
+				
+				$setsPerEdits[$set->getEdit()->getId()][] = $set;
+			}
+			
+			$mergedSets = array();
+			
+			// For all edits with more then one set, merge all sets in the first one, 
+			// and add it to the $mergedSets list.
+			foreach ( $setsPerEdits as $setsForEdit ) {
+				$setCount = count( $setsForEdit );
+				
+				if ( $setCount > 1 ) {
+					for ( $i = 1; $i < $setCount; $i++ ) {
+						$setsForEdit[0]->mergeInChangeSet( $setsForEdit[$i] );
+					}	
+				}
+				
+				$mergedSets[] = $setsForEdit[0];
+			}
+			
+			$sets = $mergedSets;
+		}
 	}
 	
 	/**
@@ -154,7 +186,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			),
 			'merge' => array(
 				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_TYPE => false,
+				ApiBase::PARAM_DFLT => false,
 			),
 			'limit' => array(
 				ApiBase :: PARAM_DFLT => 20,
@@ -165,6 +197,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			),
 			'continue' => null,
 		);
+		
 	}
 
 	/**
