@@ -202,6 +202,7 @@ $messages['gl'] = array(
 	'swl-prefs-namespace-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do espazo de nomes ''$4''",
 	'swl-prefs-concept-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do concepto ''$4''",
 	'swl-prefs-emailnofity' => 'Enviádeme un correo electrónico se hai cambios nas propiedades que vixío',
+	'swl-err-userid-xor-groupids' => 'Cómpre especificar ou ben o parámetro de identificación de usuario ou o parámetro de identificación de grupo, pero non os dous.',
 );
 
 /** Interlingua (Interlingua)
@@ -243,6 +244,7 @@ $messages['ia'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del spatio de nomines ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del concepto ''$4''",
 	'swl-prefs-emailnofity' => 'Inviar me e-mail in caso de modificationes in proprietates que io observa',
+	'swl-err-userid-xor-groupids' => 'O le parametro "userid" o le "groupids" debe esser specificate, ma non ambes.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -319,6 +321,7 @@ $messages['mk'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од именскиот простор ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од концептот ''$4''",
 	'swl-prefs-emailnofity' => 'Испрати ми е-пошта кога ќе се изменат својствата што ги набљудувам',
+	'swl-err-userid-xor-groupids' => 'Треба да ја наведете назнаката на корисникот или назнаките на групата (но не обете).',
 );
 
 /** Malay (Bahasa Melayu)
@@ -372,6 +375,7 @@ $messages['nl'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van naamruimte ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van concept ''$4''",
 	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
+	'swl-err-userid-xor-groupids' => 'Specifieer ofwel de userid-parameter of de groupids-parameter, maar niet beide.',
 );
 
 /** Portuguese (Português)
@@ -413,6 +417,7 @@ $messages['pt'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|propriedade|propriedades}} $3 do conceito ''$4''",
 	'swl-prefs-emailnofity' => 'Notificar-me por correio electrónico das alterações de propriedades que estou a vigiar',
+	'swl-err-userid-xor-groupids' => 'Deve ser especificado, ou o parâmetro de identificação do utilizador, ou o parâmetro de identificações de grupos, mas não ambos.',
 );
 
 /** Somali (Soomaaliga)
