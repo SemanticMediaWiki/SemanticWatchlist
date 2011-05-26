@@ -91,24 +91,5 @@ final class SWLGroups {
 
         return $matchingGroups;		
 	} 
-    
-    /**
-     * Notifies all users that are watching a group and that should be notified
-     * of the provided changes.
-     *
-     * @since 0.1
-     *
-     * @param  $group
-     * @param SMWSemanticData $data
-     */
-    protected static function notifyUsersForGroup( $group, SMWSemanticData $data ) {
-        $users = self::getUsersForGroup( $group );
-
-        foreach ( $users as $userId ) {
-            if ( self::userShouldBeNotified( $userId ) ) {
-                self::notifyUserOfChangesToGroup( $userId, $group, $data );
-            }
-        }
-    }
 	
 }
