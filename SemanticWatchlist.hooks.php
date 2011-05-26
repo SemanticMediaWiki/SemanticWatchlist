@@ -108,12 +108,15 @@ final class SWLHooks {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		$groups = SWLGroups::getAll();
 		
-		$preferences['swl_email'] = array(
-			'type' => 'toggle',
-			'label-message' => 'swl-prefs-emailnofity',
-			'section' => 'swl/swlnotification',
-			'default' => $GLOBALS['egSWLEnableEmailNotify']
-		);		
+		// Only show the email notification preference when email notifications are enabled.
+		if ( $GLOBALS['egSWLEnableEmailNotify'] ) {
+			$preferences['swl_email'] = array(
+				'type' => 'toggle',
+				'label-message' => 'swl-prefs-emailnofity',
+				'section' => 'swl/swlnotification',
+				'default' => $GLOBALS['egSWLEnableEmailNotify']
+			);	
+		}
 		
 		foreach ( $groups as /* SWLGroup */ $group ) {
 			if ( count( $group->getProperties() ) == 0 ) {
