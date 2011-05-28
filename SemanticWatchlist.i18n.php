@@ -163,6 +163,44 @@ $messages['fr'] = array(
 	'swl-prefs-emailnofity' => "Envoyez-moi un courriel sur les modifications apportées aux propriétés que j'ai en liste de suivi",
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'right-semanticwatch' => 'Utilisar la lista de survelyence sèmantica',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Changiér]] les tropes de la lista de survelyence sèmantica',
+	'special-semanticwatchlist' => 'Lista de survelyence sèmantica',
+	'special-watchlistconditions' => 'Paramètres de la lista de survelyence sèmantica',
+	'swl-group-name' => 'Nom de la tropa :',
+	'swl-group-properties' => 'Propriètâts de ceta tropa :',
+	'swl-group-remove-property' => 'Enlevar una propriètât',
+	'swl-group-add-property' => 'Apondre una propriètât',
+	'swl-group-page-selection' => 'Pâges dens la',
+	'swl-group-save' => 'Encartar',
+	'swl-group-delete' => 'Suprimar',
+	'swl-group-category' => 'catègorie',
+	'swl-group-namespace' => 'èspâço de noms',
+	'swl-group-concept' => 'concèpte',
+	'swl-group-confirmdelete' => 'Éte-vos de sûr de volêr suprimar la tropa de la lista de survelyence « $1 » ?',
+	'swl-group-save-all' => 'Encartar tot',
+	'swl-group-add-new-group' => 'Apondre una tropa novèla',
+	'swl-group-add-group' => 'Apondre una tropa',
+	'swl-watchlist-position' => "Fâre vêre '''$1''' des dèrriérs changements en comencient per '''#$2'''.",
+	'swl-watchlist-insertions' => 'Apondu :',
+	'swl-watchlist-deletions' => 'Suprimâ :',
+	'swl-watchlist-pagincontrol' => 'Vêre ($1) ($2)',
+	'swl-watchlist-firstn' => '$1 premiérs',
+	'swl-watchlist-firstn-title' => '$1 {{PLURAL:$1|premiér rèsultat|premiérs rèsultats}}',
+	'swl-email-propschanged' => 'Les propriètâts ont changiês a $1',
+	'swl-email-changes' => 'Changements de propriètâts sur [$2 $1] :',
+	'prefs-swl' => 'Lista de survelyence sèmantica',
+	'prefs-swlgroup' => 'Tropes a siuvre',
+	'prefs-swlnotification' => 'Chouèx de notificacion',
+	'swl-prefs-category-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 de la catègorie ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 de l’èspâço de noms ''$4''",
+	'swl-prefs-concept-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 du concèpte ''$4''",
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
@@ -280,6 +318,17 @@ $messages['lb'] = array(
 	'right-semanticwatch' => 'Semantesch Iwwerwaachungslëscht benotzen',
 	'special-semanticwatchlist' => 'Semantesch Iwwerwaachungslëscht',
 	'special-watchlistconditions' => 'Astellunge vun der semantescher Iwwerwaachnugslëscht',
+	'swl-group-name' => 'Numm vum Grupp:',
+	'swl-group-page-selection' => 'Säiten a(n)',
+	'swl-group-save' => 'Späicheren',
+	'swl-group-delete' => 'Läschen',
+	'swl-group-category' => 'Kategorie',
+	'swl-group-namespace' => 'Nummraum',
+	'swl-group-concept' => 'Konzept',
+	'swl-group-save-all' => 'All späicheren',
+	'swl-watchlist-deletions' => 'Geläscht:',
+	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
+	'prefs-swlnotification' => 'Optioune vun de Matdeelungen',
 );
 
 /** Macedonian (Македонски)
