@@ -8,7 +8,7 @@
  * Changing one of these settings can be done by copying or cutting it,
  * and placing it in LocalSettings.php, AFTER the inclusion of this extension.
  *
- * @file SemanticWatchlist.Settings.php
+ * @file SemanticWatchlist.settings.php
  * @ingroup SemanticWatchlist
  *
  * @licence GNU GPL v3+
