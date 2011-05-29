@@ -163,29 +163,29 @@
 				}
 			} )
 		);
-	}
+	};
 	
 	this.addPropertyDiv = function( property ) {
 		var propDiv = $( '<div />' ).attr( 'class', 'propid' );
-		
+
 		var propInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': property,
 			'size': 30,
 			'class': 'swl-group-prop'
 		} );
-		
+
 		var removeButton = $( '<input />' ).attr( {
 			'type': 'button',
 			'value': mediaWiki.msg( 'swl-group-remove-property' )
 		} );
-		
+
 		removeButton.click( function() {
 			propDiv.remove();
 		} );
-		
+
 		this.propsDiv.append( propDiv.html( propInput ).append( '&nbsp;' ).append( removeButton ) );
-	}
+	};
 	
 	this.getProperties = function() {
 		var props = [];
@@ -195,7 +195,7 @@
 		} );
 		
 		return props;
-	}
+	};
 	
 	this.doSave = function( callback ) {
 		var args = {
@@ -215,7 +215,7 @@
 				callback( data.success );
 			}
 		);
-	}
+	};
 	
 	this.doDelete = function( callback ) {
 		$.getJSON(
@@ -229,7 +229,7 @@
 				callback( data.success );
 			}
 		);		
-	}
+	};
 	
 	this.buildHtml();
 	
