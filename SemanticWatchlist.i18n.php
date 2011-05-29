@@ -326,8 +326,12 @@ $messages['lb'] = array(
 	'swl-group-namespace' => 'Nummraum',
 	'swl-group-concept' => 'Konzept',
 	'swl-group-save-all' => 'All späicheren',
+	'swl-group-add-new-group' => 'Eng nei Grupp derbäisetzen',
+	'swl-group-add-group' => 'Grupp derbäisetzen',
 	'swl-watchlist-deletions' => 'Geläscht:',
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
+	'swl-watchlist-firstn' => 'éischt $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Dat éischt Resultat|Déi éischt $1 Resultater}}',
 	'prefs-swlnotification' => 'Optioune vun de Matdeelungen',
 );
 
