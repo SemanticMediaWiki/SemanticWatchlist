@@ -428,7 +428,7 @@ $messages['nl'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van naamruimte ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van concept ''$4''",
 	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
-	'swl-err-userid-xor-groupids' => 'Specifieer ofwel de userid-parameter of de groupids-parameter, maar niet beide.',
+	'swl-err-userid-xor-groupids' => 'Geef de parameter "userid" of "groupids" op, maar niet beide.',
 );
 
 /** Portuguese (Português)
