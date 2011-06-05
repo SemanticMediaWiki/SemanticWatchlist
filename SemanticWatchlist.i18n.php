@@ -332,6 +332,8 @@ $messages['lb'] = array(
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
 	'swl-watchlist-firstn' => 'éischt $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Dat éischt Resultat|Déi éischt $1 Resultater}}',
+	'prefs-swl' => 'Semantesch Iwwerwaachungslëscht',
+	'prefs-swlgroup' => "Gruppe fir z'iwwerwaachen",
 	'prefs-swlnotification' => 'Optioune vun de Matdeelungen',
 );
 
