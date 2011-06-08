@@ -161,6 +161,7 @@ $messages['fr'] = array(
 	'swl-prefs-namespace-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 de l'espace de noms ''$4''",
 	'swl-prefs-concept-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 du concept ''$4''",
 	'swl-prefs-emailnofity' => "Envoyez-moi un courriel sur les modifications apportées aux propriétés que j'ai en liste de suivi",
+	'swl-err-userid-xor-groupids' => 'Il faut spécifier <code>userid</code> ou <code>groupid</code>, mais pas les deux en même temps.',
 );
 
 /** Franco-Provençal (Arpetan)
