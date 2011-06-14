@@ -70,11 +70,13 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Jeroen De Dauw
+ * @author Nemo bis
  */
 $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
+	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
 	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
 );
 
@@ -310,6 +312,14 @@ $messages['ksh'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Jroppe ändere]] för de semantesche Oppaßleßte',
 	'special-semanticwatchlist' => 'Semantesch Oppaßleß',
 	'special-watchlistconditions' => 'Enshtällonge för de semantesche Oppaßleßte',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'swl-group-save' => 'Tomar bike',
+	'swl-group-category' => 'kategorî',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
