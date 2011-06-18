@@ -80,6 +80,14 @@ $messages['qqq'] = array(
 	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'swl-group-save' => 'Съхраняване',
+	'swl-group-delete' => 'Изтриване',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Purodha
