@@ -88,6 +88,20 @@ $messages['bg'] = array(
 	'swl-group-delete' => 'Изтриване',
 );
 
+/** Breton (Brezhoneg)
+ * @author Y-M D
+ */
+$messages['br'] = array(
+	'swl-group-save' => 'Enrollañ',
+	'swl-group-delete' => 'Dilemel',
+	'swl-group-category' => 'rummad',
+	'swl-group-namespace' => 'esaouenn anv',
+	'swl-group-save-all' => 'Enrollañ pep tra',
+	'swl-group-add-new-group' => 'Ouzhpennañ ur strollad nevez',
+	'swl-group-add-group' => 'Ouzhpennañ ur strollad',
+	'swl-watchlist-insertions' => 'Ouzhpennet :',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Purodha
