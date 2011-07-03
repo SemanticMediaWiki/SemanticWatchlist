@@ -268,6 +268,16 @@ $messages['gl'] = array(
 	'swl-err-userid-xor-groupids' => 'Cómpre especificar ou ben o parámetro de identificación de usuario ou o parámetro de identificación de grupo, pero non os dous.',
 );
 
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'semanticwatchlist-desc' => 'שימוש במאפייניים סמנטיים כבור קטגוריה או מרחב שם שאפשר לצפות ברשימת מעקב',
+	'right-semanticwatch' => 'שימוש ברשימת מעקב סמנטית',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|שינוי]] קבוצות רשימת מעקב סמנטית',
+	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
