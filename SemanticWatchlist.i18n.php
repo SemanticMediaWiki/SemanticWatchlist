@@ -371,6 +371,7 @@ $messages['lb'] = array(
 	'swl-group-save-all' => 'All späicheren',
 	'swl-group-add-new-group' => 'Eng nei Grupp derbäisetzen',
 	'swl-group-add-group' => 'Grupp derbäisetzen',
+	'swl-watchlist-insertions' => 'Derbäigesat:',
 	'swl-watchlist-deletions' => 'Geläscht:',
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
 	'swl-watchlist-firstn' => 'éischt $1',
