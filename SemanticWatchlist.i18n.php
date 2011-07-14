@@ -145,6 +145,21 @@ $messages['de'] = array(
 	'swl-err-userid-xor-groupids' => 'Es muss entweder der Parameter für die Benutzerkennung oder für die Gruppenkennung angegeben werden, jedoch nicht beide gleichzeitig.',
 );
 
+/** Spanish (Español)
+ * @author Mor
+ */
+$messages['es'] = array(
+	'swl-group-name' => 'Nombre del grupo:',
+	'swl-group-remove-property' => 'Quitar propiedad',
+	'swl-group-add-property' => 'Añadir propiedad',
+	'swl-group-save' => 'Guardar',
+	'swl-group-delete' => 'Borrar',
+	'swl-group-category' => 'categoría',
+	'swl-watchlist-insertions' => 'Añadido:',
+	'swl-watchlist-deletions' => 'Borrado:',
+	'swl-prefs-emailnofity' => 'Enviarme un mensaje de correo electrónico sobre los cambios en las propiedades que estoy vigilando',
+);
+
 /** French (Français)
  * @author IAlex
  * @author Sherbrooke
