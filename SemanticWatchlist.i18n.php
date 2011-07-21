@@ -43,7 +43,7 @@ $messages['en'] = array(
 	'swl-group-add-group' => 'Add group',
 
 	// Special:SemanticWatchlist
-	'swl-watchlist-position' => "Showing '''$1''' of the last changes starting with '''#$2'''.",
+	'swl-watchlist-position' => "Showing '''$1''' of the last {{PLURAL:$1|change|changes}} starting with '''#$2'''.",
 	'swl-watchlist-insertions' => 'Added:',
 	'swl-watchlist-deletions' => 'Deleted:',
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
