@@ -47,6 +47,7 @@ final class SWLHooks {
 					$edit->writeToDB();
 				}
 				
+				$changeSet->setEdit( $edit );
 				$setId = $changeSet->writeToStore( $groups, $edit->getId() );
 				
 				if ( $setId != 0 ) {

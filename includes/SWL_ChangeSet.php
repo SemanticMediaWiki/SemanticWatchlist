@@ -640,6 +640,17 @@ class SWLChangeSet {
 	}
 	
 	/**
+	 * Sets the edit this set of changes belong to.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param SWLEdit $edit
+	 */
+	public function setEdit( SWLEdit $edit ) {
+		$this->edit = $edit;
+	}
+	
+	/**
 	 * Returns if a certain insertion is present in the set of changes.
 	 * 
 	 * @since 0.1
