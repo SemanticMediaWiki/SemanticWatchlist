@@ -32,7 +32,7 @@ final class SWLEmailer {
     		'swl-email-propschanged-long',
     		'parse', 
     		$GLOBALS['wgSitename'],
-    		$changeSet->getUser()->getName(),
+    		$changeSet->getEdit()->getUser()->getName(),
     		SpecialPage::getTitleFor( 'SemanticWatchlist' )->getFullURL(),
     		$wgLang->time( $changeSet->getTime() ),
     		$wgLang->date( $changeSet->getTime() )
