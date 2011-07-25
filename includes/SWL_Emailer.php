@@ -58,10 +58,34 @@ final class SWLEmailer {
     	
     	wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
     	
-    	return $user->sendMail(
+    	return $this->userSendMail(
     		$title,
     		$emailText
     	);
+    }
+    
+    /**
+     * Based on User::sendMail, but specifies text/html as content type.
+     * 
+     * @since 0.1
+     * 
+     * @param string $subject
+     * @param string $body
+     * @param string|null $from
+     * @param string|null $replyto
+     * 
+     * @return Status
+     */
+    protected static function userSendMail( $subject, $body, $from = null, $replyto = null ) {
+		if( is_null( $from ) ) {
+			global $wgPasswordSender, $wgPasswordSenderName;
+			$sender = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
+		} else {
+			$sender = new MailAddress( $from );
+		}
+
+		$to = new MailAddress( $this );
+		return UserMailer::send( $to, $sender, $subject, $body, $replyto, 'text/html; charset=UTF-8' );
     }
     
     /**
