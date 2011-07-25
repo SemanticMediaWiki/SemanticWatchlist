@@ -58,7 +58,7 @@ final class SWLEmailer {
     	
     	wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
     	
-    	return $this->userSendMail(
+    	return self::userSendMail(
     		$title,
     		$emailText
     	);
