@@ -34,16 +34,16 @@ final class SWLEmailer {
     		$GLOBALS['wgSitename'],
     		$changeSet->getEdit()->getUser()->getName(),
     		SpecialPage::getTitleFor( 'SemanticWatchlist' )->getFullURL(),
-    		$wgLang->time( $changeSet->getTime() ),
-    		$wgLang->date( $changeSet->getTime() )
+    		$wgLang->time( $changeSet->getEdit()->getTime() ),
+    		$wgLang->date( $changeSet->getEdit()->getTime() )
     	);
     	
     	if ( $describeChanges ) {
 	    	$emailText .= '<h3> ' . wfMsgExt(
 	    		'swl-email-changes',
 	    		'parse', 
-	    		$changeSet->getTitle()->getFullText(),
-	    		$changeSet->getTitle()->getFullURL()
+	    		$changeSet->getEdit()->getTitle()->getFullText(),
+	    		$changeSet->getEdit()->getTitle()->getFullURL()
 	    	) . ' </h3>';
 	    	
 	    	$emailText .= self::getChangeListHTML( $changeSet );    		
