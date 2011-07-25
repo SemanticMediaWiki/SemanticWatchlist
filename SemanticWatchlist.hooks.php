@@ -40,7 +40,7 @@ final class SWLHooks {
 				if ( $edit === false ) {
 					$edit = new SWLEdit(
 						$title->getArticleID(), 
-						$GLOBALS['wgUser'],
+						$GLOBALS['wgUser']->getName(),
 						wfTimestampNow()
 					);
 					
