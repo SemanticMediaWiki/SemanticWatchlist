@@ -85,7 +85,7 @@ final class SWLEmailer {
 		}
 
 		$to = new MailAddress( $this );
-		return UserMailer::send( $to, $sender, $subject, $body, $replyto, 'text/html; charset=UTF-8' );
+		return UserMailer::send( $to, $sender, $subject, $body, $replyto, 'text/html; charset=ISO-8859-1' );
     }
     
     /**
