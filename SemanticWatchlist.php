@@ -44,7 +44,7 @@ $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other']
 	'name' => 'Semantic Watchlist',
 	'version' => SemanticWatchlist_VERSION,
 	'author' => array(
-		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for WikiWorks',
+		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
 	),
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
 	'descriptionmsg' => 'semanticwatchlist-desc'
