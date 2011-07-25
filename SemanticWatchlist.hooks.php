@@ -77,9 +77,8 @@ final class SWLHooks {
     		$user = User::newFromId( $userID );
     		
     		if ( $user->getOption( 'swl_email', false ) ) {
-    			$realFunction = array( 'Sanitizer', 'validateEmail' );
     			
-    			if ( !method_exists( $realFunction ) || Sanitizer::validateEmail( $user->getEmail() ) ) {
+    			if ( !method_exists( 'Sanitizer', 'validateEmail' ) || Sanitizer::validateEmail( $user->getEmail() ) ) {
 					$lastNotify = $user->getOption( 'swl_last_notify' );
 					$lastWatch = $user->getOption( 'swl_last_watch' );
 	    		
