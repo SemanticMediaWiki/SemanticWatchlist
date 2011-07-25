@@ -32,6 +32,7 @@ $wgGroupPermissions['user'         ]['semanticwatchgroups'] = false;
 $wgGroupPermissions['autoconfirmed']['semanticwatchgroups'] = false;
 $wgGroupPermissions['bot'          ]['semanticwatchgroups'] = false;
 $wgGroupPermissions['sysop'        ]['semanticwatchgroups'] = true;
+$wgGroupPermissions['swladmins'    ]['semanticwatchgroups'] = true;
 
 # Enable email notification or not?
 $egSWLEnableEmailNotify = true;

@@ -26,6 +26,10 @@ $messages['en'] = array(
 	'special-semanticwatchlist' => 'Semantic Watchlist',
 	'special-watchlistconditions' => 'Semantic watchlist conditions',
 
+	'group-swladmins' => 'Semantic Watchlist admins',
+	'group-swladmins-member' => 'Semantic Watchlist admin',
+	'grouppage-swladmins' => 'Project:Semantic_Watchlist_admins',
+
 	// Special:WatchlistConditions
 	'swl-group-name' => 'Group name:',
 	'swl-group-properties' => 'Properties covered by this group:',
