@@ -221,7 +221,7 @@ class SWLEdit {
 	 */
 	public function getUser() {
 		if ( $this->user === false ) {
-			$this->user = User::newFromName( $this->userName );
+			$this->user = User::newFromName( $this->userName, false );
 		}
 		
 		return $this->user;
