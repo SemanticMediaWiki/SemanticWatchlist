@@ -92,6 +92,8 @@ $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 
 $wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
 
+$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
+
 
 $moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),

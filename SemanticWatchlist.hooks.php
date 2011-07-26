@@ -259,4 +259,23 @@ final class SWLHooks {
 		return true;
 	}
 	
+	/**
+	 * Adds a link to Admin Links page.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @return true
+	 */
+	public static function addToAdminLinks( &$admin_links_tree ) {
+	    $displaying_data_section = $admin_links_tree->getSection( wfMsg( 'adminlinks_browsesearch' ) );
+	
+	    // Escape if SMW hasn't added links.
+	    if ( is_null( $displaying_data_section ) ) return true;
+	    $smw_docu_row = $displaying_data_section->getRow( 'smw' );
+	
+	    $smw_docu_row->addItem( AlItem::newFromSpecialPage( 'WatchlistConditions' ) );
+	
+	    return true;
+	}
+	
 }
