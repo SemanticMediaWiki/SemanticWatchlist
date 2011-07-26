@@ -18,7 +18,7 @@ $messages = array();
  * @author Jeroen De Dauw
  */
 $messages['en'] = array(
-	'semanticwatchlist-desc' => 'Allows specifying groups of semantic properties for one or more categories/namespaces which can then be watched for changes',
+	'semanticwatchlist-desc' => 'Lets users be notified of specific changes to Semantic MediaWiki data',
 
 	'right-semanticwatch' => 'Use semantic watchlist',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modify]] the semantic watchlist groups',
