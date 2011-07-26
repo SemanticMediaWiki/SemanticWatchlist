@@ -85,15 +85,11 @@ $wgAPIModules['editswlgroup'] = 'ApiEditWatchlistGroup';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
-
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
-
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
-
 $wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
-
 $wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
-
+$wgHooks['PersonalUrls'][] = 'SWLHooks::onPersonalUrls';
 
 $moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
