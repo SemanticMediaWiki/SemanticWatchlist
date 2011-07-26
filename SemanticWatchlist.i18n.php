@@ -116,11 +116,14 @@ $messages['br'] = array(
  * @author Purodha
  */
 $messages['de'] = array(
-	'semanticwatchlist-desc' => 'Ermöglicht das Festlegen von Gruppen semantischer Attribute für eine oder mehrere Kategorien/ Namensräume in Form semantischer Beobachtungslisten',
+	'semanticwatchlist-desc' => 'Ermöglicht die Benachrichtigung von Benutzern zu bestimmten Änderungen an semantischen Daten',
 	'right-semanticwatch' => 'Semantische Beobachtungslisten verwenden',
 	'right-semanticwatchgroups' => 'Semantische Beobachtungslisten [[Special:WatchlistConditions|anpassen]]',
 	'special-semanticwatchlist' => 'Semantische Beobachtungsliste',
 	'special-watchlistconditions' => 'Einstellungen zu semantischen Beobachtungslisten',
+	'group-swladmins' => 'SWL-Administratoren',
+	'group-swladmins-member' => 'SWL-Administrator',
+	'grouppage-swladmins' => 'Project:SWL-Administratoren',
 	'swl-group-name' => 'Gruppenname:',
 	'swl-group-properties' => 'Attribute zu dieser Gruppe:',
 	'swl-group-remove-property' => 'Attribut entfernen',
@@ -146,11 +149,12 @@ $messages['de'] = array(
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
 	'prefs-swl' => 'Semantische Beobachtungsliste',
 	'prefs-swlgroup' => 'Zu beobachtende Gruppen',
-	'prefs-swlnotification' => 'Benachrichtigungsoptionen',
+	'prefs-swlglobal' => 'Allgemeine Optionen',
+	'swl-prefs-emailnofity' => 'Bei Änderungen an beobachteten Attributen E-Mails senden',
+	'swl-prefs-watchlisttoplink' => 'Einen Link zur semantischen Beobachtungsliste oben auf der Seite im Benutzermenü anzeigen',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 in Kategorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Namensraum ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Konzept ''$4''",
-	'swl-prefs-emailnofity' => 'Bei Änderungen an beobachteten Attributen E-Mails senden',
 	'swl-err-userid-xor-groupids' => 'Es muss entweder der Parameter für die Benutzerkennung oder für die Gruppenkennung angegeben werden, jedoch nicht beide gleichzeitig.',
 );
 
@@ -204,11 +208,10 @@ $messages['fr'] = array(
 	'swl-email-changes' => 'Changements de propriétés sur [$2 $1] :',
 	'prefs-swl' => 'Liste de suivi sémantique',
 	'prefs-swlgroup' => 'Groupes à suivre',
-	'prefs-swlnotification' => 'Options de notification',
+	'swl-prefs-emailnofity' => "Envoyez-moi un courriel sur les modifications apportées aux propriétés que j'ai en liste de suivi",
 	'swl-prefs-category-label' => "'''$1''' : {{PLURAL:$2| propriété|propriétés}} $3 de la catégorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 de l'espace de noms ''$4''",
 	'swl-prefs-concept-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 du concept ''$4''",
-	'swl-prefs-emailnofity' => "Envoyez-moi un courriel sur les modifications apportées aux propriétés que j'ai en liste de suivi",
 	'swl-err-userid-xor-groupids' => 'Il faut spécifier <code>userid</code> ou <code>groupid</code>, mais pas les deux en même temps.',
 );
 
@@ -284,11 +287,10 @@ $messages['gl'] = array(
 	'swl-email-changes' => 'Cambio nas propiedades en [$2 $1]:',
 	'prefs-swl' => 'Lista de vixilancia semántica',
 	'prefs-swlgroup' => 'Grupos a vixiar',
-	'prefs-swlnotification' => 'Opcións de notificación',
+	'swl-prefs-emailnofity' => 'Enviádeme un correo electrónico se hai cambios nas propiedades que vixío',
 	'swl-prefs-category-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 da categoría ''$4''",
 	'swl-prefs-namespace-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do espazo de nomes ''$4''",
 	'swl-prefs-concept-label' => "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do concepto ''$4''",
-	'swl-prefs-emailnofity' => 'Enviádeme un correo electrónico se hai cambios nas propiedades que vixío',
 	'swl-err-userid-xor-groupids' => 'Cómpre especificar ou ben o parámetro de identificación de usuario ou o parámetro de identificación de grupo, pero non os dous.',
 );
 
@@ -336,11 +338,10 @@ $messages['ia'] = array(
 	'swl-email-changes' => 'Cambios de proprietate in [$2 $1]:',
 	'prefs-swl' => 'Observatorio semantic',
 	'prefs-swlgroup' => 'Gruppos a observar',
-	'prefs-swlnotification' => 'Optiones de notification',
+	'swl-prefs-emailnofity' => 'Inviar me e-mail in caso de modificationes in proprietates que io observa',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del categoria ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del spatio de nomines ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|proprietate|proprietates}} $3 del concepto ''$4''",
-	'swl-prefs-emailnofity' => 'Inviar me e-mail in caso de modificationes in proprietates que io observa',
 	'swl-err-userid-xor-groupids' => 'O le parametro "userid" o le "groupids" debe esser specificate, ma non ambes.',
 );
 
@@ -414,6 +415,9 @@ $messages['mk'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Менување]] на групи од семантички списоци на набљудувања',
 	'special-semanticwatchlist' => 'Семантички список на набљудувања',
 	'special-watchlistconditions' => 'Услови за семантичкиот список на набљудувања',
+	'group-swladmins' => 'Администратори на Семантичкиот список на набљудувања',
+	'group-swladmins-member' => 'Администратор на Семантичкиот список на набљудувања',
+	'grouppage-swladmins' => 'Project:Админи_на_Семантичкиот_список_на_набљудувања',
 	'swl-group-name' => 'Име на групата:',
 	'swl-group-properties' => 'Својства покриени со оваа група:',
 	'swl-group-remove-property' => 'Отстрани својство',
@@ -439,11 +443,10 @@ $messages['mk'] = array(
 	'swl-email-changes' => 'Измени во својства на [$2 $1]:',
 	'prefs-swl' => 'Семантички список на набљудувања',
 	'prefs-swlgroup' => 'Групи за набљудување',
-	'prefs-swlnotification' => 'Можности за известување',
+	'swl-prefs-emailnofity' => 'Испрати ми е-пошта кога ќе се изменат својствата што ги набљудувам',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од категоријата ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од именскиот простор ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од концептот ''$4''",
-	'swl-prefs-emailnofity' => 'Испрати ми е-пошта кога ќе се изменат својствата што ги набљудувам',
 	'swl-err-userid-xor-groupids' => 'Треба да ја наведете назнаката на корисникот или назнаките на групата (но не обете).',
 );
 
@@ -493,11 +496,10 @@ $messages['nl'] = array(
 	'swl-email-changes' => 'Wijzigingen in eigenschappen op [$2 $1]:',
 	'prefs-swl' => 'Semantische Volglijst',
 	'prefs-swlgroup' => 'Te volgen groepen',
-	'prefs-swlnotification' => 'Meldingsopties',
+	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van categorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van naamruimte ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van concept ''$4''",
-	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
 	'swl-err-userid-xor-groupids' => 'Geef de parameter "userid" of "groupids" op, maar niet beide.',
 );
 
@@ -510,6 +512,9 @@ $messages['pt'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Alterar]] os grupos de propriedades semânticas vigiadas',
 	'special-semanticwatchlist' => 'Lista das Propriedades Semânticas Vigiadas',
 	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
+	'group-swladmins' => 'Administradores das Propriedades Semânticas Vigiadas',
+	'group-swladmins-member' => 'Administrador das Propriedades Semânticas Vigiadas',
+	'grouppage-swladmins' => 'Project:Administradores_das_Propriedades_Semânticas_Vigiadas',
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:',
 	'swl-group-remove-property' => 'Remover propriedade',
@@ -535,11 +540,10 @@ $messages['pt'] = array(
 	'swl-email-changes' => 'Alterações de propriedades em [$2 $1]:',
 	'prefs-swl' => 'Lista das propriedades semânticas vigiadas',
 	'prefs-swlgroup' => 'Grupos para vigiar',
-	'prefs-swlnotification' => 'Opções de notificação',
+	'swl-prefs-emailnofity' => 'Notificar-me por correio electrónico das alterações de propriedades que estou a vigiar',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 da categoria ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|propriedade|propriedades}} $3 do conceito ''$4''",
-	'swl-prefs-emailnofity' => 'Notificar-me por correio electrónico das alterações de propriedades que estou a vigiar',
 	'swl-err-userid-xor-groupids' => 'Deve ser especificado, ou o parâmetro de identificação do utilizador, ou o parâmetro de identificações de grupos, mas não ambos.',
 );
 
