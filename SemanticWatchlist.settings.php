@@ -44,4 +44,11 @@ $egSWLMailPerChange = true;
 $egSWLMaxMails = 1;
 
 # The default value for the user preference to send email notifications.
-$wgDefaultUserOptions['swl_email'] = false;
+$wgDefaultUserOptions['swl_email'] = true;
+
+# The default value for the user preference to display a top link to the semantic watchlist.
+$wgDefaultUserOptions['swl_watchlisttoplink'] = true;
+
+# Enable displaying a top link to the semantic watchlist?
+$egSWLEnableTopLink = true;
+

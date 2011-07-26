@@ -116,8 +116,16 @@ final class SWLHooks {
 			$preferences['swl_email'] = array(
 				'type' => 'toggle',
 				'label-message' => 'swl-prefs-emailnofity',
-				'section' => 'swl/swlnotification',
-				'default' => $GLOBALS['egSWLEnableEmailNotify']
+				'section' => 'swl/swlglobal',
+			);	
+		}
+		
+		// Only show the top link preference when it's enabled.
+		if ( $GLOBALS['egSWLEnableTopLink'] ) {
+			$preferences['swl_watchlisttoplink'] = array(
+				'type' => 'toggle',
+				'label-message' => 'swl-prefs-watchlisttoplink',
+				'section' => 'swl/swlglobal',
 			);	
 		}
 		
