@@ -26,7 +26,7 @@ final class SWLEmailer {
      * @return Status
      */
     public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet, $describeChanges ) {
-    	global $wgLang;
+    	global $wgLang, $wgPasswordSender, $wgPasswordSenderName;
     	
     	$emailText = wfMsgExt(
     		'swl-email-propschanged-long',
@@ -58,34 +58,14 @@ final class SWLEmailer {
     	
     	wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
     	
-    	return self::userSendMail(
+    	return UserMailer::send( 
+    		new MailAddress( $user ),
+    		new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
     		$title,
-    		$emailText
+    		$emailText,
+    		null,
+    		'text/html; charset=ISO-8859-1'
     	);
-    }
-    
-    /**
-     * Based on User::sendMail, but specifies text/html as content type.
-     * 
-     * @since 0.1
-     * 
-     * @param string $subject
-     * @param string $body
-     * @param string|null $from
-     * @param string|null $replyto
-     * 
-     * @return Status
-     */
-    protected static function userSendMail( $subject, $body, $from = null, $replyto = null ) {
-		if( is_null( $from ) ) {
-			global $wgPasswordSender, $wgPasswordSenderName;
-			$sender = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
-		} else {
-			$sender = new MailAddress( $from );
-		}
-
-		$to = new MailAddress( $this );
-		return UserMailer::send( $to, $sender, $subject, $body, $replyto, 'text/html; charset=ISO-8859-1' );
     }
     
     /**
