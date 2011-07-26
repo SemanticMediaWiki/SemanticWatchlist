@@ -28,7 +28,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function getDescription() {
-		return wfMsg( 'special-' . strtolower( $this->mName ) );
+		return wfMsg( 'special-' . strtolower( $this->getName() ) );
 	}
 	
 	/**
