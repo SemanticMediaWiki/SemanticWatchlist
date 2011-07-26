@@ -290,8 +290,12 @@ final class SWLHooks {
 	 * Called after the personal URLs have been set up, before they are shown.
 	 * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/PersonalUrls
 	 * 
+	 * @since 0.1
+	 * 
 	 * @param array $personal_urls
 	 * @param Title $title
+	 * 
+	 * @return true
 	 */
 	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
 		if ( $GLOBALS['egSWLEnableTopLink'] ) {

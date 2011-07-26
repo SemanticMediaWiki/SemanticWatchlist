@@ -60,7 +60,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @param string $arg
 	 */
 	public function execute( $subPage ) {
-		global $wgOut, $wgUser, $wgRequest, $wgLang;
+		global $wgOut, $wgUser;
 		
 		$this->setHeaders();
 		$this->outputHeader();
@@ -72,6 +72,35 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 		
 		$this->registerUserView( $wgUser );
+		
+		$wgOut->addHTML( '<p>' );
+		
+		if ( $wgUser->isAllowed( 'semanticwatchgroups' ) ) {
+			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-groups', 'parseinline', 'Special:WatchlistConditions' ) . '&#160' );
+		}
+		
+		if ( $this->userHasWatchlistGroups( $wgUser ) ) {
+			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-prefs', 'parseinline', 'Special:Preferences#prefsection-swl' ) );
+			$wgOut->addHTML( '</p>' );
+			
+			$this->getAndDisplaySets( $subPage );
+		}
+		else {
+			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-no-groups', 'parseinline', 'Special:Preferences#prefsection-swl' ) );
+			$wgOut->addHTML( '</p>' );
+		}
+	}
+	
+	/**
+	 * Obtains the change sets and displays them by calling displayWatchlist.
+	 * Also takes care of pagination and displaying appropriate message when there are no results.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param string $subPage
+	 */
+	protected function getAndDisplaySets( $subPage ) {
+		global $wgRequest, $wgOut, $wgLang;
 		
 		$limit = $wgRequest->getInt( 'limit', 20 );
 		$offset = $wgRequest->getInt( 'offset', 0 );
@@ -91,16 +120,23 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			$newContinue = $changeSetData['query-continue']['semanticwatchlist']['swcontinue'];
 		}
 		
-		$wgOut->addHTML( '<p>' . wfMsgExt(
-			'swl-watchlist-position',
-			array( 'parseinline' ),
-			$wgLang->formatNum( count( $sets ) ),
-			$wgLang->formatNum( $offset + 1 )
-		) . '</p>' );
+		if ( $offset != 0 || count( $sets ) > 0 ) {
+			$wgOut->addHTML( '<p>' . wfMsgExt(
+				'swl-watchlist-position',
+				array( 'parseinline' ),
+				$wgLang->formatNum( count( $sets ) ),
+				$wgLang->formatNum( $offset + 1 )
+			) . '</p>' );
+			
+			$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );
+		}
 		
-		$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );		
-		
-		$this->displayWatchlist( $sets );
+		if ( count( $sets ) > 0 ) {
+			$this->displayWatchlist( $sets );
+		}
+		else {
+			$wgOut->addWikiMsg( 'swl-watchlist-no-items' );
+		}		
 	}
 	
 	/**
@@ -378,6 +414,31 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		);
 		
 		return $html;
+	}
+	
+	/**
+	 * Rteurns if the specified user has any watchlist groups in his notification list.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param User $user
+	 * 
+	 * @return boolean
+	 */
+	protected function userHasWatchlistGroups( User $user ) {
+		if ( !$user->isLoggedIn() ) {
+			return false;
+		}
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$group = $dbr->selectRow(
+			'swl_users_per_group',
+			array( 'upg_group_id' ),
+			array( 'upg_user_id' => $user->getId() )
+		);
+		
+		return $group !== false;
 	}
 	
 }

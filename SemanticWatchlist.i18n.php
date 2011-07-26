@@ -53,7 +53,11 @@ $messages['en'] = array(
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
 	'swl-watchlist-firstn' => 'first $1',
 	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
-
+	'swl-watchlist-no-items' => 'You have no items on your watchlist.',
+	'swl-watchlist-can-mod-groups' => 'You can [[$1|modify the watchlist groups]].', 
+	'swl-watchlist-can-mod-prefs' => 'You can [[$1|modify your watchlist preferences]].',
+	'swl-watchlist-no-groups' => 'You are not yet watching any watchlist groups. [[$1|Modify your watchlist preferences]].',
+	
 	// Email
 	'swl-email-propschanged' => 'Properties have changed at $1',
 	'swl-email-propschanged-long' => "One or more properties you watch at '''$1''' have been changed by user '''$2''' at $4 on $5. You can view these and other changes on [$3 your semantic watchlist].",
