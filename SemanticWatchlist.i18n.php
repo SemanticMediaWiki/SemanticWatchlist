@@ -48,14 +48,14 @@ $messages['en'] = array(
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last {{PLURAL:$1|change|changes}} starting with '''#$2'''.",
-	'swl-watchlist-insertions' => 'Added:',
-	'swl-watchlist-deletions' => 'Deleted:',
+	'swl-watchlist-insertions' => 'New:',
+	'swl-watchlist-deletions' => 'Old:',
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
 	'swl-watchlist-firstn' => 'first $1',
 	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
 	'swl-watchlist-no-items' => 'You have no items on your watchlist.',
 	'swl-watchlist-can-mod-groups' => 'You can [[$1|modify the watchlist groups]].', 
-	'swl-watchlist-can-mod-prefs' => 'You can [[$1|modify your watchlist preferences]].',
+	'swl-watchlist-can-mod-prefs' => 'You can [[$1|modify your watchlist preferences]], including setting which properties to watch.',
 	'swl-watchlist-no-groups' => 'You are not yet watching any watchlist groups. [[$1|Modify your watchlist preferences]].',
 	
 	// Email
