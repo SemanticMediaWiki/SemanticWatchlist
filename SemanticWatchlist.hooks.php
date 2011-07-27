@@ -309,7 +309,7 @@ final class SWLHooks {
 				
 				$url = SpecialPage::getTitleFor( 'SemanticWatchlist' )->getLinkUrl();
 				$semanticWatchlist = array(
-					'text' => wfMsg( 'special-semanticwatchlist' ),
+					'text' => wfMsg( 'prefs-swl' ),
 					'href' => $url,
 					'active' => ( $url == $title->getLinkUrl() )
 				);
