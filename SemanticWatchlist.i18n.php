@@ -144,6 +144,10 @@ $messages['de'] = array(
 	'swl-watchlist-pagincontrol' => 'Zeige ($1) ($2)',
 	'swl-watchlist-firstn' => 'erstes $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}',
+	'swl-watchlist-no-items' => 'Es befinden sich keine Einträge auf deiner Beobachtungsliste.',
+	'swl-watchlist-can-mod-groups' => 'Du kannst [[$1|die Gruppen]] anpassen.',
+	'swl-watchlist-can-mod-prefs' => 'Du kannst [[$1|die Einstellungen]] anpassen.',
+	'swl-watchlist-no-groups' => 'Du beobachtest bislang noch keine Gruppen. [[$1|Pass deine Einstellungen an]].',
 	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
 	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $4 um $5 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
@@ -156,6 +160,16 @@ $messages['de'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Namensraum ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|Attribut|Attribute}} $3 im Konzept ''$4''",
 	'swl-err-userid-xor-groupids' => 'Es muss entweder der Parameter für die Benutzerkennung oder für die Gruppenkennung angegeben werden, jedoch nicht beide gleichzeitig.',
+);
+
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
+ * @author Kghbln
+ */
+$messages['de-formal'] = array(
+	'swl-watchlist-no-items' => 'Es befinden sich keine Einträge auf Ihrer Beobachtungsliste.',
+	'swl-watchlist-can-mod-groups' => 'Sie können [[$1|die Gruppen]] anpassen.',
+	'swl-watchlist-can-mod-prefs' => 'Sie können [[$1|die Einstellungen]] anpassen.',
+	'swl-watchlist-no-groups' => 'Sie beobachten bislang noch keine Gruppen. [[$1|Passen Sie Ihre Einstellungen an]].',
 );
 
 /** Spanish (Español)
@@ -247,7 +261,6 @@ $messages['frp'] = array(
 	'swl-email-changes' => 'Changements de propriètâts sur [$2 $1] :',
 	'prefs-swl' => 'Lista de survelyence sèmantica',
 	'prefs-swlgroup' => 'Tropes a siuvre',
-	'prefs-swlnotification' => 'Chouèx de notificacion',
 	'swl-prefs-category-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 de la catègorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 de l’èspâço de noms ''$4''",
 	'swl-prefs-concept-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 du concèpte ''$4''",
@@ -298,7 +311,7 @@ $messages['gl'] = array(
  * @author Amire80
  */
 $messages['he'] = array(
-	'semanticwatchlist-desc' => 'שימוש במאפייניים סמנטיים כבור קטגוריה או מרחב שם שאפשר לצפות ברשימת מעקב',
+	'semanticwatchlist-desc' => 'מאפשרת למשתמשים לקבל הודעה על שינויים מסוימים בנתונים של מדיה־ויקי סמנטית',
 	'right-semanticwatch' => 'שימוש ברשימת מעקב סמנטית',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|שינוי]] קבוצות רשימת מעקב סמנטית',
 	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
@@ -386,6 +399,9 @@ $messages['lb'] = array(
 	'right-semanticwatch' => 'Semantesch Iwwerwaachungslëscht benotzen',
 	'special-semanticwatchlist' => 'Semantesch Iwwerwaachungslëscht',
 	'special-watchlistconditions' => 'Astellunge vun der semantescher Iwwerwaachnugslëscht',
+	'group-swladmins' => 'SWL-Administrateuren',
+	'group-swladmins-member' => 'SWL-Administrateur',
+	'grouppage-swladmins' => 'Project:SWL-Administrateuren',
 	'swl-group-name' => 'Numm vum Grupp:',
 	'swl-group-page-selection' => 'Säiten a(n)',
 	'swl-group-save' => 'Späicheren',
@@ -401,16 +417,17 @@ $messages['lb'] = array(
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
 	'swl-watchlist-firstn' => 'éischt $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Dat éischt Resultat|Déi éischt $1 Resultater}}',
+	'swl-watchlist-no-items' => 'Dir hutt keng Objeten op Ärer Iwwerwaachungslëscht.',
 	'prefs-swl' => 'Semantesch Iwwerwaachungslëscht',
 	'prefs-swlgroup' => "Gruppe fir z'iwwerwaachen",
-	'prefs-swlnotification' => 'Optioune vun de Matdeelungen',
+	'prefs-swlglobal' => 'Allgemeng Optiounen',
 );
 
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'semanticwatchlist-desc' => 'Овозможува назначување на групи семантички својства за една или повеќе категории/именски простори што можат да се набљудуваат (дали се измениле)',
+	'semanticwatchlist-desc' => 'Овозможува известување на корисниците за одредени измени во податоците на Семантички МедијаВики',
 	'right-semanticwatch' => 'Користење на семантички список на набљудувања',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Менување]] на групи од семантички списоци на набљудувања',
 	'special-semanticwatchlist' => 'Семантички список на набљудувања',
@@ -438,12 +455,18 @@ $messages['mk'] = array(
 	'swl-watchlist-pagincontrol' => 'Видете ($1) ($2)',
 	'swl-watchlist-firstn' => 'први $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Прв $1 резултат|Први $1 резултати}}',
+	'swl-watchlist-no-items' => 'Немате ништо во списокот на набљудувања.',
+	'swl-watchlist-can-mod-groups' => 'Можете да ги [[$1|измените групите на набљудувања]].',
+	'swl-watchlist-can-mod-prefs' => 'Можете да ги [[$1|измените вашите нагодувања за набљудување]].',
+	'swl-watchlist-no-groups' => 'Сè уште не набљудувате ниедна група со списоци на набљудувања. [[$1|Измени нагодувања]].',
 	'swl-email-propschanged' => 'Својствата на $1 се имаат изменето',
 	'swl-email-propschanged-long' => "Едно или повеќе својства на '''$1''' што ги набљудувате се изменети од корисникот '''$2''' на $4 во $5 ч.. Можете да ги погледате овие и други промени на [$3 вашиот семантички список на набљудувања].",
 	'swl-email-changes' => 'Измени во својства на [$2 $1]:',
 	'prefs-swl' => 'Семантички список на набљудувања',
 	'prefs-swlgroup' => 'Групи за набљудување',
+	'prefs-swlglobal' => 'Општи наагодувања',
 	'swl-prefs-emailnofity' => 'Испрати ми е-пошта кога ќе се изменат својствата што ги набљудувам',
+	'swl-prefs-watchlisttoplink' => 'Прикажувај врска до Семантичкиот список на набљудувања најгоре на страницата',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од категоријата ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од именскиот простор ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|својство|својства}} $3 од концептот ''$4''",
@@ -507,7 +530,7 @@ $messages['nl'] = array(
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'semanticwatchlist-desc' => 'Permite especificar, para uma ou mais categorias ou espaços nominais, grupos de propriedades semânticas que podem depois ser vigiadas',
+	'semanticwatchlist-desc' => 'Permite que os utilizadores sejam notificados de alterações específicas aos dados do MediaWiki Semântico',
 	'right-semanticwatch' => 'Usar a lista de propriedades semânticas vigiadas',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Alterar]] os grupos de propriedades semânticas vigiadas',
 	'special-semanticwatchlist' => 'Lista das Propriedades Semânticas Vigiadas',
@@ -535,12 +558,18 @@ $messages['pt'] = array(
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
 	'swl-watchlist-firstn' => 'primeiras $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 results}}',
+	'swl-watchlist-no-items' => 'A sua lista de propriedades semânticas vigiadas está vazia.',
+	'swl-watchlist-can-mod-groups' => 'Pode [[$1|alterar os grupos de propriedades semânticas vigiadas]].',
+	'swl-watchlist-can-mod-prefs' => 'Pode [[$1|alterar as suas preferências das propriedades semânticas vigiadas]].',
+	'swl-watchlist-no-groups' => 'Ainda não está a vigiar nenhum grupo de propriedades semânticas vigiadas. [[$1|Alterar as suas preferências das propriedades semânticas vigiadas]].',
 	'swl-email-propschanged' => 'Propriedades alteradas na $1',
 	'swl-email-propschanged-long' => "Uma ou mais propriedades que está a vigiar na '''$1''' foram alteradas pelo utilizador '''$2''' às $4 de $5. Pode ver estas e outras alterações  na sua [$3 lista de propriedades semânticas vigiadas].",
 	'swl-email-changes' => 'Alterações de propriedades em [$2 $1]:',
 	'prefs-swl' => 'Lista das propriedades semânticas vigiadas',
 	'prefs-swlgroup' => 'Grupos para vigiar',
+	'prefs-swlglobal' => 'Opções gerais',
 	'swl-prefs-emailnofity' => 'Notificar-me por correio electrónico das alterações de propriedades que estou a vigiar',
+	'swl-prefs-watchlisttoplink' => 'Mostrar um link para a lista de propriedades semânticas vigiadas no topo da página',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 da categoria ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|propriedade|propriedades}} $3 do conceito ''$4''",
