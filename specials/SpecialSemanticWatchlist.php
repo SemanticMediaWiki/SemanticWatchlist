@@ -397,13 +397,13 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		
 		$lines = array();
 		
-		if ( count( $insertions ) > 0 ) {
-			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-insertions' ), wfMsg( 'swl-watchlist-insertions' ) ) . ' ' . implode( ', ', $insertions );
-		}
-		
 		if ( count( $deletions ) > 0 ) {
 			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-deletions' ), wfMsg( 'swl-watchlist-deletions' ) ) . ' ' . implode( ', ', $deletions );
 		}		
+		
+		if ( count( $insertions ) > 0 ) {
+			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-insertions' ), wfMsg( 'swl-watchlist-insertions' ) ) . ' ' . implode( ', ', $insertions );
+		}
 		
 		$html = Html::element( 'span', array( 'class' => 'swl-watchlist-prop' ), $property->getLabel() );
 		
