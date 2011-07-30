@@ -244,7 +244,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		
 		$changeSetsHTML = array();
 		
-		foreach ( $sets as $set ) {
+		foreach ( $sets as /* SWLChangeSet */ $set ) {
 			$dayKey = substr( $set->getEdit()->getTime(), 0, 8 ); // Get the YYYYMMDD part.
 			
 			if ( !array_key_exists( $dayKey, $changeSetsHTML ) ) {
