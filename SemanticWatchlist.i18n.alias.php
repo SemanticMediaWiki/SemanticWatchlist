@@ -15,7 +15,7 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'SemanticWatchlist' => array( 'SemanticWatchlist' ),
-	'WatchlistConditions' => array( 'WatchlistConditions' ),
+	'WatchlistConditions' => array( 'WatchlistConditions', 'WatchlistGroups' ),
 );
 
 /** Arabic (العربية) */

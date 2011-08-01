@@ -37,7 +37,7 @@ if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.6 or above.' );
 }
 
-define( 'SemanticWatchlist_VERSION', '0.1' );
+define( 'SemanticWatchlist_VERSION', '0.2 alpha' );
 
 $wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'][] = array(
 	'path' => __FILE__,
@@ -119,6 +119,8 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 		'swl-group-add-property',
 		'swl-group-page-selection',
 		'swl-group-save',
+		'swl-group-saved',
+		'swl-group-saving',
 		'swl-group-delete',
 		'swl-group-category',
 		'swl-group-namespace',

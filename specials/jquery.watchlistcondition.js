@@ -6,7 +6,7 @@
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
  */
 
-(function( $ ){ $.fn.watchlistcondition = function( group, options ) {
+(function( $, mw ){ $.fn.watchlistcondition = function( group, options ) {
 
 	var self = this;
 	this.group = group;
@@ -31,7 +31,7 @@
 		
 		var addButton = $( '<input />' ).attr( {
 			'type': 'button',
-			'value': mediaWiki.msg( 'swl-group-add-property' )
+			'value': mw.msg( 'swl-group-add-property' )
 		} ).click( function() {
 			var propName = addPropInput.val();
 			
@@ -48,7 +48,7 @@
 			}
 		} );
 		
-		propTd.html( mediaWiki.msg( 'swl-group-properties' ) )
+		propTd.html( mw.msg( 'swl-group-properties' ) )
 			.append( this.propsDiv )
 			.append( $( '<div />' ).html( addPropInput ).append( '&nbsp;' ).append( addButton ) );
 		
@@ -66,7 +66,7 @@
 			self.find( 'legend' ).text( $( this ).val() );
 		} );
 		
-		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mediaWiki.msg( 'swl-group-name' ) + ' ' ).append( this.nameInput ) );
+		var nameTd = $( '<td />' ).html( $( '<p />' ).text( mw.msg( 'swl-group-name' ) + ' ' ).append( this.nameInput ) );
 		table.append( $( '<tr />' ).html( nameTd ).append( propTd ) );
 		
 		var conditionValue, conditionType;
@@ -92,7 +92,7 @@
 		
 		for ( i in conditionTypes ) {
 			var optionElement = $( '<option />' )
-				.text( mediaWiki.msg( 'swl-group-' + conditionTypes[i] ) )
+				.text( mw.msg( 'swl-group-' + conditionTypes[i] ) )
 				.attr( { 'value': conditionTypes[i], 'type': conditionTypeGroups[i] } );
 			
 			if ( conditionType == conditionTypes[i] ) {
@@ -108,7 +108,7 @@
 			'size': 30
 		} );
 		var conditionTd = $( '<td />' ).html( 
-			$( '<p />' ).text( mediaWiki.msg( 'swl-group-page-selection' ) + ' ' )
+			$( '<p />' ).text( mw.msg( 'swl-group-page-selection' ) + ' ' )
 			.append( this.conditionTypeInput )
 			.append( '&nbsp;' )
 			.append( this.conditionNameInput )
@@ -121,21 +121,25 @@
 		this.append(
 			$( '<input />' ).attr( {
 				'type': 'button',
-				'value': mediaWiki.msg( 'swl-group-save' ),
+				'value': mw.msg( 'swl-group-save' ),
 				'class': 'swl-save'
 			} ).click( function() {
 				this.disabled = true;
+				$( this ).val( mw.msg( 'swl-group-saving' ) );
 				var button = this;
 				
 				self.doSave( function( success ) {
 					if ( success ) {
-						// TODO: indicate success?
+						$( button ).val( mw.msg( 'swl-group-saved' ) );
+						setTimeout( function() {
+							$( button ).val( mw.msg( 'swl-group-save' ) );
+							button.disabled = false;
+						}, 1000 );
 					}
 					else {
 						alert( 'Could not update the watchlist group.' );
+						button.disabled = false;
 					}
-					
-					button.disabled = false;
 				} );
 			} )
 		);
@@ -145,9 +149,9 @@
 		this.append(
 			$( '<input />' ).attr( {
 				'type': 'button',
-				'value': mediaWiki.msg( 'swl-group-delete' )
+				'value': mw.msg( 'swl-group-delete' )
 			} ).click( function() {
-				if ( confirm( mediaWiki.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
+				if ( confirm( mw.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
 					this.disabled = true;
 					var button = this;
 					
@@ -177,7 +181,7 @@
 
 		var removeButton = $( '<input />' ).attr( {
 			'type': 'button',
-			'value': mediaWiki.msg( 'swl-group-remove-property' )
+			'value': mw.msg( 'swl-group-remove-property' )
 		} );
 
 		removeButton.click( function() {
@@ -235,4 +239,4 @@
 	
 	return this;
 	
-}; })( jQuery );
+}; })( jQuery, mediaWiki );
