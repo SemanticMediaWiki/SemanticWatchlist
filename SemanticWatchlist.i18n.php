@@ -82,13 +82,21 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Jeroen De Dauw
  * @author Nemo bis
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
 	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
+	'swl-watchlist-can-mod-groups' => 'Parameters:
+* $1 is a wiki link.',
+	'swl-watchlist-can-mod-prefs' => 'Parameters:
+* $1 is a wiki link.',
+	'swl-watchlist-no-groups' => 'Parameters:
+* $1 is a wiki link.',
 	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
+	'swl-prefs-watchlisttoplink' => 'Description for a MediaWiki preference.',
 );
 
 /** Bulgarian (Български)
@@ -111,6 +119,32 @@ $messages['br'] = array(
 	'swl-group-add-new-group' => 'Ouzhpennañ ur strollad nevez',
 	'swl-group-add-group' => 'Ouzhpennañ ur strollad',
 	'swl-watchlist-insertions' => 'Ouzhpennet :',
+);
+
+/** Catalan (Català)
+ * @author Toniher
+ */
+$messages['ca'] = array(
+	'swl-group-name' => 'Nom del grup:',
+	'swl-group-remove-property' => 'Suprimeix la propietat',
+	'swl-group-add-property' => 'Afegeix la propietat',
+	'swl-group-save' => 'Desa',
+	'swl-group-saved' => 'Desat',
+	'swl-group-saving' => "S'està desant",
+	'swl-group-delete' => 'Suprimeix',
+	'swl-group-category' => 'categoria',
+	'swl-group-namespace' => 'espai de noms',
+	'swl-group-concept' => 'concepte',
+	'swl-group-confirmdelete' => 'Esteu segur que voleu suprimir el grup de seguiment «$1»?',
+	'swl-group-save-all' => 'Desa-ho tot',
+	'swl-group-add-new-group' => 'Afegeix un grup nou',
+	'swl-group-add-group' => 'Afegeix un grup',
+	'swl-watchlist-insertions' => 'Nou:',
+	'swl-watchlist-deletions' => 'Antic:',
+	'swl-email-propschanged' => 'Les propietats han canviat a $1',
+	'prefs-swlgroup' => 'Grups a vigilar',
+	'prefs-swlglobal' => 'Opcions generals',
+	'swl-prefs-emailnofity' => "Envia'm un correu electrònic quan hi hagi canvis en les propietats que segueixo",
 );
 
 /** German (Deutsch)
@@ -516,17 +550,22 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'semanticwatchlist-desc' => 'Maakt het mogelijk groepen van semantische eigenschappen aan te geven voor een of meer categorieën of naamruimten, zodat wijzigingen kunnen worden weergegeven',
+	'semanticwatchlist-desc' => 'Laat gebruikers een volglijst samenstellen op basis van wijzigingen in gegevens van Semantic MediaWiki',
 	'right-semanticwatch' => 'Semantische volglijst gebruiken',
 	'right-semanticwatchgroups' => 'De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]',
 	'special-semanticwatchlist' => 'Semantische volglijst',
 	'special-watchlistconditions' => 'Voorwaarden voor semantische volglijst',
+	'group-swladmins' => 'Beheerders semantische volglijst',
+	'group-swladmins-member' => 'Beheerder semantische volglijst',
+	'grouppage-swladmins' => 'Project:Beheerders_semantische_volglijst',
 	'swl-group-name' => 'Groepsnaam:',
 	'swl-group-properties' => 'Eigenschappen die onder deze groep vallen:',
 	'swl-group-remove-property' => 'Eigenschap verwijderen',
 	'swl-group-add-property' => 'Eigenschap toevoegen',
 	'swl-group-page-selection' => "Pagina's in",
 	'swl-group-save' => 'Opslaan',
+	'swl-group-saved' => 'Opgeslagen',
+	'swl-group-saving' => 'Bezig met opslaan',
 	'swl-group-delete' => 'Verwijderen',
 	'swl-group-category' => 'categorie',
 	'swl-group-namespace' => 'naamruimte',
@@ -541,12 +580,18 @@ $messages['nl'] = array(
 	'swl-watchlist-pagincontrol' => 'Bekijken ($1) ($2)',
 	'swl-watchlist-firstn' => 'eerste $1',
 	'swl-watchlist-firstn-title' => 'Eerste $1 {{PLURAL:$1|resultaat|resultaten}}',
+	'swl-watchlist-no-items' => 'Uw semantische volglijst is leeg.',
+	'swl-watchlist-can-mod-groups' => 'U kunt de [[$1|volglijstgroepen aanpassen]].',
+	'swl-watchlist-can-mod-prefs' => 'U kunt [[$1|uw volglijstwijzigingen aanpassen]], inclusief welke eigenschappen gevolgd moeten worden.',
+	'swl-watchlist-no-groups' => 'U volgt nog geen volglijstgroepen. U kunt [[$1|uw volglijstinstellingen aanpassen]].',
 	'swl-email-propschanged' => 'Eigenschappen zijn veranderd op $1',
 	'swl-email-propschanged-long' => "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''$2''' om $4 op $5. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].",
 	'swl-email-changes' => 'Wijzigingen in eigenschappen op [$2 $1]:',
 	'prefs-swl' => 'Semantische Volglijst',
 	'prefs-swlgroup' => 'Te volgen groepen',
+	'prefs-swlglobal' => 'Algemene opties',
 	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
+	'swl-prefs-watchlisttoplink' => 'Bovenaan de pagina een verwijzing weergeven naar de semantische volglijst',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van categorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van naamruimte ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van concept ''$4''",
