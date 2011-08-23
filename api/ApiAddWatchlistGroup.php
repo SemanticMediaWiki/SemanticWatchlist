@@ -102,6 +102,8 @@ class ApiAddWatchlistGroup extends ApiBase {
 	
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
+			array( 'missingparam', 'name' ),
+			array( 'missingparam', 'properties' ),
 		) );
 	}
 
