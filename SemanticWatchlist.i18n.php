@@ -226,21 +226,27 @@ $messages['es'] = array(
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author IAlex
  * @author Sherbrooke
  */
 $messages['fr'] = array(
-	'semanticwatchlist-desc' => 'Permet de définir des groupes de propriétés sémantiques pour une ou plusieurs catégories / espaces de noms qui peuvent ensuite être inscrits sur la liste de suivi sémantique',
+	'semanticwatchlist-desc' => "Permet aux utilisateurs d'être avertis de modifications spécifiques dans les données de MediaWiki sémantique",
 	'right-semanticwatch' => 'Utiliser la liste de suivi sémantique',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modifier]] les groupes de la liste de suivi sémantique',
 	'special-semanticwatchlist' => 'Liste de suivi sémantique',
 	'special-watchlistconditions' => 'Paramètres de la liste de suivi sémantique',
+	'group-swladmins' => 'Administrateurs de la liste de suivi sémantique',
+	'group-swladmins-member' => 'Administrateur de la liste de suivi sémantique',
+	'grouppage-swladmins' => 'Project:Semantic_Watchlist_admins',
 	'swl-group-name' => 'Nom du groupe:',
 	'swl-group-properties' => 'Propriétés de ce groupe :',
 	'swl-group-remove-property' => 'Retirez la propriété',
 	'swl-group-add-property' => 'Ajouter une propriété',
 	'swl-group-page-selection' => 'Pages dans la',
 	'swl-group-save' => 'Enregistrer',
+	'swl-group-saved' => 'Enregistré',
+	'swl-group-saving' => 'Enregistrement en cours',
 	'swl-group-delete' => 'Supprimer',
 	'swl-group-category' => 'catégorie',
 	'swl-group-namespace' => 'espace de noms',
@@ -251,16 +257,22 @@ $messages['fr'] = array(
 	'swl-group-add-group' => 'Ajouter un groupe',
 	'swl-watchlist-position' => "'''Afficher $1''' des derniers changements en commençant par '''#$2'''.",
 	'swl-watchlist-insertions' => 'Ajouté :',
-	'swl-watchlist-deletions' => 'Supprimé :',
+	'swl-watchlist-deletions' => 'Ancien:',
 	'swl-watchlist-pagincontrol' => 'Voir ($1) ($2)',
 	'swl-watchlist-firstn' => '$1 premiers',
 	'swl-watchlist-firstn-title' => '$1 {{PLURAL:$1|permier résultat|premiers résultats}}',
+	'swl-watchlist-no-items' => "Vous n'avez aucun élément dans votre liste de suivi sémantique.",
+	'swl-watchlist-can-mod-groups' => 'Vous pouvez [[$1|modifier les groupes de la liste de suivi]].',
+	'swl-watchlist-can-mod-prefs' => 'Vous pouvez [[$1|modifier les préférences de votre liste de suivi]], y compris la définition des propriétés à suivre.',
+	'swl-watchlist-no-groups' => 'Vous ne suivez pour le moment aucun groupe de liste de suivi. [[$1|Modifiez vos préférences de liste de suivi]].',
 	'swl-email-propschanged' => 'Les propriétés ont changé à $1',
 	'swl-email-propschanged-long' => "Une ou plusieurs propriétés que vous suivez à '''$1'' ont été modifiées par l'utilisateur '''$2''' à $4 sur $5 . Vous pouvez visualiser ces modifications et d'autres sur [$3 votre liste de suivi sémantique].",
 	'swl-email-changes' => 'Changements de propriétés sur [$2 $1] :',
 	'prefs-swl' => 'Liste de suivi sémantique',
 	'prefs-swlgroup' => 'Groupes à suivre',
+	'prefs-swlglobal' => 'Options générales',
 	'swl-prefs-emailnofity' => "Envoyez-moi un courriel sur les modifications apportées aux propriétés que j'ai en liste de suivi",
+	'swl-prefs-watchlisttoplink' => 'Afficher un lien vers la liste de suivi sémantique en haut de la page',
 	'swl-prefs-category-label' => "'''$1''' : {{PLURAL:$2| propriété|propriétés}} $3 de la catégorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 de l'espace de noms ''$4''",
 	'swl-prefs-concept-label' => "'''$1''' : {{PLURAL:$2|propriété|propriétés}} $3 du concept ''$4''",
