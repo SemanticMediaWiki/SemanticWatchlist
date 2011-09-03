@@ -500,6 +500,7 @@ $messages['lb'] = array(
 	'prefs-swl' => 'Semantesch Iwwerwaachungslëscht',
 	'prefs-swlgroup' => "Gruppe fir z'iwwerwaachen",
 	'prefs-swlglobal' => 'Allgemeng Optiounen',
+	'swl-prefs-emailnofity' => 'Mir eng Mail schécke wann Attributer déi ech iwwerwaachen geännert ginn',
 );
 
 /** Macedonian (Македонски)
