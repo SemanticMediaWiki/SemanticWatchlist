@@ -80,6 +80,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author EugeneZelenko
  * @author Jeroen De Dauw
  * @author Nemo bis
  * @author Siebrand
@@ -88,7 +89,15 @@ $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
+	'swl-group-save' => '{{Identical|Save}}',
+	'swl-group-saved' => '{{Identical|Saved}}',
+	'swl-group-delete' => '{{Identical|Delete}}',
+	'swl-group-category' => '{{Identical|Category}}',
+	'swl-group-namespace' => '{{Identical|Namespace}}',
 	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
+	'swl-watchlist-insertions' => '{{Identical|New}}',
+	'swl-watchlist-pagincontrol' => '{{Identical|View}}',
+	'swl-watchlist-firstn' => '{{Identical|First}}',
 	'swl-watchlist-can-mod-groups' => 'Parameters:
 * $1 is a wiki link.',
 	'swl-watchlist-can-mod-prefs' => 'Parameters:
@@ -97,6 +106,37 @@ $messages['qqq'] = array(
 * $1 is a wiki link.',
 	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
 	'swl-prefs-watchlisttoplink' => 'Description for a MediaWiki preference.',
+);
+
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'swl-group-saved' => 'Gestoor',
+);
+
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+ * @author Jim-by
+ * @author Renessaince
+ */
+$messages['be-tarask'] = array(
+	'swl-group-save' => 'Захаваць',
+	'swl-group-saved' => 'Захаваны',
+	'swl-group-saving' => 'Захаваньне',
+	'swl-group-delete' => 'Выдаліць',
+	'swl-group-category' => 'катэгорыя',
+	'swl-group-namespace' => 'прастора назваў',
+	'swl-group-concept' => 'канцэпт',
+	'swl-group-confirmdelete' => 'Вы ўпэўнены, што жадаеце выдаліць групу назіраньня «$1»?',
+	'swl-group-save-all' => 'Захаваць усё',
+	'swl-group-add-new-group' => 'Дадаць новую групу',
+	'swl-group-add-group' => 'Дадаць групу',
+	'swl-watchlist-insertions' => 'Новая:',
+	'swl-watchlist-deletions' => 'Старая:',
+	'swl-watchlist-pagincontrol' => 'Прагляд ($1) ($2)',
+	'swl-watchlist-firstn' => 'першая $1',
+	'swl-watchlist-can-mod-groups' => 'Вы можаце [[$1|зьмяняць групы сьпісу назіраньня]].',
+	'prefs-swlgroup' => 'Групы для назіраньня',
 );
 
 /** Bulgarian (Български)
@@ -287,6 +327,9 @@ $messages['frp'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Changiér]] les tropes de la lista de survelyence sèmantica',
 	'special-semanticwatchlist' => 'Lista de survelyence sèmantica',
 	'special-watchlistconditions' => 'Paramètres de la lista de survelyence sèmantica',
+	'group-swladmins' => 'Administrators de la lista de survelyence sèmantica',
+	'group-swladmins-member' => 'Administrator de la lista de survelyence sèmantica',
+	'grouppage-swladmins' => 'Project:Administrators_de_la_lista_de_survelyence_sèmantica',
 	'swl-group-name' => 'Nom de la tropa :',
 	'swl-group-properties' => 'Propriètâts de ceta tropa :',
 	'swl-group-remove-property' => 'Enlevar una propriètât',
