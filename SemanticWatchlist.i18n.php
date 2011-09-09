@@ -115,6 +115,17 @@ $messages['af'] = array(
 	'swl-group-saved' => 'Gestoor',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'swl-group-save' => 'Qeyd et',
+	'swl-group-delete' => 'Sil',
+	'swl-group-category' => 'kateqoriya',
+	'swl-watchlist-insertions' => 'Yeni:',
+	'swl-watchlist-deletions' => 'Qədim:',
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author Jim-by
  * @author Renessaince
