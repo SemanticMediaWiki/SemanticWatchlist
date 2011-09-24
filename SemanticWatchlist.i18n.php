@@ -162,7 +162,11 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'swl-group-name' => 'Anv ar strollad :',
+	'swl-group-add-property' => "Ouzhpennañ ar perc'henniezh",
 	'swl-group-save' => 'Enrollañ',
+	'swl-group-saved' => 'Enrollet',
+	'swl-group-saving' => "Oc'h enrollañ",
 	'swl-group-delete' => 'Dilemel',
 	'swl-group-category' => 'rummad',
 	'swl-group-namespace' => 'esaouenn anv',
@@ -170,6 +174,10 @@ $messages['br'] = array(
 	'swl-group-add-new-group' => 'Ouzhpennañ ur strollad nevez',
 	'swl-group-add-group' => 'Ouzhpennañ ur strollad',
 	'swl-watchlist-insertions' => 'Ouzhpennet :',
+	'swl-watchlist-deletions' => 'Kozh:',
+	'swl-watchlist-pagincontrol' => 'Gwelet ($1) ($2)',
+	'swl-watchlist-firstn' => 'Ar $1 kentañ',
+	'swl-watchlist-firstn-title' => "Ar $1 {{PLURAL:$1|disoc'h kentañ|disoc'h kentañ}}",
 );
 
 /** Catalan (Català)
