@@ -41,8 +41,7 @@ class SWLPropertyChange {
 	 */
 	public static function newFromSerialization( SMWDIProperty $property, $oldValue, $newValue ) {
 		$diType = SMWDataValueFactory::getDataItemId( $property->findPropertyTypeID() );
-		//var_dump($property);
-		//if($diType!=7) {throw new Exception();exit;}
+
 		return new self(
 			is_null( $oldValue ) ? null : SMWDataItem::newFromSerialization( $diType, $oldValue ),
 			is_null( $newValue ) ? null : SMWDataItem::newFromSerialization( $diType, $newValue )
