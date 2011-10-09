@@ -84,11 +84,15 @@ $messages['en'] = array(
  * @author Jeroen De Dauw
  * @author Nemo bis
  * @author Siebrand
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
+	'group-swladmins' => '{{doc-group|swladmins}}',
+	'group-swladmins-member' => '{{doc-group|swladmins|member}}',
+	'grouppage-swladmins' => '{{doc-group|swladmins|page}}',
 	'swl-group-save' => '{{Identical|Save}}',
 	'swl-group-saved' => '{{Identical|Saved}}',
 	'swl-group-delete' => '{{Identical|Delete}}',
