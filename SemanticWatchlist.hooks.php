@@ -71,7 +71,7 @@ final class SWLHooks {
      * @return true
      */    
     public static function onGroupNotify( SWLGroup $group, array $userIDs, SWLChangeSet $changes ) {
-    	global $egSWLMailPerChange;
+    	global $egSWLMailPerChange, $egSWLMaxMails;
     	
     	foreach ( $userIDs as $userID ) {
     		$user = User::newFromId( $userID );
@@ -148,7 +148,7 @@ final class SWLHooks {
 				case count( $group->getConcepts() ) > 0 :
 					$type = 'concept';
 					$name = $group->getConcepts();
-					$name = $item[0];
+					$name = $name[0];
 					break;
 			}
 			
