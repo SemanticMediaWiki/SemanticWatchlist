@@ -163,17 +163,20 @@ $messages['bg'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fulup
  * @author Y-M D
  */
 $messages['br'] = array(
 	'swl-group-name' => 'Anv ar strollad :',
 	'swl-group-add-property' => "Ouzhpennañ ar perc'henniezh",
+	'swl-group-page-selection' => 'Pajennoù e',
 	'swl-group-save' => 'Enrollañ',
 	'swl-group-saved' => 'Enrollet',
 	'swl-group-saving' => "Oc'h enrollañ",
 	'swl-group-delete' => 'Dilemel',
 	'swl-group-category' => 'rummad',
 	'swl-group-namespace' => 'esaouenn anv',
+	'swl-group-concept' => 'meizad',
 	'swl-group-save-all' => 'Enrollañ pep tra',
 	'swl-group-add-new-group' => 'Ouzhpennañ ur strollad nevez',
 	'swl-group-add-group' => 'Ouzhpennañ ur strollad',
@@ -182,6 +185,7 @@ $messages['br'] = array(
 	'swl-watchlist-pagincontrol' => 'Gwelet ($1) ($2)',
 	'swl-watchlist-firstn' => 'Ar $1 kentañ',
 	'swl-watchlist-firstn-title' => "Ar $1 {{PLURAL:$1|disoc'h kentañ|disoc'h kentañ}}",
+	'prefs-swlglobal' => 'Dibarzhioù hollek',
 );
 
 /** Catalan (Català)
