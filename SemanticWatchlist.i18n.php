@@ -441,6 +441,34 @@ $messages['gl'] = array(
 	'swl-err-userid-xor-groupids' => 'Cómpre especificar ou ben o parámetro de identificación de usuario ou o parámetro de identificación de grupo, pero non os dous.',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Chlämens
+ */
+$messages['gsw'] = array(
+	'swl-group-name' => 'Gruppename:',
+	'swl-group-properties' => 'Attribut vo derre Grupp:',
+	'swl-group-remove-property' => 'Attribut ussenee',
+	'swl-group-add-property' => 'Attribut dezuefiege',
+	'swl-group-page-selection' => 'Syte in',
+	'swl-group-save' => 'Spychere',
+	'swl-group-saved' => 'Gspycheret',
+	'swl-group-saving' => 'Am Spychere',
+	'swl-group-delete' => 'Lösche',
+	'swl-group-category' => 'Kategorii',
+	'swl-group-namespace' => 'Namensruum',
+	'swl-group-concept' => 'Konzept',
+	'swl-group-save-all' => 'Alli spyychere',
+	'swl-group-add-new-group' => 'E neji Grupp dezuefiege',
+	'swl-group-add-group' => 'E Gruppe dezuefiege',
+	'swl-watchlist-insertions' => 'Nej:',
+	'swl-watchlist-deletions' => 'Alt:',
+	'swl-watchlist-pagincontrol' => 'Zeig ($1) ($2)',
+	'swl-watchlist-firstn' => 'erschts $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Erschts Ergebnis|Erschti $1 Ergebnis}}',
+	'swl-watchlist-no-items' => 'Du hesch ke Yträg uf dyre Beobachtigslischte.',
+	'swl-watchlist-can-mod-groups' => 'Du chasch [[$1|die Gruppe]] aapasse..',
+);
+
 /** Hebrew (עברית)
  * @author Amire80
  */
