@@ -185,6 +185,7 @@ $messages['br'] = array(
 	'swl-watchlist-pagincontrol' => 'Gwelet ($1) ($2)',
 	'swl-watchlist-firstn' => 'Ar $1 kentañ',
 	'swl-watchlist-firstn-title' => "Ar $1 {{PLURAL:$1|disoc'h kentañ|disoc'h kentañ}}",
+	'prefs-swlgroup' => 'Strolladoù da vezañ evezhiet',
 	'prefs-swlglobal' => 'Dibarzhioù hollek',
 );
 
