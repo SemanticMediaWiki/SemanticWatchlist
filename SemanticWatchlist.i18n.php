@@ -168,6 +168,7 @@ $messages['bg'] = array(
  */
 $messages['br'] = array(
 	'swl-group-name' => 'Anv ar strollad :',
+	'swl-group-remove-property' => 'Lemel kuit ar perzh',
 	'swl-group-add-property' => "Ouzhpennañ ar perc'henniezh",
 	'swl-group-page-selection' => 'Pajennoù e',
 	'swl-group-save' => 'Enrollañ',
