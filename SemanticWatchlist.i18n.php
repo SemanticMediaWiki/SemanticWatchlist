@@ -719,6 +719,13 @@ $messages['nl'] = array(
 	'swl-err-userid-xor-groupids' => 'Geef de parameter "userid" of "groupids" op, maar niet beide.',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'swl-group-delete' => 'Lesche',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */
