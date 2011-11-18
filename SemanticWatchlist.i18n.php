@@ -548,6 +548,13 @@ $messages['id'] = array(
 	'swl-group-page-selection' => 'Halaman dalam',
 );
 
+/** Japanese (日本語)
+ * @author Fryed-peach
+ */
+$messages['ja'] = array(
+	'swl-group-delete' => '削除',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
