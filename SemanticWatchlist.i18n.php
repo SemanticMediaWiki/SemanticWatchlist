@@ -553,6 +553,7 @@ $messages['id'] = array(
  */
 $messages['ja'] = array(
 	'swl-group-delete' => '削除',
+	'swl-group-category' => 'カテゴリー',
 );
 
 /** Colognian (Ripoarisch)
