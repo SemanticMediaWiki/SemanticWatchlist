@@ -556,6 +556,13 @@ $messages['ja'] = array(
 	'swl-group-category' => 'カテゴリー',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'swl-watchlist-insertions' => 'ಹೊಸ:',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
