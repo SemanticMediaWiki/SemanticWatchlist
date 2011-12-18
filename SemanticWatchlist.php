@@ -39,7 +39,7 @@ if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
 
 define( 'SemanticWatchlist_VERSION', '0.2 alpha' );
 
-$wgExtensionCredits[defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'][] = array(
+$wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
 	'name' => 'Semantic Watchlist',
 	'version' => SemanticWatchlist_VERSION,
