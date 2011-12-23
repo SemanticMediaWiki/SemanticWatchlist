@@ -28,7 +28,7 @@ $messages['en'] = array(
 
 	'group-swladmins' => 'Semantic Watchlist administrators',
 	'group-swladmins-member' => '{{GENDER:$1|Semantic Watchlist administrator}}',
-	'grouppage-swladmins' => 'Project:Semantic_Watchlist_administrators',
+	'grouppage-swladmins' => '{{ns:project}}:Semantic Watchlist administrators',
 
 	// Special:WatchlistConditions
 	'swl-group-name' => 'Group name:',
