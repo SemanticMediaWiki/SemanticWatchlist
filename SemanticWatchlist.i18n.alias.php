@@ -41,6 +41,12 @@ $specialPageAliases['fi'] = array(
 	'SemanticWatchlist' => array( 'Semanttinen_tarkkailulista' ),
 );
 
+/** Interlingua (Interlingua) */
+$specialPageAliases['ia'] = array(
+	'SemanticWatchlist' => array( 'Observatorio_semantic' ),
+	'WatchlistConditions' => array( 'Conditiones_del_observatorio_semantic', 'Gruppos_del_observatorio_semantic' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'SemanticWatchlist' => array( 'Semantesch_Iwwerwaachungslëscht' ),
@@ -63,8 +69,3 @@ $specialPageAliases['nl'] = array(
 	'SemanticWatchlist' => array( 'SemantischeVolglijst' ),
 	'WatchlistConditions' => array( 'Volglijstcondities' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;
