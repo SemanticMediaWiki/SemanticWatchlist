@@ -53,7 +53,7 @@ $wgExtensionCredits['semantic'][] = array(
 $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
 $wgExtensionMessagesFiles['SemanticWatchlist']	  	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
-$wgExtensionAliasesFiles['SemanticWatchlist'] 		= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
+$wgExtensionMessagesFiles['SemanticWatchlistAlias']	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
 
 $wgAutoloadClasses['SWLHooks']					  	= dirname( __FILE__ ) . '/SemanticWatchlist.hooks.php';
 
