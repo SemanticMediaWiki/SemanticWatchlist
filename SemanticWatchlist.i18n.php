@@ -742,6 +742,7 @@ $messages['pdc'] = array(
 );
 
 /** Portuguese (Português)
+ * @author Giro720
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -751,7 +752,7 @@ $messages['pt'] = array(
 	'special-semanticwatchlist' => 'Lista das Propriedades Semânticas Vigiadas',
 	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
 	'group-swladmins' => 'Administradores das Propriedades Semânticas Vigiadas',
-	'group-swladmins-member' => 'Administrador das Propriedades Semânticas Vigiadas',
+	'group-swladmins-member' => '{{GENDER:$1|Administrador das Propriedades Semânticas Vigiadas|Administradora das Propriedades Semânticas Vigiadas}}',
 	'grouppage-swladmins' => '{{ns:project}}:Administradores_das_Propriedades_Semânticas_Vigiadas',
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:',
@@ -809,5 +810,12 @@ $messages['tl'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Baguhin]] ang semantikong mga pangkat ng talaan ng binabantayan',
 	'special-semanticwatchlist' => 'Semantikong Talaan ng Binabantayan',
 	'special-watchlistconditions' => 'Mga kalagayan ng semantikong talaan ng binabantayan',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'swl-watchlist-firstn' => 'ערשטער $1',
 );
 
