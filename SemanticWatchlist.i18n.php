@@ -294,6 +294,13 @@ $messages['es'] = array(
 	'swl-prefs-emailnofity' => 'Enviarme un mensaje de correo electrónico sobre los cambios en las propiedades que estoy vigilando',
 );
 
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'swl-group-save' => 'Tallenna',
+);
+
 /** French (Français)
  * @author Gomoko
  * @author IAlex
