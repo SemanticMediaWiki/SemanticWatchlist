@@ -488,6 +488,27 @@ $messages['he'] = array(
 	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'swl-group-name' => 'Mjeno skupiny:',
+	'swl-group-remove-property' => 'Kajkosć wotstronić',
+	'swl-group-add-property' => 'Kajkosć přidać',
+	'swl-group-page-selection' => 'Strony w',
+	'swl-group-save' => 'Składować',
+	'swl-group-saved' => 'Składowany',
+	'swl-group-saving' => 'Składuje so',
+	'swl-group-delete' => 'Zhašeć',
+	'swl-group-category' => 'kategorija',
+	'swl-group-namespace' => 'mjenowy rum',
+	'swl-group-concept' => 'Koncept',
+	'swl-group-add-new-group' => 'Nowu skupinu přidać',
+	'swl-group-add-group' => 'Skupinu přidać',
+	'swl-watchlist-insertions' => 'Nowy:',
+	'swl-watchlist-deletions' => 'Stary:',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
