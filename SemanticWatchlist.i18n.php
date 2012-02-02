@@ -492,6 +492,7 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'special-semanticwatchlist' => 'Semantiska wobkedźbowanska lisćina',
 	'swl-group-name' => 'Mjeno skupiny:',
 	'swl-group-remove-property' => 'Kajkosć wotstronić',
 	'swl-group-add-property' => 'Kajkosć přidać',
