@@ -768,7 +768,9 @@ $messages['nl'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
-	'swl-group-delete' => 'Lesche',
+	'swl-group-save' => 'Beilege',
+	'swl-group-saved' => 'Bhalde',
+	'swl-group-delete' => 'Verwische',
 );
 
 /** Portuguese (Português)
