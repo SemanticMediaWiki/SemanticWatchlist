@@ -280,18 +280,56 @@ $messages['de-formal'] = array(
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Mor
  */
 $messages['es'] = array(
+	'semanticwatchlist-desc' => 'Permite a los usuarios recibir notificaciones sobre cambios específicos hechos en los datos de Semantic MediaWiki',
+	'right-semanticwatch' => 'Utilizar la lista de vigilancia semántica',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Modificar]] los grupos de la lista de vigilancia semántica',
+	'special-semanticwatchlist' => 'Lista de vigilancia semántica',
+	'special-watchlistconditions' => 'Condiciones de la lista de vigilancia semántica',
+	'group-swladmins' => 'Administradores de la lista de vigilancia semántica',
+	'group-swladmins-member' => '{{GENDER:$1|administrador|administradora}} de la lista de vigilancia semántica',
+	'grouppage-swladmins' => '{{ns:project}}:Administradores de la lista de vigilancia semántica',
 	'swl-group-name' => 'Nombre del grupo:',
+	'swl-group-properties' => 'Propiedades cubiertas por este grupo:',
 	'swl-group-remove-property' => 'Quitar propiedad',
 	'swl-group-add-property' => 'Añadir propiedad',
+	'swl-group-page-selection' => 'Páginas en',
 	'swl-group-save' => 'Guardar',
+	'swl-group-saved' => 'Guardado',
+	'swl-group-saving' => 'Guardando',
 	'swl-group-delete' => 'Borrar',
 	'swl-group-category' => 'categoría',
+	'swl-group-namespace' => 'espacio de nombres',
+	'swl-group-concept' => 'concepto',
+	'swl-group-confirmdelete' => '¿Está seguro de querer borrar el grupo de la lista de vigilancia "$1"?',
+	'swl-group-save-all' => 'Guardar todo',
+	'swl-group-add-new-group' => 'Añadir un nuevo grupo',
+	'swl-group-add-group' => 'Añadir grupo',
+	'swl-watchlist-position' => "Mostrando {{PLURAL:$1|el último cambio|los '''$1''' últimos cambios}}, comezando por el '''# $2'''.",
 	'swl-watchlist-insertions' => 'Añadido:',
-	'swl-watchlist-deletions' => 'Borrado:',
+	'swl-watchlist-deletions' => 'Antiguo:',
+	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
+	'swl-watchlist-firstn' => '$1 primeras',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|primer resultado|$1 primeros resultados}}',
+	'swl-watchlist-no-items' => 'No tiene ningún elemento en su lista de vigilancia semántica.',
+	'swl-watchlist-can-mod-groups' => 'Puede [[$1|modificar los grupos de la lista de vigilancia]].',
+	'swl-watchlist-can-mod-prefs' => 'Puede [[$1|modificar las preferencias de su lista de vigilancia]], incluidas las propiedades que quiera vigilar.',
+	'swl-watchlist-no-groups' => 'Aun no está vigilandor ninguno de los grupos de la lista de vigilancia. [[$1|Modifique las preferencias de su lista de vigilancia]].',
+	'swl-email-propschanged' => 'Las propiedades han cambiado en $1',
+	'swl-email-propschanged-long' => "El usuario '''$2''' ha modificado una o más propiedades que vigila en '''$1''' el $5 a las $4. Puede ver estas y otras modificaciones [$3 en su lista de vigilancia semántica].",
+	'swl-email-changes' => 'Cambio de propiedades en [$2 $1]:',
+	'prefs-swl' => 'Lista de vigilancia semántica',
+	'prefs-swlgroup' => 'Grupos a vigilar',
+	'prefs-swlglobal' => 'Opciones generales',
 	'swl-prefs-emailnofity' => 'Enviarme un mensaje de correo electrónico sobre los cambios en las propiedades que estoy vigilando',
+	'swl-prefs-watchlisttoplink' => 'Mostrar un enlace a la lista de vigilancia semántica en la parte superior de la página',
+	'swl-prefs-category-label' => "'''$1:''' {{PLURAL:$2|propiedad|propiedades}} $3 de la categoría ''$4''",
+	'swl-prefs-namespace-label' => "'''$1:''' {{PLURAL:$2|propiedad|propiedades}} $3 del espacio de nombres ''$4''",
+	'swl-prefs-concept-label' => "'''$1:''' {{PLURAL:$2|propiedad|propiedades}} $3 del concepto ''$4''",
+	'swl-err-userid-xor-groupids' => 'Debe especificar el parámetro de identificación de usuario o el parámetro de identificación de grupo, pero no ambos.',
 );
 
 /** Finnish (Suomi)
