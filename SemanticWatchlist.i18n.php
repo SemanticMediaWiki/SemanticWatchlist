@@ -30,6 +30,9 @@ $messages['en'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|Semantic Watchlist administrator}}',
 	'grouppage-swladmins' => '{{ns:project}}:Semantic Watchlist administrators',
 
+	'group-swladmins.css' => '/* CSS placed here will affect Semantic watchlist administrators only */', # only translate this message to other languages if you have to change it
+	'group-swladmins.js'  => '/* JS placed here will affect Semantic watchlist administrators only */', # only translate this message to other languages if you have to change it
+
 	// Special:WatchlistConditions
 	'swl-group-name' => 'Group name:',
 	'swl-group-properties' => 'Properties covered by this group:',
