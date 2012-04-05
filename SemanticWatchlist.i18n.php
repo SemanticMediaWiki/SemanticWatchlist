@@ -618,6 +618,13 @@ $messages['id'] = array(
 	'swl-group-page-selection' => 'Halaman dalam',
 );
 
+/** Italian (Italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'swl-group-category' => 'categoria',
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  */
