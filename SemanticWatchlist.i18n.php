@@ -622,7 +622,26 @@ $messages['id'] = array(
  * @author Beta16
  */
 $messages['it'] = array(
+	'swl-group-name' => 'Nome gruppo:',
+	'swl-group-remove-property' => 'Rimuovi proprietà',
+	'swl-group-add-property' => 'Aggiungi proprietà',
+	'swl-group-save' => 'Salva',
+	'swl-group-saved' => 'Salvato',
+	'swl-group-saving' => 'Salvataggio',
+	'swl-group-delete' => 'Cancella',
 	'swl-group-category' => 'categoria',
+	'swl-group-namespace' => 'namespace',
+	'swl-group-save-all' => 'Salva tutto',
+	'swl-group-add-new-group' => 'Aggiungi un nuovo gruppo',
+	'swl-group-add-group' => 'Aggiungi gruppo',
+	'swl-watchlist-insertions' => 'Nuovo:',
+	'swl-watchlist-deletions' => 'Vecchio:',
+	'swl-watchlist-pagincontrol' => 'Vedi ($1) ($2)',
+	'swl-watchlist-firstn' => 'primo $1',
+	'swl-watchlist-firstn-title' => 'Primi $1 {{PLURAL:$1|risultato|risultati}}',
+	'prefs-swlglobal' => 'Opzioni generali',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|proprietà|proprietà}} $3 dalla categoria ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|proprietà|proprietà}} $3 dal namespace ''$4''",
 );
 
 /** Japanese (日本語)
