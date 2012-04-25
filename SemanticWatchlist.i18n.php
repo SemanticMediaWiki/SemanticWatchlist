@@ -646,10 +646,19 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Shirayuki
  */
 $messages['ja'] = array(
+	'swl-group-name' => 'グループ名：',
+	'swl-group-remove-property' => 'プロパティを除去',
+	'swl-group-add-property' => 'プロパティを追加',
+	'swl-group-save' => '保存',
 	'swl-group-delete' => '削除',
 	'swl-group-category' => 'カテゴリー',
+	'swl-group-namespace' => '名前空間',
+	'swl-group-save-all' => 'すべて保存',
+	'swl-group-add-new-group' => '新規グループを追加',
+	'swl-group-add-group' => 'グループを追加',
 );
 
 /** Kannada (ಕನ್ನಡ)
