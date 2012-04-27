@@ -284,6 +284,7 @@ $messages['de-formal'] = array(
 
 /** Spanish (Español)
  * @author Armando-Martin
+ * @author Invadinado
  * @author Mor
  */
 $messages['es'] = array(
@@ -320,7 +321,7 @@ $messages['es'] = array(
 	'swl-watchlist-no-items' => 'No tiene ningún elemento en su lista de vigilancia semántica.',
 	'swl-watchlist-can-mod-groups' => 'Puede [[$1|modificar los grupos de la lista de vigilancia]].',
 	'swl-watchlist-can-mod-prefs' => 'Puede [[$1|modificar las preferencias de su lista de vigilancia]], incluidas las propiedades que quiera vigilar.',
-	'swl-watchlist-no-groups' => 'Aun no está vigilandor ninguno de los grupos de la lista de vigilancia. [[$1|Modifique las preferencias de su lista de vigilancia]].',
+	'swl-watchlist-no-groups' => 'Aún no estás vigilando ningún grupo de la lista de seguimiento. [[$1|Modifica las preferencias de tu lista de seguimiento]].',
 	'swl-email-propschanged' => 'Las propiedades han cambiado en $1',
 	'swl-email-propschanged-long' => "El usuario '''$2''' ha modificado una o más propiedades que vigila en '''$1''' el $5 a las $4. Puede ver estas y otras modificaciones [$3 en su lista de vigilancia semántica].",
 	'swl-email-changes' => 'Cambio de propiedades en [$2 $1]:',
