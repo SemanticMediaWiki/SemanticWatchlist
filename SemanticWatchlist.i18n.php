@@ -534,8 +534,14 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'right-semanticwatch' => 'Semantisku wobkedźbowansku lisćinu wužiwać',
 	'special-semanticwatchlist' => 'Semantiska wobkedźbowanska lisćina',
+	'special-watchlistconditions' => 'Wuměnjenja semantiskeje wobkedźbowanskeje lisćiny',
+	'group-swladmins' => 'Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
+	'group-swladmins-member' => '{{GENDER:$1|Administrator|Administratorka}} semantiskeje wobkedźbowanskeje lisćiny',
+	'grouppage-swladmins' => '{{ns:project}}:Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
 	'swl-group-name' => 'Mjeno skupiny:',
+	'swl-group-properties' => 'Kajkosće tuteje skupiny:',
 	'swl-group-remove-property' => 'Kajkosć wotstronić',
 	'swl-group-add-property' => 'Kajkosć přidać',
 	'swl-group-page-selection' => 'Strony w',
@@ -546,10 +552,24 @@ $messages['hsb'] = array(
 	'swl-group-category' => 'kategorija',
 	'swl-group-namespace' => 'mjenowy rum',
 	'swl-group-concept' => 'Koncept',
+	'swl-group-confirmdelete' => 'Chceš woprawdźe skupinu wobkedźbowanskeje lisćiny "$1" zhašeć?',
+	'swl-group-save-all' => 'Wšě składować',
 	'swl-group-add-new-group' => 'Nowu skupinu přidać',
 	'swl-group-add-group' => 'Skupinu přidać',
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
+	'swl-watchlist-pagincontrol' => '($1) ($2) pokazać',
+	'swl-watchlist-firstn' => 'prěni $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Prěni wuslědk|Prěnjej $1 wuslědkaj|Prěnje $1 wuslědki|Prěnich $1 wuslědkow}}',
+	'swl-watchlist-no-items' => 'Nimaš žane zapiski w swojej semantiskej wobkedźbowanskej lisćinje.',
+	'swl-watchlist-can-mod-groups' => 'Móžeš [[$1|skupiny wobkedźbowanskeje lisćiny změnić]].',
+	'swl-watchlist-can-mod-prefs' => 'Móžeš [[$1| nastajenja swojeje wobkedźbowanskeje lisćiny změnić]], inkluziwnje nastajenje, kotre kajkosće maja so wobkedźbować.',
+	'swl-email-propschanged' => 'Kajkosće su so do $1 změnili',
+	'swl-email-changes' => 'Změny kajkosćow na [$2 $1]:',
+	'prefs-swl' => 'Semantiska wobkedźbowanska lisćina',
+	'prefs-swlgroup' => 'Skupiny, kotrež maja so wobkedźbować',
+	'prefs-swlglobal' => 'Powšitkowne opcije',
+	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
 );
 
 /** Interlingua (Interlingua)
