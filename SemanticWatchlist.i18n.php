@@ -284,6 +284,7 @@ $messages['de-formal'] = array(
 
 /** Spanish (Español)
  * @author Armando-Martin
+ * @author Invadinado
  * @author Mor
  */
 $messages['es'] = array(
@@ -320,7 +321,7 @@ $messages['es'] = array(
 	'swl-watchlist-no-items' => 'No tiene ningún elemento en su lista de vigilancia semántica.',
 	'swl-watchlist-can-mod-groups' => 'Puede [[$1|modificar los grupos de la lista de vigilancia]].',
 	'swl-watchlist-can-mod-prefs' => 'Puede [[$1|modificar las preferencias de su lista de vigilancia]], incluidas las propiedades que quiera vigilar.',
-	'swl-watchlist-no-groups' => 'Aun no está vigilandor ninguno de los grupos de la lista de vigilancia. [[$1|Modifique las preferencias de su lista de vigilancia]].',
+	'swl-watchlist-no-groups' => 'Aún no estás vigilando ningún grupo de la lista de seguimiento. [[$1|Modifica las preferencias de tu lista de seguimiento]].',
 	'swl-email-propschanged' => 'Las propiedades han cambiado en $1',
 	'swl-email-propschanged-long' => "El usuario '''$2''' ha modificado una o más propiedades que vigila en '''$1''' el $5 a las $4. Puede ver estas y otras modificaciones [$3 en su lista de vigilancia semántica].",
 	'swl-email-changes' => 'Cambio de propiedades en [$2 $1]:',
@@ -533,8 +534,14 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'right-semanticwatch' => 'Semantisku wobkedźbowansku lisćinu wužiwać',
 	'special-semanticwatchlist' => 'Semantiska wobkedźbowanska lisćina',
+	'special-watchlistconditions' => 'Wuměnjenja semantiskeje wobkedźbowanskeje lisćiny',
+	'group-swladmins' => 'Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
+	'group-swladmins-member' => '{{GENDER:$1|Administrator|Administratorka}} semantiskeje wobkedźbowanskeje lisćiny',
+	'grouppage-swladmins' => '{{ns:project}}:Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
 	'swl-group-name' => 'Mjeno skupiny:',
+	'swl-group-properties' => 'Kajkosće tuteje skupiny:',
 	'swl-group-remove-property' => 'Kajkosć wotstronić',
 	'swl-group-add-property' => 'Kajkosć přidać',
 	'swl-group-page-selection' => 'Strony w',
@@ -545,10 +552,24 @@ $messages['hsb'] = array(
 	'swl-group-category' => 'kategorija',
 	'swl-group-namespace' => 'mjenowy rum',
 	'swl-group-concept' => 'Koncept',
+	'swl-group-confirmdelete' => 'Chceš woprawdźe skupinu wobkedźbowanskeje lisćiny "$1" zhašeć?',
+	'swl-group-save-all' => 'Wšě składować',
 	'swl-group-add-new-group' => 'Nowu skupinu přidać',
 	'swl-group-add-group' => 'Skupinu přidać',
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
+	'swl-watchlist-pagincontrol' => '($1) ($2) pokazać',
+	'swl-watchlist-firstn' => 'prěni $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Prěni wuslědk|Prěnjej $1 wuslědkaj|Prěnje $1 wuslědki|Prěnich $1 wuslědkow}}',
+	'swl-watchlist-no-items' => 'Nimaš žane zapiski w swojej semantiskej wobkedźbowanskej lisćinje.',
+	'swl-watchlist-can-mod-groups' => 'Móžeš [[$1|skupiny wobkedźbowanskeje lisćiny změnić]].',
+	'swl-watchlist-can-mod-prefs' => 'Móžeš [[$1| nastajenja swojeje wobkedźbowanskeje lisćiny změnić]], inkluziwnje nastajenje, kotre kajkosće maja so wobkedźbować.',
+	'swl-email-propschanged' => 'Kajkosće su so do $1 změnili',
+	'swl-email-changes' => 'Změny kajkosćow na [$2 $1]:',
+	'prefs-swl' => 'Semantiska wobkedźbowanska lisćina',
+	'prefs-swlgroup' => 'Skupiny, kotrež maja so wobkedźbować',
+	'prefs-swlglobal' => 'Powšitkowne opcije',
+	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
 );
 
 /** Interlingua (Interlingua)
@@ -646,10 +667,19 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Shirayuki
  */
 $messages['ja'] = array(
+	'swl-group-name' => 'グループ名：',
+	'swl-group-remove-property' => 'プロパティを除去',
+	'swl-group-add-property' => 'プロパティを追加',
+	'swl-group-save' => '保存',
 	'swl-group-delete' => '削除',
 	'swl-group-category' => 'カテゴリー',
+	'swl-group-namespace' => '名前空間',
+	'swl-group-save-all' => 'すべて保存',
+	'swl-group-add-new-group' => '新規グループを追加',
+	'swl-group-add-group' => 'グループを追加',
 );
 
 /** Kannada (ಕನ್ನಡ)
