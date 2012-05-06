@@ -570,6 +570,9 @@ $messages['hsb'] = array(
 	'prefs-swlgroup' => 'Skupiny, kotrež maja so wobkedźbować',
 	'prefs-swlglobal' => 'Powšitkowne opcije',
 	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z kategorje ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z mjenoweho ruma ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z koncepta ''$4''",
 );
 
 /** Interlingua (Interlingua)
