@@ -570,6 +570,9 @@ $messages['hsb'] = array(
 	'prefs-swlgroup' => 'Skupiny, kotrež maja so wobkedźbować',
 	'prefs-swlglobal' => 'Powšitkowne opcije',
 	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z kategorje ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z mjenoweho ruma ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z koncepta ''$4''",
 );
 
 /** Interlingua (Interlingua)
@@ -670,16 +673,27 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
+	'right-semanticwatch' => 'セマンティックウォッチリストを使用',
+	'right-semanticwatchgroups' => 'セマンティックウォッチリストのグループを[[Special:WatchlistConditions|変更]]',
+	'special-semanticwatchlist' => 'セマンティックウォッチリスト',
+	'group-swladmins' => 'セマンティックウォッチリスト管理者',
+	'group-swladmins-member' => '{{GENDER:$1|セマンティックウォッチリスト管理者}}',
+	'grouppage-swladmins' => '{{ns:project}}:セマンティックウォッチリスト管理者',
 	'swl-group-name' => 'グループ名：',
 	'swl-group-remove-property' => 'プロパティを除去',
 	'swl-group-add-property' => 'プロパティを追加',
 	'swl-group-save' => '保存',
+	'swl-group-saving' => '保存中',
 	'swl-group-delete' => '削除',
 	'swl-group-category' => 'カテゴリー',
 	'swl-group-namespace' => '名前空間',
 	'swl-group-save-all' => 'すべて保存',
 	'swl-group-add-new-group' => '新規グループを追加',
 	'swl-group-add-group' => 'グループを追加',
+	'prefs-swl' => 'セマンティックウォッチリスト',
+	'prefs-swlgroup' => 'ウォッチするグループ',
+	'swl-prefs-emailnofity' => 'ウォッチしているプロパティが変更されたらメールで知らせる',
+	'swl-prefs-watchlisttoplink' => 'セマンティックウォッチリストへのリンクをページの上部に表示',
 );
 
 /** Kannada (ಕನ್ನಡ)
