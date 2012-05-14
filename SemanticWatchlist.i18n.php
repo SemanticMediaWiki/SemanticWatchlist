@@ -771,6 +771,8 @@ $messages['mk'] = array(
 	'group-swladmins' => 'Администратори на Семантичкиот список на набљудувања',
 	'group-swladmins-member' => '{{GENDER:$1|администратор на Семантичкиот список на набљудувања}}',
 	'grouppage-swladmins' => '{{ns:project}}:Админи_на_Семантичкиот_список_на_набљудувања',
+	'group-swladmins.css' => '/* Тука поставениот CSS ќе се применува само врз администраторите на семантички список на набљудувања */',
+	'group-swladmins.js' => '/* Тука поставениот JS ќе се применува само врз администраторите на семантички список на набљудувања */',
 	'swl-group-name' => 'Име на групата:',
 	'swl-group-properties' => 'Својства покриени со оваа група:',
 	'swl-group-remove-property' => 'Отстрани својство',
@@ -882,6 +884,17 @@ $messages['pdc'] = array(
 	'swl-group-save' => 'Beilege',
 	'swl-group-saved' => 'Bhalde',
 	'swl-group-delete' => 'Verwische',
+);
+
+/** Pälzisch (Pälzisch)
+ * @author Manuae
+ */
+$messages['pfl'] = array(
+	'swl-group-save' => 'Schbaischere',
+	'swl-group-saved' => 'Gschbaischad',
+	'swl-group-delete' => 'Lesche',
+	'swl-watchlist-pagincontrol' => 'Zaisch ($1) ($2)',
+	'swl-watchlist-no-items' => 'Du dudschd nix beobachde.',
 );
 
 /** Portuguese (Português)
