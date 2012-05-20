@@ -259,7 +259,7 @@ $messages['de'] = array(
 	'swl-watchlist-can-mod-prefs' => 'Du kannst [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.',
 	'swl-watchlist-no-groups' => 'Du beobachtest bislang noch keine Gruppen. [[$1|Pass deine Einstellungen an]].',
 	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
-	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $4 um $5 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
+	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $5 um $4 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
 	'prefs-swl' => 'Semantische Beobachtungsliste',
 	'prefs-swlgroup' => 'Zu beobachtende Gruppen',
@@ -534,7 +534,9 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'semanticwatchlist-desc' => 'Zmóžnja zdźělenje wěstych změnow na semantiskich datach',
 	'right-semanticwatch' => 'Semantisku wobkedźbowansku lisćinu wužiwać',
+	'right-semanticwatchgroups' => 'Semantiske wobkedźbowanske lisćiny [[Special:WatchlistConditions|změnić]]',
 	'special-semanticwatchlist' => 'Semantiska wobkedźbowanska lisćina',
 	'special-watchlistconditions' => 'Wuměnjenja semantiskeje wobkedźbowanskeje lisćiny',
 	'group-swladmins' => 'Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
@@ -556,6 +558,7 @@ $messages['hsb'] = array(
 	'swl-group-save-all' => 'Wšě składować',
 	'swl-group-add-new-group' => 'Nowu skupinu přidać',
 	'swl-group-add-group' => 'Skupinu přidać',
+	'swl-watchlist-position' => "{{PLURAL:$1|Pokazuje|Pokazujetej|Pokazuja|Pokazuje}} so '''$1''' {{PLURAL:$1|poslednja změna|poslednjej změnje|poseldnje změny|poslednich změnow}}, započinajo z '''$2'''.",
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
 	'swl-watchlist-pagincontrol' => '($1) ($2) pokazać',
@@ -564,15 +567,19 @@ $messages['hsb'] = array(
 	'swl-watchlist-no-items' => 'Nimaš žane zapiski w swojej semantiskej wobkedźbowanskej lisćinje.',
 	'swl-watchlist-can-mod-groups' => 'Móžeš [[$1|skupiny wobkedźbowanskeje lisćiny změnić]].',
 	'swl-watchlist-can-mod-prefs' => 'Móžeš [[$1| nastajenja swojeje wobkedźbowanskeje lisćiny změnić]], inkluziwnje nastajenje, kotre kajkosće maja so wobkedźbować.',
+	'swl-watchlist-no-groups' => 'Hišće njewobkedźbuješ wobkedźbowanske skupiny. [[$1|Změń swoje nastajenja za wobkedźbowanske lisćiny]].',
 	'swl-email-propschanged' => 'Kajkosće su so do $1 změnili',
+	'swl-email-propschanged-long' => "Jedna kajkosć abo wjacore kajkosće, kotrež wobkedźbuješ na '''$1''', su so wot wužiwarja '''$2''' $5 w $4 změnili. Móžeš sej tute a druhe změny na [$3 swojej semantiskej wobkedźbowanskej lisćinje] wobhladać.",
 	'swl-email-changes' => 'Změny kajkosćow na [$2 $1]:',
 	'prefs-swl' => 'Semantiska wobkedźbowanska lisćina',
 	'prefs-swlgroup' => 'Skupiny, kotrež maja so wobkedźbować',
 	'prefs-swlglobal' => 'Powšitkowne opcije',
+	'swl-prefs-emailnofity' => 'Wo změnach na kajkosćach, kotrež so wobkedźbuja, e-mejl pósłać',
 	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z kategorje ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z mjenoweho ruma ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z koncepta ''$4''",
+	'swl-err-userid-xor-groupids' => 'Pak parameter ID wužiwarja pak parameter ID skupiny dyrbi so podać, ale nic wobaj.',
 );
 
 /** Interlingua (Interlingua)
