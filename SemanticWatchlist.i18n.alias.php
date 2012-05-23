@@ -41,6 +41,12 @@ $specialPageAliases['fi'] = array(
 	'SemanticWatchlist' => array( 'Semanttinen_tarkkailulista' ),
 );
 
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'SemanticWatchlist' => array( 'Semantischi_Beobachtigslischt' ),
+	'WatchlistConditions' => array( 'Semantischi_Beobachtigslischt_yystelle' ),
+);
+
 /** Interlingua (Interlingua) */
 $specialPageAliases['ia'] = array(
 	'SemanticWatchlist' => array( 'Observatorio_semantic' ),
@@ -50,12 +56,18 @@ $specialPageAliases['ia'] = array(
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'SemanticWatchlist' => array( 'Semantesch_Iwwerwaachungslëscht' ),
+	'WatchlistConditions' => array( 'Iwwerwaachungslëscht_Conditiounen', 'Iwwerwaachungslëscht_Gruppen' ),
 );
 
 /** Macedonian (Македонски) */
 $specialPageAliases['mk'] = array(
 	'SemanticWatchlist' => array( 'СемантичкиСписокНаНабљудувања' ),
 	'WatchlistConditions' => array( 'УсловиНаСписокНаНабљудувања', 'ГрупиНаНабљудувања' ),
+);
+
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'SemanticWatchlist' => array( 'Semantisk_overvåkningsliste' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */
