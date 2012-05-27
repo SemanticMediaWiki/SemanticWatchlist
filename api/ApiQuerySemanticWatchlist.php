@@ -44,8 +44,10 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 				$this->setContinueEnumParameter( 'continue', $set->edit_time . '-' . $set->spe_set_id );
 				break;
 			}
-			
-			$resultSets[] = SWLChangeSet::newFromDBResult( $set );
+
+			if ( !is_null( Title::newFromID( $set->edit_page_id ) ) ) {
+				$resultSets[] = SWLChangeSet::newFromDBResult( $set );
+			}
 		}
 		
 		if ( $params['merge'] ) {
