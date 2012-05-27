@@ -25,7 +25,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		
 		if ( !( isset( $params['userid'] ) XOR isset( $params['groupids'] ) ) ) {
-			$this->dieUsage( wfMsgExt( 'swl-err-userid-xor-groupids' ), 'userid-xor-groupids' );
+			$this->dieUsage( wfMsg( 'swl-err-userid-xor-groupids' ), 'userid-xor-groupids' );
 		}
 		
 		$isUserFilter = isset( $params['userid'] );
