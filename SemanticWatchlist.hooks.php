@@ -150,6 +150,8 @@ final class SWLHooks {
 					$name = $group->getConcepts();
 					$name = $name[0];
 					break;
+				default:
+					continue;
 			}
 			
 			$properties = $group->getProperties();
