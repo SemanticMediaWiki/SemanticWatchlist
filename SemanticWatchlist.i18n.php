@@ -88,6 +88,7 @@ $messages['en'] = array(
  * @author Nemo bis
  * @author Siebrand
  * @author Umherirrender
+ * @author 아라
  */
 $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc}}',
@@ -96,6 +97,8 @@ $messages['qqq'] = array(
 	'group-swladmins' => '{{doc-group|swladmins}}',
 	'group-swladmins-member' => '{{doc-group|swladmins|member}}',
 	'grouppage-swladmins' => '{{doc-group|swladmins|page}}',
+	'group-swladmins.css' => '{{doc-group|swladmins}}',
+	'group-swladmins.js' => '{{doc-group|swladmins}}',
 	'swl-group-save' => '{{Identical|Save}}',
 	'swl-group-saved' => '{{Identical|Saved}}',
 	'swl-group-delete' => '{{Identical|Delete}}',
@@ -708,6 +711,17 @@ $messages['ja'] = array(
  */
 $messages['kn'] = array(
 	'swl-watchlist-insertions' => 'ಹೊಸ:',
+);
+
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'group-swladmins' => '시맨틱 주시 관리자',
+	'group-swladmins-member' => '{{GENDER:$1|시맨틱 주시 관리자}}',
+	'grouppage-swladmins' => '{{ns:project}}:시맨틱 주시 관리자',
+	'group-swladmins.css' => '/* 이 CSS 설정은 시맨틱 주시 관리자에만 적용됩니다 */',
+	'group-swladmins.js' => '/* 이 자바스크립트 설정은 시맨틱 주시 관리자에만 적용됩니다 */',
 );
 
 /** Colognian (Ripoarisch)
