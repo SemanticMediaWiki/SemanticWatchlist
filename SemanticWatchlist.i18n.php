@@ -717,11 +717,11 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'group-swladmins' => '시맨틱 주시 관리자',
-	'group-swladmins-member' => '{{GENDER:$1|시맨틱 주시 관리자}}',
-	'grouppage-swladmins' => '{{ns:project}}:시맨틱 주시 관리자',
-	'group-swladmins.css' => '/* 이 CSS 설정은 시맨틱 주시 관리자에만 적용됩니다 */',
-	'group-swladmins.js' => '/* 이 자바스크립트 설정은 시맨틱 주시 관리자에만 적용됩니다 */',
+	'group-swladmins' => '시맨틱 주시문서 목록 관리자',
+	'group-swladmins-member' => '{{GENDER:$1|시맨틱 주시문서 목록 관리자}}',
+	'grouppage-swladmins' => '{{ns:project}}:시맨틱 주시문서 목록 관리자',
+	'group-swladmins.css' => '/* 이 CSS 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
+	'group-swladmins.js' => '/* 이 자바스크립트 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
 );
 
 /** Colognian (Ripoarisch)
