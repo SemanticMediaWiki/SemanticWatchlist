@@ -30,13 +30,19 @@ $specialPageAliases['de'] = array(
 	'WatchlistConditions' => array( 'Semantische_Beobachtungsliste_einstellen' ),
 );
 
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'SemanticWatchlist' => array( 'BewniWiki' ),
+	'WatchlistConditions' => array( 'GrubeListeyseyri' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'SemanticWatchlist' => array( 'فهرست_پی‌گیری_معنایی' ),
 	'WatchlistConditions' => array( 'شرایط_فهرست_پی‌گیری' ),
 );
 
-/** Finnish (Suomi) */
+/** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
 	'SemanticWatchlist' => array( 'Semanttinen_tarkkailulista' ),
 );
@@ -47,10 +53,16 @@ $specialPageAliases['gsw'] = array(
 	'WatchlistConditions' => array( 'Semantischi_Beobachtigslischt_yystelle' ),
 );
 
-/** Interlingua (Interlingua) */
+/** Interlingua (interlingua) */
 $specialPageAliases['ia'] = array(
 	'SemanticWatchlist' => array( 'Observatorio_semantic' ),
 	'WatchlistConditions' => array( 'Conditiones_del_observatorio_semantic', 'Gruppos_del_observatorio_semantic' ),
+);
+
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'SemanticWatchlist' => array( '시멘틱주시목록' ),
+	'WatchlistConditions' => array( '조건주시문서목록', '그룹주시문서목록' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
@@ -59,13 +71,13 @@ $specialPageAliases['lb'] = array(
 	'WatchlistConditions' => array( 'Iwwerwaachungslëscht_Conditiounen', 'Iwwerwaachungslëscht_Gruppen' ),
 );
 
-/** Macedonian (Македонски) */
+/** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'SemanticWatchlist' => array( 'СемантичкиСписокНаНабљудувања' ),
 	'WatchlistConditions' => array( 'УсловиНаСписокНаНабљудувања', 'ГрупиНаНабљудувања' ),
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $specialPageAliases['nb'] = array(
 	'SemanticWatchlist' => array( 'Semantisk_overvåkningsliste' ),
 );
