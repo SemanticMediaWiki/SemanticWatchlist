@@ -125,7 +125,7 @@ $messages['af'] = array(
 	'swl-group-saved' => 'Gestoor',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  */
 $messages['az'] = array(
@@ -160,7 +160,7 @@ $messages['be-tarask'] = array(
 	'prefs-swlgroup' => 'Групы для назіраньня',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -168,7 +168,7 @@ $messages['bg'] = array(
 	'swl-group-delete' => 'Изтриване',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -196,7 +196,7 @@ $messages['br'] = array(
 	'prefs-swlglobal' => 'Dibarzhioù hollek',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -285,7 +285,7 @@ $messages['de-formal'] = array(
 	'swl-watchlist-no-groups' => 'Sie beobachten bislang noch keine Gruppen. [[$1|Passen Sie Ihre Einstellungen an]].',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
  * @author Mor
@@ -339,14 +339,14 @@ $messages['es'] = array(
 	'swl-err-userid-xor-groupids' => 'Debe especificar el parámetro de identificación de usuario o el parámetro de identificación de grupo, pero no ambos.',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  */
 $messages['fi'] = array(
 	'swl-group-save' => 'Tallenna',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author IAlex
  * @author Sherbrooke
@@ -400,7 +400,7 @@ $messages['fr'] = array(
 	'swl-err-userid-xor-groupids' => 'Il faut spécifier <code>userid</code> ou <code>groupid</code>, mais pas les deux en même temps.',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -585,7 +585,7 @@ $messages['hsb'] = array(
 	'swl-err-userid-xor-groupids' => 'Pak parameter ID wužiwarja pak parameter ID skupiny dyrbi so podać, ale nic wobaj.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -652,7 +652,7 @@ $messages['id'] = array(
 	'swl-group-page-selection' => 'Halaman dalam',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
@@ -780,7 +780,7 @@ $messages['lb'] = array(
 	'swl-prefs-emailnofity' => 'Mir eng Mail schécke wann Attributer déi ech iwwerwaachen geännert ginn',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -918,7 +918,7 @@ $messages['pfl'] = array(
 	'swl-watchlist-no-items' => 'Du dudschd nix beobachde.',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
  */
@@ -996,7 +996,7 @@ $messages['yi'] = array(
 	'swl-watchlist-firstn' => 'ערשטער $1',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
