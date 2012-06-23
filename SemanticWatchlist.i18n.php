@@ -683,6 +683,7 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
+	'semanticwatchlist-desc' => 'Semantic MediaWiki のデータの変更を利用者に通知できるようにする',
 	'right-semanticwatch' => 'セマンティックウォッチリストを使用',
 	'right-semanticwatchgroups' => 'セマンティックウォッチリストのグループを[[Special:WatchlistConditions|変更]]',
 	'special-semanticwatchlist' => 'セマンティックウォッチリスト',
@@ -693,10 +694,12 @@ $messages['ja'] = array(
 	'swl-group-remove-property' => 'プロパティを除去',
 	'swl-group-add-property' => 'プロパティを追加',
 	'swl-group-save' => '保存',
+	'swl-group-saved' => '保存済み',
 	'swl-group-saving' => '保存中',
 	'swl-group-delete' => '削除',
 	'swl-group-category' => 'カテゴリ',
 	'swl-group-namespace' => '名前空間',
+	'swl-group-confirmdelete' => 'ウォッチリストグループ「$1」を本当に削除しますか？',
 	'swl-group-save-all' => 'すべて保存',
 	'swl-group-add-new-group' => '新規グループを追加',
 	'swl-group-add-group' => 'グループを追加',
