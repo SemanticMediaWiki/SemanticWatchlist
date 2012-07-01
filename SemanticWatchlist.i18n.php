@@ -136,7 +136,7 @@ $messages['az'] = array(
 	'swl-watchlist-deletions' => 'Qədim:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Jim-by
  * @author Renessaince
  */
@@ -443,7 +443,7 @@ $messages['frp'] = array(
 	'swl-prefs-concept-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 du concèpte ''$4''",
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -533,7 +533,7 @@ $messages['he'] = array(
 	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -725,6 +725,8 @@ $messages['ko'] = array(
 	'grouppage-swladmins' => '{{ns:project}}:시맨틱 주시문서 목록 관리자',
 	'group-swladmins.css' => '/* 이 CSS 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
 	'group-swladmins.js' => '/* 이 자바스크립트 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
+	'swl-group-save' => '저장',
+	'swl-group-saved' => '저장됨',
 );
 
 /** Colognian (Ripoarisch)
