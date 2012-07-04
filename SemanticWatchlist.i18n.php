@@ -285,6 +285,13 @@ $messages['de-formal'] = array(
 	'swl-watchlist-no-groups' => 'Sie beobachten bislang noch keine Gruppen. [[$1|Passen Sie Ihre Einstellungen an]].',
 );
 
+/** Zazaki (Zazaki)
+ * @author Mirzali
+ */
+$messages['diq'] = array(
+	'swl-group-category' => 'kategoriye',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
