@@ -1046,11 +1046,22 @@ $messages['so'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'semanticwatchlist-desc' => 'Nagpapahintulot ng pagtutukoy ng mga pangkat ng mga pag-aaring semantiko para sa isa o mas marami pang mga kategorya/mga puwang na pampangalan na maaari namang bantayan para sa mga pagbabago',
+	'semanticwatchlist-desc' => 'Nagpapahintulot na maipabatid sa mga tagagamit ang partikular na mga pagbabago sa dato ng Semantikong MediaWiki',
 	'right-semanticwatch' => 'Gamitin ang semantikong talaan ng binabantayan',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Baguhin]] ang semantikong mga pangkat ng talaan ng binabantayan',
 	'special-semanticwatchlist' => 'Semantikong Talaan ng Binabantayan',
 	'special-watchlistconditions' => 'Mga kalagayan ng semantikong talaan ng binabantayan',
+	'swl-group-name' => 'Pangalan ng pangkat:',
+	'swl-group-remove-property' => 'Tanggalin ang pag-aari',
+	'swl-group-add-property' => 'Idagdag ang kaarian',
+	'swl-group-concept' => 'diwa',
+	'swl-watchlist-insertions' => 'Bago:',
+	'swl-watchlist-deletions' => 'Luma:',
+	'swl-watchlist-pagincontrol' => 'Tingnan ($1) ($2)',
+	'swl-watchlist-firstn' => 'unang $1',
+	'swl-email-changes' => 'Mga pagbabago sa kaarian sa [$2 $1]:',
+	'prefs-swlgroup' => 'Babantayang mga pangkat',
+	'prefs-swlglobal' => 'Pangkalahatang mga mapagpipilian',
 );
 
 /** Yiddish (ייִדיש)
