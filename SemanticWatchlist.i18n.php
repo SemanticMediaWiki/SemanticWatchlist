@@ -538,6 +538,7 @@ $messages['he'] = array(
 	'right-semanticwatch' => 'שימוש ברשימת מעקב סמנטית',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|שינוי]] קבוצות רשימת מעקב סמנטית',
 	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
+	'swl-prefs-emailnofity' => 'לשלוח אליי דואר אלקטרוני כאשר יש שינוי במאפיינים במעקב שלי',
 );
 
 /** Upper Sorbian (hornjoserbsce)
