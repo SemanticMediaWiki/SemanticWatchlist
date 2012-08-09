@@ -224,6 +224,7 @@ $messages['ca'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Metalhead64
  * @author Purodha
  */
 $messages['de'] = array(
@@ -247,7 +248,7 @@ $messages['de'] = array(
 	'swl-group-category' => 'Kategorie',
 	'swl-group-namespace' => 'Namensraum',
 	'swl-group-concept' => 'Konzept',
-	'swl-group-confirmdelete' => 'Soll die Beobachtungsliste "$1" tatsächlich gelöscht werden?',
+	'swl-group-confirmdelete' => 'Soll die Beobachtungsliste „$1“ tatsächlich gelöscht werden?',
 	'swl-group-save-all' => 'Alle speichern',
 	'swl-group-add-new-group' => 'Eine neue Gruppe hinzufügen',
 	'swl-group-add-group' => 'Eine Gruppe hinzufügen',
@@ -532,12 +533,14 @@ $messages['gsw'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Inkbug
  */
 $messages['he'] = array(
 	'semanticwatchlist-desc' => 'מאפשרת למשתמשים לקבל הודעה על שינויים מסוימים בנתונים של מדיה־ויקי סמנטית',
 	'right-semanticwatch' => 'שימוש ברשימת מעקב סמנטית',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|שינוי]] קבוצות רשימת מעקב סמנטית',
 	'special-semanticwatchlist' => 'רשימת מעקב סמנטית',
+	'swl-group-save' => 'שמירה',
 	'swl-prefs-emailnofity' => 'לשלוח אליי דואר אלקטרוני כאשר יש שינוי במאפיינים במעקב שלי',
 );
 
