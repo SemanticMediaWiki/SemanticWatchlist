@@ -347,6 +347,15 @@ $messages['es'] = array(
 	'swl-err-userid-xor-groupids' => 'Debe especificar el parámetro de identificación de usuario o el parámetro de identificación de grupo, pero no ambos.',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'swl-group-save-all' => 'ذخیرهٔ همه',
+	'swl-watchlist-insertions' => 'جدید:',
+	'swl-watchlist-deletions' => 'قدیمی:',
+);
+
 /** Finnish (suomi)
  * @author Crt
  */
