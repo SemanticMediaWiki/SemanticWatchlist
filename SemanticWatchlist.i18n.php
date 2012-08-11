@@ -729,6 +729,31 @@ $messages['ja'] = array(
 	'swl-prefs-watchlisttoplink' => 'セマンティックウォッチリストへのリンクをページの上部に表示',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'special-semanticwatchlist' => 'სემანტიკური კონტროლის სია',
+	'group-swladmins' => 'სემანტიკური კონტროლის სიის ადმინისტრატორები',
+	'group-swladmins-member' => '{{GENDER:$1|სემანტიკური კონტროლის სიის ადმინისტრატორი}}',
+	'grouppage-swladmins' => '{{ns:project}}:სემანტიკური კონტროლის სიის ადმინისტრატორები',
+	'swl-group-name' => 'ჯგუფის სახელი:',
+	'swl-group-save' => 'შენახვა',
+	'swl-group-saved' => 'შენახულია',
+	'swl-group-saving' => 'ინახება',
+	'swl-group-delete' => 'წაშლა',
+	'swl-group-category' => 'კატეგორია',
+	'swl-group-namespace' => 'სახელთა სივრცე',
+	'swl-group-save-all' => 'ყველას შენახვა',
+	'swl-group-add-new-group' => 'ახალი ჯგუფის დამატება',
+	'swl-group-add-group' => 'ჯგუფის დამატება',
+	'swl-watchlist-insertions' => 'ახალი:',
+	'swl-watchlist-deletions' => 'ძველი:',
+	'swl-watchlist-pagincontrol' => 'ხილვა ($1) ($2)',
+	'swl-watchlist-firstn' => 'პირველი $1',
+	'swl-watchlist-firstn-title' => 'პირველი $1 {{PLURAL:$1|შედეგი|შედეგი}}',
+);
+
 /** Kannada (ಕನ್ನಡ)
  * @author Nayvik
  */
@@ -868,6 +893,21 @@ $messages['ms'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah suai]] kumpulan senarai pantau semantik',
 	'special-semanticwatchlist' => 'Senarai Pantau Semantik',
 	'special-watchlistconditions' => 'Syarat-syarat senarai pantau semantik',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'swl-group-delete' => 'Ħassar',
+	'swl-group-category' => 'kategorija',
+	'swl-group-namespace' => 'spazju tal-isem',
+	'swl-group-concept' => 'kunċett',
+	'swl-group-save-all' => 'Salva kollox',
+	'swl-group-add-new-group' => 'Żid grupp ġdid',
+	'swl-group-add-group' => 'Żid grupp',
+	'swl-watchlist-insertions' => 'Ġdid:',
+	'swl-watchlist-deletions' => 'Qadim:',
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
@@ -1053,6 +1093,19 @@ $messages['pt'] = array(
  */
 $messages['so'] = array(
 	'swl-group-category' => 'qeyb',
+);
+
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'swl-group-save' => 'భద్రపరచు',
+	'swl-group-delete' => 'తొలగించు',
+	'swl-group-category' => 'వర్గం',
+	'swl-group-namespace' => 'పేరుబరి',
+	'swl-watchlist-insertions' => 'కొత్త:',
+	'swl-watchlist-deletions' => 'పాతవి:',
+	'swl-watchlist-firstn-title' => 'మొదటి $1 {{PLURAL:$1|ఫలితం|ఫలితాలు}}',
 );
 
 /** Tagalog (Tagalog)
