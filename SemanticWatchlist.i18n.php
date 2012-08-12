@@ -1088,11 +1088,56 @@ $messages['pt'] = array(
 	'swl-err-userid-xor-groupids' => 'Deve ser especificado, ou o parâmetro de identificação do utilizador, ou o parâmetro de identificações de grupos, mas não ambos.',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'swl-group-name' => 'කාණ්ඩ නාමය:',
+	'swl-group-save' => 'සුරකින්න',
+	'swl-group-saved' => 'සුරකින ලදී',
+	'swl-group-saving' => 'සුරකිමින්',
+	'swl-group-delete' => 'මකන්න',
+	'swl-group-category' => 'ප්‍රවර්ගය',
+	'swl-group-namespace' => 'නාමඅවකාශය',
+	'swl-group-save-all' => 'සියල්ල සුරකින්න',
+	'swl-watchlist-insertions' => 'නව:',
+	'swl-watchlist-deletions' => 'පැරණි:',
+	'swl-watchlist-pagincontrol' => 'නරඹන්න ($1) ($2)',
+	'prefs-swlglobal' => 'ප්‍රධාන විකල්පයන්',
+);
+
 /** Somali (Soomaaliga)
  * @author Maax
  */
 $messages['so'] = array(
 	'swl-group-category' => 'qeyb',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'swl-group-name' => 'குழுப் பெயர்:',
+	'swl-group-properties' => 'இந்தக் குழுவின் கீழ் உள்ள உடமைகள்:',
+	'swl-group-remove-property' => 'உடமையை நீக்கு',
+	'swl-group-add-property' => 'உடமையைச் சேர்',
+	'swl-group-save' => 'சேமி',
+	'swl-group-saved' => 'சேமிக்கப்பட்டது',
+	'swl-group-saving' => 'சேமிக்கப்படுகிறது',
+	'swl-group-delete' => 'நீக்கு',
+	'swl-group-category' => 'பகுப்பு',
+	'swl-group-namespace' => 'பெயர்வெளி',
+	'swl-group-concept' => 'கோட்பாடு',
+	'swl-group-confirmdelete' => '"$1" கவனிப்பு பட்டியல் குழுவை உறுதியாக நீக்க விரும்புகிறீர்களா?',
+	'swl-group-save-all' => 'அனைத்தையும் சேமி',
+	'swl-group-add-new-group' => 'ஒரு புதிய குழுவைச் சேர்',
+	'swl-group-add-group' => 'குழுவைச் சேர்',
+	'swl-watchlist-insertions' => 'புதிய:',
+	'swl-watchlist-deletions' => 'பழைய:',
+	'swl-watchlist-pagincontrol' => 'பார்வையிடு ($1) ($2)',
+	'swl-watchlist-firstn' => 'முதல்  $1',
+	'prefs-swlglobal' => 'பொதுவான விருப்பத் தேர்வுகள்',
 );
 
 /** Telugu (తెలుగు)
