@@ -222,6 +222,32 @@ $messages['ca'] = array(
 	'swl-prefs-emailnofity' => "Envia'm un correu electrònic quan hi hagi canvis en les propietats que segueixo",
 );
 
+/** Czech (česky)
+ * @author Vks
+ */
+$messages['cs'] = array(
+	'swl-group-name' => 'Jméno skupiny:',
+	'swl-group-properties' => 'Atributy této skupiny:',
+	'swl-group-remove-property' => 'Odstranit atribut',
+	'swl-group-add-property' => 'Přidat atribut',
+	'swl-group-page-selection' => 'Stránky v',
+	'swl-group-save' => 'Uložit',
+	'swl-group-saved' => 'Uložené',
+	'swl-group-saving' => 'Ukládá se',
+	'swl-group-delete' => 'Smazat',
+	'swl-group-category' => 'kategorie',
+	'swl-group-namespace' => 'jmenný prostor',
+	'swl-group-concept' => 'koncept',
+	'swl-group-confirmdelete' => 'Jste si jisti, že chtete smazat sledovanou skupinu "$1"?',
+	'swl-group-save-all' => 'Uložit vše',
+	'swl-group-add-new-group' => 'Přidat novou skupinu',
+	'swl-group-add-group' => 'Přidat skupinu',
+	'swl-watchlist-insertions' => 'Nové:',
+	'swl-watchlist-deletions' => 'Staré:',
+	'swl-watchlist-pagincontrol' => 'Ukázat ($1) ($2)',
+	'swl-watchlist-firstn' => 'první $1',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
@@ -345,6 +371,23 @@ $messages['es'] = array(
 	'swl-prefs-namespace-label' => "'''$1:''' {{PLURAL:$2|propiedad|propiedades}} $3 del espacio de nombres ''$4''",
 	'swl-prefs-concept-label' => "'''$1:''' {{PLURAL:$2|propiedad|propiedades}} $3 del concepto ''$4''",
 	'swl-err-userid-xor-groupids' => 'Debe especificar el parámetro de identificación de usuario o el parámetro de identificación de grupo, pero no ambos.',
+);
+
+/** Estonian (eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'swl-group-save' => 'Salvesta',
+	'swl-group-saved' => 'Salvestatud',
+	'swl-group-saving' => 'Salvestamisel',
+	'swl-group-delete' => 'Kustuta',
+	'swl-group-category' => 'kategooria',
+	'swl-group-namespace' => 'nimeruum',
+	'swl-group-save-all' => 'Salvesta kõik',
+	'swl-group-add-new-group' => 'Lisa uus rühm',
+	'swl-group-add-group' => 'Lisa rühm',
+	'swl-watchlist-insertions' => 'Uus:',
+	'swl-watchlist-deletions' => 'Vana:',
 );
 
 /** Persian (فارسی)
