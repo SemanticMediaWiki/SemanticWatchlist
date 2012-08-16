@@ -503,6 +503,16 @@ $messages['frp'] = array(
 	'swl-prefs-concept-label' => "'''$1''' : propriètât{{PLURAL:$2||s}} $3 du concèpte ''$4''",
 );
 
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'swl-group-save' => 'Sábháil',
+	'swl-group-delete' => 'Scrios',
+	'swl-group-category' => 'catagóir',
+	'swl-group-namespace' => 'Ainmspás',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
@@ -1263,10 +1273,27 @@ $messages['tl'] = array(
 	'swl-err-userid-xor-groupids' => 'Dapat na tukuyin ang parametro ng ID ng tagagamit o mga ID ng pangkat, subalit hindi ang dalawang mga ito.',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['vi'] = array(
+	'swl-group-save' => 'Lưu',
+	'swl-group-saved' => 'Đã lưu',
+	'swl-group-saving' => 'Đang lưu',
+	'swl-group-delete' => 'Xóa',
+	'swl-group-category' => 'thể loại',
+	'swl-group-namespace' => 'không gian tên',
+	'swl-group-save-all' => 'Lưu tất cả',
+);
+
 /** Yiddish (ייִדיש)
  * @author פוילישער
+ * @author පසිඳු කාවින්ද
  */
 $messages['yi'] = array(
+	'swl-group-save' => 'אויפֿהיטן',
+	'swl-group-delete' => 'אויסמעקן',
+	'swl-group-category' => 'קאַטעגאריע',
 	'swl-watchlist-firstn' => 'ערשטער $1',
 );
 
