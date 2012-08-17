@@ -1273,6 +1273,22 @@ $messages['tl'] = array(
 	'swl-err-userid-xor-groupids' => 'Dapat na tukuyin ang parametro ng ID ng tagagamit o mga ID ng pangkat, subalit hindi ang dalawang mga ito.',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'swl-group-save' => 'محفوظ کریں',
+	'swl-group-saved' => 'محفوظ کر لیا',
+	'swl-group-saving' => 'بچت',
+	'swl-group-delete' => 'حذف کریں',
+	'swl-group-category' => 'زمرہ',
+	'swl-group-namespace' => 'نیم سپیس',
+	'swl-group-save-all' => 'سب کو محفوظ کریں',
+	'swl-group-add-group' => 'گروپ میں شامل',
+	'swl-watchlist-insertions' => 'نیا:',
+	'swl-watchlist-deletions' => 'عمر:',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author පසිඳු කාවින්ද
  */
