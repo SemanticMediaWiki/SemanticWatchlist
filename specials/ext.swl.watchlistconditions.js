@@ -73,30 +73,11 @@
 	}
 	
 	$( '#swl-add-group-button' ).click( function() {
-		var input = $( '#swl-add-group-name' );
 		var button = this;
 		
-		button.disabled = true;
-		input.disabled = true;
-		
-		addGroupToDB( input.val(), function( success, group ) {
-			if ( success ) {
-				addGroupToGUI( group.name, group.id );
-				input.val( '' );
-			}
-			else {
-				alert( 'Could not add the group.' );
-			}
-			
-			button.disabled = false;
-			input.disabled = false;
-		} );
-	} );
-	
-	$( '#swl-add-group-name' ).keypress( function( event ) {
-		if ( event.which == '13' ) {
-			$( '#swl-add-group-button' ).click();
-		}
+		button.disabled = true;		
+		addGroupToGUI( '', '' );
+		button.disabled = false;
 	} );
 	
 } ); })(jQuery);
