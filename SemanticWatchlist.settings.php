@@ -52,3 +52,5 @@ $wgDefaultUserOptions['swl_watchlisttoplink'] = true;
 # Enable displaying a top link to the semantic watchlist?
 $egSWLEnableTopLink = true;
 
+# Send email to editor
+$egSWLEnableSelfNotify = false;
