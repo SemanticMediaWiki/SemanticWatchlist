@@ -319,6 +319,53 @@ $messages['diq'] = array(
 	'swl-group-category' => 'kategoriye',
 );
 
+/** Lower Sorbian (dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'right-semanticwatch' => 'semantisku wobglědowańsku lisćinu wužywaś',
+	'right-semanticwatchgroups' => 'Kupki semantiskeje wobglěodwanskeje lisćiny [[Special:WatchlistConditions|změniś]]',
+	'special-semanticwatchlist' => 'Semantiska wobglědowańska lisćina',
+	'special-watchlistconditions' => 'Wuměnjenja semantiskeje wobglědowańskeje lisćiny',
+	'group-swladmins' => 'Administratory semantiskeje wobglědowańskeje lisćiny',
+	'group-swladmins-member' => '{{GENDER:$1|Administrator|Administratorka}} semantiskeje wobglědowańskeje lisćiny',
+	'grouppage-swladmins' => '{{ns:project}}:Administratory semantiskeje wobglědowańskeje lisćiny',
+	'swl-group-name' => 'Mě kupki:',
+	'swl-group-properties' => 'Kakosći toś teje kupki:',
+	'swl-group-remove-property' => 'Kakosć wótpóraś',
+	'swl-group-add-property' => 'Kakosć pśidaś',
+	'swl-group-page-selection' => 'Boki w',
+	'swl-group-save' => 'Składowaś',
+	'swl-group-saved' => 'Składowany',
+	'swl-group-saving' => 'Składujo se',
+	'swl-group-delete' => 'Wulašowaś',
+	'swl-group-category' => 'kategorija',
+	'swl-group-namespace' => 'mjenjowy rum',
+	'swl-group-concept' => 'koncept',
+	'swl-group-confirmdelete' => 'Coš napšawdu kupku "$1" wobglědowańskeje lisćiny lašowaś?',
+	'swl-group-save-all' => 'Wšykno składowaś',
+	'swl-group-add-new-group' => 'Nowu kupku pśidaś',
+	'swl-group-add-group' => 'Kupku pśidaś',
+	'swl-watchlist-position' => "{{PLURAL:$1|Pokazujo|Pokazujotej|Pokazuju|Pokazujo}} se '''$1''' {{PLURAL:$1|slědna změna|slědnjej změnje|slědne změny|slědnych změnow}}, zachopinajucy z '''$2'''.",
+	'swl-watchlist-insertions' => 'Nowy:',
+	'swl-watchlist-deletions' => 'Stary:',
+	'swl-watchlist-pagincontrol' => '($1) ($2) pokazaś',
+	'swl-watchlist-firstn' => 'prědny $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Prědny wuslědk|Prědnej $1 wuslědka|Prědne $1 wuslědki|Prědnych $1 wuslědkow}}',
+	'swl-watchlist-no-items' => 'Njamaš žedne zapiski w swójej semantiskej wobglědowańskej lisćinje.',
+	'swl-watchlist-can-mod-groups' => 'Móžoš [[$1|kupki wobglědowańskeje lisćiny změniś]].',
+	'swl-email-propschanged' => 'Kakosći su se do $1 změnili',
+	'swl-email-changes' => 'Změny kakosćow na [$2 $1]:',
+	'prefs-swl' => 'Semantiska wobglědowańska lisćina',
+	'prefs-swlgroup' => 'Kupki, kótarež maju se wobglědowaś',
+	'prefs-swlglobal' => 'Powšykne opcije',
+	'swl-prefs-emailnofity' => 'Wó změnach na kakosćach, kótarež se woglěduju, e-mail pósłaś',
+	'swl-prefs-watchlisttoplink' => 'Wótkaz k semantiskej wobglědowańskej lisćinje górjejce na boku pokazaś',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kakosć|kakosći|kakosći|kakosći}} $3 z kategorije ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|kakosć|kakosći|kakosći|kakosći}} $3 z mjenjowego ruma ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kakosć|kakosći|kakosći|kakosći}} $3 z koncepta ''$4''",
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
@@ -612,7 +659,7 @@ $messages['he'] = array(
 $messages['hsb'] = array(
 	'semanticwatchlist-desc' => 'Zmóžnja zdźělenje wěstych změnow na semantiskich datach',
 	'right-semanticwatch' => 'Semantisku wobkedźbowansku lisćinu wužiwać',
-	'right-semanticwatchgroups' => 'Semantiske wobkedźbowanske lisćiny [[Special:WatchlistConditions|změnić]]',
+	'right-semanticwatchgroups' => 'Skupiny semantiskeje wobkedźbowanskeje lisćiny [[Special:WatchlistConditions|změnić]]',
 	'special-semanticwatchlist' => 'Semantiska wobkedźbowanska lisćina',
 	'special-watchlistconditions' => 'Wuměnjenja semantiskeje wobkedźbowanskeje lisćiny',
 	'group-swladmins' => 'Administratorojo semantiskeje wobkedźbowanskeje lisćiny',
@@ -634,7 +681,7 @@ $messages['hsb'] = array(
 	'swl-group-save-all' => 'Wšě składować',
 	'swl-group-add-new-group' => 'Nowu skupinu přidać',
 	'swl-group-add-group' => 'Skupinu přidać',
-	'swl-watchlist-position' => "{{PLURAL:$1|Pokazuje|Pokazujetej|Pokazuja|Pokazuje}} so '''$1''' {{PLURAL:$1|poslednja změna|poslednjej změnje|poseldnje změny|poslednich změnow}}, započinajo z '''$2'''.",
+	'swl-watchlist-position' => "{{PLURAL:$1|Pokazuje|Pokazujetej|Pokazuja|Pokazuje}} so '''$1''' {{PLURAL:$1|poslednja změna|poslednjej změnje|poslednje změny|poslednich změnow}}, započinajo z '''$2'''.",
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
 	'swl-watchlist-pagincontrol' => '($1) ($2) pokazać',
@@ -652,7 +699,7 @@ $messages['hsb'] = array(
 	'prefs-swlglobal' => 'Powšitkowne opcije',
 	'swl-prefs-emailnofity' => 'Wo změnach na kajkosćach, kotrež so wobkedźbuja, e-mejl pósłać',
 	'swl-prefs-watchlisttoplink' => 'Wotkaz k semantiskej wobkedźbowanskej lisćinje horjeka na stronje pokazać',
-	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z kategorje ''$4''",
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z kategorije ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z mjenoweho ruma ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kajkosć|kajkosći|kajkosće|kajkosće}} $3 z koncepta ''$4''",
 	'swl-err-userid-xor-groupids' => 'Pak parameter ID wužiwarja pak parameter ID skupiny dyrbi so podać, ale nic wobaj.',
