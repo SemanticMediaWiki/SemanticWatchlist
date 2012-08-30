@@ -203,7 +203,7 @@
 	
 	this.doSave = function( callback ) {
 		var args = {
-			'action': 'editswlgroup',
+			'action': ( this.group.id == '' ? 'editswlgroup' : 'addswlgroup' ),
 			'format': 'json',
 			'id': this.group.id,
 			'name': this.nameInput.val(),
