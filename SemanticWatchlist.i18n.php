@@ -1148,6 +1148,24 @@ $messages['pfl'] = array(
 	'swl-watchlist-no-items' => 'Du dudschd nix beobachde.',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'swl-group-name' => 'د ډلې نوم:',
+	'swl-group-save' => 'خوندي کول',
+	'swl-group-saved' => 'خوندي شو',
+	'swl-group-saving' => 'خوندي کېدنې کې دی...',
+	'swl-group-delete' => 'ړنګول',
+	'swl-group-category' => 'وېشنيزه',
+	'swl-group-namespace' => 'نوم-تشيال',
+	'swl-group-save-all' => 'ټول خوندي کول',
+	'swl-group-add-new-group' => 'يوه نوې ډله ورګډول',
+	'swl-group-add-group' => 'ډله ورګډول',
+	'swl-watchlist-insertions' => 'نوی:',
+	'swl-watchlist-deletions' => 'زوړ:',
+);
+
 /** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
