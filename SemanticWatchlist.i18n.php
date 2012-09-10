@@ -811,6 +811,8 @@ $messages['ja'] = array(
 	'group-swladmins' => '意味的ウォッチリスト管理者',
 	'group-swladmins-member' => '{{GENDER:$1|意味的ウォッチリスト管理者}}',
 	'grouppage-swladmins' => '{{ns:project}}:意味的ウォッチリスト管理者',
+	'group-swladmins.css' => '/* ここに記述したCSSは意味的ウォッチリスト管理者のみに影響します */',
+	'group-swladmins.js' => '/* ここに記述したJSは意味的ウォッチリスト管理者のみに影響します */',
 	'swl-group-name' => 'グループ名：',
 	'swl-group-properties' => 'このグループが対応するプロパティ:',
 	'swl-group-remove-property' => 'プロパティを除去',
@@ -1217,6 +1219,23 @@ $messages['pt'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|propriedade|propriedades}} $3 do conceito ''$4''",
 	'swl-err-userid-xor-groupids' => 'Deve ser especificado, ou o parâmetro de identificação do utilizador, ou o parâmetro de identificações de grupos, mas não ambos.',
+);
+
+/** Brazilian Portuguese (português do Brasil)
+ * @author Luckas Blade
+ */
+$messages['pt-br'] = array(
+	'swl-group-save' => 'Salvar',
+	'swl-group-saved' => 'Salvo',
+	'swl-group-saving' => 'Salvando',
+	'swl-group-delete' => 'Eliminar',
+	'swl-group-category' => 'categoria',
+	'swl-group-namespace' => 'domínio',
+	'swl-group-concept' => 'conceito',
+	'swl-group-save-all' => 'Salvar todos',
+	'swl-group-add-new-group' => 'Adicionar um novo grupo',
+	'swl-group-add-group' => 'Adicionar grupo',
+	'prefs-swlglobal' => 'Opções gerais',
 );
 
 /** Sinhala (සිංහල)
