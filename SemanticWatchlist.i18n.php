@@ -1155,6 +1155,7 @@ $messages['pfl'] = array(
  */
 $messages['ps'] = array(
 	'swl-group-name' => 'د ډلې نوم:',
+	'swl-group-add-property' => 'ځانتياوې ورګډول',
 	'swl-group-save' => 'خوندي کول',
 	'swl-group-saved' => 'خوندي شو',
 	'swl-group-saving' => 'خوندي کېدنې کې دی...',
@@ -1166,6 +1167,7 @@ $messages['ps'] = array(
 	'swl-group-add-group' => 'ډله ورګډول',
 	'swl-watchlist-insertions' => 'نوی:',
 	'swl-watchlist-deletions' => 'زوړ:',
+	'swl-watchlist-pagincontrol' => 'کتل ($1) ($2)',
 );
 
 /** Portuguese (português)
