@@ -77,7 +77,7 @@ $specialPageAliases['mk'] = array(
 	'WatchlistConditions' => array( 'УсловиНаСписокНаНабљудувања', 'ГрупиНаНабљудувања' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'SemanticWatchlist' => array( 'Semantisk_overvåkningsliste' ),
 );
