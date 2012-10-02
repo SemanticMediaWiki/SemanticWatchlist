@@ -136,7 +136,7 @@ $messages['az'] = array(
 	'swl-watchlist-deletions' => 'Qədim:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Jim-by
  * @author Renessaince
  */
@@ -302,7 +302,7 @@ $messages['de'] = array(
 	'swl-err-userid-xor-groupids' => 'Es muss entweder der Parameter für die Benutzerkennung oder für die Gruppenkennung angegeben werden, jedoch nicht beide gleichzeitig.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -900,7 +900,7 @@ $messages['ksh'] = array(
 	'special-watchlistconditions' => 'Enshtällonge för de semantesche Oppaßleßte',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1025,7 +1025,7 @@ $messages['mt'] = array(
 	'swl-watchlist-deletions' => 'Qadim:',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  */
 $messages['nb'] = array(
@@ -1399,7 +1399,7 @@ $messages['yi'] = array(
 	'swl-watchlist-firstn' => 'ערשטער $1',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
