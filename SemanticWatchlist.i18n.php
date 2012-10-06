@@ -1265,6 +1265,59 @@ $messages['so'] = array(
 	'swl-group-category' => 'qeyb',
 );
 
+/** Swedish (svenska)
+ * @author Martinwiss
+ */
+$messages['sv'] = array(
+	'semanticwatchlist-desc' => 'Informera användare om vissa ändringar av semantiska data',
+	'right-semanticwatch' => 'Använd semantiska övervakningslistor',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Ändra]] grupperna för semantiska övervakningslistor',
+	'special-semanticwatchlist' => 'Semantiska övervakningslistor',
+	'special-watchlistconditions' => 'Inställningar för semantiska övervakningslistor',
+	'group-swladmins' => 'Administratorer för semantiska övervakningslistor',
+	'group-swladmins-member' => '{{GENDER:$1|Administratör för semantiska övervakningslistor}}',
+	'grouppage-swladmins' => '{{ns:project}}:Administratör för semantiska övervakningslistor',
+	'swl-group-name' => 'Gruppnamn:',
+	'swl-group-properties' => 'Egenskaper som gruppen tar hand om:',
+	'swl-group-remove-property' => 'Ta bort egenskap',
+	'swl-group-add-property' => 'Lägg till egenskap',
+	'swl-group-page-selection' => 'Sidor i',
+	'swl-group-save' => 'Spara',
+	'swl-group-saved' => 'Sparad',
+	'swl-group-saving' => 'Sparar',
+	'swl-group-delete' => 'Ta bort',
+	'swl-group-category' => 'kategori',
+	'swl-group-namespace' => 'namnrymd',
+	'swl-group-concept' => 'begrepp',
+	'swl-group-confirmdelete' => 'Är du säker på att du vill ta bort gruppen för övervakningslistor: "$1"',
+	'swl-group-save-all' => 'Spara alla',
+	'swl-group-add-new-group' => 'Lägg till en ny grupp',
+	'swl-group-add-group' => 'Lägg till grupp',
+	'swl-watchlist-position' => "Visar '''$1''' av {{PLURAL:$1|senaste ändringen|de senaste ändringarna}} med början från '''#$2'''.",
+	'swl-watchlist-insertions' => 'Ny:',
+	'swl-watchlist-deletions' => 'Gammal:',
+	'swl-watchlist-pagincontrol' => 'Visar ($1) ($2)',
+	'swl-watchlist-firstn' => 'först $1',
+	'swl-watchlist-firstn-title' => 'Först $1 {{PLURAL:$1|resultat|resultat}}',
+	'swl-watchlist-no-items' => 'Du har inget att övervaka på din semantiska övervakningslista',
+	'swl-watchlist-can-mod-groups' => 'Du kan [[$1|grupperna för övervakningslistor]].',
+	'swl-watchlist-can-mod-prefs' => 'Du kan  [[$1|ändra dina inställningar för övervakningslistor]], även vilka egenskaper som ska matcha',
+	'swl-watchlist-no-groups' => 'Du övervakar ännu inte några övervakningslistor. [[$1|Ändra dina inställningar för övervakningslistor]].',
+	'swl-email-propschanged' => 'Egenskaper har ändrats vid $1',
+	'swl-email-propschanged-long' => "En eller flera egenskaper som du övervakar vid '''$1''' har ändrats av användaren '''$2''' vid $4 på $5. Du kan visa dessa och andra ändringar på [$3 din semantiska övervakningslista].",
+	'swl-email-changes' => 'Egenskapen ändrades vid [$2 $1]:',
+	'prefs-swl' => 'Semantisk övervakningslista',
+	'prefs-swlgroup' => 'Grupper att övervaka',
+	'prefs-swlglobal' => 'Allmänna inställningar',
+	'swl-prefs-emailnofity' => 'Skicka e-post till mig när egenskapar som jag övervakar ändras',
+	'swl-prefs-watchlisttoplink' => 'Visa en länk till den Semantiska övervakningslistan överst på sidan',
+	'swl-prefs-category-label' => "
+'''$1''': {{PLURAL:$2|egenskap|egenskaper}} $3 från kategori ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|egenskap|egenskaper}} $3 från namnrymd ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|egenskap|egenskaper}} $3 från begrepp ''$4''",
+	'swl-err-userid-xor-groupids' => 'Antingen måste parametern userid eller groupids anges (dock inte båda).',
+);
+
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
