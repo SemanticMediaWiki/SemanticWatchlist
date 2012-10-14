@@ -189,10 +189,10 @@ class SWLGroup {
 			'swl_groups',
 			array(
 				'group_name' => $this->name,
-				'group_properties' => $this->properties,
-				'group_categories' => $this->categories,
-				'group_namespaces' => $this->namespaces,
-				'group_concepts' => $this->concepts,
+				'group_properties' => implode( '|', $this->properties ),
+				'group_categories' => implode( '|', $this->categories ),
+				'group_namespaces' => implode( '|', $this->namespaces ),
+				'group_concepts' => implode( '|', $this->concepts ),
 			)
 		);
 		
