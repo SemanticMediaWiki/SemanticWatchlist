@@ -127,6 +127,9 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 		'swl-group-namespace',
 		'swl-group-concept',
 		'swl-group-confirmdelete',
+		'swl-custom-remove-property',
+		'swl-custom-text-add',
+		'swl-custom-input',
 	)
 );
 

@@ -25,8 +25,9 @@
 					categories: getSplitAttrValue( element, 'categories', '|' ),
 					namespaces: getSplitAttrValue( element, 'namespaces', '|' ),
 					properties: getSplitAttrValue( element, 'properties', '|' ),
-					concepts: getSplitAttrValue( element, 'concepts', '|' )
-				}
+					concepts: getSplitAttrValue( element, 'concepts', '|' ),
+					customTexts: getSplitAttrValue( element, 'customTexts', '|' )
+				};
 		return group;
 	}
 
@@ -94,7 +95,8 @@
 			'categories': '',
 			'namespaces': '',
 			'properties': '',
-			'concepts': ''
+			'concepts': '',
+			'customTexts': ''
 		} )
 		.html( $( '<legend />' ).text( groupName ) );
 

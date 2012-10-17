@@ -26,14 +26,16 @@ class ApiAddWatchlistGroup extends ApiBase {
 		}			
 		
 		$params = $this->extractRequestParams();
-		
+		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
+
 		$group = new SWLGroup(
 			null,
 			$params['name'],
 			$params['categories'],
 			$params['namespaces'],
 			$params['properties'],
-			$params['concepts']
+			$params['concepts'],
+			$params['customTexts']
 		);
 		
 		$this->getResult()->addValue(
@@ -81,6 +83,11 @@ class ApiAddWatchlistGroup extends ApiBase {
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_DFLT => '',
 			),
+			'customTexts' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => '',
+			),
 		);
 	}
 	
@@ -91,6 +98,7 @@ class ApiAddWatchlistGroup extends ApiBase {
 			'categories' => 'The categories this watchlist group covers',
 			'namespaces' => 'The namespaces this watchlist group covers',
 			'concepts' => 'The concepts this watchlist group covers',
+			'customTexts' => 'Custom Text to be sent in Emails',
 		);
 	}
 	

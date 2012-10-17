@@ -24,16 +24,18 @@ class ApiEditWatchlistGroup extends ApiBase {
 		if ( !$wgUser->isAllowed( 'semanticwatchgroups' ) || $wgUser->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
-		
+
 		$params = $this->extractRequestParams();
-		
+		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
+
 		$group = new SWLGroup(
 			$params['id'],
 			$params['name'],
 			$params['categories'],
 			$params['namespaces'],
 			$params['properties'],
-			$params['concepts']
+			$params['concepts'],
+			$params['customTexts']
 		);
 		
 		$this->getResult()->addValue(
@@ -73,6 +75,11 @@ class ApiEditWatchlistGroup extends ApiBase {
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_DFLT => '',
 			),
+			'customTexts' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => '',
+			),
 		);
 	}
 	
@@ -84,6 +91,7 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'categories' => 'The categories this watchlist group covers',
 			'namespaces' => 'The namespaces this watchlist group covers',
 			'concepts' => 'The concepts this watchlist group covers',
+			'customTexts' => 'Custom Text to be sent in Emails',
 		);
 	}
 	

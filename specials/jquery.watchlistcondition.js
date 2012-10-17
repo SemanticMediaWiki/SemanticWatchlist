@@ -89,7 +89,44 @@
 			.append( this.conditionNameInput )
 
 		table.append( condition );
+		table.append( $( '<div/>' ).attr({ 'class' : 'customTexts' }) );
 
+		this.addCustomTextDiv = function( customText ) {
+			var customTextFieldset = $( '<fieldset/>' ).attr({ 'class' : 'customText' });
+
+			var propertyInput = '<input type="text" size:10 id="propertyInput" value="'+customText[0]+'" > </input>';
+			var newValueInput = '<input type="text" size:10 id="customTextInput" value="'+customText[1]+'" > </input>';
+			var customTextInput = '<input type="text" size:100 id="customTextInput" value="'+customText[2]+'" > </input>';
+
+			var removeButton = $( '<input />' ).attr( {
+				'type': 'button',
+				'value': mw.msg( 'swl-custom-remove-property' )
+			} ).click( function() {
+				var container = $(this).closest( $( '.customText' ) );
+				container.slideUp( 'fast', function() { container.remove(); } );
+			} );
+
+			var customTextTable = $( '<table/>' );
+			customTextTable.append( $( '<tr/>' ).
+				append( $( '<td/>' ).html( mw.msg( 'swl-custom-input', propertyInput, newValueInput, customTextInput ))).
+				append( $( '<td/>' ).append( removeButton ) ));
+
+			customTextFieldset.append( customTextTable );
+			table.find('.customTexts').append( customTextFieldset );
+		}
+
+		for ( i in group.customTexts ) {
+			self.addCustomTextDiv( group.customTexts[i].split( '~' ) );
+		}
+
+		var addCustomTextButton = $( '<input />' ).attr( {
+			'type': 'button',
+			'value': mw.msg( 'swl-custom-text-add' )
+		} ).click( function() {
+			self.addCustomTextDiv( new Array( '', '', '' ) )
+		} );
+
+		table.append( addCustomTextButton );
 		this.append( table );
 
 		this.append(
@@ -116,12 +153,18 @@
 	};
 
 	this.doSave = function( callback ) {
+		var customTexts = new Array();
+		self.find( '.customText' ).each( function( index, element ) {
+			element = $( element );
+			customTexts.push( element.find( '#propertyInput' ).val() + '~' + element.find( '#newValueInput' ).val() + '~' + element.find( '#customTextInput' ).val() );
+		} );
 		var args = {
 			'action': ( this.group.id == '' ? 'addswlgroup' : 'editswlgroup' ),
 			'format': 'json',
 			'id': this.group.id,
 			'name': self.attr( 'groupname' ),
-			'properties': self.attr( 'properties' )
+			'properties': self.attr( 'properties' ),
+			'customTexts' : customTexts.join( '|' )
 		};
 		this.conditionTypeInput = $( '<select />' );
 		this.conditionNameInput = $( '<input />' );

@@ -61,6 +61,13 @@ class SWLGroup {
 	protected $properties;
 	
 	/**
+	 * List of custom texts this group covers.
+	 *
+	 * @var array
+	 */
+	protected $customTexts;
+
+	/**
 	 * List of SMW concepts this group covers.
 	 * 
 	 * @since 0.1
@@ -95,7 +102,8 @@ class SWLGroup {
 			$group->group_categories == '' ? array() : explode( '|', $group->group_categories ),
 			$group->group_namespaces == '' ? array() : explode( '|', $group->group_namespaces ),
 			$group->group_properties == '' ? array() : explode( '|', $group->group_properties ),
-			$group->group_concepts == '' ? array() : explode( '|', $group->group_group_concepts )
+			$group->group_concepts == '' ? array() : explode( '|', $group->group_group_concepts ),
+			$group->group_custom_texts == '' ? array() : self::unserializedCustomTexts( explode( '|', $group->group_custom_texts ) )
 		);
 	}
 	
@@ -110,13 +118,15 @@ class SWLGroup {
 	 * @param array $namespaces List of namespace names or IDs
 	 * @param array $properties List of property names
 	 * @param array $concepts List of concept names
+	 * @param array $customTexts List of custom texts
 	 */
-	public function __construct( $id, $name, array $categories, array $namespaces, array $properties, array $concepts ) {
+	public function __construct( $id, $name, array $categories, array $namespaces, array $properties, array $concepts, array $customTexts ) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->categories = $categories;
 		$this->properties = $properties;	
 		$this->concepts = $concepts;
+		$this->customTexts = $customTexts;
 
 		foreach ( $namespaces as $ns ) {
 			if ( preg_match( "/^-?([0-9])+$/", $ns ) ) {
@@ -170,6 +180,7 @@ class SWLGroup {
 				'group_categories' => implode( '|', $this->categories ),
 				'group_namespaces' => implode( '|', $this->namespaces ),
 				'group_concepts' => implode( '|', $this->concepts ),
+				'group_custom_texts' => implode( '|', $this->getSerializedCustomTexts() ),
 			),
 			array( 'group_id' => $this->id )
 		);
@@ -193,6 +204,7 @@ class SWLGroup {
 				'group_categories' => implode( '|', $this->categories ),
 				'group_namespaces' => implode( '|', $this->namespaces ),
 				'group_concepts' => implode( '|', $this->concepts ),
+				'group_custom_texts' => implode( '|', $this->getSerializedCustomTexts() ),
 			)
 		);
 		
@@ -262,6 +274,45 @@ class SWLGroup {
 		return $this->concepts;
 	}
 	
+	/**
+	 * Returns the custom Texts specified for this group.
+	 * 
+	 * @since 0.2
+	 * 
+	 * @return array
+	 */
+	public function getCustomTexts() {
+		return $this->customTexts;
+	}
+
+	/**
+	 * Returns the serialized version of custom Texts specified for this group.
+	 * 
+	 * @since 0.2
+	 * 
+	 * @return array
+	 */
+	public function getSerializedCustomTexts() {
+		$serializedCustomTexts = array();
+		foreach( $this->customTexts as $customText ) {
+			$serializedCustomTexts[] = implode( '~', array_values( $customText ) );
+		}
+		return $serializedCustomTexts;
+	}
+
+	/**
+	 * Returns the unserialized version of custom Texts specified for this group.
+	 * 
+	 * @return array
+	 */
+	public static function unserializedCustomTexts( $customTexts ) {
+		$unSerializedCustomTexts = array();
+		foreach( $customTexts as $customText ) {
+			$unSerializedCustomTexts[] = explode( '~', $customText );
+		}
+		return $unSerializedCustomTexts;
+	}
+
 	/**
 	 * Returns the group database id.
 	 * 

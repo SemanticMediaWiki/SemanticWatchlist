@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
   group_categories         BLOB                NOT NULL, -- Category names
   group_namespaces         BLOB                NOT NULL, -- Namespace IDs
   group_properties         BLOB                NOT NULL, -- Property names
-  group_concepts           BLOB                NOT NULL -- Concept names
+  group_concepts           BLOB                NOT NULL, -- Concept names
+  group_custom_texts       BLOB                NULL -- Custom Texts
 ) /*$wgDBTableOptions*/;
 
 -- Single value changes to a property.

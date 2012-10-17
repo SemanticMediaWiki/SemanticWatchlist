@@ -122,6 +122,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 				'namespaces' => implode( '|', $namespaces ),
 				'properties' => implode( '|', $group->getProperties() ),
 				'concepts' => implode( '|', $group->getConcepts() ),
+				'customTexts' => implode( '|', $group->getSerializedCustomTexts() ),
 			),
 			Html::element(
 				'legend',
