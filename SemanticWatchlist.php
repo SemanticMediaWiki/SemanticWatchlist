@@ -69,6 +69,7 @@ $wgAutoloadClasses['SWLGroup']		  				= dirname( __FILE__ ) . '/includes/SWL_Gro
 $wgAutoloadClasses['SWLGroups']		  				= dirname( __FILE__ ) . '/includes/SWL_Groups.php';
 $wgAutoloadClasses['SWLPropertyChange']		  		= dirname( __FILE__ ) . '/includes/SWL_PropertyChange.php';
 $wgAutoloadClasses['SWLPropertyChanges']		  	= dirname( __FILE__ ) . '/includes/SWL_PropertyChanges.php';
+$wgAutoloadClasses['SWLCustomTexts']		  		= dirname( __FILE__ ) . '/includes/SWL_CustomTexts.php';
 
 $wgAutoloadClasses['SpecialSemanticWatchlist']	  	= dirname( __FILE__ ) . '/specials/SpecialSemanticWatchlist.php';
 $wgAutoloadClasses['SpecialWatchlistConditions']	= dirname( __FILE__ ) . '/specials/SpecialWatchlistConditions.php';
