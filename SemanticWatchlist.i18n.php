@@ -761,7 +761,7 @@ $messages['ia'] = array(
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'semanticwatchlist-desc' => 'Memungkinkan penetapan kelompok properti semantik untuk satu atau lebih kategori/ruang nama yang kemudian dapat dipantau perubahannya',
+	'semanticwatchlist-desc' => 'Memungkinkan penetapan kelompok properti semantik untuk satu atau lebih kategori/ruang nama yang kemudian dapat dipantau perubahannya', # Fuzzy
 	'right-semanticwatch' => 'Menggunakan daftar pantauan semantik',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah]] kelompok daftar pantauan semantik',
 	'special-semanticwatchlist' => 'Daftar Pantau Semantik',
@@ -893,7 +893,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'semanticwatchlist-desc' => 'Määt et müjjelesch, Jroppe vun semantesche Eijeschaffte aanzjävve, för Saachjroppe un Appachtemangs, di dann op en Oppaßleß kumme un bewach wääde, för der Fall, dat se jeändert wääde.',
+	'semanticwatchlist-desc' => 'Määt et müjjelesch, Jroppe vun semantesche Eijeschaffte aanzjävve, för Saachjroppe un Appachtemangs, di dann op en Oppaßleß kumme un bewach wääde, för der Fall, dat se jeändert wääde.', # Fuzzy
 	'right-semanticwatch' => 'De semantesche Oppaßleß verwände',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Jroppe ändere]] för de semantesche Oppaßleßte',
 	'special-semanticwatchlist' => 'Semantesch Oppaßleß',
@@ -1003,7 +1003,7 @@ $messages['mk'] = array(
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
-	'semanticwatchlist-desc' => 'Membolehkan penenetuan kumpulan-kumpulan sifat semantik untuk satu atau lebih kategori/ruang nama yang kemudiannya boleh dipantau untuk perubahan',
+	'semanticwatchlist-desc' => 'Membolehkan penenetuan kumpulan-kumpulan sifat semantik untuk satu atau lebih kategori/ruang nama yang kemudiannya boleh dipantau untuk perubahan', # Fuzzy
 	'right-semanticwatch' => 'Menggunakan senarai pantau semantik',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah suai]] kumpulan senarai pantau semantik',
 	'special-semanticwatchlist' => 'Senarai Pantau Semantik',
@@ -1298,7 +1298,7 @@ $messages['sv'] = array(
 	'swl-watchlist-deletions' => 'Gammal:',
 	'swl-watchlist-pagincontrol' => 'Visar ($1) ($2)',
 	'swl-watchlist-firstn' => 'först $1',
-	'swl-watchlist-firstn-title' => 'Först $1 {{PLURAL:$1|resultat|resultat}}',
+	'swl-watchlist-firstn-title' => 'Först $1 {{PLURAL:$1|resultat|resultat}}', # Fuzzy
 	'swl-watchlist-no-items' => 'Du har inget att övervaka på din semantiska övervakningslista',
 	'swl-watchlist-can-mod-groups' => 'Du kan [[$1|grupperna för övervakningslistor]].',
 	'swl-watchlist-can-mod-prefs' => 'Du kan  [[$1|ändra dina inställningar för övervakningslistor]], även vilka egenskaper som ska matcha',
@@ -1504,7 +1504,8 @@ $messages['zh-hans'] = array(
 	'swl-err-userid-xor-groupids' => '需要指定用户ID（userid ）或组ID（groupids ），但不要同时两者都指定。',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'semanticwatchlist-desc' => '讓用戶獲得關於Semantic MediaWiki數據特定更改的通知',
 	'right-semanticwatch' => '使用語義監視列表',
@@ -1553,4 +1554,3 @@ $messages['zh-hant'] = array(
 	'swl-prefs-concept-label' => "'''$1'''：來自概念''$4''的{{PLURAL:$2|屬性|屬性}} $3",
 	'swl-err-userid-xor-groupids' => '需要指定用戶ID（userid ）或組ID（groupids ），但不要同時兩者都指定。',
 );
-
