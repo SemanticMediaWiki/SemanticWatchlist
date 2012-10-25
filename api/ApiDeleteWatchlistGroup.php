@@ -74,7 +74,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 			
 			foreach ( $changes as $change ) {
 				$dbr->select(
-					'swl_changes_per_set',
+					'swl_changes',
 					array( 'change_id' ),
 					array( 'change_set_id' => $set->spg_set_id )
 				);
