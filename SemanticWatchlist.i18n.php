@@ -119,6 +119,9 @@ $messages['qqq'] = array(
 * $1 is a wiki link.',
 	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
 	'swl-prefs-watchlisttoplink' => 'Description for a MediaWiki preference.',
+	'swl-custom-remove-property' => 'This message explains a button to remove the selected Custom Text',
+	'swl-custom-text-add' => 'This message explains a button to add another custom text',
+	'swl-custom-input' => "This message explains that if the property $1 changes its value to $2 notify users with the text $3 ",
 );
 
 /** Afrikaans (Afrikaans)
