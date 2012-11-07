@@ -39,24 +39,45 @@
 		element.buildHtml();
 	}
 
+	function saveSuccess( button ) {
+		$( button ).val( mw.msg( 'swl-group-saved' ) );
+		setTimeout( function() {
+			$( button ).val( mw.msg( 'swl-group-save' ) );
+			button.disabled = false;
+			$('html, body').animate({scrollTop:0}, 'slow');
+			$( '.saveMessage' ).slideDown( 'slow', function() { $( '.saveMessage' ).show(); } );
+			setTimeout( function( ) {
+				$( '.saveMessage' ).slideUp( 'fast', function() { $( '.saveMessage' ).hide(); } );
+			}, 2000 );
+		}, 1000 );
+	}
+
 	function saveGroupElement( element, button ) {
 		element.watchlistcondition(
 			groupFromElement( element ),
 			{}
 		);
-		element.doSave(function( success ) {
-			if ( success ) {
-				$( button ).val( mw.msg( 'swl-group-saved' ) );
-				setTimeout( function() {
-					$( button ).val( mw.msg( 'swl-group-save' ) );
+		if( element.attr( 'display' ) === 'none' ) {
+			element.doDelete( function( success ) {
+				if ( success ) {
+					saveSuccess( button );
+				}
+				else {
+					alert( 'Could not remove the watchlist group-' + element.group.name );
 					button.disabled = false;
-				}, 1000 );
-			}
-			else {
-				alert( 'Could not update the watchlist group.' );
-				button.disabled = false;
-			}
-		});
+				}
+			} );
+		} else {
+			element.doSave(function( success ) {
+				if ( success ) {
+					saveSuccess( button );
+				}
+				else {
+					alert( 'Could not update the watchlist group-' + element.group.name );
+					button.disabled = false;
+				}
+			});
+		}
 	}
 
 	$( '.swl_group' ).each(function( index, domElement ) {

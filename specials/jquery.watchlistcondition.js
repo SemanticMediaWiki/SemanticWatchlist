@@ -4,6 +4,7 @@
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw <jeroendedauw at gmail dot com>
+ * @author Nischayn22
  */
 
 (function( $, mw ){ $.fn.watchlistcondition = function( group, options ) {
@@ -12,7 +13,7 @@
 	this.group = group;
 
 	this.buildHtml = function() {
-		this.html( $( '<legend />' ).text( group.name ) );
+		this.html( $( '<legend />' ).text( mw.msg( 'swl-group-legend' ) ) );
 
 		var table = $( '<table />' ).attr( { 'class': 'swltable' } );
 
@@ -23,26 +24,22 @@
 		} );
 
 		this.nameInput.keyup( function() {
-			self.find( 'legend' ).text( $( this ).val() );
 			self.attr( 'groupname', $( this ).val() );
 		} );
 
 		var name = $( '<p />' ).text( mw.msg( 'swl-group-name' ) + ' ' ).append( this.nameInput );
 		table.append( name );
 
-
 		this.propertiesInput = $( '<input />' ).attr( {
 			'type': 'text',
 			'value': group.properties.join('|'),
-			'size': 30
+			'size': 30,
+			'placeholder' : mw.msg( 'swl-properties-list' )
 		} );
 
 		this.propertiesInput.keyup( function() {
 			self.attr( 'properties', $( this ).val() );
 		} );
-
-		var property = $( '<p />' ).text( mw.msg( 'swl-group-properties' ) + ' ' ).append( this.propertiesInput );
-		table.append( property );
 
 		var conditionValue, conditionType;
 
@@ -83,20 +80,29 @@
 			'size': 30
 		} );
 
-		var condition = $( '<p />' ).text( mw.msg( 'swl-group-page-selection' ) + ' ' )
+		table.append( $( '<p/>' )
+			.append( mw.msg( 'swl-group-properties' ) )
+			.append( '&nbsp;' )
+			.append( this.propertiesInput )
+			.append( '&nbsp;' )
+			.append( mw.msg( 'swl-group-page-selection' ) )
+			.append( '&nbsp;' )
 			.append( this.conditionTypeInput )
 			.append( '&nbsp;' )
 			.append( this.conditionNameInput )
+		);
 
-		table.append( condition );
-		table.append( $( '<div/>' ).attr({ 'class' : 'customTexts' }) );
+		table.append( $( '<fieldset/>' ).attr({ 'class' : 'customTexts' }).append( $( '<legend/>' ).html( mw.msg( 'swl-custom-legend' ) ) ) );
 
 		this.addCustomTextDiv = function( customText ) {
-			var customTextFieldset = $( '<fieldset/>' ).attr({ 'class' : 'customText' });
 
+			var customTextDiv = $( '<div/>' ).attr({
+				'class' : 'customText',
+				'style' : "background: #ddd; width: 100%;"
+			});
 			var propertyInput = '<input type="text" size:10 id="propertyInput" value="'+customText[0]+'" > </input>';
-			var newValueInput = '<input type="text" size:10 id="customTextInput" value="'+customText[1]+'" > </input>';
-			var customTextInput = '<input type="text" size:100 id="customTextInput" value="'+customText[2]+'" > </input>';
+			var newValueInput = '<input type="text" size:10 id="newValueInput" value="'+customText[1]+'" > </input>';
+			var customTextInput = '<textarea rows="3" cols="80" id="customTextInput">' + customText[2] + '</textarea>';
 
 			var removeButton = $( '<input />' ).attr( {
 				'type': 'button',
@@ -111,42 +117,37 @@
 				append( $( '<td/>' ).html( mw.msg( 'swl-custom-input', propertyInput, newValueInput, customTextInput ))).
 				append( $( '<td/>' ).append( removeButton ) ));
 
-			customTextFieldset.append( customTextTable );
-			table.find('.customTexts').append( customTextFieldset );
+			customTextDiv.append( customTextTable );
+			table.find('.addCustomText').before( customTextDiv );
 		}
+
+		var addCustomTextButton = $( '<input />' ).attr( {
+			'type': 'button',
+			'value': mw.msg( 'swl-custom-text-add' ),
+			'class' : 'addCustomText'
+		} ).click( function() {
+			self.addCustomTextDiv( new Array( '', '', '' ) )
+		} );
+
+		table.find('.customTexts').append( addCustomTextButton );
 
 		for ( i in group.customTexts ) {
 			self.addCustomTextDiv( group.customTexts[i].split( '~' ) );
 		}
 
-		var addCustomTextButton = $( '<input />' ).attr( {
-			'type': 'button',
-			'value': mw.msg( 'swl-custom-text-add' )
-		} ).click( function() {
-			self.addCustomTextDiv( new Array( '', '', '' ) )
-		} );
-
-		table.append( addCustomTextButton );
 		this.append( table );
 
 		this.append(
 			$( '<input />' ).attr( {
 				'type': 'button',
-				'value': mw.msg( 'swl-group-delete' )
+				'value': mw.msg( 'swl-group-remove' )
 			} ).click( function() {
-				if ( confirm( mw.msg( 'swl-group-confirmdelete', self.nameInput.val() ) ) ) {
+				if ( confirm( mw.msg( 'swl-group-confirm-remove', self.nameInput.val() ) ) ) {
 					this.disabled = true;
 					var button = this;
 
-					self.doDelete( function( success ) {
-						if ( success ) {
-							self.slideUp( 'fast', function() { self.remove(); } );
-						}
-						else {
-							alert( 'Could not delete the watchlist group.' );
-							button.disabled = false;
-						}
-					} );
+					self.hide();
+					self.attr( 'display', 'none' );
 				}
 			} )
 		);

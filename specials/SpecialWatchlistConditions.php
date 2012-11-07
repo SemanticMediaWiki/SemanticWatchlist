@@ -62,6 +62,11 @@ class SpecialWatchlistConditions extends SpecialPage {
 			return;
 		}
 		
+		$wgOut->addHTML(
+			'<p class="saveMessage" style=" display:none;width: 100px; alight:center;text-align:center; background: #f9f9aa; border: 1px solid #dd9">' .
+			wfMsg( 'swl-group-saved' ) . '</p>'
+		);
+
 		$groupsHtml = array();
 		
 		foreach ( SWLGroups::getAll() as $group ) {
@@ -127,7 +132,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			Html::element(
 				'legend',
 				array(),
-				$group->getName()
+				wfMsg( 'swl-group-legend' )
 			)
 		);
 	}
