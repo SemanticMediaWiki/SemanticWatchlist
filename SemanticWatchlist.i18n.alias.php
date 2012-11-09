@@ -98,3 +98,8 @@ $specialPageAliases['nl'] = array(
 	'SemanticWatchlist' => array( 'SemantischeVolglijst' ),
 	'WatchlistConditions' => array( 'Volglijstcondities' ),
 );
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'SemanticWatchlist' => array( '语义监视列表' ),
+);
