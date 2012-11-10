@@ -1424,6 +1424,13 @@ $messages['tl'] = array(
 	'swl-err-userid-xor-groupids' => 'Dapat na tukuyin ang parametro ng ID ng tagagamit o mga ID ng pangkat, subalit hindi ang dalawang mga ito.',
 );
 
+/** Central Atlas Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)
+ * @author Tifinaghes
+ */
+$messages['tzm'] = array(
+	'swl-group-legend' => 'ⵜⴰⵔⴰⴱⴱⵓⵜ',
+);
+
 /** Urdu (اردو)
  * @author පසිඳු කාවින්ද
  */
