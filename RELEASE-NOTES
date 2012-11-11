@@ -7,7 +7,11 @@ Latest version of the release notes: http://svn.wikimedia.org/viewvc/mediawiki/t
 === Version 0.2 ===
 2011-xx-xx
 
-* 
+* Special:WatchlistConditions UI improved
+* Custom emails can be sent in emails
+* Custom emails can be set using Special:WatchlistConditions
+* No mails sent to the editor himself, unless in settings
+* Fixed deleting of groups, which were not working
 
 === Version 0.1 ===
 2011-07-30
