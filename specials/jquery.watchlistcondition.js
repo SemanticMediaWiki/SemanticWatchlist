@@ -98,11 +98,10 @@
 
 			var customTextDiv = $( '<div/>' ).attr({
 				'class' : 'customText',
-				'style' : "background: #ddd; width: 100%;"
 			});
-			var propertyInput = '<input type="text" size:10 id="propertyInput" value="'+customText[0]+'" > </input>';
-			var newValueInput = '<input type="text" size:10 id="newValueInput" value="'+customText[1]+'" > </input>';
-			var customTextInput = '<textarea rows="3" cols="80" id="customTextInput">' + customText[2] + '</textarea>';
+			var propertyInput = '<input type="text" size="15" id="propertyInput" value="'+customText[0]+'" />';
+			var newValueInput = '<input type="text" size="15" id="newValueInput" value="'+customText[1]+'" />';
+			var customTextInput = '<p>' + '<textarea rows="3" cols="80" id="customTextInput">' + customText[2] + '</textarea>' + '</p>';
 
 			var removeButton = $( '<input />' ).attr( {
 				'type': 'button',
@@ -115,7 +114,7 @@
 			var customTextTable = $( '<table/>' );
 			customTextTable.append( $( '<tr/>' ).
 				append( $( '<td/>' ).html( mw.msg( 'swl-custom-input', propertyInput, newValueInput, customTextInput ))).
-				append( $( '<td/>' ).append( removeButton ) ));
+				append( $( '<td style="text-align: right;"/>' ).html( removeButton ) ));
 
 			customTextDiv.append( customTextTable );
 			table.find('.addCustomText').before( customTextDiv );

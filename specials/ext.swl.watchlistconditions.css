@@ -28,3 +28,13 @@ fieldset .swl_group {
 .swl-group-prop {
 	
 }
+
+div.customText {
+	background: #ddd;
+	padding: 5px;
+	margin-bottom: 12px;
+}
+
+div.customText table {
+	width: 100%;
+}
