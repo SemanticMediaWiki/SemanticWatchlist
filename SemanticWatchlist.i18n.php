@@ -52,10 +52,10 @@ $messages['en'] = array(
 	'swl-group-save-all' => 'Save all',
 	'swl-group-add-new-group' => 'Add a new group',
 	'swl-group-add-group' => 'Add group',
-	'swl-custom-legend' => 'Custom Text',
+	'swl-custom-legend' => 'Custom text',
 	'swl-custom-remove-property' => 'Remove',
 	'swl-custom-text-add' => 'Add custom text',
-	'swl-custom-input' => "If the property $1 changes its value to $2 notify users with the following text $3 ",
+	'swl-custom-input' => "If the property $1 changes its value to $2, notify users with the following text: $3 ",
 
 	// Special:SemanticWatchlist
 	'swl-watchlist-position' => "Showing '''$1''' of the last {{PLURAL:$1|change|changes}} starting with '''#$2'''.",
