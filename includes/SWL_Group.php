@@ -424,6 +424,8 @@ class SWLGroup {
 			$queryDescription = new SMWConjunction();
 			
 			$conceptTitle = Title::newFromText( $groupConcept, SMW_NS_CONCEPT );
+			if ( !$conceptTitle->exists() ) continue;
+
 			$queryDescription->addDescription( new SMWConceptDescription( SMWDIWikiPage::newFromTitle( $conceptTitle ) ) );
 			$queryDescription->addDescription( new SMWValueDescription( SMWDIWikiPage::newFromTitle( $title ) ) );
 			
