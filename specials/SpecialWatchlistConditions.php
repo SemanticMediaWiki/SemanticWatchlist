@@ -77,23 +77,23 @@ class SpecialWatchlistConditions extends SpecialPage {
 			'</div>'
 		);
 
-		$wgOut->addHTML( Html::element(
+		$wgOut->addHTML( "<p>" . Html::element(
 			'input',
 			array(
 				'type' => 'button',
 				'value' => wfMsg( 'swl-group-add-group' ),
 				'id' => 'swl-add-group-button'
 			)
-		) );
+		) . "</p>\n" );
 
-		$wgOut->addHTML( Html::element(
+		$wgOut->addHTML( "<p>" . Html::element(
 			'input',
 			array(
 				'type' => 'button',
 				'value' => wfMsg( 'swl-group-save' ),
 				'id' => 'swl-save-all'
 			)
-		) );
+		) . "</p>\n" );
 
 		$wgOut->addModules( 'ext.swl.watchlistconditions' );
 	}

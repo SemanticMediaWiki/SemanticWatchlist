@@ -80,13 +80,13 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 		
 		if ( $this->userHasWatchlistGroups( $wgUser ) ) {
-			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-prefs', 'parseinline', 'Special:Preferences#prefsection-swl' ) );
+			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-prefs', 'parseinline', 'Special:Preferences#mw-prefsection-swl' ) );
 			$wgOut->addHTML( '</p>' );
 			
 			$this->getAndDisplaySets( $subPage );
 		}
 		else {
-			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-no-groups', 'parseinline', 'Special:Preferences#prefsection-swl' ) );
+			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-no-groups', 'parseinline', 'Special:Preferences#mw-prefsection-swl' ) );
 			$wgOut->addHTML( '</p>' );
 		}
 	}
