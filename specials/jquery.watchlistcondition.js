@@ -76,6 +76,7 @@
 
 		this.conditionNameInput = $( '<input />' ).attr( {
 			'type': 'text',
+			'class' : 'conditionInput',
 			'value': conditionValue,
 			'size': 30
 		} );
@@ -166,9 +167,8 @@
 			'properties': self.attr( 'properties' ),
 			'customTexts' : customTexts.join( '|' )
 		};
-		this.conditionTypeInput = $( '<select />' );
-		this.conditionNameInput = $( '<input />' );
-		args[this.conditionTypeInput.find( 'option:selected' ).attr( 'type' )] = this.conditionNameInput.val();
+		args[self.find('select :selected').attr('type')] = self.find( '.conditionInput' ).val();
+
 	 	$.getJSON(
 			wgScriptPath + '/api.php',
 			args,

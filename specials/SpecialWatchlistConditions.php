@@ -71,7 +71,6 @@ class SpecialWatchlistConditions extends SpecialPage {
 		foreach ( SWLGroups::getAll() as $group ) {
 			$groupsHtml[] = $this->getGroupHtml( $group );
 		}
-
 		$wgOut->addHTML(
 			'<div id="swl-groups">' .
 				implode( '', $groupsHtml ) .
@@ -91,7 +90,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			'input',
 			array(
 				'type' => 'button',
-				'value' => wfMsg( 'swl-group-save-all' ),
+				'value' => wfMsg( 'swl-group-save' ),
 				'id' => 'swl-save-all'
 			)
 		) );

@@ -102,7 +102,7 @@ class SWLGroup {
 			$group->group_categories == '' ? array() : explode( '|', $group->group_categories ),
 			$group->group_namespaces == '' ? array() : explode( '|', $group->group_namespaces ),
 			$group->group_properties == '' ? array() : explode( '|', $group->group_properties ),
-			$group->group_concepts == '' ? array() : explode( '|', $group->group_group_concepts ),
+			$group->group_concepts == '' ? array() : explode( '|', $group->group_concepts ),
 			$group->group_custom_texts == '' ? array() : self::unserializedCustomTexts( explode( '|', $group->group_custom_texts ) )
 		);
 	}
@@ -171,7 +171,6 @@ class SWLGroup {
 	 */
 	protected function updateInDB() {
 		$dbr = wfGetDB( DB_MASTER );
-		
 		return  $dbr->update(
 			'swl_groups',
 			array(

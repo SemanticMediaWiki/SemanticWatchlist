@@ -27,7 +27,6 @@ class ApiEditWatchlistGroup extends ApiBase {
 
 		$params = $this->extractRequestParams();
 		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
-
 		$group = new SWLGroup(
 			$params['id'],
 			$params['name'],
