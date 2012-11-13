@@ -834,7 +834,7 @@ $messages['ja'] = array(
 	'swl-group-add-new-group' => '新規グループを追加',
 	'swl-group-add-group' => 'グループを追加',
 	'swl-custom-legend' => 'カスタム テキスト',
-	'swl-custom-remove-property' => 'カスタム テキストを除去', # Fuzzy
+	'swl-custom-remove-property' => '除去',
 	'swl-custom-text-add' => 'カスタム テキストを追加',
 	'swl-watchlist-insertions' => '新:',
 	'swl-watchlist-deletions' => '旧:',
@@ -1231,6 +1231,14 @@ $messages['pt-br'] = array(
 	'swl-group-add-new-group' => 'Adicionar um novo grupo',
 	'swl-group-add-group' => 'Adicionar grupo',
 	'prefs-swlglobal' => 'Opções gerais',
+);
+
+/** Russian (русский)
+ * @author ShinePhantom
+ */
+$messages['ru'] = array(
+	'swl-group-remove' => 'Удалить',
+	'swl-custom-remove-property' => 'Удалить',
 );
 
 /** Sinhala (සිංහල)
