@@ -1,17 +1,19 @@
 These are the release notes for the Semantic Watchlist extension.
 	
-Extension page on mediawiki.org: http://www.mediawiki.org/wiki/Extension:SemanticWatchlist
-Latest version of the release notes: http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/SemanticWatchlist/RELEASE-NOTES?view=co
+Extension page on mediawiki.org:
+http://www.mediawiki.org/wiki/Extension:SemanticWatchlist
+Latest version of the release notes:
+https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/SemanticWatchlist.git;a=blob;f=RELEASE-NOTES
 
 
 === Version 0.2 ===
-2011-xx-xx
+2011-11-15
 
-* Special:WatchlistConditions UI improved
-* Custom emails can be sent in emails
-* Custom emails can be set using Special:WatchlistConditions
-* No mails sent to the editor himself, unless in settings
-* Fixed deleting of groups, which were not working
+* Special:WatchlistConditions UI improved.
+* Custom text can be sent in emails.
+* Custom text can be set using Special:WatchlistConditions.
+* No email sent to a page's own editor, by default.
+* Fixed deleting of groups, which was not working.
 
 === Version 0.1 ===
 2011-07-30
@@ -22,6 +24,6 @@ Initial release with these features:
 * Per-user optional email notification per edit that changes properties.  
 * Integration with user preferences to allow users to specify which watchlist
   groups they want to follow, and if they want to receive emails on changes.
-* Special:WatchListConditions as administration interface for watchlist groups.
+* Special:WatchlistConditions as administration interface for watchlist groups.
 * API module to query property changes grouped by edit for a single user.
 * API modules to add, modify and delete the watchlist groups.
