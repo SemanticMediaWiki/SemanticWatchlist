@@ -91,6 +91,7 @@ $messages['en'] = array(
  * @author EugeneZelenko
  * @author Jeroen De Dauw
  * @author Nemo bis
+ * @author Shirayuki
  * @author Siebrand
  * @author Umherirrender
  * @author 아라
@@ -115,7 +116,10 @@ $messages['qqq'] = array(
 	'swl-custom-legend' => 'Describes Custom text fields',
 	'swl-custom-remove-property' => 'This message explains a button to remove',
 	'swl-custom-text-add' => 'This message explains a button to add custom text', # Fuzzy
-	'swl-custom-input' => 'This message explains that if the property $1 changes its value to $2 notify users with the text $3',
+	'swl-custom-input' => 'This message explains that if the property $1 changes its value to $2 notify users with the text $3
+* $1 - property name
+* $2 - property value
+* $3 - notification text',
 	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
 	'swl-watchlist-insertions' => '{{Identical|New}}',
 	'swl-watchlist-pagincontrol' => '{{Identical|View}}',
@@ -836,6 +840,7 @@ $messages['ja'] = array(
 	'swl-custom-legend' => 'カスタム テキスト',
 	'swl-custom-remove-property' => '除去',
 	'swl-custom-text-add' => 'カスタム テキストを追加',
+	'swl-custom-input' => 'プロパティ $1 の値が $2 に変わった場合、以下の内容で利用者に通知する: $3',
 	'swl-watchlist-insertions' => '新:',
 	'swl-watchlist-deletions' => '旧:',
 	'swl-watchlist-pagincontrol' => '表示 ($1) ($2)',
