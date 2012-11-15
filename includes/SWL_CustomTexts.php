@@ -34,12 +34,12 @@ class SWLCustomTexts {
 		$this->group = $group;
 	}
 
-    /**
+	/**
 	 * Sets an array of CustomTexts by reading from the db
 	 * for this group.
-     *
-     * @since 0.2
-     */
+	 *
+	 * @since 0.2
+	 */
 	protected function initCustomTexts() {
 		if( !is_null( $this->customTexts ) ) {
 			return;
@@ -63,17 +63,17 @@ class SWLCustomTexts {
 		}
 	}
 
-    /**
-     * Returns an array of CustomTexts set by the admin in WatchlistConditions
+	/**
+	 * Returns an array of CustomTexts set by the admin in WatchlistConditions
 	 * for this group and property.
-     *
-     * @since 0.2
-     *
-     * @param SMWDIProperty $property
-     * @param String $newValue
+	 *
+	 * @since 0.2
+	 *
+	 * @param SMWDIProperty $property
+	 * @param String $newValue
 	 *
 	 * @return String or false
-     */
+	 */
 	public function getPropertyCustomText( SMWDIProperty $property, $newValue ) {
 		$this->initCustomTexts();
 		if( array_key_exists( $property->getLabel(), $this->customTexts ) && array_key_exists( $newValue, $this->customTexts[$property->getLabel()] ) ) {
