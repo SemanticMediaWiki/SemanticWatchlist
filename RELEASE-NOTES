@@ -7,7 +7,7 @@ https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/SemanticWatchlist.g
 
 
 === Version 0.2 ===
-2011-11-15
+2012-11-15
 
 * Special:WatchlistConditions UI improved.
 * Custom text can be sent in emails.
