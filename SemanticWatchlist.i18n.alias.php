@@ -59,6 +59,12 @@ $specialPageAliases['ia'] = array(
 	'WatchlistConditions' => array( 'Conditiones_del_observatorio_semantic', 'Gruppos_del_observatorio_semantic' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'SemanticWatchlist' => array( 'OsservatiSpecialiSemantici' ),
+	'WatchlistConditions' => array( 'CondizioniOsservatiSpeciali', 'GruppiOsservatiSpeciali' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'SemanticWatchlist' => array( '意味的ウォッチリスト' ),
