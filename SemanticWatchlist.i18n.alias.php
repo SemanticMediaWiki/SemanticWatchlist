@@ -105,6 +105,12 @@ $specialPageAliases['nl'] = array(
 	'WatchlistConditions' => array( 'Volglijstcondities' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'SemanticWatchlist' => array( 'OsservatiSpecialiSemantici' ),
+	'WatchlistConditions' => array( 'CondizioniOsservatiSpeciali', 'GruppiOsservatiSpeciali' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'SemanticWatchlist' => array( '语义监视列表' ),
