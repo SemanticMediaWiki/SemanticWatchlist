@@ -325,6 +325,7 @@ $messages['de-formal'] = array(
  */
 $messages['diq'] = array(
 	'swl-group-category' => 'kategoriye',
+	'swl-watchlist-insertions' => 'Newe:',
 );
 
 /** Lower Sorbian (dolnoserbski)
