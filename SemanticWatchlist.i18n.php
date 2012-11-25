@@ -454,8 +454,10 @@ $messages['et'] = array(
 
 /** Persian (فارسی)
  * @author Mjbmr
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'swl-group-remove' => 'حذف',
 	'swl-watchlist-insertions' => 'جدید:',
 	'swl-watchlist-deletions' => 'قدیمی:',
 );
