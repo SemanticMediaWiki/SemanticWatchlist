@@ -36,11 +36,11 @@ $messages['en'] = array(
 	// Special:WatchlistConditions
 	'swl-group-name' => 'Group name:',
 	'swl-group-legend' => 'Group',
-	'swl-group-properties' => 'This group tracks changes in the properties',
+	'swl-group-properties' => 'This group watches changes in the property/properties:',
 	'swl-properties-list' => 'Separate names with |',
 	'swl-group-remove-property' => 'Remove property',
 	'swl-group-add-property' => 'Add property',
-	'swl-group-page-selection' => 'for pages in the',
+	'swl-group-page-selection' => 'Select pages to watch:',
 	'swl-group-save' => 'Save',
 	'swl-group-remove' => 'Remove',
 	'swl-group-saved' => 'Saved',
