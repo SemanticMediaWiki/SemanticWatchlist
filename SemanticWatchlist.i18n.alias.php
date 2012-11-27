@@ -93,7 +93,7 @@ $specialPageAliases['nb'] = array(
 	'SemanticWatchlist' => array( 'Semantisk_overvåkningsliste' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'SemanticWatchlist' => array( 'Semantiese_volglieste' ),
 	'WatchlistConditions' => array( 'Volgliestkondisies' ),

@@ -464,9 +464,40 @@ $messages['fa'] = array(
 
 /** Finnish (suomi)
  * @author Crt
+ * @author Nedergard
  */
 $messages['fi'] = array(
+	'right-semanticwatch' => 'Käyttää semanttista tarkkailulistaa',
+	'special-semanticwatchlist' => 'Semanttinen tarkkailulista',
+	'special-watchlistconditions' => 'Semanttisen tarkkailulistan ehdot',
+	'group-swladmins' => 'Semanttisen tarkkailulistan ylläpitäjät',
+	'group-swladmins-member' => '{{GENDER:$1|Semanttisen tarkkailulista ylläpitäjä}}',
+	'grouppage-swladmins' => '{{ns:project}}:Semanttisen tarkkailulistan ylläpitäjät',
+	'swl-group-name' => 'Ryhmän nimi',
+	'swl-group-legend' => 'Ryhmä',
+	'swl-group-properties' => 'Tämä ryhmä tarkkailee ominaisuuksien muutoksia',
+	'swl-properties-list' => 'Nimet erotetaan | -merkillä',
+	'swl-group-remove-property' => 'Poista ominaisuus',
+	'swl-group-add-property' => 'Lisää ominaisuus',
 	'swl-group-save' => 'Tallenna',
+	'swl-group-remove' => 'Poista',
+	'swl-group-saved' => 'Tallennettu',
+	'swl-group-saving' => 'Tallennetaan',
+	'swl-group-category' => 'luokka',
+	'swl-group-namespace' => 'nimiavaruus',
+	'swl-group-add-new-group' => 'Lisää uusi ryhmä',
+	'swl-group-add-group' => 'Lisää ryhmä',
+	'swl-custom-remove-property' => 'Poista',
+	'swl-watchlist-insertions' => 'Uusi:',
+	'swl-watchlist-deletions' => 'Vanha:',
+	'swl-watchlist-pagincontrol' => 'Näytä ($1) ($2)',
+	'swl-watchlist-firstn' => 'ensimmäinen $1',
+	'swl-watchlist-no-items' => 'Semanttinen tarkkailulistasi on tyhjä.',
+	'prefs-swl' => 'Semanttinen tarkkailulista',
+	'prefs-swlgroup' => 'Tarkkailtavat ryhmät',
+	'swl-prefs-emailnofity' => 'Lähetä sähköposti, jos tarkkailulistallani olevia ominaisuuksia muutetaan.',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|ominaisuus|ominaisuutta}} $3 luokasta ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|ominaisuus|ominaisuutta}} $3 nimiavaruudesta ''$4''",
 );
 
 /** French (français)
