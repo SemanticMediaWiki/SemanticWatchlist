@@ -33,7 +33,7 @@ $specialPageAliases['de'] = array(
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
 	'SemanticWatchlist' => array( 'BewniWiki' ),
-	'WatchlistConditions' => array( 'GrubeListeyseyri' ),
+	'WatchlistConditions' => array( 'GrubeListeyseyran' ),
 );
 
 /** Persian (فارسی) */
