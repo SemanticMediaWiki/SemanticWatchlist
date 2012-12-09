@@ -465,6 +465,7 @@ $messages['fa'] = array(
 /** Finnish (suomi)
  * @author Crt
  * @author Nedergard
+ * @author Nike
  */
 $messages['fi'] = array(
 	'semanticwatchlist-desc' => 'Sallii ilmoitukset käyttäjille, kun semanttisen MediaWikin tietoihin on tehty tiettyjä muutoksia.',
@@ -477,11 +478,11 @@ $messages['fi'] = array(
 	'grouppage-swladmins' => '{{ns:project}}:Semanttisen tarkkailulistan ylläpitäjät',
 	'swl-group-name' => 'Ryhmän nimi',
 	'swl-group-legend' => 'Ryhmä',
-	'swl-group-properties' => 'Tämä ryhmä tarkkailee ominaisuuksien muutoksia', # Fuzzy
+	'swl-group-properties' => 'Tämä ryhmä tarkkailee seruaavien ominaisuuksien muutoksia:',
 	'swl-properties-list' => 'Nimet erotetaan | -merkillä',
 	'swl-group-remove-property' => 'Poista ominaisuus',
 	'swl-group-add-property' => 'Lisää ominaisuus',
-	'swl-group-page-selection' => 'sivuille kohteessa', # Fuzzy
+	'swl-group-page-selection' => 'Tarkkailtavat sivut:',
 	'swl-group-save' => 'Tallenna',
 	'swl-group-remove' => 'Poista',
 	'swl-group-saved' => 'Tallennettu',
@@ -1172,11 +1173,11 @@ $messages['nl'] = array(
 	'grouppage-swladmins' => '{{ns:project}}:Beheerders semantische volglijst',
 	'swl-group-name' => 'Groepsnaam:',
 	'swl-group-legend' => 'Groep',
-	'swl-group-properties' => 'In deze groep worden wijzigen aan de volgende eigenschap bijgehouden',
+	'swl-group-properties' => 'In deze groep worden wijzigen aan de volgende eigenschap(pen) bijgehouden:',
 	'swl-properties-list' => 'Scheid namen met "|"',
 	'swl-group-remove-property' => 'Eigenschap verwijderen',
 	'swl-group-add-property' => 'Eigenschap toevoegen',
-	'swl-group-page-selection' => "voor pagina's in de",
+	'swl-group-page-selection' => "Selecteer te volgen pagina's:",
 	'swl-group-save' => 'Opslaan',
 	'swl-group-remove' => 'Verwijderen',
 	'swl-group-saved' => 'Opgeslagen',
