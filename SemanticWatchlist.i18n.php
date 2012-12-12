@@ -1492,6 +1492,52 @@ $messages['tzm'] = array(
 	'swl-group-legend' => 'ⵜⴰⵔⴰⴱⴱⵓⵜ',
 );
 
+/** Ukrainian (українська)
+ * @author Base
+ */
+$messages['uk'] = array(
+	'semanticwatchlist-desc' => 'Дозволяє користувачам бути сповіщеними про зміни у вибраних даних Semantic MediaWiki',
+	'right-semanticwatch' => 'Використовувати семантичний список спостереження',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Змінювати]] групи семантичного списку спостереження',
+	'special-semanticwatchlist' => 'Семантичний список спостереження',
+	'special-watchlistconditions' => 'Умови семантичного списку спостереження',
+	'group-swladmins' => 'Адміністратори семантичного списку спостереження',
+	'group-swladmins-member' => '{{GENDER:$1|адміністратор семантичного списку спостереження|адміністраторка семантичного списку спостереження}}',
+	'grouppage-swladmins' => '{{ns:project}}:Адміністратори семантичного списку спостереження',
+	'swl-group-name' => 'Назва групи:',
+	'swl-group-legend' => 'Група',
+	'swl-group-properties' => 'Ця група стежить за змінами за властивістю/властивостями:',
+	'swl-properties-list' => 'Розділяйте назви за допомогою |',
+	'swl-group-remove-property' => 'Вилучити властивість',
+	'swl-group-add-property' => 'Додати властивість',
+	'swl-group-page-selection' => 'Обрати сторінки для спостереження:',
+	'swl-group-save' => 'Зберегти',
+	'swl-group-remove' => 'Вилучити',
+	'swl-group-saved' => 'Збережено',
+	'swl-group-saving' => 'Збереження',
+	'swl-group-category' => 'категорія',
+	'swl-group-namespace' => 'простір назв',
+	'swl-group-concept' => 'концепт',
+	'swl-group-confirm-remove' => 'Ви дійсно хочете вилучити групу списку спостереження «$1»?',
+	'swl-group-add-new-group' => 'Додати нову групу',
+	'swl-group-add-group' => 'Додати групу',
+	'swl-custom-legend' => 'Власний текст',
+	'swl-custom-remove-property' => 'Вилучити',
+	'swl-custom-text-add' => 'Додати власний текст',
+	'swl-custom-input' => 'Якщо властивість $1 змінила своє значення на $2, сповістити користувачів наступним текстом: $3',
+	'swl-watchlist-position' => "Показ '''$1''' {{PLURAL:$1|останньої зміни|із останніх змін}}, починаючи з '''#$2'''.",
+	'swl-watchlist-insertions' => 'Нові:',
+	'swl-watchlist-deletions' => 'Старі:',
+	'swl-watchlist-pagincontrol' => 'Перегляд ($1) ($2)',
+	'swl-watchlist-firstn' => 'перший $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Перший $1 результат|Перші $1 результати|Перші $1 результатів}}',
+	'swl-watchlist-no-items' => 'У Вашому семантичному списку спостереження немає елементів.',
+	'swl-watchlist-can-mod-groups' => 'Ви можете [[$1|змінювати групи списку спостереження]].',
+	'swl-watchlist-can-mod-prefs' => 'Ви можете [[$1|змінювати налаштування списку спостереження]], включно з вказанням тих властивостей, за якими спостерігати.',
+	'swl-watchlist-no-groups' => 'Ви ще не спостерігаєте за жодною групою списку спостереження. [[$1|Змінити Ваші налаштування списку спостереження]].',
+	'swl-email-propschanged' => 'Властивості $1 змінилися',
+);
+
 /** Urdu (اردو)
  * @author පසිඳු කාවින්ද
  */
