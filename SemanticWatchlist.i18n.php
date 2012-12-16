@@ -103,8 +103,8 @@ $messages['qqq'] = array(
 	'group-swladmins' => '{{doc-group|swladmins}}',
 	'group-swladmins-member' => '{{doc-group|swladmins|member}}',
 	'grouppage-swladmins' => '{{doc-group|swladmins|page}}',
-	'group-swladmins.css' => '{{doc-group|swladmins}}',
-	'group-swladmins.js' => '{{doc-group|swladmins}}',
+	'group-swladmins.css' => '{{doc-group|swladmins|css}}',
+	'group-swladmins.js' => '{{doc-group|swladmins|js}}',
 	'swl-group-legend' => 'This message means a group',
 	'swl-properties-list' => 'This message explains that Names should be entered separated by |',
 	'swl-group-save' => '{{Identical|Save}}',
@@ -115,7 +115,7 @@ $messages['qqq'] = array(
 	'swl-group-confirm-remove' => 'This message asks if the user is sure remove the "$1" watchlist group?',
 	'swl-custom-legend' => 'Describes Custom text fields',
 	'swl-custom-remove-property' => 'This message explains a button to remove',
-	'swl-custom-text-add' => 'This message explains a button to add custom text', # Fuzzy
+	'swl-custom-text-add' => 'This message explains a button to add custom text',
 	'swl-custom-input' => 'This message explains that if the property $1 changes its value to $2 notify users with the text $3
 * $1 - property name
 * $2 - property value
