@@ -130,7 +130,12 @@ $messages['qqq'] = array(
 * $1 is a wiki link.',
 	'swl-watchlist-no-groups' => 'Parameters:
 * $1 is a wiki link.',
-	'swl-email-propschanged-long' => '$1: wiki name, $2: user name, $3: url, $4: time, $5: date',
+	'swl-email-propschanged-long' => 'Parameters:
+* $1: wiki name
+* $2: user name
+* $3: URL
+* $4: time,
+* $5: date',
 	'swl-prefs-watchlisttoplink' => 'Description for a MediaWiki preference.',
 );
 
@@ -441,6 +446,8 @@ $messages['es'] = array(
  * @author Avjoska
  */
 $messages['et'] = array(
+	'swl-group-name' => 'Rühma nimi:',
+	'swl-group-legend' => 'Rühm',
 	'swl-group-save' => 'Salvesta',
 	'swl-group-saved' => 'Salvestatud',
 	'swl-group-saving' => 'Salvestamisel',
@@ -457,9 +464,22 @@ $messages['et'] = array(
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'swl-group-name' => 'نام گروه:',
+	'swl-group-legend' => 'گروه',
+	'swl-group-save' => 'ذخیره',
 	'swl-group-remove' => 'حذف',
+	'swl-group-saved' => 'ذخیره شده',
+	'swl-group-saving' => 'در حال ذخیره سازی...',
+	'swl-group-category' => 'رده',
+	'swl-group-namespace' => 'فضای نام',
+	'swl-group-add-new-group' => 'افزودن گروه جدید',
+	'swl-group-add-group' => 'افزودن گروه',
+	'swl-custom-legend' => 'متن سفارشی',
+	'swl-custom-remove-property' => 'حذف',
+	'swl-custom-text-add' => 'افزودن متن سفارشی',
 	'swl-watchlist-insertions' => 'جدید:',
 	'swl-watchlist-deletions' => 'قدیمی:',
+	'prefs-swlglobal' => 'گزینه‌های عمومی',
 );
 
 /** Finnish (suomi)
@@ -1186,14 +1206,14 @@ $messages['nl'] = array(
 	'swl-group-namespace' => 'naamruimte',
 	'swl-group-concept' => 'concept',
 	'swl-group-confirm-remove' => 'Weet u zeker dat u de volglijstgroep "$1" wilt verwijderen?',
-	'swl-group-add-new-group' => 'Een nieuwe groep toevoegen',
+	'swl-group-add-new-group' => 'Nieuwe groep toevoegen',
 	'swl-group-add-group' => 'Groep toevoegen',
 	'swl-custom-legend' => 'Aangepaste tekst',
 	'swl-custom-remove-property' => 'Verwijderen',
 	'swl-custom-text-add' => 'Aangepaste tekst toevoegen',
 	'swl-custom-input' => 'Als de waarde van de eigenschap $1 wijzigt naar $2, waarschuw dan alle gebruikers met de volgende tekst: $3',
-	'swl-watchlist-position' => "Resultaat '''$1''' van de laatste wijzigingen beginnend met '''#$2'''.",
-	'swl-watchlist-insertions' => 'Toegevoegd:',
+	'swl-watchlist-position' => "Er {{PLURAL:$1|wordt de laatste wijziging|worden '''$1''' laatste wijzigingen}} weergegeven beginnend met '''#$2'''.",
+	'swl-watchlist-insertions' => 'Nieuw:',
 	'swl-watchlist-deletions' => 'Oud:',
 	'swl-watchlist-pagincontrol' => 'Bekijken ($1) ($2)',
 	'swl-watchlist-firstn' => 'eerste $1',
@@ -1203,9 +1223,9 @@ $messages['nl'] = array(
 	'swl-watchlist-can-mod-prefs' => 'U kunt [[$1|uw volglijstwijzigingen aanpassen]], inclusief welke eigenschappen gevolgd moeten worden.',
 	'swl-watchlist-no-groups' => 'U volgt nog geen volglijstgroepen. U kunt [[$1|uw volglijstinstellingen aanpassen]].',
 	'swl-email-propschanged' => 'Eigenschappen zijn veranderd op $1',
-	'swl-email-propschanged-long' => "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''$2''' om $4 op $5. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].",
+	'swl-email-propschanged-long' => "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''$2''' op $5 om $4. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].",
 	'swl-email-changes' => 'Wijzigingen in eigenschappen op [$2 $1]:',
-	'prefs-swl' => 'Semantische Volglijst',
+	'prefs-swl' => 'Semantische volglijst',
 	'prefs-swlgroup' => 'Te volgen groepen',
 	'prefs-swlglobal' => 'Algemene opties',
 	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
@@ -1330,7 +1350,9 @@ $messages['ru'] = array(
  */
 $messages['si'] = array(
 	'swl-group-name' => 'කාණ්ඩ නාමය:',
+	'swl-group-legend' => 'කාණ්ඩය',
 	'swl-group-save' => 'සුරකින්න',
+	'swl-group-remove' => 'ඉවත් කරන්න',
 	'swl-group-saved' => 'සුරකින ලදී',
 	'swl-group-saving' => 'සුරකිමින්',
 	'swl-group-category' => 'ප්‍රවර්ගය',
@@ -1623,6 +1645,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
  */
 $messages['zh-hant'] = array(
 	'semanticwatchlist-desc' => '讓用戶獲得關於Semantic MediaWiki數據特定更改的通知',
@@ -1634,11 +1657,12 @@ $messages['zh-hant'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|語義監視列表管理員}}',
 	'grouppage-swladmins' => '{{ns:project}}:語義監視列表管理員',
 	'swl-group-name' => '組名：',
-	'swl-group-properties' => '該組所涵蓋的屬性：',
+	'swl-group-properties' => '該組所涵蓋的屬性：', # Fuzzy
 	'swl-group-remove-property' => '刪除屬性',
 	'swl-group-add-property' => '添加屬性',
-	'swl-group-page-selection' => '中的頁面',
+	'swl-group-page-selection' => '中的頁面', # Fuzzy
 	'swl-group-save' => '保存',
+	'swl-group-remove' => '移除',
 	'swl-group-saved' => '已保存',
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '類別',
@@ -1646,6 +1670,7 @@ $messages['zh-hant'] = array(
 	'swl-group-concept' => '概念',
 	'swl-group-add-new-group' => '添加新的組',
 	'swl-group-add-group' => '添加組',
+	'swl-custom-remove-property' => '移除',
 	'swl-watchlist-position' => "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。",
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '舊：',
