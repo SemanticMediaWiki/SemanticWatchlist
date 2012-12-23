@@ -97,7 +97,7 @@ $messages['en'] = array(
  * @author 아라
  */
 $messages['qqq'] = array(
-	'semanticwatchlist-desc' => '{{desc}}',
+	'semanticwatchlist-desc' => '{{desc|name=Semantic Watchlist|url=http://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
 	'group-swladmins' => '{{doc-group|swladmins}}',
@@ -179,9 +179,16 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (български)
  * @author DCLXVI
+ * @author පසිඳු කාවින්ද
  */
 $messages['bg'] = array(
+	'swl-group-legend' => 'Група',
 	'swl-group-save' => 'Съхраняване',
+	'swl-group-remove' => 'Премахване',
+	'swl-group-category' => 'категория',
+	'swl-custom-remove-property' => 'Премахване',
+	'swl-watchlist-insertions' => 'Ново:',
+	'swl-watchlist-deletions' => 'Стари:',
 );
 
 /** Breton (brezhoneg)
@@ -855,6 +862,7 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
+ * @author පසිඳු කාවින්ද
  */
 $messages['id'] = array(
 	'semanticwatchlist-desc' => 'Memungkinkan penetapan kelompok properti semantik untuk satu atau lebih kategori/ruang nama yang kemudian dapat dipantau perubahannya', # Fuzzy
@@ -863,9 +871,16 @@ $messages['id'] = array(
 	'special-semanticwatchlist' => 'Daftar Pantau Semantik',
 	'special-watchlistconditions' => 'Kriteria daftar pantau semantik',
 	'swl-group-name' => 'Nama kelompok:',
-	'swl-group-properties' => 'Properti yang dicakup oleh kelompok ini:',
+	'swl-group-legend' => 'Kelompok',
+	'swl-group-properties' => 'Properti yang dicakup oleh kelompok ini:', # Fuzzy
 	'swl-group-remove-property' => 'Hapus properti',
-	'swl-group-page-selection' => 'Halaman dalam',
+	'swl-group-page-selection' => 'Halaman dalam', # Fuzzy
+	'swl-group-save' => 'Simpan',
+	'swl-group-remove' => 'Hapus',
+	'swl-group-category' => 'kategori',
+	'swl-custom-remove-property' => 'Hapus',
+	'swl-watchlist-insertions' => 'Baru:',
+	'swl-watchlist-deletions' => 'Tua:',
 );
 
 /** Italian (italiano)
@@ -1372,6 +1387,7 @@ $messages['so'] = array(
 
 /** Swedish (svenska)
  * @author Martinwiss
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'semanticwatchlist-desc' => 'Informera användare om vissa ändringar av semantiska data',
@@ -1383,11 +1399,14 @@ $messages['sv'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|Administratör för semantiska övervakningslistor}}',
 	'grouppage-swladmins' => '{{ns:project}}:Administratör för semantiska övervakningslistor',
 	'swl-group-name' => 'Gruppnamn:',
-	'swl-group-properties' => 'Egenskaper som gruppen tar hand om:',
+	'swl-group-legend' => 'Grupp',
+	'swl-group-properties' => 'Egenskaper som gruppen tar hand om:', # Fuzzy
+	'swl-properties-list' => 'Separera namn med |',
 	'swl-group-remove-property' => 'Ta bort egenskap',
 	'swl-group-add-property' => 'Lägg till egenskap',
-	'swl-group-page-selection' => 'Sidor i',
+	'swl-group-page-selection' => 'Välj sidor att bevaka:',
 	'swl-group-save' => 'Spara',
+	'swl-group-remove' => 'Ta bort',
 	'swl-group-saved' => 'Sparad',
 	'swl-group-saving' => 'Sparar',
 	'swl-group-category' => 'kategori',
@@ -1395,6 +1414,9 @@ $messages['sv'] = array(
 	'swl-group-concept' => 'begrepp',
 	'swl-group-add-new-group' => 'Lägg till en ny grupp',
 	'swl-group-add-group' => 'Lägg till grupp',
+	'swl-custom-legend' => 'Anpassad text',
+	'swl-custom-remove-property' => 'Ta bort',
+	'swl-custom-text-add' => 'Lägg till anpassad text',
 	'swl-watchlist-position' => "Visar '''$1''' av {{PLURAL:$1|senaste ändringen|de senaste ändringarna}} med början från '''#$2'''.",
 	'swl-watchlist-insertions' => 'Ny:',
 	'swl-watchlist-deletions' => 'Gammal:',
@@ -1597,6 +1619,7 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Linforest
+ * @author Shirayuki
  */
 $messages['zh-hans'] = array(
 	'semanticwatchlist-desc' => '让用户获得关于Semantic MediaWiki数据特定更改的通知',
@@ -1608,18 +1631,24 @@ $messages['zh-hans'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|语义监视列表管理员}}',
 	'grouppage-swladmins' => '{{ns:project}}:语义监视列表管理员',
 	'swl-group-name' => '组名：',
-	'swl-group-properties' => '该组所涵盖的属性：',
+	'swl-group-legend' => '组',
+	'swl-group-properties' => '该组所涵盖的属性：', # Fuzzy
 	'swl-group-remove-property' => '删除属性',
 	'swl-group-add-property' => '添加属性',
-	'swl-group-page-selection' => '中的页面',
+	'swl-group-page-selection' => '中的页面', # Fuzzy
 	'swl-group-save' => '保存',
+	'swl-group-remove' => '移除',
 	'swl-group-saved' => '已保存',
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '类别',
 	'swl-group-namespace' => '命名空间',
 	'swl-group-concept' => '概念',
+	'swl-group-confirm-remove' => '您确实要删除"$1"监视列表组吗？',
 	'swl-group-add-new-group' => '添加新的组',
 	'swl-group-add-group' => '添加组',
+	'swl-custom-legend' => '自定义的文本',
+	'swl-custom-remove-property' => '移除',
+	'swl-custom-text-add' => '添加自定义文本',
 	'swl-watchlist-position' => "显示从'''#$2'''开始的，最后{{PLURAL:$1|变更|变更}}的'''$1'''。",
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '旧：',
@@ -1657,6 +1686,7 @@ $messages['zh-hant'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|語義監視列表管理員}}',
 	'grouppage-swladmins' => '{{ns:project}}:語義監視列表管理員',
 	'swl-group-name' => '組名：',
+	'swl-group-legend' => '群組',
 	'swl-group-properties' => '該組所涵蓋的屬性：', # Fuzzy
 	'swl-group-remove-property' => '刪除屬性',
 	'swl-group-add-property' => '添加屬性',
