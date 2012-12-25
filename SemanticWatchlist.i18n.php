@@ -90,6 +90,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
  * @author Jeroen De Dauw
+ * @author Kghbln
  * @author Nemo bis
  * @author Shirayuki
  * @author Siebrand
@@ -100,43 +101,93 @@ $messages['qqq'] = array(
 	'semanticwatchlist-desc' => '{{desc|name=Semantic Watchlist|url=http://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
+	'special-semanticwatchlist' => 'This is the text of the link [[Special:SpecialPages]] pointing to [[Special:SemanticWatchlist]].',
+	'special-watchlistconditions' => 'This is the text of the link [[Special:SpecialPages]] pointing to [[Special:WatchlistConditions]].',
 	'group-swladmins' => '{{doc-group|swladmins}}',
 	'group-swladmins-member' => '{{doc-group|swladmins|member}}',
 	'grouppage-swladmins' => '{{doc-group|swladmins|page}}',
 	'group-swladmins.css' => '{{doc-group|swladmins|css}}',
 	'group-swladmins.js' => '{{doc-group|swladmins|js}}',
-	'swl-group-legend' => 'This message means a group',
-	'swl-properties-list' => 'This message explains that Names should be entered separated by |',
-	'swl-group-save' => '{{Identical|Save}}',
-	'swl-group-remove' => 'Describes a button to remove',
-	'swl-group-saved' => '{{Identical|Saved}}',
-	'swl-group-category' => '{{Identical|Category}}',
-	'swl-group-namespace' => '{{Identical|Namespace}}',
+	'swl-group-name' => 'This is the title of the field that lets you specify the name of a group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-group-legend' => 'This is the title of a box on [[Special:WatchlistConditions]] allowing to create a group of properties to be watched on [[Special:SemanticWatchlist]].
+{{Identical|Group}}',
+	'swl-group-properties' => 'This is the title of the field that lets you specify the properties making up a group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-properties-list' => 'This message explains that the names of the properties to be watched by the semantic watchlist should be entered separated by a pipe "|". This is a placeholder text that is displayed in the input field before the user clicks on it.',
+	'swl-group-page-selection' => 'This is the title of the field that lets you specify the pages which should be watched by a group of properties on [[Special:SemanticWatchlist]].',
+	'swl-group-save' => 'This is the text on the button for saving changes to groups on [[Special:WatchlistConditions]].',
+	'swl-group-remove' => 'This is the text on the button for removing a group of properties to be watched on [[Special:SemanticWatchlist]].
+{{Identical|Remove}}',
+	'swl-group-saved' => 'This message indicates that the changes on [[Special:WatchlistConditions]] were processed.
+{{Identical|Saved}}',
+	'swl-group-saving' => 'This message indicates that the changes on the preferences page are being processed.',
+	'swl-group-category' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A category holds a group of pages.
+{{Identical|Category}}',
+	'swl-group-namespace' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A namespace holds a group of pages.
+{{Identical|Namespace}}',
+	'swl-group-concept' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A concept holds a group of precomputed pages. A concept may best be described as being a dynamic category.',
 	'swl-group-confirm-remove' => 'This message asks if the user is sure remove the "$1" watchlist group?',
-	'swl-custom-legend' => 'Describes Custom text fields',
-	'swl-custom-remove-property' => 'This message explains a button to remove',
-	'swl-custom-text-add' => 'This message explains a button to add custom text',
+	'swl-group-add-new-group' => 'This is the text on the button allowing to add a new group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-group-add-group' => 'This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-custom-legend' => 'This is the title of the field that lets you specify a custom text for the user notification to be send in case a property included in the semantic watchlist was changed.',
+	'swl-custom-remove-property' => 'This is the text on the button allowing to remove the custom user notification text of a semantic watchlist.',
+	'swl-custom-text-add' => 'This is the text on the button allowing to add a custom user notification text to a semantic watchlist.',
 	'swl-custom-input' => 'This message explains that if the property $1 changes its value to $2 notify users with the text $3
 * $1 - property name
 * $2 - property value
 * $3 - notification text',
 	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
-	'swl-watchlist-insertions' => '{{Identical|New}}',
-	'swl-watchlist-pagincontrol' => '{{Identical|View}}',
-	'swl-watchlist-firstn' => '{{Identical|First}}',
-	'swl-watchlist-can-mod-groups' => 'Parameters:
-* $1 is a wiki link.',
-	'swl-watchlist-can-mod-prefs' => 'Parameters:
-* $1 is a wiki link.',
-	'swl-watchlist-no-groups' => 'Parameters:
-* $1 is a wiki link.',
-	'swl-email-propschanged-long' => 'Parameters:
-* $1: wiki name
-* $2: user name
-* $3: URL
-* $4: time,
-* $5: date',
-	'swl-prefs-watchlisttoplink' => 'Description for a MediaWiki preference.',
+	'swl-watchlist-insertions' => 'This message precedes the display of the new property value set for the watched property.
+{{Identical|New}}',
+	'swl-watchlist-deletions' => 'This message precedes the display of the old property value set for the watched property.
+{{Identical|Old}}',
+	'swl-watchlist-pagincontrol' => 'This message allows to navigate through the changes on [[Special:SemanticWatchlist]] in a paginated format.
+* $1 - replaced by {{msg-mw|Swl-watchlist-firstn}}
+* $2 - replaced by {{msg-mw|Nextn}}
+{{Identical|View}}',
+	'swl-watchlist-firstn' => 'This message precedes the number of changes that are initially displayed on [[Special:SemanticWatchlist]].
+* $1 - number of changes 
+{{Identical|First}}',
+	'swl-watchlist-no-items' => 'This is an informatory message.',
+	'swl-watchlist-can-mod-groups' => 'This is an informatory message.
+* $1 is a wiki link to [[Special:WatchlistConditions]].',
+	'swl-watchlist-can-mod-prefs' => 'This is an informatory message.
+* $1 is a wiki link to [[Special:Preferences]].',
+	'swl-watchlist-no-groups' => 'This is an informatory message.
+* $1 is a wiki link to [[Special:Preferences]].',
+	'swl-email-propschanged' => 'This it the title of the user notification e-mail informing about changes on watched properties.
+* $1 - name of the wiki',
+	'swl-email-propschanged-long' => 'This is the user notification e-mail informing about changes on watched properties.
+* $1 - name of the wiki
+* $2 - name of the user
+* $3 - URL
+* $4 - time
+* $5 - date
+Example screenshot: [[mw:File:Swl-email.png|see here]]',
+	'swl-email-changes' => 'This is a section title within the user notification e-mail.
+* $1 - the title of the page on which the property was changed
+* $2 - the link (URL) to the page on which the property was changed
+Example screenshot: [[mw:File:Swl-email.png|see here]]',
+	'prefs-swl' => 'This is the text of the semantic watchlist section on [[Special:Preferences]] allowing users to set their preferences for semantic watchlists as well as to select the semantic watchlists which should be watched.',
+	'prefs-swlgroup' => 'This is the text of the a header in the semantic watchlist section on [[Special:Preferences]] allowing users to select the semantic watchlists which should be watched.',
+	'prefs-swlglobal' => 'This is the text of the a header in the semantic watchlist section on [[Special:Preferences]] allowing users to set their preferences for semantic watchlists.',
+	'swl-prefs-emailnofity' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen.',
+	'swl-prefs-watchlisttoplink' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen.',
+	'swl-prefs-category-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+* $1 - the name of the group
+* $2 - the number of properties watched by the group
+* $3 - the name of the property/properties watched by the group
+* $4 - the name of the category watched by the group',
+	'swl-prefs-namespace-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+* $1 - the name of the group
+* $2 - the number of properties watched by the group
+* $3 - the name of the property/properties watched by the group
+* $4 - the name of the namespace watched by the group',
+	'swl-prefs-concept-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+* $1 - the name of the group
+* $2 - the number of properties watched by the group
+* $3 - the name of the property/properties watched by the group
+* $4 - the name of the concept watched by the group',
+	'swl-err-userid-xor-groupids' => 'This is an error message.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -286,7 +337,7 @@ $messages['de'] = array(
 	'swl-group-page-selection' => 'Wähle die zu beobachtenden Seiten aus:',
 	'swl-group-save' => 'Speichern',
 	'swl-group-remove' => 'Entfernen',
-	'swl-group-saved' => 'Gespeichert',
+	'swl-group-saved' => 'Die Einstellungen wurden gespeichert.',
 	'swl-group-saving' => 'Am Speichern …',
 	'swl-group-category' => 'Kategorie',
 	'swl-group-namespace' => 'Namensraum',
@@ -298,21 +349,21 @@ $messages['de'] = array(
 	'swl-custom-remove-property' => 'Entfernen',
 	'swl-custom-text-add' => 'Benutzerdefinierten Text hinzufügen',
 	'swl-custom-input' => 'Sofern der Wert des Attributs $1 zu $2 geändert wurde, sollen die Benutzer mit dem folgendem Text benachrichtigt werden: $3',
-	'swl-watchlist-position' => "Anzeige der letzten '''$1''' Änderungen beginnend mit '''#$2'''.",
-	'swl-watchlist-insertions' => 'Hinzugefügt:',
+	'swl-watchlist-position' => "Anzeige der letzten {{PLURAL:$1|Änderung|'''$1''' Änderungen}} beginnend mit Änderung '''#$2'''.",
+	'swl-watchlist-insertions' => 'Neu:',
 	'swl-watchlist-deletions' => 'Alt:',
 	'swl-watchlist-pagincontrol' => 'Zeige ($1) ($2)',
-	'swl-watchlist-firstn' => 'erstes $1',
+	'swl-watchlist-firstn' => 'erste $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}',
 	'swl-watchlist-no-items' => 'Es befinden sich keine Einträge auf deiner Beobachtungsliste.',
 	'swl-watchlist-can-mod-groups' => 'Du kannst [[$1|die Gruppen]] anpassen.',
-	'swl-watchlist-can-mod-prefs' => 'Du kannst [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.',
+	'swl-watchlist-can-mod-prefs' => 'Du kannst auch [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.',
 	'swl-watchlist-no-groups' => 'Du beobachtest bislang noch keine Gruppen. [[$1|Pass deine Einstellungen an]].',
 	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
 	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $5 um $4 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
 	'prefs-swl' => 'Semantische Beobachtungsliste',
-	'prefs-swlgroup' => 'Zu beobachtende Gruppen',
+	'prefs-swlgroup' => 'Beobachtbare Gruppen',
 	'prefs-swlglobal' => 'Allgemeine Optionen',
 	'swl-prefs-emailnofity' => 'Bei Änderungen an beobachteten Attributen E-Mails senden',
 	'swl-prefs-watchlisttoplink' => 'Einen Link zur semantischen Beobachtungsliste oben auf der Seite im Benutzermenü anzeigen',
@@ -885,18 +936,21 @@ $messages['id'] = array(
 
 /** Italian (italiano)
  * @author Beta16
+ * @author F. Cosoleto
  */
 $messages['it'] = array(
 	'swl-group-name' => 'Nome gruppo:',
 	'swl-group-remove-property' => 'Rimuovi proprietà',
 	'swl-group-add-property' => 'Aggiungi proprietà',
 	'swl-group-save' => 'Salva',
+	'swl-group-remove' => 'Rimuovi',
 	'swl-group-saved' => 'Salvato',
 	'swl-group-saving' => 'Salvataggio',
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'namespace',
 	'swl-group-add-new-group' => 'Aggiungi un nuovo gruppo',
 	'swl-group-add-group' => 'Aggiungi gruppo',
+	'swl-custom-remove-property' => 'Rimuovi',
 	'swl-watchlist-insertions' => 'Nuovo:',
 	'swl-watchlist-deletions' => 'Vecchio:',
 	'swl-watchlist-pagincontrol' => 'Vedi ($1) ($2)',
@@ -946,6 +1000,7 @@ $messages['ja'] = array(
 	'swl-watchlist-insertions' => '新:',
 	'swl-watchlist-deletions' => '旧:',
 	'swl-watchlist-pagincontrol' => '表示 ($1) ($2)',
+	'swl-watchlist-firstn' => '最初の $1 件',
 	'swl-watchlist-firstn-title' => '最初の $1 {{PLURAL:$1|件の結果}}',
 	'swl-watchlist-no-items' => '意味的ウォッチリストには何も項目がありません。',
 	'swl-watchlist-can-mod-groups' => '[[$1|ウォッチリストのグループを変更]]できます。',
