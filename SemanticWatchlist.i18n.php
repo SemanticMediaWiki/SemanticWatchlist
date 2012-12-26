@@ -110,30 +110,30 @@ $messages['qqq'] = array(
 	'swl-group-legend' => 'This is the title of a box on [[Special:WatchlistConditions]] allowing to create a group of properties to be watched on [[Special:SemanticWatchlist]].
 {{Identical|Group}}',
 	'swl-group-properties' => 'This is the title of the field that lets you specify the properties making up a group of properties to be watched on [[Special:SemanticWatchlist]].',
-	'swl-properties-list' => 'This message explains that the names of the properties to be watched by the semantic watchlist should be entered separated by a pipe "|". This is a placeholder text that is displayed in the input field before the user clicks on it.',
-	'swl-group-page-selection' => 'This is the title of the field that lets you specify the pages which should be watched by a group of properties on [[Special:SemanticWatchlist]].',
+	'swl-properties-list' => 'This message explains that the names of the properties to be watched by the group should be entered separated by a pipe "|". This is a placeholder text that is displayed in the input field before the user clicks on it.',
+	'swl-group-page-selection' => 'This is the title of the field that lets you specify the pages which should be watched by a group on [[Special:SemanticWatchlist]].',
 	'swl-group-save' => 'This is the text on the button for saving changes to groups on [[Special:WatchlistConditions]].',
-	'swl-group-remove' => 'This is the text on the button for removing a group of properties to be watched on [[Special:SemanticWatchlist]].
+	'swl-group-remove' => 'This is the text on the button for removing a group to be watched on [[Special:SemanticWatchlist]].
 {{Identical|Remove}}',
-	'swl-group-saved' => 'This message indicates that the changes on [[Special:WatchlistConditions]] were processed.
-{{Identical|Saved}}',
+	'swl-group-saved' => 'This message indicates that the changes on [[Special:WatchlistConditions]] were processed.',
 	'swl-group-saving' => 'This message indicates that the changes on the preferences page are being processed.',
-	'swl-group-category' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A category holds a group of pages.
+	'swl-group-category' => 'This is an option allowing to select the pages which should be watched by the group. A category holds a group of pages.
 {{Identical|Category}}',
-	'swl-group-namespace' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A namespace holds a group of pages.
+	'swl-group-namespace' => 'This is an option allowing to select the pages which should be watched by the group. A namespace holds a group of pages.
 {{Identical|Namespace}}',
-	'swl-group-concept' => 'This is an option allowing to select the pages which should be watched by the semantic watchlist. A concept holds a group of precomputed pages. A concept may best be described as being a dynamic category.',
-	'swl-group-confirm-remove' => 'This message asks if the user is sure remove the "$1" watchlist group?',
+	'swl-group-concept' => 'This is an option allowing to select the pages which should be watched by the group. A concept holds a group of precomputed pages. A concept may best be described as being a dynamic category.',
+	'swl-group-confirm-remove' => 'This message asks for confirmation on [[Special:WatchlistConditions]] if the group should be removed?
+* $1 - name of the group',
 	'swl-group-add-new-group' => 'This is the text on the button allowing to add a new group of properties to be watched on [[Special:SemanticWatchlist]].',
 	'swl-group-add-group' => 'This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].',
-	'swl-custom-legend' => 'This is the title of the field that lets you specify a custom text for the user notification to be send in case a property included in the semantic watchlist was changed.',
-	'swl-custom-remove-property' => 'This is the text on the button allowing to remove the custom user notification text of a semantic watchlist.',
-	'swl-custom-text-add' => 'This is the text on the button allowing to add a custom user notification text to a semantic watchlist.',
+	'swl-custom-legend' => 'This is the title of the field that lets you specify a custom text for the user notification to be send in case a property included in the group was changed.',
+	'swl-custom-remove-property' => 'This is the text on the button allowing to remove the custom user notification text of a group.',
+	'swl-custom-text-add' => 'This is the text on the button allowing to add a custom user notification text to a group.',
 	'swl-custom-input' => 'This message explains that if the property $1 changes its value to $2 notify users with the text $3
 * $1 - property name
 * $2 - property value
 * $3 - notification text',
-	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format.",
+	'swl-watchlist-position' => "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format. # stands for number.",
 	'swl-watchlist-insertions' => 'This message precedes the display of the new property value set for the watched property.
 {{Identical|New}}',
 	'swl-watchlist-deletions' => 'This message precedes the display of the old property value set for the watched property.
@@ -145,6 +145,9 @@ $messages['qqq'] = array(
 	'swl-watchlist-firstn' => 'This message precedes the number of changes that are initially displayed on [[Special:SemanticWatchlist]].
 * $1 - number of changes 
 {{Identical|First}}',
+	'swl-watchlist-firstn-title' => 'This message precedes the number of results that are displayed on [[Special:SemanticWatchlist]].
+* $1 - number of results
+{{Identical|First}}',
 	'swl-watchlist-no-items' => 'This is an informatory message.',
 	'swl-watchlist-can-mod-groups' => 'This is an informatory message.
 * $1 is a wiki link to [[Special:WatchlistConditions]].',
@@ -153,7 +156,7 @@ $messages['qqq'] = array(
 	'swl-watchlist-no-groups' => 'This is an informatory message.
 * $1 is a wiki link to [[Special:Preferences]].',
 	'swl-email-propschanged' => 'This it the title of the user notification e-mail informing about changes on watched properties.
-* $1 - name of the wiki',
+* $1 - name of the page which was changed',
 	'swl-email-propschanged-long' => 'This is the user notification e-mail informing about changes on watched properties.
 * $1 - name of the wiki
 * $2 - name of the user
@@ -170,17 +173,17 @@ Example screenshot: [[mw:File:Swl-email.png|see here]]',
 	'prefs-swlglobal' => 'This is the text of the a header in the semantic watchlist section on [[Special:Preferences]] allowing users to set their preferences for semantic watchlists.',
 	'swl-prefs-emailnofity' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen.',
 	'swl-prefs-watchlisttoplink' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen.',
-	'swl-prefs-category-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+	'swl-prefs-category-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used to display available group(s) that may be selected.
 * $1 - the name of the group
 * $2 - the number of properties watched by the group
 * $3 - the name of the property/properties watched by the group
 * $4 - the name of the category watched by the group',
-	'swl-prefs-namespace-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+	'swl-prefs-namespace-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen.  It is used to display available group(s) that may be selected.
 * $1 - the name of the group
 * $2 - the number of properties watched by the group
 * $3 - the name of the property/properties watched by the group
 * $4 - the name of the namespace watched by the group',
-	'swl-prefs-concept-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used for available groups that may be selected to be watched on [[Special:SemanticWatchlist]]:
+	'swl-prefs-concept-label' => 'This message describes a user preference option in the semantic watchlist section on [[Special:Preferences]], which may be chosen. It is used to display available group(s) that may be selected.
 * $1 - the name of the group
 * $2 - the number of properties watched by the group
 * $3 - the name of the property/properties watched by the group
@@ -330,24 +333,22 @@ $messages['de'] = array(
 	'swl-group-legend' => 'Gruppe',
 	'swl-group-properties' => 'Diese Gruppe beobachtet Änderungen am Attribut / an den Attributen:',
 	'swl-properties-list' => 'Namen mit „|“ voneinander trennen',
-	'swl-group-remove-property' => 'Attribut entfernen',
-	'swl-group-add-property' => 'Attribut hinzufügen',
 	'swl-group-page-selection' => 'Wähle die zu beobachtenden Seiten aus:',
 	'swl-group-save' => 'Speichern',
 	'swl-group-remove' => 'Entfernen',
 	'swl-group-saved' => 'Die Einstellungen wurden gespeichert.',
-	'swl-group-saving' => 'Am Speichern …',
+	'swl-group-saving' => 'Speichere …',
 	'swl-group-category' => 'Kategorie',
 	'swl-group-namespace' => 'Namensraum',
 	'swl-group-concept' => 'Konzept',
-	'swl-group-confirm-remove' => 'Soll die Beobachtungsgruppe „$1“ tatsächlich gelöscht werden?',
+	'swl-group-confirm-remove' => 'Soll die Gruppe „$1“ tatsächlich gelöscht werden?',
 	'swl-group-add-new-group' => 'Eine neue Gruppe hinzufügen',
 	'swl-group-add-group' => 'Eine Gruppe hinzufügen',
 	'swl-custom-legend' => 'Benutzerdefinierter Text:',
 	'swl-custom-remove-property' => 'Entfernen',
 	'swl-custom-text-add' => 'Benutzerdefinierten Text hinzufügen',
 	'swl-custom-input' => 'Sofern der Wert des Attributs $1 zu $2 geändert wurde, sollen die Benutzer mit dem folgendem Text benachrichtigt werden: $3',
-	'swl-watchlist-position' => "Anzeige der letzten {{PLURAL:$1|Änderung|'''$1''' Änderungen}} beginnend mit Änderung '''#$2'''.",
+	'swl-watchlist-position' => "Anzeige der letzten {{PLURAL:$1|Änderung|'''$1''' Änderungen}} beginnend mit Änderung '''$2'''.",
 	'swl-watchlist-insertions' => 'Neu:',
 	'swl-watchlist-deletions' => 'Alt:',
 	'swl-watchlist-pagincontrol' => 'Zeige ($1) ($2)',
@@ -358,7 +359,7 @@ $messages['de'] = array(
 	'swl-watchlist-can-mod-prefs' => 'Du kannst auch [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.',
 	'swl-watchlist-no-groups' => 'Du beobachtest bislang noch keine Gruppen. [[$1|Pass deine Einstellungen an]].',
 	'swl-email-propschanged' => 'Attribute wurden auf $1 geändert',
-	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden von Benutzer '''$2''' am $5 um $4 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
+	'swl-email-propschanged-long' => "Eines oder mehrere der auf '''$1''' beobachteten Attribute wurden {{GENDER:$2|vom Benutzer|von der Benutzerin}} '''$2''' am $5 um $4 Uhr geändert. Diese und andere Änderungen werden auf [$3 dieser semantischen Beobachtungsliste] angezeigt.",
 	'swl-email-changes' => 'Attributänderungen auf [$2 $1]:',
 	'prefs-swl' => 'Semantische Beobachtungsliste',
 	'prefs-swlgroup' => 'Beobachtbare Gruppen',
@@ -505,7 +506,7 @@ $messages['et'] = array(
 	'swl-group-name' => 'Rühma nimi:',
 	'swl-group-legend' => 'Rühm',
 	'swl-group-save' => 'Salvesta',
-	'swl-group-saved' => 'Salvestatud',
+	'swl-group-saved' => 'Salvestatud', # Fuzzy
 	'swl-group-saving' => 'Salvestamisel',
 	'swl-group-category' => 'kategooria',
 	'swl-group-namespace' => 'nimeruum',
@@ -524,7 +525,7 @@ $messages['fa'] = array(
 	'swl-group-legend' => 'گروه',
 	'swl-group-save' => 'ذخیره',
 	'swl-group-remove' => 'حذف',
-	'swl-group-saved' => 'ذخیره شده',
+	'swl-group-saved' => 'ذخیره شده', # Fuzzy
 	'swl-group-saving' => 'در حال ذخیره سازی...',
 	'swl-group-category' => 'رده',
 	'swl-group-namespace' => 'فضای نام',
@@ -723,12 +724,10 @@ $messages['gl'] = array(
 	'swl-group-legend' => 'Grupo',
 	'swl-group-properties' => 'Este grupo vixía os cambios feitos na(s) propiedade(s):',
 	'swl-properties-list' => 'Separe os nomes cunha barra vertical ("|")',
-	'swl-group-remove-property' => 'Eliminar a propiedade',
-	'swl-group-add-property' => 'Engadir a propiedade',
 	'swl-group-page-selection' => 'Seleccione as páxinas a vixiar:',
 	'swl-group-save' => 'Gardar',
 	'swl-group-remove' => 'Eliminar',
-	'swl-group-saved' => 'Gardado',
+	'swl-group-saved' => 'Gardado', # Fuzzy
 	'swl-group-saving' => 'Gardando',
 	'swl-group-category' => 'categoría',
 	'swl-group-namespace' => 'espazo de nomes',
@@ -748,10 +747,10 @@ $messages['gl'] = array(
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}',
 	'swl-watchlist-no-items' => 'Non ten elementos na súa lista de vixilancia semántica.',
 	'swl-watchlist-can-mod-groups' => 'Pode [[$1|modificar os grupos da lista de vixilancia]].',
-	'swl-watchlist-can-mod-prefs' => 'Pode [[$1|modificar as preferencias da súa lista de vixilancia]], incluídas as propiedades que queira vixiar.',
+	'swl-watchlist-can-mod-prefs' => 'Pode [[$1|modificar as preferencias da súa lista de vixilancia]], incluídas as propiedades que queira vixiar.', # Fuzzy
 	'swl-watchlist-no-groups' => 'Aínda non está a vixiar ningún dos grupos da lista de vixilancia. [[$1|Modifique as preferencias da súa lista de vixilancia]].',
 	'swl-email-propschanged' => 'As propiedades cambiaron ás $1',
-	'swl-email-propschanged-long' => "O usuario '''$2''' modificou unha ou máis propiedades que vixía en '''$1''' o $5 ás $4. Pode ollar estas e outras modificacións [$3 na súa lista de vixilancia semántica].",
+	'swl-email-propschanged-long' => "O usuario '''$2''' modificou unha ou máis propiedades que vixía en '''$1''' o $5 ás $4. Pode ollar estas e outras modificacións [$3 na súa lista de vixilancia semántica].", # Fuzzy
 	'swl-email-changes' => 'Cambio nas propiedades en [$2 $1]:',
 	'prefs-swl' => 'Lista de vixilancia semántica',
 	'prefs-swlgroup' => 'Grupos a vixiar',
@@ -922,7 +921,6 @@ $messages['id'] = array(
 	'swl-group-name' => 'Nama kelompok:',
 	'swl-group-legend' => 'Kelompok',
 	'swl-group-properties' => 'Properti yang dicakup oleh kelompok ini:', # Fuzzy
-	'swl-group-remove-property' => 'Hapus properti',
 	'swl-group-page-selection' => 'Halaman dalam', # Fuzzy
 	'swl-group-save' => 'Simpan',
 	'swl-group-remove' => 'Hapus',
@@ -938,11 +936,9 @@ $messages['id'] = array(
  */
 $messages['it'] = array(
 	'swl-group-name' => 'Nome gruppo:',
-	'swl-group-remove-property' => 'Rimuovi proprietà',
-	'swl-group-add-property' => 'Aggiungi proprietà',
 	'swl-group-save' => 'Salva',
 	'swl-group-remove' => 'Rimuovi',
-	'swl-group-saved' => 'Salvato',
+	'swl-group-saved' => 'Salvato', # Fuzzy
 	'swl-group-saving' => 'Salvataggio',
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'namespace',
@@ -978,12 +974,10 @@ $messages['ja'] = array(
 	'swl-group-legend' => 'グループ',
 	'swl-group-properties' => 'このグループではプロパティの変更をウォッチします:',
 	'swl-properties-list' => '名前を | で区切る',
-	'swl-group-remove-property' => 'プロパティを除去',
-	'swl-group-add-property' => 'プロパティを追加',
 	'swl-group-page-selection' => 'ウォッチするページを選択:',
 	'swl-group-save' => '保存',
 	'swl-group-remove' => '除去',
-	'swl-group-saved' => '保存済み',
+	'swl-group-saved' => '設定を保存しました。',
 	'swl-group-saving' => '保存中',
 	'swl-group-category' => 'カテゴリ',
 	'swl-group-namespace' => '名前空間',
@@ -1002,10 +996,10 @@ $messages['ja'] = array(
 	'swl-watchlist-firstn-title' => '最初の $1 {{PLURAL:$1|件の結果}}',
 	'swl-watchlist-no-items' => '意味的ウォッチリストには何も項目がありません。',
 	'swl-watchlist-can-mod-groups' => '[[$1|ウォッチリストのグループを変更]]できます。',
-	'swl-watchlist-can-mod-prefs' => '[[$1|ウォッチリストの設定を変更]]できます。ウォッチするプロパティの設定を含みます。',
+	'swl-watchlist-can-mod-prefs' => 'ウォッチするプロパティの設定など、[[$1|ウォッチリストの設定を変更]]することもできます。',
 	'swl-watchlist-no-groups' => 'どのウォッチリスト グループもウォッチしていません。[[$1|ウォッチリストの設定を変更]]してください。',
 	'swl-email-propschanged' => 'プロパティは$1に変更されました',
-	'swl-email-propschanged-long' => "'''$1'''であなたがウォッチしている1つ以上のプロパティが、$5 $4に利用者 '''$2''' によって変更されました。これらおよびその他の変更は[$3 あなたの意味的ウォッチリスト]で閲覧できます。",
+	'swl-email-propschanged-long' => "'''$1'''であなたがウォッチしている1つ以上のプロパティが、$5 $4に{{GENDER:$2|利用者}} '''$2''' によって変更されました。これらおよびその他の変更は[$3 あなたの意味的ウォッチリスト]で閲覧できます。",
 	'swl-email-changes' => '[$2 $1]のプロパティの変更:',
 	'prefs-swl' => '意味的ウォッチリスト',
 	'prefs-swlgroup' => 'ウォッチするグループ',
@@ -1055,7 +1049,7 @@ $messages['ko'] = array(
 	'group-swladmins.css' => '/* 이 CSS 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
 	'group-swladmins.js' => '/* 이 자바스크립트 설정은 시맨틱 주시문서 목록 관리자에만 적용됩니다 */',
 	'swl-group-save' => '저장',
-	'swl-group-saved' => '저장됨',
+	'swl-group-saved' => '설정을 저장했습니다.',
 );
 
 /** Colognian (Ripoarisch)
@@ -1067,6 +1061,10 @@ $messages['ksh'] = array(
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Jroppe ändere]] för de semantesche Oppaßleßte',
 	'special-semanticwatchlist' => 'Semantesch Oppaßleß',
 	'special-watchlistconditions' => 'Enshtällonge för de semantesche Oppaßleßte',
+	'group-swladmins.css' => '/* Dat CSS heh aan dä Schtäll wirrek bloß op de Verwallder vun de Semantesche Oppaßleßte */',
+	'group-swladmins.js' => '/* Dat JavaSkrep heh aan dä Schtäll wirrek bloß op de Verwallder vun de Semantesche Oppaßleßte */',
+	'swl-watchlist-position' => "Mer zeije {{PLURAL:$1|de läzde Änderong, dat es|'''$1''' vun de läzde Änderonge aff|nix aff}} Nommer '''$2'''.",
+	'swl-watchlist-insertions' => 'Neu:',
 );
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
@@ -1132,12 +1130,10 @@ $messages['mk'] = array(
 	'swl-group-legend' => 'Група',
 	'swl-group-properties' => 'Оваа група ги следи промените во својството/својствата:',
 	'swl-properties-list' => 'Одделувајте ги имињата со „|“',
-	'swl-group-remove-property' => 'Отстрани својство',
-	'swl-group-add-property' => 'Додај својство',
 	'swl-group-page-selection' => 'Одберете страници за надгледување:',
 	'swl-group-save' => 'Зачувај',
 	'swl-group-remove' => 'Отстрани',
-	'swl-group-saved' => 'Зачувано',
+	'swl-group-saved' => 'Нагодувањата се зачувани.',
 	'swl-group-saving' => 'Зачувувам',
 	'swl-group-category' => 'категорија',
 	'swl-group-namespace' => 'именски простор',
@@ -1157,10 +1153,10 @@ $messages['mk'] = array(
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Прв $1 резултат|Први $1 резултати}}',
 	'swl-watchlist-no-items' => 'Немате ништо во списокот на набљудувања.',
 	'swl-watchlist-can-mod-groups' => 'Можете да ги [[$1|измените групите на набљудувања]].',
-	'swl-watchlist-can-mod-prefs' => 'Можете да ги [[$1|измените вашите нагодувања за набљудување]]., вклучувајќи кои својства да се набљудуваат.',
+	'swl-watchlist-can-mod-prefs' => 'Можете и да ги [[$1|измените вашите нагодувања за набљудување]], вклучувајќи кои својства да се набљудуваат.',
 	'swl-watchlist-no-groups' => 'Сè уште не набљудувате ниедна група со списоци на набљудувања. [[$1|Измени нагодувања]].',
 	'swl-email-propschanged' => 'Својствата на $1 се имаат изменето',
-	'swl-email-propschanged-long' => "Едно или повеќе својства на '''$1''' што ги набљудувате се изменети од корисникот '''$2''' на $4 во $5 ч.. Можете да ги погледате овие и други промени на [$3 вашиот семантички список на набљудувања].",
+	'swl-email-propschanged-long' => "{{GENDER:$2|Корисникот}} '''$2''' на $5 во $4 ч. измени едно или повеќе својства на '''$1''' што ги набљудувате. Можете да ги погледате овие и други промени на [$3 вашиот семантички список на набљудувања].",
 	'swl-email-changes' => 'Измени во својства на [$2 $1]:',
 	'prefs-swl' => 'Семантички список на набљудувања',
 	'prefs-swlgroup' => 'Групи за набљудување',
@@ -1263,12 +1259,10 @@ $messages['nl'] = array(
 	'swl-group-legend' => 'Groep',
 	'swl-group-properties' => 'In deze groep worden wijzigen aan de volgende eigenschap(pen) bijgehouden:',
 	'swl-properties-list' => 'Scheid namen met "|"',
-	'swl-group-remove-property' => 'Eigenschap verwijderen',
-	'swl-group-add-property' => 'Eigenschap toevoegen',
 	'swl-group-page-selection' => "Selecteer te volgen pagina's:",
 	'swl-group-save' => 'Opslaan',
 	'swl-group-remove' => 'Verwijderen',
-	'swl-group-saved' => 'Opgeslagen',
+	'swl-group-saved' => 'Opgeslagen', # Fuzzy
 	'swl-group-saving' => 'Bezig met opslaan',
 	'swl-group-category' => 'categorie',
 	'swl-group-namespace' => 'naamruimte',
@@ -1288,10 +1282,10 @@ $messages['nl'] = array(
 	'swl-watchlist-firstn-title' => 'Eerste $1 {{PLURAL:$1|resultaat|resultaten}}',
 	'swl-watchlist-no-items' => 'Uw semantische volglijst is leeg.',
 	'swl-watchlist-can-mod-groups' => 'U kunt de [[$1|volglijstgroepen aanpassen]].',
-	'swl-watchlist-can-mod-prefs' => 'U kunt [[$1|uw volglijstwijzigingen aanpassen]], inclusief welke eigenschappen gevolgd moeten worden.',
+	'swl-watchlist-can-mod-prefs' => 'U kunt [[$1|uw volglijstwijzigingen aanpassen]], inclusief welke eigenschappen gevolgd moeten worden.', # Fuzzy
 	'swl-watchlist-no-groups' => 'U volgt nog geen volglijstgroepen. U kunt [[$1|uw volglijstinstellingen aanpassen]].',
 	'swl-email-propschanged' => 'Eigenschappen zijn veranderd op $1',
-	'swl-email-propschanged-long' => "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''$2''' op $5 om $4. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].",
+	'swl-email-propschanged-long' => "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''$2''' op $5 om $4. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].", # Fuzzy
 	'swl-email-changes' => 'Wijzigingen in eigenschappen op [$2 $1]:',
 	'prefs-swl' => 'Semantische volglijst',
 	'prefs-swlgroup' => 'Te volgen groepen',
@@ -1421,10 +1415,12 @@ $messages['si'] = array(
 	'swl-group-legend' => 'කාණ්ඩය',
 	'swl-group-save' => 'සුරකින්න',
 	'swl-group-remove' => 'ඉවත් කරන්න',
-	'swl-group-saved' => 'සුරකින ලදී',
+	'swl-group-saved' => 'සුරකින ලදී', # Fuzzy
 	'swl-group-saving' => 'සුරකිමින්',
 	'swl-group-category' => 'ප්‍රවර්ගය',
 	'swl-group-namespace' => 'නාමඅවකාශය',
+	'swl-group-add-group' => 'සමූහයක් එක් කරන්න',
+	'swl-custom-remove-property' => 'ඉවත් කරන්න',
 	'swl-watchlist-insertions' => 'නව:',
 	'swl-watchlist-deletions' => 'පැරණි:',
 	'swl-watchlist-pagincontrol' => 'නරඹන්න ($1) ($2)',
@@ -1455,12 +1451,10 @@ $messages['sv'] = array(
 	'swl-group-legend' => 'Grupp',
 	'swl-group-properties' => 'Egenskaper som gruppen tar hand om:', # Fuzzy
 	'swl-properties-list' => 'Separera namn med |',
-	'swl-group-remove-property' => 'Ta bort egenskap',
-	'swl-group-add-property' => 'Lägg till egenskap',
 	'swl-group-page-selection' => 'Välj sidor att bevaka:',
 	'swl-group-save' => 'Spara',
 	'swl-group-remove' => 'Ta bort',
-	'swl-group-saved' => 'Sparad',
+	'swl-group-saved' => 'Sparad', # Fuzzy
 	'swl-group-saving' => 'Sparar',
 	'swl-group-category' => 'kategori',
 	'swl-group-namespace' => 'namnrymd',
@@ -1478,10 +1472,10 @@ $messages['sv'] = array(
 	'swl-watchlist-firstn-title' => 'Först $1 {{PLURAL:$1|resultat|resultat}}', # Fuzzy
 	'swl-watchlist-no-items' => 'Du har inget att övervaka på din semantiska övervakningslista',
 	'swl-watchlist-can-mod-groups' => 'Du kan [[$1|grupperna för övervakningslistor]].',
-	'swl-watchlist-can-mod-prefs' => 'Du kan  [[$1|ändra dina inställningar för övervakningslistor]], även vilka egenskaper som ska matcha',
+	'swl-watchlist-can-mod-prefs' => 'Du kan  [[$1|ändra dina inställningar för övervakningslistor]], även vilka egenskaper som ska matcha', # Fuzzy
 	'swl-watchlist-no-groups' => 'Du övervakar ännu inte några övervakningslistor. [[$1|Ändra dina inställningar för övervakningslistor]].',
 	'swl-email-propschanged' => 'Egenskaper har ändrats vid $1',
-	'swl-email-propschanged-long' => "En eller flera egenskaper som du övervakar vid '''$1''' har ändrats av användaren '''$2''' vid $4 på $5. Du kan visa dessa och andra ändringar på [$3 din semantiska övervakningslista].",
+	'swl-email-propschanged-long' => "En eller flera egenskaper som du övervakar vid '''$1''' har ändrats av användaren '''$2''' vid $4 på $5. Du kan visa dessa och andra ändringar på [$3 din semantiska övervakningslista].", # Fuzzy
 	'swl-email-changes' => 'Egenskapen ändrades vid [$2 $1]:',
 	'prefs-swl' => 'Semantisk övervakningslista',
 	'prefs-swlgroup' => 'Grupper att övervaka',
@@ -1686,12 +1680,10 @@ $messages['zh-hans'] = array(
 	'swl-group-name' => '组名：',
 	'swl-group-legend' => '组',
 	'swl-group-properties' => '该组所涵盖的属性：', # Fuzzy
-	'swl-group-remove-property' => '删除属性',
-	'swl-group-add-property' => '添加属性',
 	'swl-group-page-selection' => '中的页面', # Fuzzy
 	'swl-group-save' => '保存',
 	'swl-group-remove' => '移除',
-	'swl-group-saved' => '已保存',
+	'swl-group-saved' => '已保存', # Fuzzy
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '类别',
 	'swl-group-namespace' => '命名空间',
@@ -1710,10 +1702,10 @@ $messages['zh-hans'] = array(
 	'swl-watchlist-firstn-title' => '前$1{{PLURAL:$1|项结果|项结果}}',
 	'swl-watchlist-no-items' => '您的监视列表为空。',
 	'swl-watchlist-can-mod-groups' => '您可以[[$1|修改监视列表组]]。',
-	'swl-watchlist-can-mod-prefs' => '您可以[[$1|监视列表首选项]]，包括设置要监视哪些属性。',
+	'swl-watchlist-can-mod-prefs' => '您可以[[$1|监视列表首选项]]，包括设置要监视哪些属性。', # Fuzzy
 	'swl-watchlist-no-groups' => '您尚未监视任何的监视列表组。[[$1|请修改您的监视列表首选项]]。',
 	'swl-email-propschanged' => '位于$1的属性已变更。',
-	'swl-email-propschanged-long' => "您在'''$1'''所监视的一个或多个属性已被$5之上位于$4的用户'''$2'''更改。.您可以查看这些变更以及位于[$3 您的语义监视列表]之上的其他变更。",
+	'swl-email-propschanged-long' => "您在'''$1'''所监视的一个或多个属性已被$5之上位于$4的用户'''$2'''更改。.您可以查看这些变更以及位于[$3 您的语义监视列表]之上的其他变更。", # Fuzzy
 	'swl-email-changes' => '[$2 $1]之上的属性变更：',
 	'prefs-swl' => '语义监视列表',
 	'prefs-swlgroup' => '要监视的组',
@@ -1741,12 +1733,10 @@ $messages['zh-hant'] = array(
 	'swl-group-name' => '組名：',
 	'swl-group-legend' => '群組',
 	'swl-group-properties' => '該組所涵蓋的屬性：', # Fuzzy
-	'swl-group-remove-property' => '刪除屬性',
-	'swl-group-add-property' => '添加屬性',
 	'swl-group-page-selection' => '中的頁面', # Fuzzy
 	'swl-group-save' => '保存',
 	'swl-group-remove' => '移除',
-	'swl-group-saved' => '已保存',
+	'swl-group-saved' => '已保存', # Fuzzy
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '類別',
 	'swl-group-namespace' => '命名空間',
@@ -1762,10 +1752,10 @@ $messages['zh-hant'] = array(
 	'swl-watchlist-firstn-title' => '前$1{{PLURAL:$1|項結果|項結果}}',
 	'swl-watchlist-no-items' => '您的監視列表為空。',
 	'swl-watchlist-can-mod-groups' => '您可以[[$1|修改監視列表組]]。',
-	'swl-watchlist-can-mod-prefs' => '您可以[[$1|監視列表首選項]]，包括設置要監視哪些屬性。',
+	'swl-watchlist-can-mod-prefs' => '您可以[[$1|監視列表首選項]]，包括設置要監視哪些屬性。', # Fuzzy
 	'swl-watchlist-no-groups' => '您尚未監視任何的監視列表組。[[$1|請修改您的監視列表首選項]]。',
 	'swl-email-propschanged' => '位於$1的屬性已變更。',
-	'swl-email-propschanged-long' => "您在'''$1'''所監視的一個或多個屬性已被$5之上位於$4的用戶'''$2'''更改。.您可以查看這些變更以及位於[$3 您的語義監視列表]之上的其他變更。",
+	'swl-email-propschanged-long' => "您在'''$1'''所監視的一個或多個屬性已被$5之上位於$4的用戶'''$2'''更改。.您可以查看這些變更以及位於[$3 您的語義監視列表]之上的其他變更。", # Fuzzy
 	'swl-email-changes' => '[$2 $1]之上的屬性變更：',
 	'prefs-swl' => '語義監視列表',
 	'prefs-swlgroup' => '要監視的組',
