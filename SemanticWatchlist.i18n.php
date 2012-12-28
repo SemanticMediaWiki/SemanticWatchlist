@@ -96,7 +96,7 @@ $messages['en'] = array(
  * @author 아라
  */
 $messages['qqq'] = array(
-	'semanticwatchlist-desc' => '{{desc|name=Semantic Watchlist|url=http://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}',
+	'semanticwatchlist-desc' => '{{desc|name=Semantic Watchlist|url=https://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}',
 	'right-semanticwatch' => '{{doc-right|semanticwatch}}',
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
 	'special-semanticwatchlist' => 'This is the text of the link [[Special:SpecialPages]] pointing to [[Special:SemanticWatchlist]].',
@@ -501,12 +501,13 @@ $messages['es'] = array(
 
 /** Estonian (eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
 	'swl-group-name' => 'Rühma nimi:',
 	'swl-group-legend' => 'Rühm',
 	'swl-group-save' => 'Salvesta',
-	'swl-group-saved' => 'Salvestatud', # Fuzzy
+	'swl-group-saved' => 'Sätted salvestati.',
 	'swl-group-saving' => 'Salvestamisel',
 	'swl-group-category' => 'kategooria',
 	'swl-group-namespace' => 'nimeruum',
@@ -1108,6 +1109,23 @@ $messages['lb'] = array(
 	'prefs-swlgroup' => "Gruppe fir z'iwwerwaachen",
 	'prefs-swlglobal' => 'Allgemeng Optiounen',
 	'swl-prefs-emailnofity' => 'Mir eng Mail schécke wann Attributer déi ech iwwerwaachen geännert ginn',
+);
+
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'swl-group-name' => 'Grupas nosaukums:',
+	'swl-group-legend' => 'Grupa',
+	'swl-group-save' => 'Saglabāt',
+	'swl-group-remove' => 'Noņemt',
+	'swl-group-saving' => 'Saglabā',
+	'swl-group-category' => 'kategorija',
+	'swl-group-add-new-group' => 'Pievienot jaunu grupu',
+	'swl-group-add-group' => 'Pievienot grupu',
+	'swl-custom-legend' => 'Pielāgots teksts',
+	'swl-custom-remove-property' => 'Noņemt',
+	'swl-custom-text-add' => 'Pievienot pielāgotu tekstu',
 );
 
 /** Macedonian (македонски)
