@@ -932,9 +932,11 @@ $messages['id'] = array(
 /** Italian (italiano)
  * @author Beta16
  * @author F. Cosoleto
+ * @author පසිඳු කාවින්ද
  */
 $messages['it'] = array(
 	'swl-group-name' => 'Nome gruppo:',
+	'swl-group-legend' => 'Gruppo',
 	'swl-group-save' => 'Salva',
 	'swl-group-remove' => 'Rimuovi',
 	'swl-group-saved' => 'Salvato', # Fuzzy
@@ -1482,8 +1484,15 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'special-semanticwatchlist' => 'අර්ථ විචාර මුරලැයිස්තුව',
+	'special-watchlistconditions' => 'අර්ථ විචාර මුරලැයිස්තු කොන්දේසි',
+	'group-swladmins' => 'අර්ථ විචාර මුරලැයිස්තු පරිපාලකවරු',
+	'group-swladmins-member' => '{{GENDER:$1|අර්ථ විචාර මුරලැයිස්තු පරිපාලක}}',
+	'grouppage-swladmins' => '{{ns:project}}:අර්ථ විචාර මුරලැයිස්තු පරිපාලකවරු',
 	'swl-group-name' => 'කාණ්ඩ නාමය:',
 	'swl-group-legend' => 'කාණ්ඩය',
+	'swl-properties-list' => 'නම් | සමඟ වෙන් කරන්න',
+	'swl-group-page-selection' => 'නැරඹිය යුතු පිටු තෝරන්න:',
 	'swl-group-save' => 'සුරකින්න',
 	'swl-group-remove' => 'ඉවත් කරන්න',
 	'swl-group-saved' => 'සුරකින ලදී', # Fuzzy
@@ -1491,12 +1500,18 @@ $messages['si'] = array(
 	'swl-group-category' => 'ප්‍රවර්ගය',
 	'swl-group-namespace' => 'නාමඅවකාශය',
 	'swl-group-concept' => 'සංකල්පය',
+	'swl-group-add-new-group' => 'නව සමූහයක් එක් කරන්න',
 	'swl-group-add-group' => 'සමූහයක් එක් කරන්න',
 	'swl-custom-legend' => 'ව්‍යවහාර පාඨය',
 	'swl-custom-remove-property' => 'ඉවත් කරන්න',
+	'swl-custom-text-add' => 'ව්‍යවහාර පාඨයක් එක් කරන්න',
 	'swl-watchlist-insertions' => 'නව:',
 	'swl-watchlist-deletions' => 'පැරණි:',
 	'swl-watchlist-pagincontrol' => 'නරඹන්න ($1) ($2)',
+	'swl-watchlist-firstn' => 'ප්‍රථම $1',
+	'swl-watchlist-firstn-title' => 'ප්‍රථම {{PLURAL:$1|ප්‍රතිඵල}} $1',
+	'prefs-swl' => 'අර්ථ විචාර මුරලැයිස්තුව',
+	'prefs-swlgroup' => 'මුරකල යුතු යුතු සමූහ',
 	'prefs-swlglobal' => 'ප්‍රධාන විකල්පයන්',
 );
 
