@@ -1484,6 +1484,7 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'right-semanticwatch' => 'අර්ථ විචාර මුරලැයිස්තුව භාවිතා කරන්න',
 	'special-semanticwatchlist' => 'අර්ථ විචාර මුරලැයිස්තුව',
 	'special-watchlistconditions' => 'අර්ථ විචාර මුරලැයිස්තු කොන්දේසි',
 	'group-swladmins' => 'අර්ථ විචාර මුරලැයිස්තු පරිපාලකවරු',
