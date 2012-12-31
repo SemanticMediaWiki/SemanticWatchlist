@@ -1309,7 +1309,7 @@ $messages['nl'] = array(
 	'prefs-swlgroup' => 'Te volgen groepen',
 	'prefs-swlglobal' => 'Algemene opties',
 	'swl-prefs-emailnofity' => 'Mij e-mailen bij wijzigingen in eigenschappen die ik volg',
-	'swl-prefs-watchlisttoplink' => 'Bovenaan de pagina een verwijzing weergeven naar de semantische volglijst',
+	'swl-prefs-watchlisttoplink' => 'Bovenaan de pagina een koppeling weergeven naar de semantische volglijst',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van categorie ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van naamruimte ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|eigenschap|eigenschappen}} $3 van concept ''$4''",
@@ -1472,6 +1472,26 @@ $messages['pt-br'] = array(
 	'prefs-swlglobal' => 'Opções gerais',
 );
 
+/** Romanian (română)
+ * @author Minisarm
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'swl-group-name' => 'Numele grupului:',
+	'swl-group-legend' => 'Grup',
+	'swl-properties-list' => 'Separați numele cu |',
+	'swl-group-save' => 'Salvare',
+	'swl-group-remove' => 'Eliminare',
+	'swl-group-saved' => 'Setările au fost salvate.',
+	'swl-group-category' => 'categorie',
+	'swl-group-add-new-group' => 'Adaugă un grup nou',
+	'swl-group-add-group' => 'Adaugă grup',
+	'swl-custom-legend' => 'Text personalizat',
+	'swl-custom-remove-property' => 'Elimină',
+	'swl-custom-text-add' => 'Adaugă text personalizat',
+	'prefs-swlglobal' => 'Opțiuni generale',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
@@ -1501,6 +1521,7 @@ $messages['si'] = array(
 	'swl-group-category' => 'ප්‍රවර්ගය',
 	'swl-group-namespace' => 'නාමඅවකාශය',
 	'swl-group-concept' => 'සංකල්පය',
+	'swl-group-confirm-remove' => 'ඔබට "$1" මුරලැයිස්තු සමූහය මැකීමට අවශ්‍යමද?',
 	'swl-group-add-new-group' => 'නව සමූහයක් එක් කරන්න',
 	'swl-group-add-group' => 'සමූහයක් එක් කරන්න',
 	'swl-custom-legend' => 'ව්‍යවහාර පාඨය',
@@ -1511,9 +1532,14 @@ $messages['si'] = array(
 	'swl-watchlist-pagincontrol' => 'නරඹන්න ($1) ($2)',
 	'swl-watchlist-firstn' => 'ප්‍රථම $1',
 	'swl-watchlist-firstn-title' => 'ප්‍රථම {{PLURAL:$1|ප්‍රතිඵල}} $1',
+	'swl-watchlist-no-items' => 'ඔබගේ අර්ථ විචාර මුරලැයිස්තුවේ කිසිදු අයිතමයක් නොමැත.',
+	'swl-watchlist-can-mod-groups' => 'ඔබට [[$1|මුරලයිස්තු සමූහයන් වෙනස් කල හැක]].',
+	'swl-email-propschanged' => 'වත්කම් $1 හිදී වෙනස් වී ඇත',
+	'swl-email-changes' => '[$2 $1] හී වත්කම්වල වෙනස:',
 	'prefs-swl' => 'අර්ථ විචාර මුරලැයිස්තුව',
 	'prefs-swlgroup' => 'මුරකල යුතු යුතු සමූහ',
 	'prefs-swlglobal' => 'ප්‍රධාන විකල්පයන්',
+	'swl-prefs-emailnofity' => 'මම මුරකරන වත්කම්වල වෙනසක් වූ විට මට විද්‍යුත්-තැපෑලක් එවන්න',
 );
 
 /** Somali (Soomaaliga)
@@ -1757,6 +1783,7 @@ $messages['yi'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Liangent
  * @author Linforest
  * @author Shirayuki
  */
@@ -1771,11 +1798,12 @@ $messages['zh-hans'] = array(
 	'grouppage-swladmins' => '{{ns:project}}:语义监视列表管理员',
 	'swl-group-name' => '组名：',
 	'swl-group-legend' => '组',
-	'swl-group-properties' => '该组所涵盖的属性：', # Fuzzy
-	'swl-group-page-selection' => '中的页面', # Fuzzy
+	'swl-group-properties' => '该组监视的属性更改：',
+	'swl-properties-list' => '以“|”分隔名称',
+	'swl-group-page-selection' => '选择要监视的页面：',
 	'swl-group-save' => '保存',
 	'swl-group-remove' => '移除',
-	'swl-group-saved' => '已保存', # Fuzzy
+	'swl-group-saved' => '设置已保存。',
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '类别',
 	'swl-group-namespace' => '命名空间',
