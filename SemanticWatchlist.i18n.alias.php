@@ -93,7 +93,7 @@ $specialPageAliases['nb'] = array(
 	'SemanticWatchlist' => array( 'Semantisk_overvåkningsliste' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'SemanticWatchlist' => array( 'Semantiese_volglieste' ),
 	'WatchlistConditions' => array( 'Volgliestkondisies' ),
