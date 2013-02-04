@@ -268,6 +268,7 @@ $messages['br'] = array(
 );
 
 /** Catalan (català)
+ * @author Pitort
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -282,10 +283,12 @@ $messages['ca'] = array(
 	'swl-group-add-group' => 'Afegeix un grup',
 	'swl-watchlist-insertions' => 'Nou:',
 	'swl-watchlist-deletions' => 'Antic:',
+	'swl-watchlist-firstn-title' => '$1 {{PLURAL:$1|primer resultat|primers resultats}}',
 	'swl-email-propschanged' => 'Les propietats han canviat a $1',
 	'prefs-swlgroup' => 'Grups a vigilar',
 	'prefs-swlglobal' => 'Opcions generals',
 	'swl-prefs-emailnofity' => "Envia'm un correu electrònic quan hi hagi canvis en les propietats que segueixo",
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|propietat|propietats}} $3 de la categoria ''$4''",
 );
 
 /** Czech (česky)
@@ -1067,18 +1070,21 @@ $messages['lb'] = array(
 	'group-swladmins-member' => '{{GENDER:$1|SWL-Administrateur|SWL-Administratrice}}',
 	'grouppage-swladmins' => '{{ns:project}}:SWL-Administrateuren',
 	'swl-group-name' => 'Numm vum Grupp:',
+	'swl-group-legend' => 'Grupp',
 	'swl-properties-list' => 'Nimm mat | trennen',
-	'swl-group-page-selection' => 'fir Säiten a(n)', # Fuzzy
+	'swl-group-page-selection' => "Sicht Säiten eraus fir z'iwwerwaachen:",
 	'swl-group-save' => 'Späicheren',
 	'swl-group-remove' => 'Ewechhuelen',
-	'swl-group-saved' => 'Gespäichert', # Fuzzy
+	'swl-group-saved' => "D'Astellunge goufe gespäichert",
 	'swl-group-saving' => 'Späicheren',
 	'swl-group-category' => 'Kategorie',
 	'swl-group-namespace' => 'Nummraum',
 	'swl-group-concept' => 'Konzept',
 	'swl-group-add-new-group' => 'Eng nei Grupp derbäisetzen',
 	'swl-group-add-group' => 'Grupp derbäisetzen',
+	'swl-custom-legend' => 'Personaliséierten Text',
 	'swl-custom-remove-property' => 'Ewechhuelen',
+	'swl-custom-text-add' => 'Personaliséierten Text derbäisetzen',
 	'swl-watchlist-insertions' => 'Derbäigesat:',
 	'swl-watchlist-deletions' => 'Al:',
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
