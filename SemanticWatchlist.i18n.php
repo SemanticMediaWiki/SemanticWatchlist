@@ -125,7 +125,8 @@ $messages['qqq'] = array(
 	'swl-group-confirm-remove' => 'This message asks for confirmation on [[Special:WatchlistConditions]] if the group should be removed?
 * $1 - name of the group',
 	'swl-group-add-new-group' => 'This is the text on the button allowing to add a new group of properties to be watched on [[Special:SemanticWatchlist]].',
-	'swl-group-add-group' => 'This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-group-add-group' => 'This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].
+{{Identical|Add group}}',
 	'swl-custom-legend' => 'This is the title of the field that lets you specify a custom text for the user notification to be send in case a property included in the group was changed.',
 	'swl-custom-remove-property' => 'This is the text on the button allowing to remove the custom user notification text of a group.',
 	'swl-custom-text-add' => 'This is the text on the button allowing to add a custom user notification text to a group.',
