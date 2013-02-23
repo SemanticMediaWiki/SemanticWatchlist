@@ -114,4 +114,5 @@ $specialPageAliases['scn'] = array(
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'SemanticWatchlist' => array( '语义监视列表' ),
+	'WatchlistConditions' => array( '监视列表状况', '监视列表组' ),
 );
