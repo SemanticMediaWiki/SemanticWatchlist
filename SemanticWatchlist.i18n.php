@@ -245,11 +245,14 @@ $messages['bg'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  * @author Y-M D
  */
 $messages['br'] = array(
 	'swl-group-name' => 'Anv ar strollad :',
+	'swl-group-legend' => 'Strollad',
+	'swl-properties-list' => 'Dispartiañ an anvioù gant |',
 	'swl-group-page-selection' => 'Pajennoù e', # Fuzzy
 	'swl-group-save' => 'Enrollañ',
 	'swl-group-saved' => 'Enrollet', # Fuzzy
