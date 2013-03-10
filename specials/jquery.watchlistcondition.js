@@ -63,6 +63,8 @@
 		var conditionTypeGroups = [ 'categories', 'namespaces', 'concepts' ];
 
 		for ( i in conditionTypes ) {
+			// Give grep a chance to find the usages:
+			// swl-group-category, swl-group-namespace, swl-group-concept
 			var optionElement = $( '<option />' )
 				.text( mw.msg( 'swl-group-' + conditionTypes[i] ) )
 				.attr( { 'value': conditionTypes[i], 'type': conditionTypeGroups[i] } );

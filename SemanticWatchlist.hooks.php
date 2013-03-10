@@ -162,6 +162,8 @@ final class SWLHooks {
 				$property = "''$property''";
 			}
 
+			// Give grep a chance to find the usages:
+			// swl-prefs-category-label, swl-prefs-namespace-label, swl-prefs-concept-label
 			$preferences['swl_watchgroup_' . $group->getId()] = array(
 				'type' => 'toggle',
 				'label' => wfMsgExt(
