@@ -68,6 +68,7 @@ $specialPageAliases['it'] = array(
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'SemanticWatchlist' => array( '意味的ウォッチリスト' ),
+	'WatchlistConditions' => array( 'ウォッチリストグループ' ),
 );
 
 /** Korean (한국어) */
