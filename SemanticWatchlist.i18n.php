@@ -1791,6 +1791,7 @@ $messages['yi'] = array(
  * @author Liangent
  * @author Linforest
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'semanticwatchlist-desc' => '让用户获得关于Semantic MediaWiki数据特定更改的通知',
@@ -1819,6 +1820,7 @@ $messages['zh-hans'] = array(
 	'swl-custom-legend' => '自定义的文本',
 	'swl-custom-remove-property' => '移除',
 	'swl-custom-text-add' => '添加自定义文本',
+	'swl-custom-input' => '如果属性$1的值变更为$2，以如下文本通知用户：$3',
 	'swl-watchlist-position' => "显示从'''#$2'''开始的，最后{{PLURAL:$1|变更|变更}}的'''$1'''。",
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '旧：',
@@ -1827,7 +1829,7 @@ $messages['zh-hans'] = array(
 	'swl-watchlist-firstn-title' => '前$1{{PLURAL:$1|项结果|项结果}}',
 	'swl-watchlist-no-items' => '您的监视列表为空。',
 	'swl-watchlist-can-mod-groups' => '您可以[[$1|修改监视列表组]]。',
-	'swl-watchlist-can-mod-prefs' => '您可以[[$1|监视列表首选项]]，包括设置要监视哪些属性。', # Fuzzy
+	'swl-watchlist-can-mod-prefs' => '您也可以[[$1|修改您的监视列表参数]]，包括设置要监视的属性。',
 	'swl-watchlist-no-groups' => '您尚未监视任何的监视列表组。[[$1|请修改您的监视列表首选项]]。',
 	'swl-email-propschanged' => '位于$1的属性已变更。',
 	'swl-email-propschanged-long' => "您在'''$1'''所监视的一个或多个属性已被$5之上位于$4的用户'''$2'''更改。.您可以查看这些变更以及位于[$3 您的语义监视列表]之上的其他变更。", # Fuzzy
