@@ -116,7 +116,8 @@ $messages['qqq'] = array(
 	'swl-group-remove' => 'This is the text on the button for removing a group to be watched on [[Special:SemanticWatchlist]].
 {{Identical|Remove}}',
 	'swl-group-saved' => 'This message indicates that the changes on [[Special:WatchlistConditions]] were processed.',
-	'swl-group-saving' => 'This message indicates that the changes on the preferences page are being processed.',
+	'swl-group-saving' => 'This message indicates that the changes on the preferences page are being processed.
+{{Identical|Saving}}',
 	'swl-group-category' => 'This is an option allowing to select the pages which should be watched by the group. A category holds a group of pages.
 {{Identical|Category}}',
 	'swl-group-namespace' => 'This is an option allowing to select the pages which should be watched by the group. A namespace holds a group of pages.
