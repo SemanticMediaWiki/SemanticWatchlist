@@ -112,7 +112,8 @@ $messages['qqq'] = array(
 	'swl-group-properties' => 'This is the title of the field that lets you specify the properties making up a group of properties to be watched on [[Special:SemanticWatchlist]].',
 	'swl-properties-list' => 'This message explains that the names of the properties to be watched by the group should be entered separated by a pipe "|". This is a placeholder text that is displayed in the input field before the user clicks on it.',
 	'swl-group-page-selection' => 'This is the title of the field that lets you specify the pages which should be watched by a group on [[Special:SemanticWatchlist]].',
-	'swl-group-save' => 'This is the text on the button for saving changes to groups on [[Special:WatchlistConditions]].',
+	'swl-group-save' => 'This is the text on the button for saving changes to groups on [[Special:WatchlistConditions]].
+{{Identical|Save}}',
 	'swl-group-remove' => 'This is the text on the button for removing a group to be watched on [[Special:SemanticWatchlist]].
 {{Identical|Remove}}',
 	'swl-group-saved' => 'This message indicates that the changes on [[Special:WatchlistConditions]] were processed.',
