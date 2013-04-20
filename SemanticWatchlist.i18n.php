@@ -390,6 +390,7 @@ $messages['de-formal'] = array(
  */
 $messages['diq'] = array(
 	'swl-group-category' => 'kategoriye',
+	'swl-group-namespace' => 'cayê namey',
 	'swl-watchlist-insertions' => 'Newe:',
 );
 
