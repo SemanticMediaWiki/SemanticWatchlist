@@ -356,7 +356,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 					array( 'href' => SpecialPage::getTitleFor( 'Block', $edit->getUser()->getName() )->getLocalURL() ),
 					wfMsg( 'blocklink' )
 				) . ')' .
-				( $edit->getTime() > $this->lastViewed ? ' [NEW]' : '' )	.
+				( $edit->getTime() > $this->lastViewed ? ' <b>' . wfMsg( 'swl-new-item' ) . '</b>' : '' )	.
 			'</p>'
 		;
 		
