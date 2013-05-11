@@ -1458,11 +1458,12 @@ $messages['pt'] = array(
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(
 	'swl-group-save' => 'Salvar',
-	'swl-group-saved' => 'Salvo', # Fuzzy
+	'swl-group-saved' => 'As configurações foram salvas.',
 	'swl-group-saving' => 'Salvando',
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'domínio',
