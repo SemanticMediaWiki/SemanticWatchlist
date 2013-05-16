@@ -1493,6 +1493,23 @@ $messages['ro'] = array(
 	'prefs-swlglobal' => 'Opțiuni generale',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'swl-group-name' => "Nome d'u gruppe:",
+	'swl-group-legend' => 'Gruppe',
+	'swl-group-save' => 'Reggistre',
+	'swl-group-remove' => 'Live',
+	'swl-group-saved' => "Le 'mbostaziune onne state reggistrate.",
+	'swl-group-saving' => 'Stoche a reggistre',
+	'swl-group-category' => 'categorije',
+	'swl-group-namespace' => 'namespace',
+	'swl-group-concept' => 'congette',
+	'swl-watchlist-insertions' => 'Nuève:',
+	'swl-watchlist-deletions' => 'Vicchie:',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
