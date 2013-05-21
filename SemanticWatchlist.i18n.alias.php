@@ -112,6 +112,12 @@ $specialPageAliases['scn'] = array(
 	'WatchlistConditions' => array( 'CondizioniOsservatiSpeciali', 'GruppiOsservatiSpeciali' ),
 );
 
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'SemanticWatchlist' => array( 'Danh_sách_theo_dõi_ngữ_nghĩa' ),
+	'WatchlistConditions' => array( 'Điều_kiện_theo_dõi' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'SemanticWatchlist' => array( '语义监视列表' ),
