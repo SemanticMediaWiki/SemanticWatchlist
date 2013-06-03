@@ -1216,7 +1216,7 @@ $messages['mt'] = array(
 	'swl-watchlist-deletions' => 'Qadim:',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  */
 $messages['nb'] = array(
