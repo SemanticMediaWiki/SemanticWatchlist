@@ -1098,6 +1098,7 @@ $messages['lb'] = array(
 	'swl-group-category' => 'Kategorie',
 	'swl-group-namespace' => 'Nummraum',
 	'swl-group-concept' => 'Konzept',
+	'swl-group-confirm-remove' => "Sidd Dir sécher datt Dir d'''$1''-Iwwerwaachungslëscht-Grupp ewechhuele wëllt?",
 	'swl-group-add-new-group' => 'Eng nei Grupp derbäisetzen',
 	'swl-group-add-group' => 'Grupp derbäisetzen',
 	'swl-custom-legend' => 'Personaliséierten Text',
@@ -1331,7 +1332,7 @@ $messages['pdc'] = array(
  */
 $messages['pfl'] = array(
 	'swl-group-save' => 'Schbaischere',
-	'swl-group-saved' => 'Gschbaischad', # Fuzzy
+	'swl-group-saved' => 'Oischdellung sinn gschbaischad',
 	'swl-watchlist-pagincontrol' => 'Zaisch ($1) ($2)',
 	'swl-watchlist-no-items' => 'Du dudschd nix beobachde.',
 );
