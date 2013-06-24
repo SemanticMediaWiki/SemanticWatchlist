@@ -1196,7 +1196,7 @@ $messages['mk'] = array(
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
-	'semanticwatchlist-desc' => 'Membolehkan penenetuan kumpulan-kumpulan sifat semantik untuk satu atau lebih kategori/ruang nama yang kemudiannya boleh dipantau untuk perubahan', # Fuzzy
+	'semanticwatchlist-desc' => 'Membolehkan pemberitahuan kepada pengguna tentang perubahan tertentu pada data Semantic MediaWiki',
 	'right-semanticwatch' => 'Menggunakan senarai pantau semantik',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Mengubah suai]] kumpulan senarai pantau semantik',
 	'special-semanticwatchlist' => 'Senarai Pantau Semantik',
