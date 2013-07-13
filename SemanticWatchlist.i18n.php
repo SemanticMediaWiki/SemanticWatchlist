@@ -55,7 +55,7 @@ $messages['en'] = array(
 	'swl-custom-input' => "If the property $1 changes its value to $2, notify users with the following text: $3 ",
 
 	// Special:SemanticWatchlist
-	'swl-watchlist-position' => "Showing '''$1''' of the last {{PLURAL:$1|change|changes}} starting with '''#$2'''.",
+	'swl-watchlist-position' => "Showing the last {{PLURAL:$1|change|'''$1''' changes starting with change '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'New:',
 	'swl-watchlist-deletions' => 'Old:',
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
