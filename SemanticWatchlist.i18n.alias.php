@@ -73,7 +73,7 @@ $specialPageAliases['ja'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'SemanticWatchlist' => array( '시멘틱주시문서목록', '시멘틱주시목록' ),
+	'SemanticWatchlist' => array( '시맨틱주시문서목록', '시맨틱주시목록' ),
 	'WatchlistConditions' => array( '조건주시문서목록', '그룹주시문서목록' ),
 );
 
