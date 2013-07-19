@@ -1337,6 +1337,28 @@ $messages['pfl'] = array(
 	'swl-watchlist-no-items' => 'Du dudschd nix beobachde.',
 );
 
+/** Polish (polski)
+ * @author Woytecr
+ */
+$messages['pl'] = array(
+	'swl-group-save' => 'Zapisz',
+	'swl-group-remove' => 'Usuń',
+	'swl-group-saved' => 'Ustawienia zostały zapisane.',
+	'swl-group-saving' => 'Zapisywanie',
+	'swl-group-category' => 'kategoria',
+	'swl-group-namespace' => 'przestrzeń nazw',
+	'swl-group-add-new-group' => 'Dodaj nową grupę',
+	'swl-group-add-group' => 'Dodaj grupę',
+	'swl-custom-legend' => 'Własny tekst',
+	'swl-custom-remove-property' => 'Usuń',
+	'swl-custom-text-add' => 'Dodaj własny tekst',
+	'swl-watchlist-insertions' => 'Nowy:',
+	'swl-watchlist-deletions' => 'Stary:',
+	'swl-watchlist-pagincontrol' => 'Zobacz ($1) ($2)',
+	'swl-watchlist-firstn' => 'pierwsze $1',
+	'swl-watchlist-firstn-title' => '{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
