@@ -1741,6 +1741,7 @@ $messages['tzm'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Base
  * @author Ата
  */
@@ -1772,7 +1773,7 @@ $messages['uk'] = array(
 	'swl-custom-remove-property' => 'Вилучити',
 	'swl-custom-text-add' => 'Додати власний текст',
 	'swl-custom-input' => 'Якщо властивість $1 змінила своє значення на $2, сповістити користувачів наступним текстом: $3',
-	'swl-watchlist-position' => "Показ '''$1''' {{PLURAL:$1|останньої зміни|із останніх змін}}, починаючи з '''#$2'''.",
+	'swl-watchlist-position' => "Показано {{PLURAL:$1|останню зміну|останні '''$1''' зміни, починаючи з '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'Нові:',
 	'swl-watchlist-deletions' => 'Старі:',
 	'swl-watchlist-pagincontrol' => 'Перегляд ($1) ($2)',
