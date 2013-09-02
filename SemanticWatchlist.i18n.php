@@ -1435,6 +1435,7 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Luckas
  */
 $messages['pt'] = array(
 	'semanticwatchlist-desc' => 'Permite que os utilizadores sejam notificados de alterações específicas aos dados do MediaWiki Semântico',
@@ -1448,7 +1449,7 @@ $messages['pt'] = array(
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:', # Fuzzy
 	'swl-group-page-selection' => 'Páginas em', # Fuzzy
-	'swl-group-save' => 'Gravar',
+	'swl-group-save' => 'Salvar',
 	'swl-group-saved' => 'Gravado', # Fuzzy
 	'swl-group-saving' => 'A gravar',
 	'swl-group-category' => 'categoria',
@@ -1456,7 +1457,7 @@ $messages['pt'] = array(
 	'swl-group-concept' => 'conceito',
 	'swl-group-add-new-group' => 'Adicionar um grupo novo',
 	'swl-group-add-group' => 'Adicionar grupo',
-	'swl-watchlist-position' => "A mostrar '''$1''' das últimas alterações, começando pela '''$2ª'''.",
+	'swl-watchlist-position' => "A mostrar '''$1''' das últimas alterações, começando pela '''$2ª'''.", # Fuzzy
 	'swl-watchlist-insertions' => 'Adições:',
 	'swl-watchlist-deletions' => 'Antigas:',
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
