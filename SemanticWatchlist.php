@@ -3,9 +3,9 @@
 /**
  * Initialization file for the Semantic Watchlist extension.
  * 
- * Documentation:	 		http://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
- * Support					http://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
- * Source code:			 http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/SemanticWatchlist
+ * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
+ * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
+ * Source code:		http://git.wikimedia.org/tree/mediawiki%2Fextensions%2FSemanticWatchlist
  *
  * @file SemanticWatchlist.php
  * @ingroup SemanticWatchlist
@@ -37,7 +37,7 @@ if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.6 or above.' );
 }
 
-define( 'SemanticWatchlist_VERSION', '0.2' );
+define( 'SemanticWatchlist_VERSION', '0.2.1' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,

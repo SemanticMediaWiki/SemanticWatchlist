@@ -1,10 +1,15 @@
 These are the release notes for the Semantic Watchlist extension.
-	
-Extension page on mediawiki.org:
-http://www.mediawiki.org/wiki/Extension:SemanticWatchlist
-Latest version of the release notes:
-https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/SemanticWatchlist.git;a=blob;f=RELEASE-NOTES
 
+Extension page on mediawiki.org:
+https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
+
+Latest version of the release notes:
+https://git.wikimedia.org/raw/mediawiki%2fextensions%2fSemanticWatchlist.git/HEAD/RELEASE-NOTES
+
+=== Version 0.2.1 ===
+2013-09-26
+
+* 'swladmins' group removed.
 
 === Version 0.2 ===
 2012-11-15
