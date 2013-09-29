@@ -497,6 +497,7 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Mjbmr
  * @author ZxxZxxZ
  */
@@ -506,7 +507,7 @@ $messages['fa'] = array(
 	'swl-group-save' => 'ذخیره',
 	'swl-group-remove' => 'حذف',
 	'swl-group-saved' => 'ذخیره شده', # Fuzzy
-	'swl-group-saving' => 'در حال ذخیره سازی...',
+	'swl-group-saving' => 'در حال ذخیره‌سازی...',
 	'swl-group-category' => 'رده',
 	'swl-group-namespace' => 'فضای نام',
 	'swl-group-add-new-group' => 'افزودن گروه جدید',
@@ -1799,6 +1800,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Ch.Andrew
  * @author Shirayuki
  */
 $messages['zh-hant'] = array(
@@ -1813,7 +1815,7 @@ $messages['zh-hant'] = array(
 	'swl-group-page-selection' => '中的頁面', # Fuzzy
 	'swl-group-save' => '保存',
 	'swl-group-remove' => '移除',
-	'swl-group-saved' => '已保存', # Fuzzy
+	'swl-group-saved' => '設定已經儲存。',
 	'swl-group-saving' => '正在保存……',
 	'swl-group-category' => '類別',
 	'swl-group-namespace' => '命名空間',
@@ -1821,7 +1823,7 @@ $messages['zh-hant'] = array(
 	'swl-group-add-new-group' => '添加新的組',
 	'swl-group-add-group' => '添加組',
 	'swl-custom-remove-property' => '移除',
-	'swl-watchlist-position' => "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。",
+	'swl-watchlist-position' => "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。", # Fuzzy
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '舊：',
 	'swl-watchlist-pagincontrol' => '查看 ($1) ($2)',
