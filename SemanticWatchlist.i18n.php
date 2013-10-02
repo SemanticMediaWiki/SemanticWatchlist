@@ -1724,11 +1724,12 @@ $messages['ur'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author පසිඳු කාවින්ද
  */
 $messages['vi'] = array(
 	'swl-group-save' => 'Lưu',
-	'swl-group-saved' => 'Đã lưu', # Fuzzy
+	'swl-group-saved' => 'Đã lưu các tùy chọn.',
 	'swl-group-saving' => 'Đang lưu',
 	'swl-group-category' => 'thể loại',
 	'swl-group-namespace' => 'không gian tên',
