@@ -1464,13 +1464,21 @@ $messages['roa-tara'] = array(
  * @author ShinePhantom
  */
 $messages['ru'] = array(
+	'swl-group-name' => 'Имя группы:',
+	'swl-group-legend' => 'Группа',
+	'swl-group-save' => 'Сохранить',
 	'swl-group-remove' => 'Удалить',
+	'swl-group-saved' => 'Настройки были сохранены.',
+	'swl-group-saving' => 'Сохранение',
 	'swl-group-category' => 'категория',
 	'swl-group-namespace' => 'пространство имён',
+	'swl-group-add-new-group' => 'Добавить новую группу',
 	'swl-group-add-group' => 'Добавить группу',
 	'swl-custom-remove-property' => 'Удалить',
 	'swl-watchlist-insertions' => 'Новое:',
 	'swl-watchlist-deletions' => 'Старое:',
+	'swl-email-propschanged' => 'Свойства изменились у $1',
+	'prefs-swlglobal' => 'Общие параметры',
 	'swl-prefs-emailnofity' => 'Присылать мне письма по электронной почте при изменении свойств, за которыми я наблюдаю',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|свойство|свойства|свойств}} $3 из категории ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|свойство|свойства|свойств}} $3 из пространства имён ''$4''",
