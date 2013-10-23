@@ -285,6 +285,13 @@ $messages['ca'] = array(
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|propietat|propietats}} $3 de la categoria ''$4''",
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'swl-prefs-emailnofity' => 'Аса тергал еш йолучарна хийцам бича электронан почте баийта хаам',
+);
+
 /** Czech (česky)
  * @author Vks
  */
