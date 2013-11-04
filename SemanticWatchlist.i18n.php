@@ -1471,8 +1471,11 @@ $messages['roa-tara'] = array(
  * @author ShinePhantom
  */
 $messages['ru'] = array(
+	'right-semanticwatch' => 'Использовать семантический список наблюдения',
+	'special-semanticwatchlist' => 'Семантический список наблюдения',
 	'swl-group-name' => 'Имя группы:',
 	'swl-group-legend' => 'Группа',
+	'swl-group-page-selection' => 'Выберите страницы для наблюдения:',
 	'swl-group-save' => 'Сохранить',
 	'swl-group-remove' => 'Удалить',
 	'swl-group-saved' => 'Настройки были сохранены.',
