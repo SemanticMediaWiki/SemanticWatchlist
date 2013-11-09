@@ -1061,6 +1061,7 @@ $messages['lb'] = array(
 	'swl-watchlist-no-items' => 'Dir hutt keng Objeten op Ärer Iwwerwaachungslëscht.',
 	'swl-watchlist-can-mod-groups' => "Dir kënnt [[$1|d'Gruppe vun der Iwwerwaachungslëscht änneren]].",
 	'swl-email-propschanged' => "D'Eegeschafte goufen op $1 geännert",
+	'swl-email-changes' => 'Ännerunge vun Eegescheschaften op [$2 $1]:',
 	'prefs-swl' => 'Semantesch Iwwerwaachungslëscht',
 	'prefs-swlgroup' => "Gruppe fir z'iwwerwaachen",
 	'prefs-swlglobal' => 'Allgemeng Optiounen',
