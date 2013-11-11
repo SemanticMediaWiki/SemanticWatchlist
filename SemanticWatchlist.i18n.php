@@ -94,7 +94,8 @@ $messages['qqq'] = array(
 	'right-semanticwatchgroups' => '{{doc-right|semanticwatchgroups}}',
 	'special-semanticwatchlist' => '{{doc-special|SemanticWatchlist}}',
 	'special-watchlistconditions' => '{{doc-special|WatchlistConditions}}',
-	'swl-group-name' => 'This is the title of the field that lets you specify the name of a group of properties to be watched on [[Special:SemanticWatchlist]].',
+	'swl-group-name' => 'This is the title of the field that lets you specify the name of a group of properties to be watched on [[Special:SemanticWatchlist]].
+{{Identical|Group name}}',
 	'swl-group-legend' => 'This is the title of a box on [[Special:WatchlistConditions]] allowing to create a group of properties to be watched on [[Special:SemanticWatchlist]].
 {{Identical|Group}}',
 	'swl-group-properties' => 'This is the title of the field that lets you specify the properties making up a group of properties to be watched on [[Special:SemanticWatchlist]].',
