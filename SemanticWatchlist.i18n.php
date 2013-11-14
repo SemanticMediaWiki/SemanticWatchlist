@@ -290,6 +290,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'swl-group-saving' => 'Ӏалашяр',
 	'swl-prefs-emailnofity' => 'Аса тергал еш йолучарна хийцам бича электронан почте баийта хаам',
 );
 
@@ -1473,10 +1474,13 @@ $messages['roa-tara'] = array(
  * @author ShinePhantom
  */
 $messages['ru'] = array(
+	'semanticwatchlist-desc' => 'Позволяет пользователям получать уведомления об определённых изменениях данных Семантической МедиаВики',
 	'right-semanticwatch' => 'Использовать семантический список наблюдения',
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|Изменить]] группы семантического списка наблюдения',
 	'special-semanticwatchlist' => 'Семантический список наблюдения',
 	'swl-group-name' => 'Имя группы:',
 	'swl-group-legend' => 'Группа',
+	'swl-properties-list' => 'Разделяйте имена с помощью |',
 	'swl-group-page-selection' => 'Выберите страницы для наблюдения:',
 	'swl-group-save' => 'Сохранить',
 	'swl-group-remove' => 'Удалить',
@@ -1490,6 +1494,7 @@ $messages['ru'] = array(
 	'swl-watchlist-insertions' => 'Новое:',
 	'swl-watchlist-deletions' => 'Старое:',
 	'swl-email-propschanged' => 'Свойства изменились у $1',
+	'prefs-swl' => 'Семантический список наблюдения',
 	'prefs-swlglobal' => 'Общие параметры',
 	'swl-prefs-emailnofity' => 'Присылать мне письма по электронной почте при изменении свойств, за которыми я наблюдаю',
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|свойство|свойства|свойств}} $3 из категории ''$4''",
