@@ -380,10 +380,11 @@ $messages['de-formal'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Marmase
  * @author Mirzali
  */
 $messages['diq'] = array(
-	'swl-group-category' => 'kategoriye',
+	'swl-group-category' => 'Kategori',
 	'swl-group-namespace' => 'cayê namey',
 	'swl-watchlist-insertions' => 'Newe:',
 );
