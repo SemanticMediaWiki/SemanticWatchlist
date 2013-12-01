@@ -263,13 +263,14 @@ $messages['br'] = array(
 );
 
 /** Catalan (català)
+ * @author Alvaro Vidal-Abarca
  * @author Pitort
  * @author Toniher
  */
 $messages['ca'] = array(
 	'swl-group-name' => 'Nom del grup:',
 	'swl-group-save' => 'Desa',
-	'swl-group-saved' => 'Desat', # Fuzzy
+	'swl-group-saved' => "S'ha desat la configuració.",
 	'swl-group-saving' => "S'està desant",
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'espai de noms',
