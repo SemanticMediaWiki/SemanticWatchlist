@@ -89,8 +89,16 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 $wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
-$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
 $wgHooks['PersonalUrls'][] = 'SWLHooks::onPersonalUrls';
+
+// Admin Links hook needs to be called in a delayed way so that it
+// will always be called after SMW's Admin Links addition; as of
+// SMW 1.9, SMW delays calling all its hook functions.
+$wgExtensionFunctions[] = 'SWLAddAdminLinksHook';
+function SWLAddAdminLinksHook() {
+	global $wgHooks;
+	$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
+}
 
 $moduleTemplate = array(
 	'localBasePath' => dirname( __FILE__ ),
