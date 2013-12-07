@@ -295,7 +295,7 @@ $messages['ce'] = array(
 	'swl-prefs-emailnofity' => 'Аса тергал еш йолучарна хийцам бича электронан почте баийта хаам',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Vks
  */
 $messages['cs'] = array(
@@ -710,7 +710,7 @@ $messages['gl'] = array(
 	'swl-custom-legend' => 'Texto personalizado',
 	'swl-custom-remove-property' => 'Eliminar',
 	'swl-custom-text-add' => 'Engadir texto personalizado',
-	'swl-custom-input' => 'Se a propiedade "$1" cambia o seu valor a "$2", notifíquese aos usuarios co seguinte texto: $3', # Fuzzy
+	'swl-custom-input' => 'Se a propiedade "$1" cambia o seu valor a "$2", notifíquese aos usuarios co seguinte texto: $3',
 	'swl-watchlist-position' => "Mostrando {{PLURAL:$1|o último cambio|'''$1''' cambios, comezando polo '''nº$2'''}}:",
 	'swl-watchlist-insertions' => 'Engadido:',
 	'swl-watchlist-deletions' => 'Vello:',
