@@ -6,12 +6,17 @@ https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
 Latest version of the release notes:
 https://git.wikimedia.org/raw/mediawiki%2fextensions%2fSemanticWatchlist.git/HEAD/RELEASE-NOTES
 
-=== Version 0.2.1 ===
+== Version 0.2.2 ==
+2013-12-10
+
+* Fix for Special:AdminLinks when using SMW 1.9+.
+
+== Version 0.2.1 ==
 2013-09-26
 
 * 'swladmins' group removed.
 
-=== Version 0.2 ===
+== Version 0.2 ==
 2012-11-15
 
 * Special:WatchlistConditions UI improved.
@@ -20,7 +25,7 @@ https://git.wikimedia.org/raw/mediawiki%2fextensions%2fSemanticWatchlist.git/HEA
 * No email sent to a page's own editor, by default.
 * Fixed deleting of groups, which was not working.
 
-=== Version 0.1 ===
+== Version 0.1 ==
 2011-07-30
 
 Initial release with these features:
