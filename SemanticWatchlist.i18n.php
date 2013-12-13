@@ -510,6 +510,7 @@ $messages['et'] = array(
 /** Persian (فارسی)
  * @author Ebraminio
  * @author Mjbmr
+ * @author Omidh
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
@@ -517,7 +518,7 @@ $messages['fa'] = array(
 	'swl-group-legend' => 'گروه',
 	'swl-group-save' => 'ذخیره',
 	'swl-group-remove' => 'حذف',
-	'swl-group-saved' => 'ذخیره شده', # Fuzzy
+	'swl-group-saved' => 'تنظیمات ذخیره شد.',
 	'swl-group-saving' => 'در حال ذخیره‌سازی...',
 	'swl-group-category' => 'رده',
 	'swl-group-namespace' => 'فضای نام',
