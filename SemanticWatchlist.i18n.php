@@ -1599,6 +1599,7 @@ $messages['sv'] = array(
 	'swl-custom-legend' => 'Anpassad text',
 	'swl-custom-remove-property' => 'Ta bort',
 	'swl-custom-text-add' => 'Lägg till anpassad text',
+	'swl-custom-input' => 'Meddela användare med följande text om värdet för egenskapen $1 ändras till $2: $3',
 	'swl-watchlist-position' => "Visar {{PLURAL:$1|den senaste ändringen|de senaste '''$1''' ändringarna med början från ändringen '''#$2'''}}.",
 	'swl-watchlist-insertions' => 'Ny:',
 	'swl-watchlist-deletions' => 'Gammal:',
