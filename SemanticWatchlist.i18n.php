@@ -385,7 +385,7 @@ $messages['de-formal'] = array(
  * @author Mirzali
  */
 $messages['diq'] = array(
-	'swl-group-category' => 'Kategori',
+	'swl-group-category' => 'kategoriye',
 	'swl-group-namespace' => 'cayê namey',
 	'swl-watchlist-insertions' => 'Newe:',
 );
