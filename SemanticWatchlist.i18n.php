@@ -1006,11 +1006,45 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
+	'right-semanticwatch' => '시맨틱 주시 문서 목록 사용하기',
+	'special-semanticwatchlist' => '시맨틱 주시 목록',
+	'special-watchlistconditions' => '시맨틱 주시 목록 조건',
+	'swl-group-name' => '그룹명:',
+	'swl-group-legend' => '그룹',
+	'swl-group-properties' => '이 그룹은 이 속성의 바뀜을 주시하고 있습니다:',
+	'swl-properties-list' => '|로 이름을 구분',
+	'swl-group-page-selection' => '주시할 문서를 선택:',
 	'swl-group-save' => '저장',
+	'swl-group-remove' => '제거',
 	'swl-group-saved' => '설정을 저장했습니다.',
+	'swl-group-saving' => '저장',
+	'swl-group-category' => '분류',
+	'swl-group-namespace' => '이름공간',
+	'swl-group-concept' => '개념',
+	'swl-group-confirm-remove' => '"$1" 그룹을 주시 목록에서 제거하시겠습니까?',
+	'swl-group-add-new-group' => '새 그룹 추가',
+	'swl-group-add-group' => '그룹 추가',
+	'swl-custom-legend' => '사용자 정의 텍스트',
+	'swl-custom-remove-property' => '제거',
+	'swl-custom-text-add' => '사용자 정의 텍스트 추가',
+	'swl-custom-input' => '$1 속성이 $2으로 값을 변경하면 다음 텍스트로 사용자들에게 알립니다: $3',
+	'swl-watchlist-insertions' => '새 문서:',
+	'swl-watchlist-deletions' => '오래된 문서:',
+	'swl-watchlist-pagincontrol' => '보기 ($1) ($2)',
+	'swl-watchlist-firstn' => '첫 $1',
+	'swl-watchlist-firstn-title' => '첫 $1 {{PLURAL:$1|결과}}',
+	'swl-watchlist-no-items' => '시맨틱 주시 문서 목록에 항목이 없습니다.',
+	'swl-watchlist-can-mod-groups' => '[[$1|주시 목록 그룹을 수정]]할 수 있습니다.',
+	'swl-email-propschanged' => '$1에 속성이 바뀌었습니다',
+	'swl-email-changes' => '[$2 $1] 문서에서 속성 바뀜:',
+	'prefs-swl' => '시맨틱 주시 문서 목록',
+	'prefs-swlgroup' => '주시할 그룹',
+	'prefs-swlglobal' => '일반 설정',
+	'swl-prefs-emailnofity' => '주시하고 있는 속서이 바뀌면 이메일 받기',
 );
 
 /** Colognian (Ripoarisch)
