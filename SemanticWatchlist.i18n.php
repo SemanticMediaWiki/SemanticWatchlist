@@ -1045,6 +1045,9 @@ $messages['ko'] = array(
 	'prefs-swlgroup' => '주시할 그룹',
 	'prefs-swlglobal' => '일반 설정',
 	'swl-prefs-emailnofity' => '주시하고 있는 속서이 바뀌면 이메일 받기',
+	'swl-prefs-category-label' => '\'\'\'$1\'\'\': "$4" 분류의 $3 {{PLURAL:$2|속성}}',
+	'swl-prefs-namespace-label' => '\'\'\'$1\'\'\': "$4"이름공간의 $3 {{PLURAL:$2|속성}}',
+	'swl-prefs-concept-label' => '\'\'\'$1\'\'\': "$4" 개념의 $3 {{PLURAL:$2|속성}}',
 );
 
 /** Colognian (Ripoarisch)
