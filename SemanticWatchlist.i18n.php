@@ -1045,9 +1045,11 @@ $messages['ko'] = array(
 	'prefs-swlgroup' => '주시할 그룹',
 	'prefs-swlglobal' => '일반 설정',
 	'swl-prefs-emailnofity' => '주시하고 있는 속서이 바뀌면 이메일 받기',
+	'swl-prefs-watchlisttoplink' => '문서의 상단의 시맨틱 주시 목록에 연결된 링크를 보이기',
 	'swl-prefs-category-label' => '\'\'\'$1\'\'\': "$4" 분류의 $3 {{PLURAL:$2|속성}}',
 	'swl-prefs-namespace-label' => '\'\'\'$1\'\'\': "$4"이름공간의 $3 {{PLURAL:$2|속성}}',
 	'swl-prefs-concept-label' => '\'\'\'$1\'\'\': "$4" 개념의 $3 {{PLURAL:$2|속성}}',
+	'swl-err-userid-xor-groupids' => '사용자 ID나 그룹 ID 매개변수을 지정해야 하지만, 둘다 지정할 필요는 없습니다.',
 );
 
 /** Colognian (Ripoarisch)
