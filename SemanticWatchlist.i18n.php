@@ -508,20 +508,30 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Ebraminio
  * @author Mjbmr
  * @author Omidh
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'right-semanticwatch' => 'استفاده از فهرست پیگیری معنایی',
+	'right-semanticwatchgroups' => '[[Special:وضعیت‌های فهرست مشاهده|اصلاح]] گروه‌های فهرست پیگیری  معنایی', # Fuzzy
+	'special-semanticwatchlist' => 'فهرست پیگیری معنایی',
+	'special-watchlistconditions' => 'وضعیت‌های فهرست پیگیری معنایی',
 	'swl-group-name' => 'نام گروه:',
 	'swl-group-legend' => 'گروه',
+	'swl-group-properties' => 'این گروه بر تغییرات در ویژگی/ویژگی‌ها نظارت دارد:',
+	'swl-properties-list' => 'جدا کردن نام‌ها با |',
+	'swl-group-page-selection' => 'انتخاب صفحات برای نظارت:',
 	'swl-group-save' => 'ذخیره',
 	'swl-group-remove' => 'حذف',
 	'swl-group-saved' => 'تنظیمات ذخیره شد.',
 	'swl-group-saving' => 'در حال ذخیره‌سازی...',
 	'swl-group-category' => 'رده',
 	'swl-group-namespace' => 'فضای نام',
+	'swl-group-concept' => 'مفاهیم',
+	'swl-group-confirm-remove' => 'آیا مطمئن هستید که می‌خواهید گروه فهرست پیگیری "$1" را حذف کنید؟',
 	'swl-group-add-new-group' => 'افزودن گروه جدید',
 	'swl-group-add-group' => 'افزودن گروه',
 	'swl-custom-legend' => 'متن سفارشی',
@@ -529,7 +539,21 @@ $messages['fa'] = array(
 	'swl-custom-text-add' => 'افزودن متن سفارشی',
 	'swl-watchlist-insertions' => 'جدید:',
 	'swl-watchlist-deletions' => 'قدیمی:',
+	'swl-watchlist-pagincontrol' => 'مشاهدهٔ‌ ($1) ($2)',
+	'swl-watchlist-firstn' => 'ابتدا $1',
+	'swl-watchlist-firstn-title' => 'ابتدا $1 {{PLURAL:$1|نتیجه|نتایج}}',
+	'swl-watchlist-no-items' => 'شما هیچ موردی در فهرست پیگیری معنایی خود ندارید.',
+	'swl-watchlist-can-mod-groups' => 'شما می‌توانید [[$1|گروه‌های فهرست پیگیری را اصلاح کنید]].',
+	'swl-email-propschanged' => 'ویژگی‌ها در $1 تغییر کرده‌است',
+	'swl-email-changes' => 'تغییرات ویژگی در [$2 $1]:',
+	'prefs-swl' => 'فهرست پیگیری معنایی',
+	'prefs-swlgroup' => 'گروه‌ها برای نظارت',
 	'prefs-swlglobal' => 'گزینه‌های عمومی',
+	'swl-prefs-emailnofity' => 'برای ویژگی‌هایی که من در حال نظارت آنها هستم ،در تغییرات به من رایانامه بزنید',
+	'swl-prefs-watchlisttoplink' => 'نمایش یک لینک برای فهرست پیگیری معنایی در بالای صفحه',
+	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از مقولهٔ ''$4''",
+	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از فضای نام ''$4''",
+	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از مفهوم ''$4''",
 );
 
 /** Finnish (suomi)
