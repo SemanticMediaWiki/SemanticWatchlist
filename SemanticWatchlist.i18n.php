@@ -516,7 +516,7 @@ $messages['et'] = array(
  */
 $messages['fa'] = array(
 	'right-semanticwatch' => 'استفاده از فهرست پیگیری معنایی',
-	'right-semanticwatchgroups' => '[[Special:وضعیت‌های فهرست مشاهده|اصلاح]] گروه‌های فهرست پیگیری  معنایی', # Fuzzy
+	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|اصلاح]] گروه‌های فهرست پیگیری  معنایی',
 	'special-semanticwatchlist' => 'فهرست پیگیری معنایی',
 	'special-watchlistconditions' => 'وضعیت‌های فهرست پیگیری معنایی',
 	'swl-group-name' => 'نام گروه:',
@@ -1735,6 +1735,7 @@ $messages['te'] = array(
 
 /** Tagalog (Tagalog)
  * @author AnakngAraw
+ * @author Jewel457
  */
 $messages['tl'] = array(
 	'semanticwatchlist-desc' => 'Nagpapahintulot na maipabatid sa mga tagagamit ang partikular na mga pagbabago sa dato ng Semantikong MediaWiki',
@@ -1745,7 +1746,7 @@ $messages['tl'] = array(
 	'swl-group-name' => 'Pangalan ng pangkat:',
 	'swl-group-properties' => 'Mga pag-aari na nasasakop ng pangkat na ito:', # Fuzzy
 	'swl-group-page-selection' => 'Mga pahina sa loob ng', # Fuzzy
-	'swl-group-save' => 'Sagipin',
+	'swl-group-save' => 'Itala',
 	'swl-group-saved' => 'Nasagip na', # Fuzzy
 	'swl-group-saving' => 'Sinasagip',
 	'swl-group-category' => 'kategorya',
