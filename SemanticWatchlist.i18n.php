@@ -1351,9 +1351,13 @@ $messages['pfl'] = array(
 );
 
 /** Polish (polski)
+ * @author Chrumps
  * @author Woytecr
  */
 $messages['pl'] = array(
+	'swl-group-name' => 'Nazwa grupy:',
+	'swl-group-legend' => 'Grupa',
+	'swl-properties-list' => 'Oddziel nazwy za pomocą |',
 	'swl-group-save' => 'Zapisz',
 	'swl-group-remove' => 'Usuń',
 	'swl-group-saved' => 'Ustawienia zostały zapisane.',
