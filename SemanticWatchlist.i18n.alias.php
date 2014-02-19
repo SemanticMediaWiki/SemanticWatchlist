@@ -25,6 +25,12 @@ $specialPageAliases['ar'] = array(
 	'WatchlistConditions' => array( 'شروط_قائمة_المراقبة' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'SemanticWatchlist' => array( 'قايمه_مراقبه_سيمانتيك' ),
+	'WatchlistConditions' => array( 'شروط_قايمه_المراقبه' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'SemanticWatchlist' => array( 'Semantische_Beobachtungsliste' ),
