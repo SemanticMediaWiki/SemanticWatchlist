@@ -51,6 +51,7 @@ $messages['en'] = array(
 	'swl-watchlist-position' => "Showing the last {{PLURAL:$1|change|'''$1''' changes starting with change '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'New:',
 	'swl-watchlist-deletions' => 'Old:',
+	'swl-new-item' => 'NEW',
 	'swl-watchlist-pagincontrol' => 'View ($1) ($2)',
 	'swl-watchlist-firstn' => 'first $1',
 	'swl-watchlist-firstn-title' => 'First $1 {{PLURAL:$1|result|results}}',
@@ -130,6 +131,7 @@ $messages['qqq'] = array(
 {{Identical|New}}',
 	'swl-watchlist-deletions' => 'This message precedes the display of the old property value set for the watched property.
 {{Identical|Old}}',
+	'swl-new-item' => 'This message is used to draw the attention of the user to an entry on the watchlist as a new item.',
 	'swl-watchlist-pagincontrol' => 'This message allows to navigate through the changes on [[Special:SemanticWatchlist]] in a paginated format.
 * $1 - replaced by {{msg-mw|Swl-watchlist-firstn}}
 * $2 - replaced by {{msg-mw|Nextn}}
