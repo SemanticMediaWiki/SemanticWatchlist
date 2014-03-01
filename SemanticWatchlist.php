@@ -15,7 +15,7 @@
  */
 
 /**
- * This documenation group collects source code files belonging to Semantic Watchlist.
+ * This documentation group collects source code files belonging to Semantic Watchlist.
  *
  * @defgroup SemanticWatchlist Semantic Watchlist
  */
