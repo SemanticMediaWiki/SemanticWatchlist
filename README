@@ -1,12 +1,8 @@
-This is the README file for the Semantic Watchlist extension.
+# Semantic Watchlist
 
-Extension page on mediawiki.org:
-https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
+Extension page on mediawiki.org: https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
 
-Latest version of the README file:
-https://git.wikimedia.org/raw/mediawiki%2fextensions%2fSemanticWatchlist.git/HEAD/README
-
-== About ==
+## About
 
 Semantic Watchlist enables users to watch semantic properties by adding a new
 watchlist page (Special:SemanticWatchlist) that lists changes to these
@@ -16,7 +12,7 @@ defined, and cover a set of properties and a set of pages (category, namespace,
 or SMW concept). Notification of changes to watched properties is also possible
 via email.
 
-=== Feature overview ===
+### Feature overview
 
 * A watchlist page (Special:SemanticWatchlist) listing changes to properties watched by the user.
 * Per-user optional email notification per edit that changes properties.  
