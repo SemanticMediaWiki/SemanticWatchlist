@@ -225,6 +225,7 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (български)
  * @author DCLXVI
+ * @author Mitzev
  * @author පසිඳු කාවින්ද
  */
 $messages['bg'] = array(
@@ -235,6 +236,7 @@ $messages['bg'] = array(
 	'swl-custom-remove-property' => 'Премахване',
 	'swl-watchlist-insertions' => 'Ново:',
 	'swl-watchlist-deletions' => 'Стари:',
+	'swl-new-item' => 'НОВ',
 );
 
 /** Breton (brezhoneg)
@@ -351,6 +353,7 @@ $messages['de'] = array(
 	'swl-watchlist-position' => "Anzeige der letzten {{PLURAL:$1|Änderung|'''$1''' Änderungen beginnend mit Änderung '''$2'''}}:",
 	'swl-watchlist-insertions' => 'Neu:',
 	'swl-watchlist-deletions' => 'Alt:',
+	'swl-new-item' => 'NEU',
 	'swl-watchlist-pagincontrol' => 'Zeige ($1) ($2)',
 	'swl-watchlist-firstn' => 'erste $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}',
@@ -437,6 +440,13 @@ $messages['dsb'] = array(
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|kakosć|kakosći|kakosći|kakosći}} $3 z koncepta ''$4''",
 );
 
+/** British English (British English)
+ * @author Felicilijonas
+ */
+$messages['en-gb'] = array(
+	'swl-new-item' => 'Naujas',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  * @author Invadinado
@@ -517,6 +527,7 @@ $messages['et'] = array(
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'semanticwatchlist-desc' => 'مطلع کردن کاربران از تغییرات ویژه به داده‌های مدیاویکی معنایی',
 	'right-semanticwatch' => 'استفاده از فهرست پیگیری معنایی',
 	'right-semanticwatchgroups' => '[[Special:WatchlistConditions|اصلاح]] گروه‌های فهرست پیگیری  معنایی',
 	'special-semanticwatchlist' => 'فهرست پیگیری معنایی',
@@ -539,14 +550,20 @@ $messages['fa'] = array(
 	'swl-custom-legend' => 'متن سفارشی',
 	'swl-custom-remove-property' => 'حذف',
 	'swl-custom-text-add' => 'افزودن متن سفارشی',
+	'swl-custom-input' => 'اگر خاصیت $1 به مقدار $2 تغییر کند، کاربران را با متن زیر مطلع کنː $3',
+	'swl-watchlist-position' => "نمایش آخرین {{PLURAL:$1|تغییر|'''$1''' شروع تغییرات با تغییر'''#$2'''}}:",
 	'swl-watchlist-insertions' => 'جدید:',
 	'swl-watchlist-deletions' => 'قدیمی:',
+	'swl-new-item' => 'جدید',
 	'swl-watchlist-pagincontrol' => 'مشاهدهٔ‌ ($1) ($2)',
 	'swl-watchlist-firstn' => 'ابتدا $1',
 	'swl-watchlist-firstn-title' => 'ابتدا $1 {{PLURAL:$1|نتیجه|نتایج}}',
 	'swl-watchlist-no-items' => 'شما هیچ موردی در فهرست پیگیری معنایی خود ندارید.',
 	'swl-watchlist-can-mod-groups' => 'شما می‌توانید [[$1|گروه‌های فهرست پیگیری را اصلاح کنید]].',
+	'swl-watchlist-can-mod-prefs' => 'شما همچنین می‌توانید [[$1|اولویت‌های فهرست سفید خود را تغییر دهید]]، شامل تنظیمی که خواص برای مشاهده هستند.',
+	'swl-watchlist-no-groups' => 'شما هنوز هیچ گروه فهرست سفیدی را مشاهده نمی‌کنید. [[$1|اولویت‌های فهرست سفید خود را تغییر دهید]].',
 	'swl-email-propschanged' => 'ویژگی‌ها در $1 تغییر کرده‌است',
+	'swl-email-propschanged-long' => "یک یا چند خاصیتی که شما در '''$1''' تماشا می‌کنید، توسط {{GENDER:$2| کاربر}} '''$2''' در$4 در $5 تغییر کرده‌است. شما می‌توانید این و دیگر تغییرات را در  [$3 فهرست سفید معنایی خود] مشاهده کنید.",
 	'swl-email-changes' => 'تغییرات ویژگی در [$2 $1]:',
 	'prefs-swl' => 'فهرست پیگیری معنایی',
 	'prefs-swlgroup' => 'گروه‌ها برای نظارت',
@@ -556,6 +573,7 @@ $messages['fa'] = array(
 	'swl-prefs-category-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از مقولهٔ ''$4''",
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از فضای نام ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|ویژگی|ویژگی‌ها}} $3 از مفهوم ''$4''",
+	'swl-err-userid-xor-groupids' => 'یا شناسه کاربری یا پارامتر شناسه‌های کاربری نیاز به مشخص شدن دارند، اما نه هر دو.',
 );
 
 /** Finnish (suomi)
@@ -1131,6 +1149,7 @@ $messages['lb'] = array(
 	'swl-custom-text-add' => 'Personaliséierten Text derbäisetzen',
 	'swl-watchlist-insertions' => 'Derbäigesat:',
 	'swl-watchlist-deletions' => 'Al:',
+	'swl-new-item' => 'NEI',
 	'swl-watchlist-pagincontrol' => '($1) ($2) weisen',
 	'swl-watchlist-firstn' => 'éischt $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Dat éischt Resultat|Déi éischt $1 Resultater}}',
@@ -1354,6 +1373,7 @@ $messages['pfl'] = array(
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Jacenty359
  * @author Woytecr
  */
 $messages['pl'] = array(
@@ -1373,6 +1393,7 @@ $messages['pl'] = array(
 	'swl-custom-text-add' => 'Dodaj własny tekst',
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
+	'swl-new-item' => 'NOWY',
 	'swl-watchlist-pagincontrol' => 'Zobacz ($1) ($2)',
 	'swl-watchlist-firstn' => 'pierwsze $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}',
