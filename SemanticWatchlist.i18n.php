@@ -131,7 +131,8 @@ $messages['qqq'] = array(
 {{Identical|New}}',
 	'swl-watchlist-deletions' => 'This message precedes the display of the old property value set for the watched property.
 {{Identical|Old}}',
-	'swl-new-item' => 'This message is used to draw the attention of the user to an entry on the watchlist as a new item.',
+	'swl-new-item' => 'This message is used to draw the attention of the user to an entry on the watchlist as a new item.
+{{Identical|New}}',
 	'swl-watchlist-pagincontrol' => 'This message allows to navigate through the changes on [[Special:SemanticWatchlist]] in a paginated format.
 * $1 - replaced by {{msg-mw|Swl-watchlist-firstn}}
 * $2 - replaced by {{msg-mw|Nextn}}
@@ -663,6 +664,7 @@ $messages['fr'] = array(
 	'swl-watchlist-position' => "Afficher {{PLURAL:$1|la dernière modification|les '''$1''' dernières modifications à partir de la modification '''#$2'''}}.",
 	'swl-watchlist-insertions' => 'Ajouté :',
 	'swl-watchlist-deletions' => 'Ancien:',
+	'swl-new-item' => 'NOUVEAU',
 	'swl-watchlist-pagincontrol' => 'Voir ($1) ($2)',
 	'swl-watchlist-firstn' => '$1 premiers',
 	'swl-watchlist-firstn-title' => '$1 {{PLURAL:$1|permier résultat|premiers résultats}}',
@@ -848,6 +850,7 @@ $messages['hsb'] = array(
 	'swl-watchlist-position' => "{{PLURAL:$1|Pokazuje|Pokazujetej|Pokazuja|Pokazuje}} so '''$1''' {{PLURAL:$1|poslednja změna|poslednjej změnje|poslednje změny|poslednich změnow}}, započinajo z '''#$2''':",
 	'swl-watchlist-insertions' => 'Nowy:',
 	'swl-watchlist-deletions' => 'Stary:',
+	'swl-new-item' => 'NOWY',
 	'swl-watchlist-pagincontrol' => '($1) ($2) pokazać',
 	'swl-watchlist-firstn' => 'prěni $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Prěni wuslědk|Prěnjej $1 wuslědkaj|Prěnje $1 wuslědki|Prěnich $1 wuslědkow}}',
@@ -993,6 +996,7 @@ $messages['ja'] = array(
 	'swl-custom-input' => 'プロパティ $1 の値が $2 に変わった場合、以下の内容で利用者に通知する: $3',
 	'swl-watchlist-insertions' => '新:',
 	'swl-watchlist-deletions' => '旧:',
+	'swl-new-item' => '新',
 	'swl-watchlist-pagincontrol' => '表示 ($1) ($2)',
 	'swl-watchlist-firstn' => '最初の $1 件',
 	'swl-watchlist-firstn-title' => '最初の $1 {{PLURAL:$1|件の結果}}',
@@ -1211,6 +1215,7 @@ $messages['mk'] = array(
 	'swl-watchlist-position' => "Приказ на {{PLURAL:$1|последната промена|последните '''$1''' промени, почнувајќи од '''бр. $2'''}}:",
 	'swl-watchlist-insertions' => 'Додадено:',
 	'swl-watchlist-deletions' => 'Стари:',
+	'swl-new-item' => 'НОВО',
 	'swl-watchlist-pagincontrol' => 'Видете ($1) ($2)',
 	'swl-watchlist-firstn' => 'први $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Прв $1 резултат|Први $1 резултати}}',
@@ -1601,6 +1606,7 @@ $messages['ru'] = array(
 	'swl-watchlist-position' => "{{PLURAL:$1|Показано '''$1''' последнее изменение|Показаны '''$1''' последних изменений|Показаны последние '''$1''' изменения|1=Показано последнее изменение}}, начиная с изменения '''#$2''':",
 	'swl-watchlist-insertions' => 'Новое:',
 	'swl-watchlist-deletions' => 'Старое:',
+	'swl-new-item' => 'НОВЫЙ',
 	'swl-watchlist-pagincontrol' => 'Просмотреть ($1) ($2)',
 	'swl-watchlist-firstn' => 'первые $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Первый|Первые|1=}} $1 {{PLURAL:$1|результат|результатов|результата}}',
@@ -1620,6 +1626,13 @@ $messages['ru'] = array(
 	'swl-prefs-namespace-label' => "'''$1''': {{PLURAL:$2|1=свойство|свойства}} $3 из пространства имён ''$4''",
 	'swl-prefs-concept-label' => "'''$1''': {{PLURAL:$2|1=свойство|свойства}} $3 из концепта ''$4''",
 	'swl-err-userid-xor-groupids' => 'Должен быть задан либо параметр идентификатора пользователя, либо параметр идентификатора групп, но не оба сразу.',
+);
+
+/** Sardinian (sardu)
+ * @author L2212
+ */
+$messages['sc'] = array(
+	'swl-new-item' => 'NOVU',
 );
 
 /** Sinhala (සිංහල)
