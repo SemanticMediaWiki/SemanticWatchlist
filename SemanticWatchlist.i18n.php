@@ -1308,6 +1308,7 @@ $messages['nb'] = array(
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
+ * @author Sjoerddebruin
  */
 $messages['nl'] = array(
 	'semanticwatchlist-desc' => 'Laat gebruikers een volglijst samenstellen op basis van wijzigingen in gegevens van Semantic MediaWiki',
@@ -1337,6 +1338,7 @@ $messages['nl'] = array(
 	'swl-watchlist-position' => "{{PLURAL:$1|De laatste wijziging wordt weergegeven|Er worden '''$1''' recente wijzigingen weergegeven beginnend met '''#$2'''}}.",
 	'swl-watchlist-insertions' => 'Nieuw:',
 	'swl-watchlist-deletions' => 'Oud:',
+	'swl-new-item' => 'NIEUW',
 	'swl-watchlist-pagincontrol' => 'Bekijken ($1) ($2)',
 	'swl-watchlist-firstn' => 'eerste $1',
 	'swl-watchlist-firstn-title' => 'Eerste $1 {{PLURAL:$1|resultaat|resultaten}}',
@@ -1633,6 +1635,13 @@ $messages['ru'] = array(
  */
 $messages['sc'] = array(
 	'swl-new-item' => 'NOVU',
+);
+
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'swl-new-item' => 'NEW',
 );
 
 /** Sinhala (සිංහල)
