@@ -172,7 +172,7 @@
 		args[self.find('select :selected').attr('type')] = self.find( '.conditionInput' ).val();
 
 	 	$.getJSON(
-			wgScriptPath + '/api.php',
+			mw.util.wikiScript( 'api' ),
 			args,
 			function( data ) {
 				callback( data.success );
@@ -182,7 +182,7 @@
 
 	this.doDelete = function( callback ) {
 		$.getJSON(
-			wgScriptPath + '/api.php',
+			mw.util.wikiScript( 'api' ),
 			{
 				'action': 'deleteswlgroup',
 				'format': 'json',

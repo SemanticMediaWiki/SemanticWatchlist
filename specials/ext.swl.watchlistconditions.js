@@ -94,7 +94,7 @@
 
 	function addGroupToDB( groupName, callback ) {
 		$.getJSON(
-			wgScriptPath + '/api.php',
+			mw.util.wikiScript( 'api' ),
 			{
 				'action': 'addswlgroup',
 				'format': 'json',
