@@ -88,7 +88,6 @@ $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
-$wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
 
 // Admin Links hook needs to be called in a delayed way so that it
 // will always be called after SMW's Admin Links addition; as of
@@ -156,8 +155,10 @@ if ( $egSWLEnableEmailNotify ) {
 }
 
 // TEMPORARY until the Composer classmap is fixed
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']      = __DIR__ . '/src/MediaWiki/HookInterface.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls'] = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']         = __DIR__ . '/src/MediaWiki/HookInterface.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']    = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions'] = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
+$GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']        = __DIR__ . '/src/Database/DatabaseUpdater.php';
 
 /**
  * Setup and initialization
@@ -186,6 +187,19 @@ $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
 		$personalUrls->setConfiguration( $configuration );
 
 		return $personalUrls->execute();
+	};
+
+	/**
+	 * Called just before saving user preferences/options
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['UserSaveOptions'][] = function( User $user, array &$options ) use ( $configuration ) {
+
+		$userSaveOptions = new \SWL\MediaWiki\Hooks\UserSaveOptions( $user, $options );
+		$userSaveOptions->setConfiguration( $configuration );
+
+		return $userSaveOptions->execute();
 	};
 
 };
