@@ -292,39 +292,4 @@ final class SWLHooks {
 	    return true;
 	}
 
-	/**
-	 * Called after the personal URLs have been set up, before they are shown.
-	 * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/PersonalUrls
-	 *
-	 * @since 0.1
-	 *
-	 * @param array $personal_urls
-	 * @param Title $title
-	 *
-	 * @return true
-	 */
-	public static function onPersonalUrls( array &$personal_urls, Title &$title ) {
-		if ( $GLOBALS['egSWLEnableTopLink'] ) {
-			global $wgUser;
-
-			// Find the watchlist item and replace it by itself and the semantic watchlist.
-			if ( $wgUser->isLoggedIn() && $wgUser->getOption( 'swl_watchlisttoplink' ) ) {
-				$keys = array_keys( $personal_urls );
-				$watchListLocation = array_search( 'watchlist', $keys );
-				$watchListItem = $personal_urls[$keys[$watchListLocation]];
-
-				$url = SpecialPage::getTitleFor( 'SemanticWatchlist' )->getLinkUrl();
-				$semanticWatchlist = array(
-					'text' => wfMsg( 'prefs-swl' ),
-					'href' => $url,
-					'active' => ( $url == $title->getLinkUrl() )
-				);
-
-				array_splice( $personal_urls, $watchListLocation, 1, array( $watchListItem, $semanticWatchlist ) );
-			}
-		}
-
-		return true;
-	}
-
 }

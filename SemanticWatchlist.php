@@ -50,7 +50,7 @@ $wgExtensionCredits['semantic'][] = array(
 	'descriptionmsg' => 'semanticwatchlist-desc'
 );
 
-$egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
+$egSWLScriptPath = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
 
 $wgExtensionMessagesFiles['SemanticWatchlist']	  	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
 $wgExtensionMessagesFiles['SemanticWatchlistAlias']	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
@@ -89,7 +89,6 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 $wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
-$wgHooks['PersonalUrls'][] = 'SWLHooks::onPersonalUrls';
 
 // Admin Links hook needs to be called in a delayed way so that it
 // will always be called after SMW's Admin Links addition; as of
@@ -155,3 +154,38 @@ $wgAvailableRights[] = 'semanticwatchgroups';
 if ( $egSWLEnableEmailNotify ) {
 	$wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
 }
+
+// TEMPORARY until the Composer classmap is fixed
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']      = __DIR__ . '/src/MediaWiki/HookInterface.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls'] = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
+
+/**
+ * Setup and initialization
+ *
+ * @since 1.0
+ */
+$GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
+
+	/**
+	 * Collect only relevant configuration parameters
+	 *
+	 * @since 1.0
+	 */
+	$configuration = array(
+		'egSWLEnableTopLink' => $GLOBALS['egSWLEnableTopLink'],
+	);
+
+	/**
+	 * Called after the personal URLs have been set up, before they are shown
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['PersonalUrls'][] = function( array &$personal_urls, Title $title, SkinTemplate $skin ) use ( $configuration ) {
+
+		$personalUrls = new \SWL\MediaWiki\Hooks\PersonalUrls( $personal_urls, $title, $skin->getUser() );
+		$personalUrls->setConfiguration( $configuration );
+
+		return $personalUrls->execute();
+	};
+
+};
