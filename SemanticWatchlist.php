@@ -85,7 +85,6 @@ $wgAPIModules['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
 $wgAPIModules['editswlgroup'] = 'ApiEditWatchlistGroup';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 $wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 
@@ -155,10 +154,13 @@ if ( $egSWLEnableEmailNotify ) {
 }
 
 // TEMPORARY until the Composer classmap is fixed
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']         = __DIR__ . '/src/MediaWiki/HookInterface.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']    = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions'] = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
-$GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']        = __DIR__ . '/src/Database/DatabaseUpdater.php';
+$GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']               = __DIR__ . '/src/Database/DatabaseUpdater.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']                = __DIR__ . '/src/MediaWiki/HookInterface.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
+
+$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
 
 /**
  * Setup and initialization
@@ -173,7 +175,8 @@ $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
 	 * @since 1.0
 	 */
 	$configuration = array(
-		'egSWLEnableTopLink' => $GLOBALS['egSWLEnableTopLink'],
+		'egSWLEnableTopLink'         => $GLOBALS['egSWLEnableTopLink'],
+		'egSwlSqlDatabaseSchemaPath' => $GLOBALS['egSwlSqlDatabaseSchemaPath']
 	);
 
 	/**
@@ -202,4 +205,18 @@ $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
 		return $userSaveOptions->execute();
 	};
 
+	/**
+	 * Fired when MediaWiki is updated to allow extensions to update the database
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['LoadExtensionSchemaUpdates'][] = function( DatabaseUpdater $updater ) use ( $configuration ) {
+
+		$extensionSchemaUpdater = new \SWL\MediaWiki\Hooks\ExtensionSchemaUpdater( $updater );
+		$extensionSchemaUpdater->setConfiguration( $configuration );
+
+		return $extensionSchemaUpdater->execute();
+	};
+
+	return true;
 };

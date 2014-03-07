@@ -182,60 +182,6 @@ final class SWLHooks {
 	}
 
 	/**
-	 * Schema update to set up the needed database tables.
-	 *
-	 * @since 0.1
-	 *
-	 * @param DatabaseUpdater $updater
-	 *
-	 * @return true
-	 */
-	public static function onSchemaUpdate( /* DatabaseUpdater */ $updater = null ) {
-		global $wgDBtype;
-
-		if ( $wgDBtype == 'mysql' ) {
-            $updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_groups',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-            $updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_changes',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-			$updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_sets',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-			$updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_edits_per_group',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-			$updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_sets_per_group',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-			$updater->addExtensionUpdate( array(
-                'addTable',
-                'swl_users_per_group',
-                dirname( __FILE__ ) . '/SemanticWatchlist.sql',
-                true
-            ) );
-		}
-
-		return true;
-	}
-
-	/**
 	 * Adds a link to Admin Links page.
 	 *
 	 * @since 0.1

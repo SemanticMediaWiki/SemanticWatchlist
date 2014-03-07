@@ -21,9 +21,9 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseMysql' )
+		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->getMock();
+			->getMockForAbstractClass();
 
 		$this->assertInstanceOf(
 			'\SWL\Database\DatabaseUpdater',
@@ -36,9 +36,10 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array( 1, 9999 );
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseMysql' )
+		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->getMock();
+			->setMethods( array( 'delete', 'insert' ) )
+			->getMockForAbstractClass();
 
 		$dbConnection->expects( $this->once() )
 			->method( 'delete' )
@@ -60,9 +61,10 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array();
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseMysql' )
+		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->getMock();
+			->setMethods( array( 'delete', 'insert' ) )
+			->getMockForAbstractClass();
 
 		$dbConnection->expects( $this->once() )
 			->method( 'delete' )
