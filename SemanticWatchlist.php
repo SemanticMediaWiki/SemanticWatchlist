@@ -86,7 +86,6 @@ $wgAPIModules['editswlgroup'] = 'ApiEditWatchlistGroup';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
-$wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
 
 // Admin Links hook needs to be called in a delayed way so that it
 // will always be called after SMW's Admin Links addition; as of
@@ -159,6 +158,7 @@ $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']                = __
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __DIR__ . '/src/MediaWiki/Hooks/GetPreferences.php';
 
 $GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
 
@@ -176,6 +176,7 @@ $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
 	 */
 	$configuration = array(
 		'egSWLEnableTopLink'         => $GLOBALS['egSWLEnableTopLink'],
+		'egSWLEnableEmailNotify'     => $GLOBALS['egSWLEnableEmailNotify'],
 		'egSwlSqlDatabaseSchemaPath' => $GLOBALS['egSwlSqlDatabaseSchemaPath']
 	);
 
@@ -216,6 +217,19 @@ $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
 		$extensionSchemaUpdater->setConfiguration( $configuration );
 
 		return $extensionSchemaUpdater->execute();
+	};
+
+	/**
+	 * Modify user preferences
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration ) {
+
+		$getPreferences = new \SWL\MediaWiki\Hooks\GetPreferences( $user, $GLOBALS['wgLang'], $preferences );
+		$getPreferences->setConfiguration( $configuration );
+
+		return $getPreferences->execute();
 	};
 
 	return true;
