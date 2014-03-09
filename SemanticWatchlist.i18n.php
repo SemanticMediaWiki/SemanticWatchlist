@@ -806,6 +806,13 @@ $messages['gsw'] = array(
 	'swl-watchlist-can-mod-groups' => 'Du chasch [[$1|die Gruppe]] aapasse..',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author KartikMistry
+ */
+$messages['gu'] = array(
+	'swl-new-item' => 'નવું',
+);
+
 /** Hebrew (עברית)
  * @author Amire80
  * @author Inkbug
@@ -1479,7 +1486,9 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Imperadeiro98
  * @author Luckas
+ * @author SandroHc
  */
 $messages['pt'] = array(
 	'semanticwatchlist-desc' => 'Permite que os utilizadores sejam notificados de alterações específicas aos dados do MediaWiki Semântico',
@@ -1489,18 +1498,19 @@ $messages['pt'] = array(
 	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:', # Fuzzy
-	'swl-group-page-selection' => 'Páginas em', # Fuzzy
+	'swl-group-page-selection' => 'Seleccione páginas para ver:',
 	'swl-group-save' => 'Gravar',
-	'swl-group-saved' => 'Gravado', # Fuzzy
+	'swl-group-saved' => 'As configurações foram gravadas.',
 	'swl-group-saving' => 'A gravar',
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'espaço nominal',
 	'swl-group-concept' => 'conceito',
 	'swl-group-add-new-group' => 'Adicionar um grupo novo',
 	'swl-group-add-group' => 'Adicionar grupo',
-	'swl-watchlist-position' => "A mostrar '''$1''' das últimas alterações, começando pela '''$2ª'''.", # Fuzzy
+	'swl-watchlist-position' => "A mostrar a última {{PLURAL:$1|mudança|'''$1''' mudanças, a começar pela mudança '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'Adições:',
 	'swl-watchlist-deletions' => 'Antigas:',
+	'swl-new-item' => 'NOVO',
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
 	'swl-watchlist-firstn' => 'primeiras $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 results}}',
@@ -1867,6 +1877,7 @@ $messages['uk'] = array(
 	'swl-watchlist-position' => "Показано {{PLURAL:$1|1=останню зміну|останні '''$1''' зміни, починаючи з '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'Нові:',
 	'swl-watchlist-deletions' => 'Старі:',
+	'swl-new-item' => 'НОВИЙ',
 	'swl-watchlist-pagincontrol' => 'Перегляд ($1) ($2)',
 	'swl-watchlist-firstn' => 'перший $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Перший $1 результат|Перші $1 результати|Перші $1 результатів}}',
@@ -1912,6 +1923,13 @@ $messages['vi'] = array(
 	'swl-group-saving' => 'Đang lưu',
 	'swl-group-category' => 'thể loại',
 	'swl-group-namespace' => 'không gian tên',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'swl-new-item' => 'NULIK',
 );
 
 /** Yiddish (ייִדיש)
