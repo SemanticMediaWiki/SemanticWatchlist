@@ -297,6 +297,7 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'swl-group-saving' => 'Ӏалашяр',
+	'swl-new-item' => 'КЕРЛА',
 	'swl-prefs-emailnofity' => 'Аса тергал еш йолучарна хийцам бича электронан почте баийта хаам',
 );
 
@@ -761,6 +762,7 @@ $messages['gl'] = array(
 	'swl-watchlist-position' => "Mostrando {{PLURAL:$1|o último cambio|'''$1''' cambios, comezando polo '''nº$2'''}}:",
 	'swl-watchlist-insertions' => 'Engadido:',
 	'swl-watchlist-deletions' => 'Vello:',
+	'swl-new-item' => 'NOVO',
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
 	'swl-watchlist-firstn' => '$1 primeiras',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}',
