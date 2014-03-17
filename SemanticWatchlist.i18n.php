@@ -1482,6 +1482,7 @@ $messages['ps'] = array(
 	'swl-group-add-group' => 'ډله ورگډول',
 	'swl-watchlist-insertions' => 'نوی:',
 	'swl-watchlist-deletions' => 'زوړ:',
+	'swl-new-item' => 'نوی',
 	'swl-watchlist-pagincontrol' => 'کتل ($1) ($2)',
 );
 
@@ -1947,6 +1948,7 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Liangent
  * @author Linforest
+ * @author Liuxinyu970226
  * @author Shirayuki
  * @author Xiaomingyan
  * @author Yfdyh000
@@ -1979,6 +1981,7 @@ $messages['zh-hans'] = array(
 	'swl-watchlist-position' => "显示从'''#$2'''开始的，最近的'''$1'''个变更。",
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '旧：',
+	'swl-new-item' => '新',
 	'swl-watchlist-pagincontrol' => '查看 ($1) ($2)',
 	'swl-watchlist-firstn' => '前$1',
 	'swl-watchlist-firstn-title' => '前$1{{PLURAL:$1|项结果|项结果}}',
