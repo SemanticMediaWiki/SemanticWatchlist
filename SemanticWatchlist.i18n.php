@@ -297,6 +297,7 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'swl-group-saving' => 'Ӏалашяр',
+	'swl-new-item' => 'КЕРЛА',
 	'swl-prefs-emailnofity' => 'Аса тергал еш йолучарна хийцам бича электронан почте баийта хаам',
 );
 
@@ -761,6 +762,7 @@ $messages['gl'] = array(
 	'swl-watchlist-position' => "Mostrando {{PLURAL:$1|o último cambio|'''$1''' cambios, comezando polo '''nº$2'''}}:",
 	'swl-watchlist-insertions' => 'Engadido:',
 	'swl-watchlist-deletions' => 'Vello:',
+	'swl-new-item' => 'NOVO',
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
 	'swl-watchlist-firstn' => '$1 primeiras',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}',
@@ -804,6 +806,13 @@ $messages['gsw'] = array(
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Erschts Ergebnis|Erschti $1 Ergebnis}}',
 	'swl-watchlist-no-items' => 'Du hesch ke Yträg uf dyre Beobachtigslischte.',
 	'swl-watchlist-can-mod-groups' => 'Du chasch [[$1|die Gruppe]] aapasse..',
+);
+
+/** Gujarati (ગુજરાતી)
+ * @author KartikMistry
+ */
+$messages['gu'] = array(
+	'swl-new-item' => 'નવું',
 );
 
 /** Hebrew (עברית)
@@ -1473,13 +1482,16 @@ $messages['ps'] = array(
 	'swl-group-add-group' => 'ډله ورگډول',
 	'swl-watchlist-insertions' => 'نوی:',
 	'swl-watchlist-deletions' => 'زوړ:',
+	'swl-new-item' => 'نوی',
 	'swl-watchlist-pagincontrol' => 'کتل ($1) ($2)',
 );
 
 /** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Imperadeiro98
  * @author Luckas
+ * @author SandroHc
  */
 $messages['pt'] = array(
 	'semanticwatchlist-desc' => 'Permite que os utilizadores sejam notificados de alterações específicas aos dados do MediaWiki Semântico',
@@ -1489,18 +1501,19 @@ $messages['pt'] = array(
 	'special-watchlistconditions' => 'Condições da lista das propriedades semânticas vigiadas',
 	'swl-group-name' => 'Nome de grupo:',
 	'swl-group-properties' => 'Propriedades abrangidas por este grupo:', # Fuzzy
-	'swl-group-page-selection' => 'Páginas em', # Fuzzy
+	'swl-group-page-selection' => 'Seleccione páginas para ver:',
 	'swl-group-save' => 'Gravar',
-	'swl-group-saved' => 'Gravado', # Fuzzy
+	'swl-group-saved' => 'As configurações foram gravadas.',
 	'swl-group-saving' => 'A gravar',
 	'swl-group-category' => 'categoria',
 	'swl-group-namespace' => 'espaço nominal',
 	'swl-group-concept' => 'conceito',
 	'swl-group-add-new-group' => 'Adicionar um grupo novo',
 	'swl-group-add-group' => 'Adicionar grupo',
-	'swl-watchlist-position' => "A mostrar '''$1''' das últimas alterações, começando pela '''$2ª'''.", # Fuzzy
+	'swl-watchlist-position' => "A mostrar a última {{PLURAL:$1|mudança|'''$1''' mudanças, a começar pela mudança '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'Adições:',
 	'swl-watchlist-deletions' => 'Antigas:',
+	'swl-new-item' => 'NOVO',
 	'swl-watchlist-pagincontrol' => 'Ver ($1) ($2)',
 	'swl-watchlist-firstn' => 'primeiras $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Primeiro resultado|Primeiros $1 results}}',
@@ -1867,6 +1880,7 @@ $messages['uk'] = array(
 	'swl-watchlist-position' => "Показано {{PLURAL:$1|1=останню зміну|останні '''$1''' зміни, починаючи з '''#$2'''}}:",
 	'swl-watchlist-insertions' => 'Нові:',
 	'swl-watchlist-deletions' => 'Старі:',
+	'swl-new-item' => 'НОВИЙ',
 	'swl-watchlist-pagincontrol' => 'Перегляд ($1) ($2)',
 	'swl-watchlist-firstn' => 'перший $1',
 	'swl-watchlist-firstn-title' => '{{PLURAL:$1|Перший $1 результат|Перші $1 результати|Перші $1 результатів}}',
@@ -1914,6 +1928,13 @@ $messages['vi'] = array(
 	'swl-group-namespace' => 'không gian tên',
 );
 
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'swl-new-item' => 'NULIK',
+);
+
 /** Yiddish (ייִדיש)
  * @author פוילישער
  * @author පසිඳු කාවින්ද
@@ -1927,6 +1948,7 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Liangent
  * @author Linforest
+ * @author Liuxinyu970226
  * @author Shirayuki
  * @author Xiaomingyan
  * @author Yfdyh000
@@ -1959,6 +1981,7 @@ $messages['zh-hans'] = array(
 	'swl-watchlist-position' => "显示从'''#$2'''开始的，最近的'''$1'''个变更。",
 	'swl-watchlist-insertions' => '新：',
 	'swl-watchlist-deletions' => '旧：',
+	'swl-new-item' => '新',
 	'swl-watchlist-pagincontrol' => '查看 ($1) ($2)',
 	'swl-watchlist-firstn' => '前$1',
 	'swl-watchlist-firstn-title' => '前$1{{PLURAL:$1|项结果|项结果}}',
