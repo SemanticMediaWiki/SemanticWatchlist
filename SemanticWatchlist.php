@@ -5,19 +5,9 @@
  * 
  * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
  * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
- * Source code:		http://git.wikimedia.org/tree/mediawiki%2Fextensions%2FSemanticWatchlist
- *
- * @file SemanticWatchlist.php
- * @ingroup SemanticWatchlist
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
- */
-
-/**
- * This documentation group collects source code files belonging to Semantic Watchlist.
- *
- * @defgroup SemanticWatchlist Semantic Watchlist
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
