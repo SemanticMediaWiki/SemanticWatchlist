@@ -146,9 +146,6 @@ $wgResourceModules['ext.swl.watchlistconditions'] = $moduleTemplate + array(
 
 require_once 'SemanticWatchlist.settings.php';
 
-// This overrides the default value for the setting in SMW, as the behaviour it enables is used by this extension.
-$smwgCheckChangesBeforeUpdate = true;
-
 $wgAvailableRights[] = 'semanticwatch';
 $wgAvailableRights[] = 'semanticwatchgroups';
 
