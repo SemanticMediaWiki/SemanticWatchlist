@@ -40,7 +40,7 @@ $wgExtensionCredits['semantic'][] = array(
 	'descriptionmsg' => 'semanticwatchlist-desc'
 );
 
-$egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
+$egSWLScriptPath = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
 
 $wgExtensionMessagesFiles['SemanticWatchlist']	  	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
 $wgExtensionMessagesFiles['SemanticWatchlistAlias']	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
@@ -75,11 +75,7 @@ $wgAPIModules['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
 $wgAPIModules['editswlgroup'] = 'ApiEditWatchlistGroup';
 $wgAPIListModules['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'SWLHooks::onSchemaUpdate';
 $wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
-$wgHooks['GetPreferences'][] = 'SWLHooks::onGetPreferences';
-$wgHooks['UserSaveOptions'][] = 'SWLHooks::onUserSaveOptions';
-$wgHooks['PersonalUrls'][] = 'SWLHooks::onPersonalUrls';
 
 // Admin Links hook needs to be called in a delayed way so that it
 // will always be called after SMW's Admin Links addition; as of
@@ -142,3 +138,86 @@ $wgAvailableRights[] = 'semanticwatchgroups';
 if ( $egSWLEnableEmailNotify ) {
 	$wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
 }
+
+// TEMPORARY until the Composer classmap is fixed
+$GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']               = __DIR__ . '/src/Database/DatabaseUpdater.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']                = __DIR__ . '/src/MediaWiki/HookInterface.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __DIR__ . '/src/MediaWiki/Hooks/GetPreferences.php';
+
+$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
+
+/**
+ * Setup and initialization
+ *
+ * @since 1.0
+ */
+$GLOBALS['wgExtensionFunctions']['semantic-watchlist'] = function() {
+
+	/**
+	 * Collect only relevant configuration parameters
+	 *
+	 * @since 1.0
+	 */
+	$configuration = array(
+		'egSWLEnableTopLink'         => $GLOBALS['egSWLEnableTopLink'],
+		'egSWLEnableEmailNotify'     => $GLOBALS['egSWLEnableEmailNotify'],
+		'egSwlSqlDatabaseSchemaPath' => $GLOBALS['egSwlSqlDatabaseSchemaPath']
+	);
+
+	/**
+	 * Called after the personal URLs have been set up, before they are shown
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['PersonalUrls'][] = function( array &$personal_urls, Title $title, SkinTemplate $skin ) use ( $configuration ) {
+
+		$personalUrls = new \SWL\MediaWiki\Hooks\PersonalUrls( $personal_urls, $title, $skin->getUser() );
+		$personalUrls->setConfiguration( $configuration );
+
+		return $personalUrls->execute();
+	};
+
+	/**
+	 * Called just before saving user preferences/options
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['UserSaveOptions'][] = function( User $user, array &$options ) use ( $configuration ) {
+
+		$userSaveOptions = new \SWL\MediaWiki\Hooks\UserSaveOptions( $user, $options );
+		$userSaveOptions->setConfiguration( $configuration );
+
+		return $userSaveOptions->execute();
+	};
+
+	/**
+	 * Fired when MediaWiki is updated to allow extensions to update the database
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['LoadExtensionSchemaUpdates'][] = function( DatabaseUpdater $updater ) use ( $configuration ) {
+
+		$extensionSchemaUpdater = new \SWL\MediaWiki\Hooks\ExtensionSchemaUpdater( $updater );
+		$extensionSchemaUpdater->setConfiguration( $configuration );
+
+		return $extensionSchemaUpdater->execute();
+	};
+
+	/**
+	 * Modify user preferences
+	 *
+	 * @since 1.0
+	 */
+	$GLOBALS['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration ) {
+
+		$getPreferences = new \SWL\MediaWiki\Hooks\GetPreferences( $user, $GLOBALS['wgLang'], $preferences );
+		$getPreferences->setConfiguration( $configuration );
+
+		return $getPreferences->execute();
+	};
+
+	return true;
+};
