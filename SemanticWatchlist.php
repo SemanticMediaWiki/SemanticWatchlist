@@ -27,7 +27,7 @@ if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.6 or above.' );
 }
 
-define( 'SemanticWatchlist_VERSION', '0.2.2' );
+define( 'SemanticWatchlist_VERSION', '1.0 alpha' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
