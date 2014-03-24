@@ -51,6 +51,9 @@ class Setup {
 	}
 
 	protected function deferredHookRegistration() {
+
+		// FIXME PHP 5.3 doesn't allow to use $this reference within a closure
+		// when 5.3 is obsolete use $this instead (PHP 5.4+)
 		$globalVars = $this->globalVars;
 
 		$this->globalVars['wgExtensionFunctions']['semantic-watchlist'] = function() use( $globalVars ) {

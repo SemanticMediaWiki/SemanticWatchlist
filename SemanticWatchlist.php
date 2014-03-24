@@ -3,9 +3,6 @@
 /**
  * Initialization file for the Semantic Watchlist extension.
  *
- * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
- * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
- *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
