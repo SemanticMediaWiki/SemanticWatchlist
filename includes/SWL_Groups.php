@@ -31,7 +31,7 @@ final class SWLGroups {
 		if ( self::$groups === false ) {
 			self::$groups = array();
 
-	        $dbr = wfGetDB( DB_SLAVE );
+	        $dbr = \SWL\ServiceFactory::getInstance()->getDBConnection( DB_SLAVE );
 
 	        $groups = $dbr->select( 'swl_groups', array(
 				'group_id',

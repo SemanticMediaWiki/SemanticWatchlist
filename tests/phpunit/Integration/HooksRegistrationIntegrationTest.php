@@ -3,6 +3,8 @@
 namespace SWL\Tests\Integration;
 
 use SWL\Setup;
+use SWL\ServiceFactory;
+
 use SMW\StoreFactory;
 use SMW\SemanticData;
 use SMW\DIWikiPage;
@@ -21,10 +23,11 @@ use Title;
  *
  * @author mwjames
  */
-class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
+class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 	protected $wgHooks = array();
 	protected $wgExtensionFunctions = array();
+	protected $registryStatus = null;
 
 	protected function setUp() {
 
@@ -37,6 +40,7 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		$GLOBALS['wgHooks'] = array();
 		$GLOBALS['wgExtensionFunctions'] = array();
 		Setup::getInstance()->setGlobalVars( $GLOBALS )->run();
+		ServiceFactory::getInstance();
 
 		parent::setUp();
 	}
@@ -46,6 +50,7 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 		$GLOBALS['wgHooks'] = $this->wgHooks;
 		$GLOBALS['wgExtensionFunctions'] = $this->wgExtensionFunctions;
+		ServiceFactory::clear();
 	}
 
 	public function testExtensionHookRegistration() {
@@ -64,9 +69,20 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 	 * of the invoked hook and only verify that hook did not cause any failures
 	 * when run together with the Store updater.
 	 */
-	public function testStoreUpdateHookInterfaceInitialization() {
+	public function testStoreUpdateDataBeforeHook() {
 
-		call_user_func( $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] );
+		$database = $this->getMockBuilder( 'DatabaseBase' )
+			->disableOriginalConstructor()
+			->setMethods( array( 'select' ) )
+			->getMockForAbstractClass();
+
+		$database->expects( $this->atLeastOnce() )
+			->method( 'select' )
+			->will( $this->returnValue( array() ) );
+
+		ServiceFactory::getInstance()->setDBConnection( DB_SLAVE, $database );
+
+		$this->callExtensionFunctions();
 
 		$this->assertArrayHasKey( 'SMWStore::updateDataBefore', $GLOBALS['wgHooks'] );
 
@@ -95,6 +111,10 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		StoreFactory::getStore()->updateData( $semanticData );
 
 		// @see #235 Store database needs mock to avoid unregulated DB access
+	}
+
+	protected function callExtensionFunctions() {
+		call_user_func_array( $GLOBALS['wgExtensionFunctions']['semantic-watchlist'], array( &$this->registryStatus ) );
 	}
 
 }
