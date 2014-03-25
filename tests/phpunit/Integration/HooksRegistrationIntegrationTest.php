@@ -21,10 +21,11 @@ use Title;
  *
  * @author mwjames
  */
-class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
+class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 	protected $wgHooks = array();
 	protected $wgExtensionFunctions = array();
+	protected $registryStatus = null;
 
 	protected function setUp() {
 
@@ -64,9 +65,9 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 	 * of the invoked hook and only verify that hook did not cause any failures
 	 * when run together with the Store updater.
 	 */
-	public function testStoreUpdateHookInterfaceInitialization() {
+	public function testStoreUpdateDataBeforeHook() {
 
-		call_user_func( $GLOBALS['wgExtensionFunctions']['semantic-watchlist'] );
+		$this->callExtensionFunctions();
 
 		$this->assertArrayHasKey( 'SMWStore::updateDataBefore', $GLOBALS['wgHooks'] );
 
@@ -95,6 +96,10 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		StoreFactory::getStore()->updateData( $semanticData );
 
 		// @see #235 Store database needs mock to avoid unregulated DB access
+	}
+
+	protected function callExtensionFunctions() {
+		call_user_func_array( $GLOBALS['wgExtensionFunctions']['semantic-watchlist'], array( &$this->registryStatus ) );
 	}
 
 }
