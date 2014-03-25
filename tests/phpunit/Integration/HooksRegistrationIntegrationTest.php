@@ -3,6 +3,8 @@
 namespace SWL\Tests\Integration;
 
 use SWL\Setup;
+use SWL\ServiceFactory;
+
 use SMW\StoreFactory;
 use SMW\SemanticData;
 use SMW\DIWikiPage;
@@ -38,6 +40,7 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		$GLOBALS['wgHooks'] = array();
 		$GLOBALS['wgExtensionFunctions'] = array();
 		Setup::getInstance()->setGlobalVars( $GLOBALS )->run();
+		ServiceFactory::getInstance();
 
 		parent::setUp();
 	}
@@ -47,6 +50,7 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 		$GLOBALS['wgHooks'] = $this->wgHooks;
 		$GLOBALS['wgExtensionFunctions'] = $this->wgExtensionFunctions;
+		ServiceFactory::clear();
 	}
 
 	public function testExtensionHookRegistration() {
@@ -66,6 +70,17 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 	 * when run together with the Store updater.
 	 */
 	public function testStoreUpdateDataBeforeHook() {
+
+		$database = $this->getMockBuilder( 'DatabaseBase' )
+			->disableOriginalConstructor()
+			->setMethods( array( 'select' ) )
+			->getMockForAbstractClass();
+
+		$database->expects( $this->atLeastOnce() )
+			->method( 'select' )
+			->will( $this->returnValue( array() ) );
+
+		ServiceFactory::getInstance()->setDBConnection( DB_SLAVE, $database );
 
 		$this->callExtensionFunctions();
 
