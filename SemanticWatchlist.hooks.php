@@ -14,52 +14,6 @@
 final class SWLHooks {
 
     /**
-     * Handle the onDataChanged hook of SMW >1.6, which gets called
-     * every time the value of a propery changes somewhere.
-     *
-     * @since 0.1
-     *
-     * @param SMWStore $store
-     * @param SMWChangeSet $changes
-     *
-     * @return true
-     */
-	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
-		$subject = $newData->getSubject();
-		$oldData = $store->getSemanticData( $subject );
-		$title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
-
-		$groups = SWLGroups::getMatchingWatchGroups( $title );
-
-		$edit = false;
-
-		foreach ( $groups as /* SWLGroup */ $group ) {
-			$changeSet = SWLChangeSet::newFromSemanticData( $oldData, $newData, $group->getProperties() );
-
-			if ( $changeSet->hasUserDefinedProperties() ) {
-				if ( $edit === false ) {
-					$edit = new SWLEdit(
-						$title->getArticleID(),
-						$GLOBALS['wgUser']->getName(),
-						wfTimestampNow()
-					);
-
-					$edit->writeToDB();
-				}
-
-				$changeSet->setEdit( $edit );
-				$setId = $changeSet->writeToStore( $groups, $edit->getId() );
-
-				if ( $setId != 0 ) {
-					$group->notifyWatchingUsers( $changeSet );
-				}
-			}
-		}
-
-		return true;
-	}
-
-    /**
      * Handles group notification.
      *
      * @since 0.1

@@ -121,12 +121,14 @@ $GLOBALS['wgAvailableRights'][] = 'semanticwatchgroups';
 // TEMPORARY until the Composer classmap is fixed
 $GLOBALS['wgAutoloadClasses']['SWL\Setup']                                  = __DIR__ . '/src/Setup.php';
 $GLOBALS['wgAutoloadClasses']['SWL\ServiceFactory']                         = __DIR__ . '/src/ServiceFactory.php';
+$GLOBALS['wgAutoloadClasses']['SWL\ObservableReporter']                     = __DIR__ . '/src/ObservableReporter.php';
 $GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']               = __DIR__ . '/src/Database/DatabaseUpdater.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']                = __DIR__ . '/src/MediaWiki/HookInterface.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __DIR__ . '/src/MediaWiki/Hooks/GetPreferences.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\StoreUpdateDataBefore']  = __DIR__ . '/src/MediaWiki/Hooks/StoreUpdateDataBefore.php';
 
 $GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
 

@@ -84,8 +84,6 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 		$this->callExtensionFunctions();
 
-		$this->assertArrayHasKey( 'SMWStore::updateDataBefore', $GLOBALS['wgHooks'] );
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -110,11 +108,20 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		StoreFactory::clear();
 		StoreFactory::getStore()->updateData( $semanticData );
 
+		$this->assertArrayHasKey( 'SMWStore::updateDataBefore', $this->registryStatus );
+
 		// @see #235 Store database needs mock to avoid unregulated DB access
 	}
 
 	protected function callExtensionFunctions() {
-		call_user_func_array( $GLOBALS['wgExtensionFunctions']['semantic-watchlist'], array( &$this->registryStatus ) );
+		call_user_func_array(
+			$GLOBALS['wgExtensionFunctions']['semantic-watchlist'],
+			array( array( $this, 'reportRegistryStatus' ) )
+		);
+	}
+
+	public function reportRegistryStatus( $key, $status ) {
+		$this->registryStatus[ $key ] = $status;
 	}
 
 }

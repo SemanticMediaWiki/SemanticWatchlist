@@ -6,6 +6,7 @@ use SWL\MediaWiki\Hooks\PersonalUrls;
 use SWL\MediaWiki\Hooks\UserSaveOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
+use SWL\MediaWiki\Hooks\StoreUpdateDataBefore;
 
 use User;
 use Title;
@@ -60,7 +61,7 @@ class Setup {
 		// when 5.3 is obsolete use $this instead (PHP 5.4+)
 		$globalVars = $this->globalVars;
 
-		$this->globalVars['wgExtensionFunctions']['semantic-watchlist'] = function() use( $globalVars ) {
+		$this->globalVars['wgExtensionFunctions']['semantic-watchlist'] = function( $reporter = null ) use( $globalVars ) {
 
 			/**
 			 * Collect only relevant configuration parameters
@@ -73,7 +74,15 @@ class Setup {
 				'egSwlSqlDatabaseSchemaPath' => $globalVars['egSwlSqlDatabaseSchemaPath']
 			);
 
+<<<<<<< HEAD
 			$wgLang = $globalVars['wgLang'];
+=======
+			$language = $globalVars['wgLang'];
+			$user = $globalVars['wgUser'];
+
+			$observableReporter = new ObservableReporter;
+			$observableReporter->registerCallback( $reporter );
+>>>>>>> Move onDataUpdate to SWL\MediaWiki\Hooks\StoreUpdateDataBefore
 
 			/**
 			 * Called after the personal URLs have been set up, before they are shown
@@ -129,8 +138,21 @@ class Setup {
 				return $getPreferences->execute();
 			};
 
+			/**
+			 * Modify user preferences
+			 *
+			 * @since 1.0
+			 */
+			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration, $user, $observableReporter ) {
+
+				$updateDataBefore = new StoreUpdateDataBefore( $store, $semanticData, $user );
+				$updateDataBefore->setConfiguration( $configuration );
+				$updateDataBefore->setReporter( $observableReporter );
+
+				return $updateDataBefore->execute();
+			};
+
 			$globalVars['wgHooks']['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
-			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
 
 			if ( $globalVars['egSWLEnableEmailNotify'] ) {
 				$globalVars['wgHooks']['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
