@@ -7,6 +7,10 @@ use SWL\MediaWiki\Hooks\UserSaveOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 
+use User;
+use Title;
+use Language;
+
 /**
  * @ingroup SWL
  *
@@ -69,7 +73,7 @@ class Setup {
 				'egSwlSqlDatabaseSchemaPath' => $globalVars['egSwlSqlDatabaseSchemaPath']
 			);
 
-			$language = $globalVars['wgLang'];
+			$wgLang = $globalVars['wgLang'];
 
 			/**
 			 * Called after the personal URLs have been set up, before they are shown
@@ -115,9 +119,11 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration, $language ) {
+			$globalVars['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration, $wgLang ) {
 
-				$getPreferences = new GetPreferences( $user, $language, $preferences );
+				$userLanguage = Language::factory( $wgLang->getCode() );
+
+				$getPreferences = new GetPreferences( $user, $userLanguage, $preferences );
 				$getPreferences->setConfiguration( $configuration );
 
 				return $getPreferences->execute();
