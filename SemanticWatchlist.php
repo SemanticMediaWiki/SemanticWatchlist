@@ -129,6 +129,7 @@ $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __DIR__ . '/src/MediaWiki/Hooks/GetPreferences.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\StoreUpdateDataBefore']  = __DIR__ . '/src/MediaWiki/Hooks/StoreUpdateDataBefore.php';
+$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GroupNotify']            = __DIR__ . '/src/MediaWiki/Hooks/GroupNotify.php';
 
 $GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
 

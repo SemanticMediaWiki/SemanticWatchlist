@@ -113,6 +113,69 @@ class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		// @see #235 Store database needs mock to avoid unregulated DB access
 	}
 
+	/**
+	 * @depends testExtensionHookRegistration
+	 */
+	public function testSwlGroupNotifyHook() {
+
+		$this->callExtensionFunctions();
+
+		$group = $this->getMockBuilder( '\SWLGroup' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$changes = $this->getMockBuilder( '\SWLChangeSet' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$userIds = array();
+
+		\Hooks::run( 'SWL::GroupNotify', array( $group, $changes, $userIds ) );
+
+		$this->assertArrayHasKey( 'SWL::GroupNotify', $this->registryStatus );
+	}
+
+	/**
+	 * @depends testSwlGroupNotifyHook
+	 */
+	public function testSwlGroupNotifyHookCalledFromNotifyWatchingUsers() {
+
+		$database = $this->getMockBuilder( 'DatabaseBase' )
+			->disableOriginalConstructor()
+			->setMethods( array( 'select' ) )
+			->getMockForAbstractClass();
+
+		$database->expects( $this->atLeastOnce() )
+			->method( 'select' )
+			->will( $this->returnValue( array() ) );
+
+		ServiceFactory::getInstance()->setDBConnection( DB_SLAVE, $database );
+
+		$this->callExtensionFunctions();
+
+		$changes = $this->getMockBuilder( '\SWLChangeSet' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$changes->expects( $this->atLeastOnce() )
+			->method( 'hasChanges' )
+			->will( $this->returnValue( true ) );
+
+		$dbResult = new \stdClass;
+		$dbResult->group_id = 9999;
+		$dbResult->group_name = 'foo';
+		$dbResult->group_categories = '';
+		$dbResult->group_namespaces = '';
+		$dbResult->group_properties = '';
+		$dbResult->group_concepts = '';
+		$dbResult->group_custom_texts = '';
+
+		$group = \SWLGroup::newFromDBResult( $dbResult );
+		$group->notifyWatchingUsers( $changes );
+
+		$this->assertArrayHasKey( 'SWL::GroupNotify', $this->registryStatus );
+	}
+
 	protected function callExtensionFunctions() {
 		call_user_func_array(
 			$GLOBALS['wgExtensionFunctions']['semantic-watchlist'],

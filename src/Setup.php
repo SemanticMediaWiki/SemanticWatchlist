@@ -7,6 +7,7 @@ use SWL\MediaWiki\Hooks\UserSaveOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 use SWL\MediaWiki\Hooks\StoreUpdateDataBefore;
+use SWL\MediaWiki\Hooks\GroupNotify;
 
 use User;
 use Title;
@@ -71,18 +72,17 @@ class Setup {
 			$configuration = array(
 				'egSWLEnableTopLink'         => $globalVars['egSWLEnableTopLink'],
 				'egSWLEnableEmailNotify'     => $globalVars['egSWLEnableEmailNotify'],
-				'egSwlSqlDatabaseSchemaPath' => $globalVars['egSwlSqlDatabaseSchemaPath']
+				'egSwlSqlDatabaseSchemaPath' => $globalVars['egSwlSqlDatabaseSchemaPath'],
+				'egSWLMailPerChange'         => $globalVars['egSWLMailPerChange'],
+				'egSWLMaxMails'              => $globalVars['egSWLMaxMails'],
+				'egSWLEnableSelfNotify'      => $globalVars['egSWLEnableSelfNotify']
 			);
 
-<<<<<<< HEAD
-			$wgLang = $globalVars['wgLang'];
-=======
-			$language = $globalVars['wgLang'];
+			$lang = $globalVars['wgLang'];
 			$user = $globalVars['wgUser'];
 
 			$observableReporter = new ObservableReporter;
 			$observableReporter->registerCallback( $reporter );
->>>>>>> Move onDataUpdate to SWL\MediaWiki\Hooks\StoreUpdateDataBefore
 
 			/**
 			 * Called after the personal URLs have been set up, before they are shown
@@ -128,9 +128,9 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration, $wgLang ) {
+			$globalVars['wgHooks']['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration, $lang ) {
 
-				$userLanguage = Language::factory( $wgLang->getCode() );
+				$userLanguage = Language::factory( $lang->getCode() );
 
 				$getPreferences = new GetPreferences( $user, $userLanguage, $preferences );
 				$getPreferences->setConfiguration( $configuration );
@@ -152,11 +152,22 @@ class Setup {
 				return $updateDataBefore->execute();
 			};
 
-			$globalVars['wgHooks']['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
+			/**
+			 * Notify groups
+			 *
+			 * @since 1.0
+			 */
+			$globalVars['wgHooks']['SWL::GroupNotify'][] = function( \SWLGroup $group, \SWLChangeSet $changes, array $userIds ) use ( $configuration, $observableReporter ) {
 
-			if ( $globalVars['egSWLEnableEmailNotify'] ) {
-				$globalVars['wgHooks']['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
-			}
+				$groupNotify = new GroupNotify( $group, $changes, $userIds );
+				$groupNotify->setConfiguration( $configuration );
+				$groupNotify->setReporter( $observableReporter );
+				$groupNotify->setAnonymousUser( new User );
+
+				return $groupNotify->execute();
+			};
+
+			$globalVars['wgHooks']['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
 
 			return true;
 		};
