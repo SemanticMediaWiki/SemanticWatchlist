@@ -452,8 +452,8 @@ class SWLGroup {
 	 */
 	public function getWatchingUsers() {
 		if ( $this->watchingUsers == false ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			
+			$dbr = \SWL\ServiceFactory::getInstance()->getDBConnection( DB_SLAVE );
+
 			$users = $dbr->select(
 				'swl_users_per_group',
 				array(
@@ -498,10 +498,10 @@ class SWLGroup {
 	 * @param SMWChangeSet $changes
 	 */
 	public function notifyWatchingUsers( SWLChangeSet $changes ) {
-		$users = $this->getWatchingUsers();
+		$userIds = $this->getWatchingUsers();
 		
 		if ( $changes->hasChanges( true ) ) {
-			wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
+			wfRunHooks( 'SWL::GroupNotify', array( $this, $changes, $userIds ) );
 		}
 	}
 	
