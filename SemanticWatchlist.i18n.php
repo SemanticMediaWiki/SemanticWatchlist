@@ -237,7 +237,7 @@ $messages['bg'] = array(
 	'swl-custom-remove-property' => 'Премахване',
 	'swl-watchlist-insertions' => 'Ново:',
 	'swl-watchlist-deletions' => 'Стари:',
-	'swl-new-item' => 'НОВ',
+	'swl-new-item' => 'НОВО',
 );
 
 /** Breton (brezhoneg)
