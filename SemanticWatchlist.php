@@ -2,7 +2,7 @@
 
 /**
  * Initialization file for the Semantic Watchlist extension.
- * 
+ *
  * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
  * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
  *
@@ -27,7 +27,7 @@ if ( version_compare( SMW_VERSION, '1.6 alpha', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.6 or above.' );
 }
 
-define( 'SemanticWatchlist_VERSION', '1.0 alpha' );
+define( 'SemanticWatchlist_VERSION', '1.1.0 alpha' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
@@ -42,6 +42,7 @@ $wgExtensionCredits['semantic'][] = array(
 
 $egSWLScriptPath = $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions/SemanticWatchlist' : $wgExtensionAssetsPath . '/SemanticWatchlist';
 
+$wgMessagesDirs['SemanticWatchlist'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SemanticWatchlist']	  	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.php';
 $wgExtensionMessagesFiles['SemanticWatchlistAlias']	= dirname( __FILE__ ) . '/SemanticWatchlist.i18n.alias.php';
 
