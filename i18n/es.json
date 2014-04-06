@@ -3,7 +3,8 @@
         "authors": [
             "Armando-Martin",
             "Invadinado",
-            "Mor"
+            "Mor",
+            "Fitoschido"
         ]
     },
     "semanticwatchlist-desc": "Permite a los usuarios recibir notificaciones sobre cambios específicos hechos en los datos de Semantic MediaWiki",
@@ -33,6 +34,7 @@
     "swl-watchlist-position": "Mostrando {{PLURAL:$1|el último cambio|los '''$1''' últimos cambios}}, comezando por el '''# $2'''.",
     "swl-watchlist-insertions": "Añadido:",
     "swl-watchlist-deletions": "Antiguo:",
+    "swl-new-item": "NUEVO",
     "swl-watchlist-pagincontrol": "Ver ($1) ($2)",
     "swl-watchlist-firstn": "$1 primeras",
     "swl-watchlist-firstn-title": "{{PLURAL:$1|primer resultado|$1 primeros resultados}}",
