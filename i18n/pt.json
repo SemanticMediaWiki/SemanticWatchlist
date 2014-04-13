@@ -5,7 +5,8 @@
             "Hamilton Abreu",
             "Imperadeiro98",
             "Luckas",
-            "SandroHc"
+            "SandroHc",
+            "Cainamarques"
         ]
     },
     "semanticwatchlist-desc": "Permite que os utilizadores sejam notificados de alterações específicas aos dados do MediaWiki Semântico",
@@ -15,7 +16,7 @@
     "special-watchlistconditions": "Condições da lista das propriedades semânticas vigiadas",
     "swl-group-name": "Nome de grupo:",
     "swl-group-properties": "Propriedades abrangidas por este grupo:",
-    "swl-group-page-selection": "Seleccione páginas para ver:",
+    "swl-group-page-selection": "Seleccione páginas para vigiar:",
     "swl-group-save": "Gravar",
     "swl-group-saved": "As configurações foram gravadas.",
     "swl-group-saving": "A gravar",

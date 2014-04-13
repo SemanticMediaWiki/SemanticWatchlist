@@ -4,7 +4,8 @@
             "Amgauna",
             "Jaideraf",
             "Luckas",
-            "Luckas Blade"
+            "Luckas Blade",
+            "Cainamarques"
         ]
     },
     "semanticwatchlist-desc": "Permite que os usuários sejam notificados sobre as alterações específicas nos dados do Semantic MediaWiki",
@@ -24,7 +25,7 @@
     "swl-group-category": "categoria",
     "swl-group-namespace": "domínio",
     "swl-group-concept": "conceito",
-    "swl-group-confirm-remove": "Tem certeza de querer remover o \"$1\" do grupo de páginas vigiadas?",
+    "swl-group-confirm-remove": "Tem certeza que deseja remover o grupo \"$1\" de páginas vigiadas?",
     "swl-group-add-new-group": "Adicionar um novo grupo",
     "swl-group-add-group": "Adicionar grupo",
     "swl-custom-legend": "Texto personalizado",
@@ -34,8 +35,8 @@
     "swl-watchlist-deletions": "Antigo:",
     "swl-new-item": "NOVO",
     "swl-watchlist-pagincontrol": "Ver ($1) ($2)",
-    "swl-watchlist-firstn": "primeiro $1",
-    "swl-watchlist-firstn-title": "Primeiros $1 {{PLURAL:$1|resultado|resultados}}",
+    "swl-watchlist-firstn": "$1 primeiras",
+    "swl-watchlist-firstn-title": "{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}",
     "prefs-swl": "Lista das propriedades semânticas vigiadas",
     "prefs-swlgroup": "Grupos para vigiar",
     "prefs-swlglobal": "Opções gerais"
