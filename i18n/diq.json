@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Marmase",
-            "Mirzali"
-        ]
-    },
-    "swl-group-category": "kategoriye",
-    "swl-group-namespace": "cayê namey",
-    "swl-watchlist-insertions": "Newe:"
+	"@metadata": {
+		"authors": [
+			"Marmase",
+			"Mirzali"
+		]
+	},
+	"swl-group-category": "kategoriye",
+	"swl-group-namespace": "cayê namey",
+	"swl-watchlist-insertions": "Newe:"
 }
