@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"swl-group-category": "kategorija",
+	"swl-group-namespace": "spazju tal-isem",
+	"swl-group-concept": "kunċett",
+	"swl-group-add-new-group": "Żid grupp ġdid",
+	"swl-group-add-group": "Żid grupp",
+	"swl-watchlist-insertions": "Ġdid:",
+	"swl-watchlist-deletions": "Qadim:"
+}
