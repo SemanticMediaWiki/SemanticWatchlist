@@ -5,7 +5,8 @@
 			"Jaideraf",
 			"Luckas",
 			"Luckas Blade",
-			"Cainamarques"
+			"Cainamarques",
+			"Tuliouel"
 		]
 	},
 	"semanticwatchlist-desc": "Permite que os usuários sejam notificados sobre as alterações específicas nos dados do Semantic MediaWiki",
@@ -15,7 +16,7 @@
 	"special-watchlistconditions": "Condições da lista de propriedades semânticas vigiadas",
 	"swl-group-name": "Nome do grupo:",
 	"swl-group-legend": "Grupo",
-	"swl-group-properties": "Este grupo vigia as mudanças realizadas na(s) propriedade/propriedades:",
+	"swl-group-properties": "Este grupo vigia as mudanças realizadas na(s) propriedade(s):",
 	"swl-properties-list": "Separe os nomes com |",
 	"swl-group-page-selection": "Selecione páginas para vigiar:",
 	"swl-group-save": "Salvar",
