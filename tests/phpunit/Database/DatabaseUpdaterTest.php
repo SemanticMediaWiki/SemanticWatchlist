@@ -38,7 +38,7 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'delete', 'insert' ) )
+			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();
 
 		$dbConnection->expects( $this->once() )
@@ -46,6 +46,10 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->with(
 				$this->equalTo( 'swl_users_per_group' ),
 				$this->equalTo( array( 'upg_user_id' => $userId ) ) );
+
+		$dbConnection->expects( $this->any() )
+			->method( 'isOpen' )
+			->will( $this->returnValue( true ) );
 
 		$dbConnection->expects( $this->at( 2 ) )
 			->method( 'insert' )
@@ -63,7 +67,7 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'delete', 'insert' ) )
+			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();
 
 		$dbConnection->expects( $this->once() )
@@ -71,6 +75,10 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->with(
 				$this->equalTo( 'swl_users_per_group' ),
 				$this->equalTo( array( 'upg_user_id' => $userId ) ) );
+
+		$dbConnection->expects( $this->any() )
+			->method( 'isOpen' )
+			->will( $this->returnValue( true ) );
 
 		$dbConnection->expects( $this->never() )
 			->method( 'insert' )

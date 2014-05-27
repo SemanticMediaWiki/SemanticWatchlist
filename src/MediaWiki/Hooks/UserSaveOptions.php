@@ -2,7 +2,6 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWL\MediaWiki\HookInterface;
 use SWL\Database\DatabaseUpdater;
 
 use User;
@@ -21,19 +20,26 @@ use User;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class UserSaveOptions implements HookInterface {
+class UserSaveOptions {
 
+	/* DatabaseUpdater*/
+	protected $databaseUpdater;
+
+	/* User*/
 	protected $user;
+
 	protected $options;
 	protected $configuration;
 
 	/**
 	 * @since 1.0
 	 *
+	 * @param DatabaseUpdater $databaseUpdater
 	 * @param User $user
 	 * @param array &$options
 	 */
-	public function __construct( User $user, array &$options ) {
+	public function __construct( DatabaseUpdater $databaseUpdater, User $user, array &$options ) {
+		$this->databaseUpdater = $databaseUpdater;
 		$this->user = $user;
 		$this->options =& $options;
 	}
@@ -66,9 +72,7 @@ class UserSaveOptions implements HookInterface {
 	}
 
 	protected function performUpdate( array $groupIds ) {
-		$updater = new DatabaseUpdater( wfGetDB( DB_MASTER ) );
-
-		return $updater->updateUsersPerGroupWithGroupIds(
+		return $this->databaseUpdater->updateUsersPerGroupWithGroupIds(
 			$this->user->getId(),
 			$groupIds
 		);

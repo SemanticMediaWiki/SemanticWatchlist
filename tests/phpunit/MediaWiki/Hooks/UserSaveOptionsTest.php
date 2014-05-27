@@ -21,6 +21,10 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
+		$databaseUpdater = $this->getMockBuilder( '\SWL\Database\DatabaseUpdater' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$user = $this->getMockBuilder( 'User' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -29,7 +33,7 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SWL\MediaWiki\Hooks\UserSaveOptions',
-			new UserSaveOptions( $user, $options )
+			new UserSaveOptions( $databaseUpdater, $user, $options )
 		);
 	}
 
@@ -65,21 +69,26 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	private function acquireInstanceFor( $options, $expected ) {
 
+		$databaseUpdater = $this->getMockBuilder( '\SWL\Database\DatabaseUpdater' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$databaseUpdater->expects( $this->once() )
+			->method( 'updateUsersPerGroupWithGroupIds' )
+			->with(
+				$this->anything(),
+				$this->equalTo( $expected ) )
+			->will( $this->returnValue( true ) );
+
 		$user = $this->getMockBuilder( 'User' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = $this->getMockBuilder( 'SWL\MediaWiki\Hooks\UserSaveOptions' )
-			->setConstructorArgs( array( $user, &$options ) )
-			->setMethods( array( 'performUpdate' ) )
-			->getMock();
-
-		$instance->expects( $this->once() )
-			->method( 'performUpdate' )
-			->with( $this->equalTo( $expected ) )
-			->will( $this->returnValue( true ) );
-
-		return $instance;
+		return new UserSaveOptions(
+			$databaseUpdater,
+			$user,
+			$options
+		);
 	}
 
 }

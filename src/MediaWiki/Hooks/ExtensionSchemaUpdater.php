@@ -2,8 +2,6 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWL\MediaWiki\HookInterface;
-
 use DatabaseUpdater;
 
 /**
@@ -19,7 +17,7 @@ use DatabaseUpdater;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class ExtensionSchemaUpdater implements HookInterface {
+class ExtensionSchemaUpdater {
 
 	protected $databaseUpdater;
 	protected $configuration;
