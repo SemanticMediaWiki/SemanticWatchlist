@@ -1,12 +1,19 @@
-These are the release notes for the Semantic Watchlist extension.
+# Semantic Watchlist
 
-Extension page on mediawiki.org:
-https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
+## 1.0.0
+Not a release yet.
 
-Latest version of the release notes:
-https://git.wikimedia.org/raw/mediawiki%2fextensions%2fSemanticWatchlist.git/HEAD/RELEASE-NOTES
+### Bug fixes
 
-== Version 0.2.2 ==
+* #5 Fixed call to a member function getCount() on a non-object
+* #11 Fixed undefined variable `egSWLEnableSelfNotify`
+* #11 Fixed uncaught ReferenceError `wgScriptPath` is not defined
+
+### Internal enhancements
+
+* #12 Enabled unit testing
+
+## 0.2.2
 2013-12-10
 
 * Fix for Special:AdminLinks when using SMW 1.9+.
