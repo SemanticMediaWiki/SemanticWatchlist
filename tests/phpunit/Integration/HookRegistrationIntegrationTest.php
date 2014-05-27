@@ -36,7 +36,9 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 		$GLOBALS['wgHooks'] = array();
 		$GLOBALS['wgExtensionFunctions'] = array();
-		Setup::getInstance()->setGlobalVars( $GLOBALS )->run();
+
+		$setup = new Setup( $GLOBALS, '' );
+		$setup->run();
 
 		parent::setUp();
 	}

@@ -6,6 +6,7 @@ use SWL\MediaWiki\Hooks\PersonalUrls;
 use SWL\MediaWiki\Hooks\UserSaveOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
+use SWL\Database\DatabaseUpdater;
 
 use User;
 use Title;
@@ -14,7 +15,7 @@ use Language;
 /**
  * @ingroup SWL
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
@@ -23,26 +24,17 @@ class Setup {
 
 	/** @var array */
 	protected $globalVars;
+	protected $rootPath;
 
 	/**
-	 * @since 1.0
-	 *
-	 * @return Extension
-	 */
-	public static function getInstance() {
-		return new self();
-	}
-
-	/**
-	 * @since 1.0
+	 * @since 1.2.0
 	 *
 	 * @param array $globalVars
-	 *
-	 * @return Extension
+	 * @param string $rootPath
 	 */
-	public function setGlobalVars( &$globalVars ) {
+	public function __construct( array &$globalVars, $rootPath ) {
 		$this->globalVars =& $globalVars;
-		return $this;
+		$this->rootPath = $rootPath;
 	}
 
 	/**
@@ -95,7 +87,9 @@ class Setup {
 			 */
 			$globalVars['wgHooks']['UserSaveOptions'][] = function( \User $user, array &$options ) use ( $configuration ) {
 
-				$userSaveOptions = new UserSaveOptions( $user, $options );
+				$databaseUpdater = new DatabaseUpdater( wfGetDB( DB_MASTER ) );
+
+				$userSaveOptions = new UserSaveOptions( $databaseUpdater, $user, $options );
 				$userSaveOptions->setConfiguration( $configuration );
 
 				return $userSaveOptions->execute();

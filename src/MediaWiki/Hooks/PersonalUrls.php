@@ -2,8 +2,6 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWL\MediaWiki\HookInterface;
-
 use Title;
 use User;
 
@@ -19,7 +17,7 @@ use User;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class PersonalUrls implements HookInterface {
+class PersonalUrls {
 
 	protected $personalUrls;
 	protected $title;

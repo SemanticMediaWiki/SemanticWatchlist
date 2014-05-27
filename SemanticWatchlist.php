@@ -2,14 +2,11 @@
 
 /**
  * Initialization file for the Semantic Watchlist extension.
-<<<<<<< HEAD
-=======
  *
  * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
  * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
->>>>>>> 83dd838409911d42310111ae5c8c0b03a98d07ca
  *
- * @licence GNU GPL v3+
+ * @license GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
@@ -29,12 +26,12 @@ if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.9 or above.' );
 }
 
-define( 'SemanticWatchlist_VERSION', '1.0 alpha' );
+define( 'SWL_VERSION', '1.0 alpha' );
 
 $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'path' => __FILE__,
 	'name' => 'Semantic Watchlist',
-	'version' => SemanticWatchlist_VERSION,
+	'version' => SWL_VERSION,
 	'author' => array(
 		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
 	),
@@ -76,15 +73,6 @@ $GLOBALS['wgAPIModules']['addswlgroup'] = 'ApiAddWatchlistGroup';
 $GLOBALS['wgAPIModules']['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
 $GLOBALS['wgAPIModules']['editswlgroup'] = 'ApiEditWatchlistGroup';
 $GLOBALS['wgAPIListModules']['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
-
-// Admin Links hook needs to be called in a delayed way so that it
-// will always be called after SMW's Admin Links addition; as of
-// SMW 1.9, SMW delays calling all its hook functions.
-$wgExtensionFunctions[] = 'SWLAddAdminLinksHook';
-function SWLAddAdminLinksHook() {
-	global $wgHooks;
-	$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
-}
 
 $moduleTemplate = array(
 	'localBasePath' => __DIR__,
@@ -136,7 +124,6 @@ $GLOBALS['wgAvailableRights'][] = 'semanticwatchgroups';
 // TEMPORARY until the Composer classmap is fixed
 $GLOBALS['wgAutoloadClasses']['SWL\Setup']                                  = __DIR__ . '/src/Setup.php';
 $GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']               = __DIR__ . '/src/Database/DatabaseUpdater.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\HookInterface']                = __DIR__ . '/src/MediaWiki/HookInterface.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
 $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
@@ -144,4 +131,14 @@ $GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __
 
 $GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
 
-\SWL\Setup::getInstance()->setGlobalVars( $GLOBALS )->run();
+/**
+ * @codeCoverageIgnore
+ *
+ * @since 1.0
+ */
+call_user_func( function () {
+
+	$setup = new \SWL\Setup( $GLOBALS, __DIR__ );
+	$setup->run();
+
+} );

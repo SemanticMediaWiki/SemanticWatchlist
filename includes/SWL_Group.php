@@ -2,12 +2,12 @@
 
 /**
  * Static class with functions interact with watchlist groups.
- * 
+ *
  * @since 0.1
- * 
+ *
  * @file SWL_Groups.php
  * @ingroup SemanticWatchlist
- * 
+ *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
@@ -17,49 +17,49 @@ class SWLGroup {
 	 * The ID of the group; the group_id field in swl_groups.
 	 * When creating a new group, this will be null, and
 	 * automatically set after writing the group to the DB.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var integer or null
 	 */
 	protected $id;
-	
+
 	/**
 	 * Name of the group.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $name;
-	
+
 	/**
 	 * List of categories this group covers.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var array of string
 	 */
 	protected $categories;
-	
+
 	/**
 	 * List of namespaces IDs of namespaces this group covers.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var array of integer
 	 */
 	protected $namespaces = array();
-	
+
 	/**
 	 * List of SMW properties this group covers.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var array of string
 	 */
 	protected $properties;
-	
+
 	/**
 	 * List of custom texts this group covers.
 	 *
@@ -69,30 +69,30 @@ class SWLGroup {
 
 	/**
 	 * List of SMW concepts this group covers.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var array of string
 	 */
 	protected $concepts;
-	
+
 	/**
 	 * Cached list of IDs of users that are watching this group,
 	 * or false if this data has not been obtained yet.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @var array of integer or false
 	 */
 	protected $watchingUsers = false;
-	
+
 	/**
 	 * Creates a new instance of SWLGroup from a DB result.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param $group
-	 * 
+	 *
 	 * @return SWLGroup
 	 */
 	public static function newFromDBResult( $group ) {
@@ -106,12 +106,12 @@ class SWLGroup {
 			$group->group_custom_texts == '' ? array() : self::unserializedCustomTexts( explode( '|', $group->group_custom_texts ) )
 		);
 	}
-	
+
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param integer $id Set to null when creating a new group.
 	 * @param string $name
 	 * @param array $categories List of category names
@@ -124,7 +124,7 @@ class SWLGroup {
 		$this->id = $id;
 		$this->name = $name;
 		$this->categories = $categories;
-		$this->properties = $properties;	
+		$this->properties = $properties;
 		$this->concepts = $concepts;
 		$this->customTexts = $customTexts;
 
@@ -137,20 +137,20 @@ class SWLGroup {
 			}
 			else {
 				$ns = MWNamespace::getCanonicalIndex( strtolower( $ns ) );
-				
+
 				if ( !is_null( $ns ) ) {
 					$this->namespaces[] = $ns;
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * Writes the group to the database, either updating it
 	 * when it already exists, or inserting it when it doesn't.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	public function writeToDB() {
@@ -161,12 +161,12 @@ class SWLGroup {
 			return  $this->updateInDB();
 		}
 	}
-	
+
 	/**
 	 * Updates the group in the database.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function updateInDB() {
@@ -184,17 +184,17 @@ class SWLGroup {
 			array( 'group_id' => $this->id )
 		);
 	}
-	
+
 	/**
 	 * Inserts the group into the database.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return boolean Success indicator
 	 */
 	protected function insertIntoDB() {
 		$dbr = wfGetDB( DB_MASTER );
-		
+
 		$result = $dbr->insert(
 			'swl_groups',
 			array(
@@ -206,28 +206,28 @@ class SWLGroup {
 				'group_custom_texts' => implode( '|', $this->getSerializedCustomTexts() ),
 			)
 		);
-		
+
 		$this->id = $dbr->insertId();
-		
+
 		return $result;
 	}
-	
+
 	/**
 	 * Returns the categories specified by the group.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array[string]
 	 */
 	public function getCategories() {
 		return $this->categories;
 	}
-	
+
 	/**
 	 * Returns the namespaces specified by the group.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array[integer]
 	 */
 	public function getNamespaces() {
@@ -236,48 +236,48 @@ class SWLGroup {
 
 	/**
 	 * Returns the properties specified by the group as strings (serializations of SMWDIProperty).
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array[string]
 	 */
 	public function getProperties() {
 		return $this->properties;
 	}
-	
+
 	/**
 	 * Returns the properties specified by the group as SMWDIProperty objects.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array[SMWDIProperty]
 	 */
 	public function getPropertyObjects() {
 		$properties = array();
-		
+
 		foreach ( $this->properties as $property ) {
 			$properties[] = SMWDIProperty::newFromSerialization( $property );
 		}
-		
+
 		return $properties;
 	}
-	
+
 	/**
 	 * Returns the concepts specified by the group.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array[string]
 	 */
 	public function getConcepts() {
 		return $this->concepts;
 	}
-	
+
 	/**
 	 * Returns the custom Texts specified for this group.
-	 * 
+	 *
 	 * @since 0.2
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getCustomTexts() {
@@ -286,9 +286,9 @@ class SWLGroup {
 
 	/**
 	 * Returns the serialized version of custom Texts specified for this group.
-	 * 
+	 *
 	 * @since 0.2
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getSerializedCustomTexts() {
@@ -301,7 +301,7 @@ class SWLGroup {
 
 	/**
 	 * Returns the unserialized version of custom Texts specified for this group.
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function unserializedCustomTexts( $customTexts ) {
@@ -314,88 +314,88 @@ class SWLGroup {
 
 	/**
 	 * Returns the group database id.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return integer
 	 */
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	/**
 	 * Returns the group name.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getName() {
 		return $this->name;
-	}	
-	
+	}
+
 	/**
 	 * Returns whether the group contains the specified page.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $title
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function coversPage( Title $title ) {
-		return $this->categoriesCoverPage( $title ) 
+		return $this->categoriesCoverPage( $title )
 			&& $this->namespacesCoversPage( $title )
 			&& $this->conceptsCoverPage( $title );
 	}
-	
+
 	/**
 	 * Returns whether the namespaces of the group cover the specified page.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $title
-	 * 
+	 *
 	 * @return boolean
-	 */	
+	 */
 	public function namespacesCoversPage( Title $title ) {
 		if ( count( $this->namespaces ) > 0 ) {
 			if ( !in_array( $title->getNamespace(), $this->namespaces ) ) {
 				return false;
 			}
 		}
-		
-		return true;		
+
+		return true;
 	}
-	
+
 	/**
 	 * Returns whether the catgeories of the group cover the specified page.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $title
-	 * 
+	 *
 	 * @return boolean
-	 */		
+	 */
 	public function categoriesCoverPage( Title $title ) {
 		if ( count( $this->categories ) == 0 ) {
 			return true;
 		}
-		
+
 		$foundMatch = false;
 
 		$cats = array_keys( $title->getParentCategories() );
-		
+
 		if ( count( $cats ) == 0 ) {
-			return false; 
+			return false;
 		}
-		
+
 		global $wgContLang;
 		$catPrefix = $wgContLang->getNSText( NS_CATEGORY ) . ':';
-		
+
 		foreach ( $this->categories as $groupCategory ) {
 			$foundMatch = in_array( $catPrefix . $groupCategory, $cats );
-			
+
 			if ( $foundMatch ) {
 				break;
 			}
@@ -403,57 +403,57 @@ class SWLGroup {
 
 		return $foundMatch;
 	}
-	
+
 	/**
 	 * Returns whether the concepts of the group cover the specified page.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param Title $title
-	 * 
+	 *
 	 * @return boolean
-	 */		
+	 */
 	public function conceptsCoverPage( Title $title ) {
 		if ( count( $this->concepts ) == 0 ) {
 			return true;
 		}
-		
+
 		$foundMatch = false;
-		
+
 		foreach ( $this->concepts as $groupConcept ) {
 			$queryDescription = new SMWConjunction();
-			
+
 			$conceptTitle = Title::newFromText( $groupConcept, SMW_NS_CONCEPT );
 			if ( !$conceptTitle->exists() ) continue;
 
 			$queryDescription->addDescription( new SMWConceptDescription( SMWDIWikiPage::newFromTitle( $conceptTitle ) ) );
 			$queryDescription->addDescription( new SMWValueDescription( SMWDIWikiPage::newFromTitle( $title ) ) );
-			
+
 			$query = new SMWQuery( $queryDescription );
 			$query->querymode = SMWQuery::MODE_COUNT;
 
 			/* SMWQueryResult */ $result = smwfGetStore()->getQueryResult( $query );
-			$foundMatch = $result->getCount() > 0;
-			
+			$foundMatch = $result instanceof SMWQueryResult ? $result->getCount() > 0 : $result > 0;
+
 			if ( $foundMatch ) {
 				break;
 			}
 		}
-		
+
 		return $foundMatch;
 	}
-	
+
 	/**
 	 * Returns the IDs of the users watching the group.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @return array of integer
 	 */
 	public function getWatchingUsers() {
 		if ( $this->watchingUsers == false ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			
+
 			$users = $dbr->select(
 				'swl_users_per_group',
 				array(
@@ -463,47 +463,47 @@ class SWLGroup {
 					'upg_group_id' => $this->getId()
 				)
 			);
-			
+
 			$userIds = array();
-			
+
 			foreach ( $users as $user ) {
 				$userIds[] = $user->upg_user_id;
 			}
-			
-			$this->watchingUsers = $userIds;			
+
+			$this->watchingUsers = $userIds;
 		}
-		
+
 		return $this->watchingUsers;
 	}
-	
+
 	/**
 	 * Returns if the group is watched by the specified user or not.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
-	 * @param User $user 
-	 * 
+	 *
+	 * @param User $user
+	 *
 	 * @return boolean
-	 */	
+	 */
 	public function isWatchedByUser( User $user ) {
 		return in_array( $user->getId(), $this->getWatchingUsers() );
 	}
-	
+
 	/**
 	 * Gets all the watching users and passes them, together with the specified
 	 * changes and the group object itself, to the SWLGroupNotify hook.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param SMWChangeSet $changes
 	 */
 	public function notifyWatchingUsers( SWLChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
-		
+
 		if ( $changes->hasChanges( true ) ) {
 			wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
 		}
 	}
-	
+
 }
-	
+

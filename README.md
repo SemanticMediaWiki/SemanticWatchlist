@@ -46,11 +46,15 @@ developers mailing list and have a look at the [contribution guildline](/CONTRIB
 
 ### Tests
 
-The library provides unit tests that covers the core-functionality normally run by the [continues integration platform][travis]. Tests can also be executed manually using the PHPUnit configuration file found in the root directory.
+This extension provides unit tests that can be run by a [continues integration platform][travis] or manually by executing the `mw-phpunit-runner.php` script or [`phpunit`][mw-testing] together with the PHPUnit configuration file found in the root directory.
+
+```sh
+php mw-phpunit-runner.php [options]
+```
 
 ## License
 
-[GNU General Public License 2.0 or later][licence]
+[GNU General Public License 3.0 or later][licence]
 
 [mw]: https://www.mediawiki.org/
 [smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki

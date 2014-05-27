@@ -2,8 +2,6 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWL\MediaWiki\HookInterface;
-
 use User;
 use Language;
 use MWNamespace;
@@ -20,7 +18,7 @@ use MWNamespace;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class GetPreferences implements HookInterface {
+class GetPreferences {
 
 	protected $user;
 	protected $language;
