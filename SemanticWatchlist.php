@@ -34,7 +34,7 @@ define( 'SemanticWatchlist_VERSION', '1.0 alpha' );
 $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'path' => __FILE__,
 	'name' => 'Semantic Watchlist',
-	'version' => SWL_VERSION,
+	'version' => SemanticWatchlist_VERSION,
 	'author' => array(
 		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
 	),
