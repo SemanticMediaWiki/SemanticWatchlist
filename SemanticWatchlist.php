@@ -4,7 +4,7 @@
  * Initialization file for the Semantic Watchlist extension.
  *
  * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
- * Support		https://www.mediawiki.org/wiki/Extension_talk:Semantic_Watchlist
+ * Support		https://github.com/SemanticMediaWiki/SemanticWatchlist/issues
  *
  * @license GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -36,7 +36,8 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
 	),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
-	'descriptionmsg' => 'semanticwatchlist-desc'
+	'descriptionmsg' => 'semanticwatchlist-desc',
+	'license-name'   => 'GPL-3.0+'
 );
 
 $GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
