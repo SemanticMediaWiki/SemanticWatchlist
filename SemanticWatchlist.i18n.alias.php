@@ -60,6 +60,12 @@ $specialPageAliases['gsw'] = array(
 	'WatchlistConditions' => array( 'Semantischi_Beobachtigslischt_yystelle' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'SemanticWatchlist' => array( 'Semantiske_wobkedźbowanki' ),
+	'WatchlistConditions' => array( 'Semantiske_wobkedźbowanki_nastajić' ),
+);
+
 /** Interlingua (interlingua) */
 $specialPageAliases['ia'] = array(
 	'SemanticWatchlist' => array( 'Observatorio_semantic' ),
