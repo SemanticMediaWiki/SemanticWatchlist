@@ -37,7 +37,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function getDescription() {
-		return wfMsg( 'special-' . strtolower( $this->getName() ) );
+		return wfMessage( 'special-' . strtolower( $this->getName() )->text();
 	}
 	
 	/**
@@ -332,7 +332,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				Html::element(
 					'a',
 					array( 'href' => $edit->getTitle()->getLocalURL( 'action=history' ) ),
-					wfMsg( 'hist' )
+					wfMessage( 'hist' )->text()
 				) . ') . . ' .
 				Html::element(
 					'a',
@@ -342,21 +342,21 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				Html::element(
 					'a',
 					array( 'href' => $edit->getUser()->getTalkPage()->getLocalURL() ),
-					wfMsg( 'talkpagelinktext' )
+					wfMessage( 'talkpagelinktext' )->text()
 				) . ' | ' .
 				( $edit->getUser()->isAnon() ? '' :
 					Html::element(
 						'a',
 						array( 'href' => SpecialPage::getTitleFor( 'Contributions', $edit->getUser()->getName() )->getLocalURL() ),
-						wfMsg( 'contribslink' )						
+						wfMessage( 'contribslink' )->text()						
 					) . ' | '
 				) .
 				Html::element(
 					'a',
 					array( 'href' => SpecialPage::getTitleFor( 'Block', $edit->getUser()->getName() )->getLocalURL() ),
-					wfMsg( 'blocklink' )
+					wfMessage( 'blocklink' )->text()
 				) . ')' .
-				( $edit->getTime() > $this->lastViewed ? ' <b>' . wfMsg( 'swl-new-item' ) . '</b>' : '' )	.
+				( $edit->getTime() > $this->lastViewed ? ' <b>' . wfMessage( 'swl-new-item' )->text() . '</b>' : '' )	.
 			'</p>'
 		;
 		
@@ -398,11 +398,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$lines = array();
 		
 		if ( count( $deletions ) > 0 ) {
-			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-deletions' ), wfMsg( 'swl-watchlist-deletions' ) ) . ' ' . implode( ', ', $deletions );
+			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-deletions' ), wfMessage( 'swl-watchlist-deletions' )->text() ) . ' ' . implode( ', ', $deletions );
 		}		
 		
 		if ( count( $insertions ) > 0 ) {
-			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-insertions' ), wfMsg( 'swl-watchlist-insertions' ) ) . ' ' . implode( ', ', $insertions );
+			$lines[] = Html::element( 'div', array( 'class' => 'swl-watchlist-insertions' ), wfMessage( 'swl-watchlist-insertions' )->text() ) . ' ' . implode( ', ', $insertions );
 		}
 		
 		$html = Html::element( 'span', array( 'class' => 'swl-watchlist-prop' ), $property->getLabel() );
