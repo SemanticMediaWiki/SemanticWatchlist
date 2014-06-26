@@ -81,7 +81,7 @@ class GetPreferences {
 				case count( $group->getNamespaces() ) > 0 :
 					$type = 'namespace';
 					$name = $group->getNamespaces();
-					$name = $name[0] == 0 ? wfMsg( 'main' ) : MWNamespace::getCanonicalName( $name[0] );
+					$name = $name[0] == 0 ? wfMessage( 'main' )->text() : MWNamespace::getCanonicalName( $name[0] );
 					break;
 				case count( $group->getConcepts() ) > 0 :
 					$type = 'concept';
