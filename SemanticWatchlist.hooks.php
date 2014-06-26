@@ -108,7 +108,7 @@ final class SWLHooks {
 	 * @return true
 	 */
 	public static function addToAdminLinks( &$admin_links_tree ) {
-	    $displaying_data_section = $admin_links_tree->getSection( wfMsg( 'adminlinks_browsesearch' ) );
+	    $displaying_data_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_browsesearch' )->text();
 
 	    // Escape if SMW hasn't added links.
 	    if ( is_null( $displaying_data_section ) ) return true;
