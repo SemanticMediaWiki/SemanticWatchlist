@@ -124,11 +124,11 @@ final class SWLEmailer {
 		$lines = array();
 
 		if ( count( $insertions ) > 0 ) {
-			$lines[] = Html::element( 'span', array(), wfMsg( 'swl-watchlist-insertions' ) ) . ' ' . implode( ', ', $insertions );
+			$lines[] = Html::element( 'span', array(), wfMessage( 'swl-watchlist-insertions' )->text() ) . ' ' . implode( ', ', $insertions );
 		}
 
 		if ( count( $deletions ) > 0 ) {
-			$lines[] = Html::element( 'span', array(), wfMsg( 'swl-watchlist-deletions' ) ) . ' ' . implode( ', ', $deletions );
+			$lines[] = Html::element( 'span', array(), wfMessage( 'swl-watchlist-deletions' )->text() ) . ' ' . implode( ', ', $deletions );
 		}
 
 		foreach( $customMessages as $customMessage ) {
