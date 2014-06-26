@@ -28,7 +28,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function getDescription() {
-		return wfMsg( 'special-' . strtolower( $this->getName() ) );
+		return wfMessage( 'special-' . strtolower( $this->getName() )->text();
 	}
 
 	/**
@@ -63,7 +63,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 		}
 
 		$wgOut->addHTML(
-			'<strong><p class="saveMessage" style=" display:none;width: 100px; alight:center;text-align:center; background: #f9f9aa; border: 1px solid #dd9">' . wfMsg( 'swl-group-saved' ) . '</p></strong>'
+			'<strong><p class="saveMessage" style=" display:none;width: 100px; alight:center;text-align:center; background: #f9f9aa; border: 1px solid #dd9">' . wfMessage( 'swl-group-saved' )->text() . '</p></strong>'
 		);
 
 		$groupsHtml = array();
@@ -81,7 +81,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			'input',
 			array(
 				'type' => 'button',
-				'value' => wfMsg( 'swl-group-add-group' ),
+				'value' => wfMessage( 'swl-group-add-group' )->text(),
 				'id' => 'swl-add-group-button'
 			)
 		) . "</p>\n" );
@@ -90,7 +90,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			'input',
 			array(
 				'type' => 'button',
-				'value' => wfMsg( 'swl-group-save' ),
+				'value' => wfMessage( 'swl-group-save' )->text(),
 				'id' => 'swl-save-all'
 			)
 		) . "</p>\n" );
@@ -130,7 +130,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 			Html::element(
 				'legend',
 				array(),
-				wfMsg( 'swl-group-legend' )
+				wfMessage( 'swl-group-legend' )->text()
 			)
 		);
 	}
