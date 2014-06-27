@@ -28,23 +28,21 @@ final class SWLEmailer {
 	public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet, $describeChanges ) {
 		global $wgLang, $wgPasswordSender, $wgPasswordSenderName;
 
-		$emailText = wfMsgExt(
+		$emailText = wfMessage(
 			'swl-email-propschanged-long',
-			'parse',
 			$GLOBALS['wgSitename'],
 			$changeSet->getEdit()->getUser()->getName(),
 			SpecialPage::getTitleFor( 'SemanticWatchlist' )->getFullURL(),
 			$wgLang->time( $changeSet->getEdit()->getTime() ),
 			$wgLang->date( $changeSet->getEdit()->getTime() )
-		);
+		)->parseAsBlock();
 
 		if ( $describeChanges ) {
-			$emailText .= '<h3> ' . wfMsgExt(
+			$emailText .= '<h3> ' . wfMessage(
 				'swl-email-changes',
-				'parse',
 				$changeSet->getEdit()->getTitle()->getFullText(),
 				$changeSet->getEdit()->getTitle()->getFullURL()
-			) . ' </h3>';
+			)->parseAsBlock() . ' </h3>';
 
 			$emailText .= self::getChangeListHTML( $changeSet, $group );
 		}
