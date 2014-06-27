@@ -76,17 +76,17 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$wgOut->addHTML( '<p>' );
 		
 		if ( $wgUser->isAllowed( 'semanticwatchgroups' ) ) {
-			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-groups', 'parseinline', 'Special:WatchlistConditions' ) . '&#160' );
+			$wgOut->addHTML( wfMessage( 'swl-watchlist-can-mod-groups', 'Special:WatchlistConditions' )->parse() . '&#160' );
 		}
 		
 		if ( $this->userHasWatchlistGroups( $wgUser ) ) {
-			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-can-mod-prefs', 'parseinline', 'Special:Preferences#mw-prefsection-swl' ) );
+			$wgOut->addHTML( wfMessage( 'swl-watchlist-can-mod-prefs', 'Special:Preferences#mw-prefsection-swl' )->parse() );
 			$wgOut->addHTML( '</p>' );
 			
 			$this->getAndDisplaySets( $subPage );
 		}
 		else {
-			$wgOut->addHTML( wfMsgExt( 'swl-watchlist-no-groups', 'parseinline', 'Special:Preferences#mw-prefsection-swl' ) );
+			$wgOut->addHTML( wfMessage( 'swl-watchlist-no-groups', 'Special:Preferences#mw-prefsection-swl' )->parse() );
 			$wgOut->addHTML( '</p>' );
 		}
 	}
@@ -121,12 +121,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 		
 		if ( $offset != 0 || count( $sets ) > 0 ) {
-			$wgOut->addHTML( '<p>' . wfMsgExt(
+			$wgOut->addHTML( '<p>' . wfMessage(
 				'swl-watchlist-position',
-				array( 'parseinline' ),
 				$wgLang->formatNum( count( $sets ) ),
 				$wgLang->formatNum( $offset + 1 )
-			) . '</p>' );
+			)->parse() . '</p>' );
 			
 			$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );
 		}
@@ -168,8 +167,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	protected function getPagingControlHTML( $limit, $currentContinue, $subPage, $newContinue, $offset ) {
 		global $wgLang;
 		
-		$nextMsg = wfMsgExt( 'nextn', array( 'parsemag', 'escape' ), $limit );
-		$firstMsg = wfMsgExt( 'swl-watchlist-firstn', array( 'parsemag', 'escape' ), $limit );
+		$nextMsg = wfMessage( 'nextn', $limit )->text();
+		$firstMsg = wfMessage( 'swl-watchlist-firstn', $limit )->text();
 		
 		if ( $newContinue === false ) {
 			$nextLink = $nextMsg;
@@ -183,7 +182,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 						'continue' => $newContinue,
 						'offset' => $offset + $limit
 					) ) ),
-					'title' => wfMsgExt( 'nextn-title', array( 'parsemag', 'escape' ), $limit ),
+					'title' => wfMessage( 'nextn-title', $limit )->text(),
 					'class' => 'mw-nextlink'
 				),
 				$nextMsg
@@ -203,7 +202,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				'a',
 				array(
 					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array( 'limit' => $limit ) ) ),
-					'title' => wfMsgExt( 'swl-watchlist-firstn-title', array( 'parsemag', 'escape' ), $limit )
+					'title' => wfMessage( 'swl-watchlist-firstn-title', $limit )->text()
 				),
 				$firstMsg
 			);			
@@ -219,7 +218,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				'a',
 				array(
 					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( $limitLinkArgs ) ),
-					'title' => wfMsgExt( 'shown-title', array( 'parsemag', 'escape' ), $limitValue )
+					'title' => wfMessage( 'shown-title', $limitValue )->text()
 				),
 				$wgLang->formatNum( $limitValue )
 			);
