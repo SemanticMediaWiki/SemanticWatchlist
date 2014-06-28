@@ -167,8 +167,8 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	protected function getPagingControlHTML( $limit, $currentContinue, $subPage, $newContinue, $offset ) {
 		global $wgLang;
 		
-		$nextMsg = wfMessage( 'nextn' )->rawParams( '$limit' )->escaped();
-		$firstMsg = wfMessage( 'swl-watchlist-firstn' )->rawParams( '$limit' )->escaped();
+		$nextMsg = wfMessage( 'nextn', $limit )->escaped();
+		$firstMsg = wfMessage( 'swl-watchlist-firstn', $limit )->escaped();
 
 		if ( $newContinue === false ) {
 			$nextLink = $nextMsg;
@@ -182,7 +182,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 						'continue' => $newContinue,
 						'offset' => $offset + $limit
 					) ) ),
-					'title' => wfMessage( 'nextn-title' )->rawParams( '$limit' )->escaped(),
+					'title' => wfMessage( 'nextn-title', $limit )->escaped(),
 					'class' => 'mw-nextlink'
 				),
 				$nextMsg
@@ -202,7 +202,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				'a',
 				array(
 					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array( 'limit' => $limit ) ) ),
-					'title' => wfMessage( 'swl-watchlist-firstn-title' )->rawParams( '$limit' )->escaped()
+					'title' => wfMessage( 'swl-watchlist-firstn-title', $limit )->escaped()
 				),
 				$firstMsg
 			);			
@@ -218,7 +218,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 				'a',
 				array(
 					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( $limitLinkArgs ) ),
-					'title' => wfMessage( 'shown-title' )->rawParams( $limitValue )->escaped()
+					'title' => wfMessage( 'shown-title', $limitValue )->escaped()
 				),
 				$wgLang->formatNum( $limitValue )
 			);
