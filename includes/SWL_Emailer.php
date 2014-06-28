@@ -38,12 +38,10 @@ final class SWLEmailer {
 		)->parseAsBlock();
 
 		if ( $describeChanges ) {
-			$emailText .= '<h3> ' . wfMessage(
-				'swl-email-changes',
+			$emailText .= '<h3> ' . wfMessage( 'swl-email-changes' )->rawParams(
 				$changeSet->getEdit()->getTitle()->getFullText(),
 				$changeSet->getEdit()->getTitle()->getFullURL()
-			)->parseAsBlock() . ' </h3>';
-
+			)->escaped() . ' </h3>';
 			$emailText .= self::getChangeListHTML( $changeSet, $group );
 		}
 
