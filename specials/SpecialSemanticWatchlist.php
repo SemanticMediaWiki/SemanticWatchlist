@@ -121,12 +121,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 		
 		if ( $offset != 0 || count( $sets ) > 0 ) {
-			$wgOut->addHTML( '<p>' . wfMessage(
-				'swl-watchlist-position',
-				$wgLang->formatNum( count( $sets ) ),
-				$wgLang->formatNum( $offset + 1 )
-			)->parse() . '</p>' );
-			
+			$wgOut->addHTML( '<p>' . wfMessage( 'swl-watchlist-position' )->numParams( count( $sets ), $offset + 1 )->parse() . '</p>' );
 			$wgOut->addHTML( $this->getPagingControlHTML( $limit, $continue, $subPage, $newContinue, $offset ) );
 		}
 		
