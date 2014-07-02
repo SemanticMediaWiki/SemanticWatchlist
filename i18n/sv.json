@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Martinwiss",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
 	"semanticwatchlist-desc": "Informera användare om vissa ändringar av semantiska data",
@@ -22,6 +23,7 @@
 	"swl-group-category": "kategori",
 	"swl-group-namespace": "namnrymd",
 	"swl-group-concept": "begrepp",
+	"swl-group-confirm-remove": "Är du säker på att du vill ta bort bevakningslistgruppen \"$1\"",
 	"swl-group-add-new-group": "Lägg till en ny grupp",
 	"swl-group-add-group": "Lägg till grupp",
 	"swl-custom-legend": "Anpassad text",
@@ -31,6 +33,7 @@
 	"swl-watchlist-position": "Visar {{PLURAL:$1|den senaste ändringen|de senaste '''$1''' ändringarna med början från ändringen '''#$2'''}}.",
 	"swl-watchlist-insertions": "Ny:",
 	"swl-watchlist-deletions": "Gammal:",
+	"swl-new-item": "NY",
 	"swl-watchlist-pagincontrol": "Visar ($1) ($2)",
 	"swl-watchlist-firstn": "först $1",
 	"swl-watchlist-firstn-title": "Första $1 {{PLURAL:$1|resultat|resultaten}}",
