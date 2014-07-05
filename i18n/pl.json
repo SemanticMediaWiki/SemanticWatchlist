@@ -3,12 +3,17 @@
 		"authors": [
 			"Chrumps",
 			"Jacenty359",
-			"Woytecr"
+			"Woytecr",
+			"Alan ffm"
 		]
 	},
+	"right-semanticwatch": "Użyj semantycznej listy obserwowanych",
+	"special-semanticwatchlist": "Semantyczna lista obserwowanych",
+	"special-watchlistconditions": "Warunki semantycznej listy obserwowanych",
 	"swl-group-name": "Nazwa grupy:",
 	"swl-group-legend": "Grupa",
 	"swl-properties-list": "Oddziel nazwy za pomocą |",
+	"swl-group-page-selection": "Wybierz strony do monitorowania:",
 	"swl-group-save": "Zapisz",
 	"swl-group-remove": "Usuń",
 	"swl-group-saved": "Ustawienia zostały zapisane.",
@@ -26,5 +31,6 @@
 	"swl-new-item": "NOWY",
 	"swl-watchlist-pagincontrol": "Zobacz ($1) ($2)",
 	"swl-watchlist-firstn": "pierwsze $1",
-	"swl-watchlist-firstn-title": "{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}"
+	"swl-watchlist-firstn-title": "{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}",
+	"prefs-swl": "Semantyczna lista obserwowanych"
 }
