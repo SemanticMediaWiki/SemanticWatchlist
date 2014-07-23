@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ch.Andrew",
-			"Shirayuki"
+			"Shirayuki",
+			"LNDDYL"
 		]
 	},
 	"semanticwatchlist-desc": "讓用戶獲得關於Semantic MediaWiki數據特定更改的通知",
@@ -41,7 +42,7 @@
 	"prefs-swlgroup": "要監視的組",
 	"prefs-swlglobal": "一般選項",
 	"swl-prefs-emailnofity": "電子郵件通知我那些對我所監視屬性的變更",
-	"swl-prefs-watchlisttoplink": "在頁面頂部顯示語義監視列表的鏈接",
+	"swl-prefs-watchlisttoplink": "在頁面頂部顯示語義監視清單的連結",
 	"swl-prefs-category-label": "'''$1'''：來自類別''$4''的{{PLURAL:$2|屬性|屬性}} $3",
 	"swl-prefs-namespace-label": "'''$1'''來自命名空間''$4''的{{PLURAL:$2|屬性|屬性}} $3",
 	"swl-prefs-concept-label": "'''$1'''：來自概念''$4''的{{PLURAL:$2|屬性|屬性}} $3",
