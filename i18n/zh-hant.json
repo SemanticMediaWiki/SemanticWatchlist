@@ -28,7 +28,7 @@
 	"swl-watchlist-position": "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。",
 	"swl-watchlist-insertions": "新：",
 	"swl-watchlist-deletions": "舊：",
-	"swl-watchlist-pagincontrol": "查看 ($1) ($2)",
+	"swl-watchlist-pagincontrol": "檢視 ($1) ($2)",
 	"swl-watchlist-firstn": "前$1",
 	"swl-watchlist-firstn-title": "前$1{{PLURAL:$1|項結果|項結果}}",
 	"swl-watchlist-no-items": "您的監視清單為空。",
