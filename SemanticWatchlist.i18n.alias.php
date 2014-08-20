@@ -139,6 +139,6 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'SemanticWatchlist' => array( 'Semantic監視列表' ),
+	'SemanticWatchlist' => array( '语义監視列表' ),
 	'WatchlistConditions' => array( '監視列表狀態', '監視列表群組' ),
 );
