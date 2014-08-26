@@ -32,5 +32,6 @@
 	"swl-watchlist-pagincontrol": "Zobacz ($1) ($2)",
 	"swl-watchlist-firstn": "pierwsze $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}",
-	"prefs-swl": "Semantyczna lista obserwowanych"
+	"prefs-swl": "Semantyczna lista obserwowanych",
+	"prefs-swlglobal": "Opcje ogólne"
 }
