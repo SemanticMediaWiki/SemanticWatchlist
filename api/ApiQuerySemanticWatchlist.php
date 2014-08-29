@@ -220,17 +220,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 	public function getDescription() {
 		return 'Returns a list of sets of changes for the either specified user of specified group(s).';
 	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see includes/api/ApiBase#getPossibleErrors()
-	 */
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
 
-		) );
-	}	
-	
 	/**
 	 * (non-PHPdoc)
 	 * @see includes/api/ApiBase#getExamples()

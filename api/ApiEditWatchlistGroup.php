@@ -99,11 +99,6 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'API module to modify semantic watchlist groups.'
 		);
 	}
-		
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-		) );
-	}
 
 	protected function getExamples() {
 		return array(

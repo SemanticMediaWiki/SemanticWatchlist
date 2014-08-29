@@ -197,12 +197,6 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 			'API module to delete semantic watchlist groups.'
 		);
 	}
-		
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'ids' ),
-		) );
-	}
 
 	protected function getExamples() {
 		return array(

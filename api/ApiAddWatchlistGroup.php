@@ -107,13 +107,6 @@ class ApiAddWatchlistGroup extends ApiBase {
 			'API module to add semantic watchlist groups.'
 		);
 	}
-	
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'name' ),
-			array( 'missingparam', 'properties' ),
-		) );
-	}
 
 	protected function getExamples() {
 		return array(
