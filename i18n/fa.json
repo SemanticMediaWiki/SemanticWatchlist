@@ -5,7 +5,8 @@
 			"Ebraminio",
 			"Mjbmr",
 			"Omidh",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Alirezaaa"
 		]
 	},
 	"semanticwatchlist-desc": "مطلع کردن کاربران از تغییرات ویژه به داده‌های مدیاویکی معنایی",
@@ -33,9 +34,9 @@
 	"swl-custom-text-add": "افزودن متن سفارشی",
 	"swl-custom-input": "اگر خاصیت $1 به مقدار $2 تغییر کند، کاربران را با متن زیر مطلع کنː $3",
 	"swl-watchlist-position": "نمایش آخرین {{PLURAL:$1|تغییر|'''$1''' شروع تغییرات با تغییر'''#$2'''}}:",
-	"swl-watchlist-insertions": "جدید:",
+	"swl-watchlist-insertions": "تازه:",
 	"swl-watchlist-deletions": "قدیمی:",
-	"swl-new-item": "جدید",
+	"swl-new-item": "تازه",
 	"swl-watchlist-pagincontrol": "مشاهدهٔ‌ ($1) ($2)",
 	"swl-watchlist-firstn": "ابتدا $1",
 	"swl-watchlist-firstn-title": "ابتدا $1 {{PLURAL:$1|نتیجه|نتایج}}",
