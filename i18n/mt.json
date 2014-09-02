@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrisportelli"
+			"Chrisportelli",
+			"Leli Forte"
 		]
 	},
 	"swl-group-category": "kategorija",
-	"swl-group-namespace": "spazju tal-isem",
+	"swl-group-namespace": "spazju tal-ismijiet",
 	"swl-group-concept": "kunċett",
 	"swl-group-add-new-group": "Żid grupp ġdid",
 	"swl-group-add-group": "Żid grupp",
