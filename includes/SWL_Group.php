@@ -345,8 +345,8 @@ class SWLGroup {
 	 */
 	public function coversPage( Title $title ) {
 		return $this->categoriesCoverPage( $title )
-			&& $this->namespacesCoversPage( $title )
-			&& $this->conceptsCoverPage( $title );
+			|| $this->namespacesCoversPage( $title )
+			|| $this->conceptsCoverPage( $title );
 	}
 
 	/**
