@@ -14,7 +14,7 @@
 final class SWLHooks {
 
     /**
-     * Handle the onDataChanged hook of SMW >1.6, which gets called
+     * Handle the updateDataBefore hook of SMW >1.6, which gets called
      * every time the value of a propery changes somewhere.
      *
      * @since 0.1
