@@ -48,20 +48,20 @@ developers mailing list and have a look at the [contribution guildline](/CONTRIB
 
 Semantic Watchlist is in part a workflow extension, which makes it important for other SMW/MW extensions and tools to interact with it. This is possible via the hooks and API modules Semantic Watchlist provides:
 
-### API modules:
+### API modules
 
-* addswlgroup: API module to add semantic watchlist groups.
-* deleteswlgroup: API module to delete semantic watchlist groups.
-* editswlgroup: API module to modify semantic watchlist groups.
-* semanticwatchlist: Returns a list of modified properties per page for a persons semantic watchlist.
+* `addswlgroup` an API module to add semantic watchlist groups.
+* `deleteswlgroup` an API module to delete semantic watchlist groups.
+* `editswlgroup` an API module to modify semantic watchlist groups.
+* `semanticwatchlist` returns a list of modified properties per page for a persons semantic watchlist.
 
-### Hooks:
+### Hooks
 
-* SWLBeforeEmailNotify: $group, $user, $changeSet, $describeChanges, &$title, &$emailText
-* SWLBeforeEditInsert: &$this
-* SWLAfterEditInsert: &$this
-* SWLBeforeChangeSetInsert: &$this, &$groupsToAssociate, &$editId
-* SWLAfterChangeSetInsert: &$this, $groupsToAssociate, $editId
+* `SWLBeforeEmailNotify`
+* `SWLBeforeEditInsert`
+* `SWLAfterEditInsert`
+* `SWLBeforeChangeSetInsert`
+* `SWLAfterChangeSetInsert`
 
 ## Tests
 
