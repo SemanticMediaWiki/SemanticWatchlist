@@ -44,9 +44,28 @@ developers mailing list and have a look at the [contribution guildline](/CONTRIB
 * Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
 * Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
-### Tests
+## Extending Semantic Watchlist
 
-This extension provides unit tests that can be run by a [continues integration platform][travis] or manually by executing the `mw-phpunit-runner.php` script or [`phpunit`][mw-testing] together with the PHPUnit configuration file found in the root directory.
+Semantic Watchlist is in part a workflow extension, which makes it important for other SMW/MW extensions and tools to interact with it. This is possible via the hooks and API modules Semantic Watchlist provides:
+
+### API modules:
+
+* addswlgroup: API module to add semantic watchlist groups.
+* deleteswlgroup: API module to delete semantic watchlist groups.
+* editswlgroup: API module to modify semantic watchlist groups.
+* semanticwatchlist: Returns a list of modified properties per page for a persons semantic watchlist.
+
+### Hooks:
+
+* SWLBeforeEmailNotify: $group, $user, $changeSet, $describeChanges, &$title, &$emailText
+* SWLBeforeEditInsert: &$this
+* SWLAfterEditInsert: &$this
+* SWLBeforeChangeSetInsert: &$this, &$groupsToAssociate, &$editId
+* SWLAfterChangeSetInsert: &$this, $groupsToAssociate, $editId
+
+## Tests
+
+This extension provides unit tests that can be run by a [continuous integration platform][travis] or manually by executing the `mw-phpunit-runner.php` script or [`phpunit`][mw-testing] together with the PHPUnit configuration file found in the root directory.
 
 ```sh
 php mw-phpunit-runner.php [options]
