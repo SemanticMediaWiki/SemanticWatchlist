@@ -3,7 +3,8 @@
 		"authors": [
 			"Ch.Andrew",
 			"Shirayuki",
-			"LNDDYL"
+			"LNDDYL",
+			"Liuxinyu970226"
 		]
 	},
 	"semanticwatchlist-desc": "讓用戶獲得關於Semantic MediaWiki數據特定更改的通知",
@@ -28,6 +29,7 @@
 	"swl-watchlist-position": "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。",
 	"swl-watchlist-insertions": "新：",
 	"swl-watchlist-deletions": "舊：",
+	"swl-new-item": "新",
 	"swl-watchlist-pagincontrol": "檢視 ($1) ($2)",
 	"swl-watchlist-firstn": "前$1",
 	"swl-watchlist-firstn-title": "前$1{{PLURAL:$1|項結果|項結果}}",
