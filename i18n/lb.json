@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"right-semanticwatch": "Semantesch Iwwerwaachungslëscht benotzen",
 	"special-semanticwatchlist": "Semantesch Iwwerwaachungslëscht",
 	"special-watchlistconditions": "Astellunge vun der semantescher Iwwerwaachnugslëscht",
-	"swl-group-name": "Numm vum Grupp:",
+	"swl-group-name": "Gruppennumm:",
 	"swl-group-legend": "Grupp",
 	"swl-properties-list": "Nimm mat | trennen",
 	"swl-group-page-selection": "Sicht Säiten eraus fir z'iwwerwaachen:",
