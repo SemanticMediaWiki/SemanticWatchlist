@@ -8,7 +8,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"아라"
+			"아라",
+			"Liuxinyu970226"
 		]
 	},
 	"semanticwatchlist-desc": "{{desc|name=Semantic Watchlist|url=https://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}",
@@ -27,7 +28,7 @@
 	"swl-group-saving": "This message indicates that the changes on the preferences page are being processed.\n{{Identical|Saving}}",
 	"swl-group-category": "This is an option allowing to select the pages which should be watched by the group. A category holds a group of pages.\n{{Identical|Category}}",
 	"swl-group-namespace": "This is an option allowing to select the pages which should be watched by the group. A namespace holds a group of pages.\n{{Identical|Namespace}}",
-	"swl-group-concept": "This is an option allowing to select the pages which should be watched by the group. A concept holds a group of precomputed pages. A concept may best be described as being a dynamic category.",
+	"swl-group-concept": "This is an option allowing to select the pages which should be watched by the group. A concept holds a group of precomputed pages. A concept may best be described as being a dynamic category.\n{{Identical|Concept}}",
 	"swl-group-confirm-remove": "This message asks for confirmation on [[Special:WatchlistConditions]] if the group should be removed?\n* $1 - name of the group",
 	"swl-group-add-new-group": "This is the text on the button allowing to add a new group of properties to be watched on [[Special:SemanticWatchlist]].",
 	"swl-group-add-group": "This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].\n{{Identical|Add group}}",
