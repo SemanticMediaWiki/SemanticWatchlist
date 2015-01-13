@@ -105,10 +105,6 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
 		);
-	}	
-	
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}		
+	}
 	
 }
