@@ -223,7 +223,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		return Html::rawElement(
 			'p',
 			array(),
-			wfMsgHtml( 'swl-watchlist-pagincontrol', $wgLang->pipeList( array( $firstLink, $nextLink ) ), $wgLang->pipeList( $limitLinks ) )
+			wfMessage( 'swl-watchlist-pagincontrol' )
+				->rawParams(
+				$wgLang->pipeList( array( $firstLink, $nextLink ) ),
+				$wgLang->pipeList( $limitLinks )
+				)->escaped()
 		);
 	}
 
