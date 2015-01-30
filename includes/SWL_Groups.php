@@ -18,7 +18,7 @@ final class SWLGroups {
 	 *
 	 * @var array of SWLGroup
 	 */
-	protected static $groups = false;
+	private static $groups = false;
 
     /**
      * Returns all watchlist groups.

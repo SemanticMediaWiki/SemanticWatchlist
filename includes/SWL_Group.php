@@ -22,7 +22,7 @@ class SWLGroup {
 	 *
 	 * @var integer or null
 	 */
-	protected $id;
+	private $id;
 
 	/**
 	 * Name of the group.
@@ -31,7 +31,7 @@ class SWLGroup {
 	 *
 	 * @var string
 	 */
-	protected $name;
+	private $name;
 
 	/**
 	 * List of categories this group covers.
@@ -40,7 +40,7 @@ class SWLGroup {
 	 *
 	 * @var array of string
 	 */
-	protected $categories;
+	private $categories;
 
 	/**
 	 * List of namespaces IDs of namespaces this group covers.
@@ -49,7 +49,7 @@ class SWLGroup {
 	 *
 	 * @var array of integer
 	 */
-	protected $namespaces = array();
+	private $namespaces = array();
 
 	/**
 	 * List of SMW properties this group covers.
@@ -58,14 +58,14 @@ class SWLGroup {
 	 *
 	 * @var array of string
 	 */
-	protected $properties;
+	private $properties;
 
 	/**
 	 * List of custom texts this group covers.
 	 *
 	 * @var array
 	 */
-	protected $customTexts;
+	private $customTexts;
 
 	/**
 	 * List of SMW concepts this group covers.
@@ -74,7 +74,7 @@ class SWLGroup {
 	 *
 	 * @var array of string
 	 */
-	protected $concepts;
+	private $concepts;
 
 	/**
 	 * Cached list of IDs of users that are watching this group,
@@ -84,7 +84,7 @@ class SWLGroup {
 	 *
 	 * @var array of integer or false
 	 */
-	protected $watchingUsers = false;
+	private $watchingUsers = false;
 
 	/**
 	 * Creates a new instance of SWLGroup from a DB result.
@@ -169,7 +169,7 @@ class SWLGroup {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function updateInDB() {
+	private function updateInDB() {
 		$dbr = wfGetDB( DB_MASTER );
 		return  $dbr->update(
 			'swl_groups',
@@ -192,7 +192,7 @@ class SWLGroup {
 	 *
 	 * @return boolean Success indicator
 	 */
-	protected function insertIntoDB() {
+	private function insertIntoDB() {
 		$dbr = wfGetDB( DB_MASTER );
 
 		$result = $dbr->insert(

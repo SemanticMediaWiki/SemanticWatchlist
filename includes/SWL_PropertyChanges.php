@@ -16,36 +16,36 @@
  */
 class SWLPropertyChanges implements Iterator {
 
-	protected $pos = 0;
-	protected $currentRow = null;	
+	private $pos = 0;
+	private $currentRow = null;	
 	
 	/**
 	 * Cache for the localized version of the namespace prefix "Property:".
 	 *
 	 * @var string
 	 */
-	static protected $propertyPrefix = '';	
+	static private $propertyPrefix = '';	
 	
 	/**
 	 * Array mapping property keys (string) to arrays of SWLPropertyChange.
 	 * 
 	 * @var array of SWLPropertyChange
 	 */
-	protected $changes = array();
+	private $changes = array();
 	
 	/**
 	 * Array mapping property keys (string) to SMWDIProperty objects.
 	 *
 	 * @var array of SMWDIProperty
 	 */
-	protected $properties = array();
+	private $properties = array();
 	
 	/**
 	 * Indicates if there are changes in the list.
 	 * 
 	 * @var boolean
 	 */
-	protected $hasChanges = false;
+	private $hasChanges = false;
 	
 	/**
 	 * Get the array of all properties that have changes.
