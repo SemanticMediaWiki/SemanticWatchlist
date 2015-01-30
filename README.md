@@ -65,11 +65,8 @@ Semantic Watchlist is in part a workflow extension, which makes it important for
 
 ## Tests
 
-This extension provides unit tests that can be run by a [continuous integration platform][travis] or manually by executing the `mw-phpunit-runner.php` script or [`phpunit`][mw-testing] together with the PHPUnit configuration file found in the root directory.
-
-```sh
-php mw-phpunit-runner.php [options]
-```
+This extension provides unit and integration tests that are run by a [continues integration platform][travis]
+but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
 
