@@ -10,6 +10,7 @@ Not a release yet.
 ### Bug fixes
 
 * #5 Fixed call to a member function getCount() on a non-object
+* #10 Migrated depreciated wfMsg* functions to wfMessage()
 * #11 Fixed undefined variable `egSWLEnableSelfNotify`
 * #11 Fixed uncaught ReferenceError `wgScriptPath` is not defined
 
