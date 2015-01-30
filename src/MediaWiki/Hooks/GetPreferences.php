@@ -2,6 +2,7 @@
 
 namespace SWL\MediaWiki\Hooks;
 
+use SWLGroup;
 use User;
 use Language;
 use MWNamespace;
@@ -65,46 +66,49 @@ class GetPreferences {
 		}
 
 		foreach ( $groups as /* SWLGroup */ $group ) {
-
-			$properties = $group->getProperties();
-
-			if ( count( $properties ) == 0 ) {
-				continue;
-			}
-
-			switch ( true ) {
-				case count( $group->getCategories() ) > 0 :
-					$type = 'category';
-					$name = $group->getCategories();
-					$name = $name[0];
-					break;
-				case count( $group->getNamespaces() ) > 0 :
-					$type = 'namespace';
-					$name = $group->getNamespaces();
-					$name = $name[0] == 0 ? wfMessage( 'main' )->text() : MWNamespace::getCanonicalName( $name[0] );
-					break;
-				case count( $group->getConcepts() ) > 0 :
-					$type = 'concept';
-					$name = $group->getConcepts();
-					$name = $name[0];
-					break;
-				default:
-					continue;
-			}
-
-			foreach ( $properties as &$property ) {
-				$property = "''$property''";
-			}
-
-			$this->preferences['swl_watchgroup_' . $group->getId()] = $this->addGoupPreference(
-				$type,
-				$group->getName(),
-				$name,
-				$properties
-			);
+			$this->handleGroup( $group );
 		}
 
 		return true;
+	}
+
+	private function handleGroup( SWLGroup $group ) {
+		$properties = $group->getProperties();
+
+		if ( empty( $properties ) ) {
+			return;
+		}
+
+		switch ( true ) {
+			case count( $group->getCategories() ) > 0 :
+				$type = 'category';
+				$name = $group->getCategories();
+				$name = $name[0];
+				break;
+			case count( $group->getNamespaces() ) > 0 :
+				$type = 'namespace';
+				$name = $group->getNamespaces();
+				$name = $name[0] == 0 ? wfMessage( 'main' )->text() : MWNamespace::getCanonicalName( $name[0] );
+				break;
+			case count( $group->getConcepts() ) > 0 :
+				$type = 'concept';
+				$name = $group->getConcepts();
+				$name = $name[0];
+				break;
+			default:
+				return;
+		}
+
+		foreach ( $properties as &$property ) {
+			$property = "''$property''";
+		}
+
+		$this->preferences['swl_watchgroup_' . $group->getId()] = $this->addGoupPreference(
+			$type,
+			$group->getName(),
+			$name,
+			$properties
+		);
 	}
 
 	protected function getAllSwlGroups() {
