@@ -3,6 +3,10 @@
 ## 1.0.0
 Not a release yet.
 
+### New features
+
+* Semantic Watchlist is now installable via Composer
+
 ### Bug fixes
 
 * #5 Fixed call to a member function getCount() on a non-object
