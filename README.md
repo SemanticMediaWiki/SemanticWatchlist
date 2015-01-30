@@ -1,5 +1,13 @@
 # Semantic Watchlist
 
+[![Build Status](https://secure.travis-ci.org/SemanticMediaWiki/SemanticWatchlist.svg?branch=master)](http://travis-ci.org/SemanticMediaWiki/SemanticWatchlist)
+[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-watchlist/version.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
+[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-watchlist/d/total.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
+[![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-watchlist/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-watchlist)
+
+
 Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] that enables users to watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist) that lists changes to these properties.
 
 Users can choose to follow one or more watchlist groups, which are administrator defined, and cover a set of properties and a set of pages (category, namespace, or SMW concept). Notification of changes to watched properties is also possible via email.
