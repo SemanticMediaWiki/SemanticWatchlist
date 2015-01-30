@@ -1,7 +1,7 @@
 {
 	"name": "mediawiki/semantic-watchlist",
 	"type": "mediawiki-extension",
-	"description": "A Semantic MediaWiki extension that enables users to watch semantic properties via a watchlist.",
+	"description": "A Semantic MediaWiki extension that allows users to use a watchlist for semantic properties.",
 	"keywords": [
 		"SMW",
 		"Semantic MediaWiki",
