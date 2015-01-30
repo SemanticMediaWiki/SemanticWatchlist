@@ -20,36 +20,36 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 # Users that can use the semantic watchlist.
-$wgGroupPermissions['*'            ]['semanticwatch'] = false;
-$wgGroupPermissions['user'         ]['semanticwatch'] = true;
-$wgGroupPermissions['autoconfirmed']['semanticwatch'] = true;
-$wgGroupPermissions['bot'          ]['semanticwatch'] = false;
-$wgGroupPermissions['sysop'        ]['semanticwatch'] = true;
+$GLOBALS['wgGroupPermissions']['*'            ]['semanticwatch'] = false;
+$GLOBALS['wgGroupPermissions']['user'         ]['semanticwatch'] = true;
+$GLOBALS['wgGroupPermissions']['autoconfirmed']['semanticwatch'] = true;
+$GLOBALS['wgGroupPermissions']['bot'          ]['semanticwatch'] = false;
+$GLOBALS['wgGroupPermissions']['sysop'        ]['semanticwatch'] = true;
 
 # Users that can modify the watchlist groups via Special:WatchlistConditions
-$wgGroupPermissions['*'            ]['semanticwatchgroups'] = false;
-$wgGroupPermissions['user'         ]['semanticwatchgroups'] = false;
-$wgGroupPermissions['autoconfirmed']['semanticwatchgroups'] = false;
-$wgGroupPermissions['bot'          ]['semanticwatchgroups'] = false;
-$wgGroupPermissions['sysop'        ]['semanticwatchgroups'] = true;
+$GLOBALS['wgGroupPermissions']['*'            ]['semanticwatchgroups'] = false;
+$GLOBALS['wgGroupPermissions']['user'         ]['semanticwatchgroups'] = false;
+$GLOBALS['wgGroupPermissions']['autoconfirmed']['semanticwatchgroups'] = false;
+$GLOBALS['wgGroupPermissions']['bot'          ]['semanticwatchgroups'] = false;
+$GLOBALS['wgGroupPermissions']['sysop'        ]['semanticwatchgroups'] = true;
 
 # Enable email notification or not?
-$egSWLEnableEmailNotify = true;
+$GLOBALS['egSWLEnableEmailNotify'] = true;
 
-# Send an email for every change (as opposed to a "something changed email" for the first $egSWLMaxMails changes)?
-$egSWLMailPerChange = true;
+# Send an email for every change (as opposed to a "something changed email" for the first $GLOBALS['egSWLMaxMails'] changes)?
+$GLOBALS['egSWLMailPerChange'] = true;
 
 # The maximum amount of generic emails to send about changes until the user actually checks his semantic watchlist.
-$egSWLMaxMails = 1;
+$GLOBALS['egSWLMaxMails'] = 1;
 
 # The default value for the user preference to send email notifications.
-$wgDefaultUserOptions['swl_email'] = true;
+$GLOBALS['wgDefaultUserOptions']['swl_email'] = true;
 
 # The default value for the user preference to display a top link to the semantic watchlist.
-$wgDefaultUserOptions['swl_watchlisttoplink'] = true;
+$GLOBALS['wgDefaultUserOptions']['swl_watchlisttoplink'] = true;
 
 # Enable displaying a top link to the semantic watchlist?
-$egSWLEnableTopLink = true;
+$GLOBALS['egSWLEnableTopLink'] = true;
 
 # Send email to editor
-$egSWLEnableSelfNotify = false;
+$GLOBALS['egSWLEnableSelfNotify'] = false;
