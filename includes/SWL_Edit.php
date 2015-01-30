@@ -18,35 +18,35 @@ class SWLEdit {
 	 * 
 	 * @var integer
 	 */
-	protected $pageId;
+	private $pageId;
 	
 	/**
 	 * The name of the user that made the edit.
 	 * 
 	 * @var string
 	 */
-	protected $userName;
+	private $userName;
 	
 	/**
 	 * The user that made the changes.
 	 * 
 	 * @var User or false
 	 */
-	protected $user = false;
+	private $user = false;
 	
 	/**
 	 * The time on which the edit was made.
 	 * 
 	 * @var integer
 	 */
-	protected $time;
+	private $time;
 	
 	/**
 	 * DB ID of the edit (swl_edits.edit_id).
 	 * 
 	 * @var integer
 	 */
-	protected $id;
+	private $id;
 	
 	/**
 	 * Creates and returns a new instance of SWLEdit by getting it's info from the database.
@@ -126,7 +126,7 @@ class SWLEdit {
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function updateInDB() {
+	private function updateInDB() {
 		$dbr = wfGetDB( DB_MASTER );
 		
 		return  $dbr->update(
@@ -147,7 +147,7 @@ class SWLEdit {
 	 * 
 	 * @return boolean Success indicator
 	 */
-	protected function insertIntoDB() {
+	private function insertIntoDB() {
 		wfRunHooks( 'SWLBeforeEditInsert', array( &$this ) );
 		
 		$dbr = wfGetDB( DB_MASTER );

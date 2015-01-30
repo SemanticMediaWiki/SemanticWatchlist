@@ -18,35 +18,35 @@ class SWLChangeSet {
 	 * 
 	 * @var SMWDIWikiPage
 	 */
-	protected $subject;
+	private $subject;
 	
 	/**
 	 * Object holding semantic data that got inserted.
 	 * 
 	 * @var SMWSemanticData
 	 */
-	protected $insertions;
+	private $insertions;
 	
 	/**
 	 * Object holding semantic data that got deleted.
 	 * 
 	 * @var SMWSemanticData
 	 */	
-	protected $deletions;
+	private $deletions;
 	
 	/**
 	 * List of all changes(, not including insertions and deletions).
 	 * 
 	 * @var SWLPropertyChanges
 	 */
-	protected $changes;
+	private $changes;
 	
 	/**
 	 * DB ID of the change set (swl_sets.set_id).
 	 * 
 	 * @var integer
 	 */
-	protected $id;
+	private $id;
 	
 	/**
 	 * The title of the page the changeset holds changes for.
@@ -56,14 +56,14 @@ class SWLChangeSet {
 	 * 
 	 * @var Title or false
 	 */
-	protected $title = false;
+	private $title = false;
 	
 	/**
 	 * The edit this set of changes belongs to.
 	 * 
 	 * @var SWLEdit
 	 */
-	protected $edit;
+	private $edit;
 	
 	/**
 	 * Creates and returns a new SWLChangeSet instance from a database result
@@ -263,7 +263,7 @@ class SWLChangeSet {
 	 * @param SMWSemanticData $oldData
 	 * @param array $newProperties
 	 */
-	protected static function findSingleDirectionChanges( SMWSemanticData &$changeSet,
+	private static function findSingleDirectionChanges( SMWSemanticData &$changeSet,
 		array &$oldProperties, SMWSemanticData $oldData, array $newProperties ) {
 		
 		$deletionKeys = array();

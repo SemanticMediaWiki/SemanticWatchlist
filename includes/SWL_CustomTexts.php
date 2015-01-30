@@ -19,7 +19,7 @@ class SWLCustomTexts {
 	 *
 	 * @var SWLGroup
 	 */
-	protected $group;
+	private $group;
 
 	/**
 	 * Array holding custom texts to be sent in mails
@@ -28,7 +28,7 @@ class SWLCustomTexts {
 	 *
 	 * @var array or null
 	 */
-	protected $customTexts = null;
+	private $customTexts = null;
 
 	public function __construct( SWLGroup $group ) {
 		$this->group = $group;
@@ -40,7 +40,7 @@ class SWLCustomTexts {
 	 *
 	 * @since 0.2
 	 */
-	protected function initCustomTexts() {
+	private function initCustomTexts() {
 		if( !is_null( $this->customTexts ) ) {
 			return;
 		}

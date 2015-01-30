@@ -22,14 +22,14 @@ class SWLPropertyChange {
 	 *
 	 * @var SMWDataItem or null
 	 */
-	protected $oldValue;
+	private $oldValue;
 
 	/**
 	 * The new value.
 	 *
 	 * @var SMWDataItem or null
 	 */
-	protected $newValue;
+	private $newValue;
 
 	/**
 	 * Creates and returns a new SWLPropertyChange instance from a serialization.

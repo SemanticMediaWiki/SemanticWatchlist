@@ -74,7 +74,7 @@ final class SWLEmailer {
 	 *
 	 * @return string
 	 */
-	protected static function getChangeListHTML( SWLChangeSet $changeSet, SWLGroup $group ) {
+	private static function getChangeListHTML( SWLChangeSet $changeSet, SWLGroup $group ) {
 		$propertyHTML = array();
 		$customTexts = new SWLCustomTexts( $group );
 		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
@@ -94,7 +94,7 @@ final class SWLEmailer {
 	 * @param SWLCustomTexts $customTexts
 	 * @return string
 	 */
-	protected static function getPropertyHTML( SMWDIProperty $property, array $changes, $customTexts ) {
+	private static function getPropertyHTML( SMWDIProperty $property, array $changes, $customTexts ) {
 		$insertions = array();
 		$deletions = array();
 		$customMessages = array();
