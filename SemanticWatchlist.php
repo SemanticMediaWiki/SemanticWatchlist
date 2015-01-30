@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Initialization file for the Semantic Watchlist extension.
- *
- * Documentation: 	https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist
- * Support		https://github.com/SemanticMediaWiki/SemanticWatchlist/issues
+ * Semantic Watchlist (SWL) - Provides a watchlist and notifier for changes to semantic properties.
  *
  * @license GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -19,7 +16,7 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.19c', '<' ) ) {
 }
 
 if ( !defined( 'SMW_VERSION' ) ) {
-	die( '<b>Error:</b> You need to have <a href="https://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed in order to use Semantic Watchlist.' );
+	die( '<b>Error:</b> You need to have <a href="https://semantic-mediawiki.org/">Semantic MediaWiki</a> installed in order to use Semantic Watchlist.' );
 }
 
 if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
@@ -33,7 +30,7 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'name' => 'Semantic Watchlist',
 	'version' => SWL_VERSION,
 	'author' => array(
-		'[http://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
+		'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
 	),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
 	'descriptionmsg' => 'semanticwatchlist-desc',
