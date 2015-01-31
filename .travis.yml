@@ -1,0 +1,20 @@
+language: php
+
+env:
+  - THENEEDFORTHIS=FAIL
+
+matrix:
+  include:
+    - env: DB=mysql; MW=master
+      php: 5.5
+    - env: DB=sqlite; MW=1.22.0
+      php: 5.3
+  exclude:
+    - env: THENEEDFORTHIS=FAIL
+
+install:
+  - bash ./tests/travis/install-mediawiki.sh
+  - bash ./tests/travis/install-semantic-watchlist.sh
+
+script:
+  - bash ./tests/travis/run-tests.sh
