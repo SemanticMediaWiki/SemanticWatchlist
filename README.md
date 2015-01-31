@@ -41,6 +41,8 @@ The recommended way to install this extension is by using [Composer][composer]. 
 }
 ```
 
+For configuration, see the [configuration documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
+
 ## Usage
 
 See the [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
