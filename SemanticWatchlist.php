@@ -41,8 +41,9 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 
 $GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
 
-$GLOBALS['wgExtensionMessagesFiles']['SemanticWatchlist']      = __DIR__ . '/SemanticWatchlist.i18n.php';
-$GLOBALS['wgExtensionMessagesFiles']['SemanticWatchlistAlias'] = __DIR__ . '/SemanticWatchlist.i18n.alias.php';
+$GLOBALS['wgMessagesDirs']['semantic-watchlist'] = __DIR__ . '/i18n';
+$GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist']      = __DIR__ . '/SemanticWatchlist.i18n.php';
+$GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist-alias'] = __DIR__ . '/SemanticWatchlist.i18n.alias.php';
 
 $GLOBALS['wgAutoloadClasses']['SWLHooks']					  	= __DIR__ . '/SemanticWatchlist.hooks.php';
 
