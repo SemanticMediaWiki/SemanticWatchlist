@@ -31,7 +31,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testExecuteOnNonMySqlWithoutExtensionUpdate() {
+	public function testNoExtensionUpdateForInvalidDBType() {
 
 		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
@@ -61,7 +61,10 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue( $instance->execute() );
 	}
 
-	public function testExecuteOnMySqlWithExtensionUpdate() {
+	/**
+	 * @dataProvider dbTypeProvider
+	 */
+	public function testExtensionUpdateForValidDBType( $dbType ) {
 
 		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
@@ -69,7 +72,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 		$dbConnection->expects( $this->once() )
 			->method( 'getType' )
-			->will( $this->returnValue( 'mysql' ) );
+			->will( $this->returnValue( $dbType ) );
 
 		$databaseUpdater = $this->getMockBuilder( 'DatabaseUpdater' )
 			->disableOriginalConstructor()
@@ -92,6 +95,16 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$instance->setConfiguration( $configuration );
 
 		$this->assertTrue( $instance->execute() );
+	}
+
+	public function dbTypeProvider() {
+
+		$provider = array(
+			array( 'sqlite' ),
+			array( 'mysql' )
+		);
+
+		return $provider;
 	}
 
 }

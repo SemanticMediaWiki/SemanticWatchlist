@@ -46,13 +46,15 @@ class ExtensionSchemaUpdater {
 	 * @return boolean
 	 */
 	public function execute() {
+		return $this->isSupportedDBType() && $this->hasDatabaseSchema() ? $this->performUpdate() : true;
+	}
 
-		if ( $this->databaseUpdater->getDB()->getType() === 'mysql' &&
-			isset( $this->configuration['egSwlSqlDatabaseSchemaPath'] ) ) {
-			return $this->performUpdate();
-		}
+	private function isSupportedDBType() {
+		return in_array( $this->databaseUpdater->getDB()->getType(), array( 'mysql', 'sqlite' ) );
+	}
 
-		return true;
+	private function hasDatabaseSchema() {
+		return isset( $this->configuration['egSwlSqlDatabaseSchemaPath'] );
 	}
 
 	protected function performUpdate() {
