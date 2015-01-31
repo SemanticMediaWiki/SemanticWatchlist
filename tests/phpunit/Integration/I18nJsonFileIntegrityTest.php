@@ -1,12 +1,11 @@
 <?php
 
-namespace SIL\Tests\Integration;
+namespace SWL\Tests\Integration;
 
 use SMW\Tests\Utils\UtilityFactory;
 
 /**
- * @group semantic-interlanguage-links
- * @group semantic-mediawiki-integration
+ * @group semantic-watchlist
  *
  * @group medium
  *
