@@ -40,6 +40,11 @@ The recommended way to install this extension is by using [Composer][composer]. 
 	}
 }
 ```
+
+## Usage
+
+See the [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
+
 ## Contribution and support
 
 If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net. You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
