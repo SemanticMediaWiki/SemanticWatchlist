@@ -1,21 +1,24 @@
 <?php
 
-namespace SWL\Database;
+namespace SWL;
 
 use DatabaseBase;
 
 /**
- * @ingroup SWL
+ * @ingroup semantic-watchlist
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class DatabaseUpdater {
+class TableUpdater {
 
-	protected $dbConnection;
+	/**
+	 * @var DatabaseBase
+	 */
+	private $dbConnection;
 
 	/**
 	 * @since 1.0
@@ -32,7 +35,7 @@ class DatabaseUpdater {
 	 * @param $userId
 	 * @param array $groupIds
 	 */
-	public function updateUsersPerGroupWithGroupIds( $userId, array $groupIds ) {
+	public function updateGroupIdsForUser( $userId, array $groupIds ) {
 
 		$this->dbConnection->begin();
 
@@ -44,18 +47,22 @@ class DatabaseUpdater {
 		);
 
 		foreach ( $groupIds as $groupId ) {
-			$this->dbConnection->insert(
-				'swl_users_per_group',
-				array(
-					'upg_user_id'  => $userId,
-					'upg_group_id' => $groupId
-				)
-			);
+			$this->insertGroup( $userId, $groupId );
 		}
 
 		$this->dbConnection->commit();
 
 		return true;
+	}
+
+	private function insertGroup( $userId, $groupId ) {
+		$this->dbConnection->insert(
+			'swl_users_per_group',
+			array(
+				'upg_user_id'  => $userId,
+				'upg_group_id' => $groupId
+			)
+		);
 	}
 
 }

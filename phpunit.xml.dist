@@ -10,10 +10,9 @@
          stopOnFailure="false"
          stopOnIncomplete="false"
          stopOnSkipped="false"
-         strict="true"
          verbose="true">
     <testsuites>
-        <testsuite name="SemanticWatchlist">
+        <testsuite name="semantic-watchlist">
             <directory>tests/phpunit</directory>
         </testsuite>
     </testsuites>
