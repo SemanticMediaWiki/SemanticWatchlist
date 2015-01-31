@@ -8,6 +8,7 @@
 * Added support with Semantic MediaWiki 2.x
 * Added support with MediaWiki 1.22, 1.23 and 1.24
 * Added support with PHP 5.5, PHP 5.6 and HHVM
+* Added support for SQLite
 
 ### Bug fixes
 
@@ -19,6 +20,7 @@
 ### Internal enhancements
 
 * #12 Enabled unit testing
+* Added support for TravisCI and ScrutinizerCI
 
 ## 0.2.2 (2013-12-10)
 
