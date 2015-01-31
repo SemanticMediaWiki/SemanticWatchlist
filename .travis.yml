@@ -20,3 +20,13 @@ install:
 
 script:
   - bash ./tests/travis/run-tests.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  irc:
+    channels:
+      - "chat.freenode.net#semantic-mediawiki"
+    on_success: change
+    on_failure: always
