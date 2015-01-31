@@ -8,9 +8,13 @@
 [![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-watchlist/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-watchlist)
 
 
-Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] that enables users to watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist) that lists changes to these properties.
+Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] that enables users to
+watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist)
+that lists changes to these properties.
 
-Users can choose to follow one or more watchlist groups, which are administrator defined, and cover a set of properties and a set of pages (category, namespace, or SMW concept). Notification of changes to watched properties is also possible via email.
+Users can choose to follow one or more watchlist groups, which are administrator defined, and cover
+a set of properties and a set of pages (category, namespace, or SMW concept). Notification of changes
+to watched properties is also possible via email.
 
 ### Feature overview
 
@@ -31,7 +35,8 @@ Users can choose to follow one or more watchlist groups, which are administrator
 
 ## Installation
 
-The recommended way to install this extension is by using [Composer][composer]. Just add the following to the MediaWiki `composer.json` file and run the `php composer.phar install/update` command.
+The recommended way to install this extension is by using [Composer][composer]. Just add the
+following to the MediaWiki `composer.json` file and run the `php composer.phar install/update` command.
 
 ```json
 {
@@ -49,10 +54,12 @@ See the [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Ex
 
 ## Contribution and support
 
-If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net. You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
+If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net.
+You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
 
 If you want to contribute work to the project please subscribe to the
-developers mailing list and have a look at the [contribution guildline](/CONTRIBUTING.md). A list of people who have made contributions in the past can be found [here][contributors].
+developers mailing list and have a look at the [contribution guildline](/CONTRIBUTING.md).
+A list of people who have made contributions in the past can be found [here][contributors].
 
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticWatchlist/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticWatchlist/pulls)
@@ -61,7 +68,8 @@ developers mailing list and have a look at the [contribution guildline](/CONTRIB
 
 ## Extending Semantic Watchlist
 
-Semantic Watchlist is in part a workflow extension, which makes it important for other SMW/MW extensions and tools to interact with it. This is possible via the hooks and API modules Semantic Watchlist provides:
+Semantic Watchlist is in part a workflow extension, which makes it important for other SMW/MW extensions
+and tools to interact with it. This is possible via the hooks and API modules Semantic Watchlist provides:
 
 ### API modules
 
