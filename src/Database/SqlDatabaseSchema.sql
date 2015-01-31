@@ -4,7 +4,7 @@
 
 -- Watchlist groups
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
-  group_id                 SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  group_id                 SMALLINT unsigned   NOT NULL PRIMARY KEY AUTO_INCREMENT,
   group_name               VARCHAR(255)        NOT NULL,
   -- No need to have this stuff relational, so keep it simple.
   -- These fields keep multiple values, | separated.
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_groups (
 
 -- Single value changes to a property.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
-  change_id                INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY,
+  change_id                INT(10) unsigned    NOT NULL PRIMARY KEY AUTO_INCREMENT,
   change_set_id            INT(10) unsigned    NOT NULL, -- Foreign key: swl_sets.set_id
   change_property          VARCHAR(255)        NOT NULL, -- Name of the property of which a value was changed
   change_old_value         BLOB                NULL, -- The old value of the property (null for an adittion)
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_changes (
 
 -- Individual edits to pages.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits (
-  edit_id                  SMALLINT unsigned   NOT NULL auto_increment PRIMARY KEY,
+  edit_id                  SMALLINT unsigned   NOT NULL PRIMARY KEY AUTO_INCREMENT,
   edit_user_name           VARCHAR(255)        NOT NULL, -- The person that made the modification (account name or ip)
   edit_page_id             INT(10) unsigned    NOT NULL, -- The id of the page the modification was on  
   edit_time                CHAR(14) binary     NOT NULL default '' -- The time the chages where made  
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_edits (
 
 -- Sets of changes. There can be many such sets for one edit, with overlapping changes.
 CREATE TABLE IF NOT EXISTS /*$wgDBprefix*/swl_sets (
-  set_id                   INT(10) unsigned    NOT NULL auto_increment PRIMARY KEY
+  set_id                   INT(10) unsigned    NOT NULL PRIMARY KEY AUTO_INCREMENT
 ) /*$wgDBTableOptions*/;
 
 -- Links change sets their edits.
