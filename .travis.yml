@@ -5,7 +5,7 @@ env:
 
 matrix:
   include:
-    - env: DB=mysql; MW=master
+    - env: DB=mysql; MW=master; TYPE=coverage
       php: 5.6
     - env: DB=sqlite; MW=1.22.0
       php: 5.3
