@@ -36,7 +36,7 @@ The recommended way to install this extension is by using [Composer][composer]. 
 ```json
 {
 	"require": {
-		"mediawiki/semantic-watchlist": "~1.0*"
+		"mediawiki/semantic-watchlist": "~1.0"
 	}
 }
 ```
