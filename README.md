@@ -28,14 +28,14 @@ to watched properties is also possible via email.
 
 ## Requirements
 
-- PHP 5.3 or later
-- MediaWiki 1.19 or later
-- Semantic MediaWiki 1.9 or later
-- MySQL 5 or later
+- PHP 5.3 - 5.6 and HHVM
+- MediaWiki 1.19 - 1.25
+- Semantic MediaWiki 2.x (and 1.9.x)
+- MySQL 5 (or later) and SQLite 3
 
 ## Installation
 
-The recommended way to install this extension is by using [Composer][composer]. Just add the
+Semantic Watchlist is installed via [Composer][composer], much the same as Semantic MediaWiki. Just add the
 following to the MediaWiki `composer.json` file and run the `php composer.phar install/update` command.
 
 ```json
