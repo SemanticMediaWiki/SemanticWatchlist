@@ -6,6 +6,9 @@ Not a release yet.
 ### New features
 
 * Semantic Watchlist is now installable via Composer
+* Added support with Semantic MediaWiki 2.x
+* Added support with MediaWiki 1.22, 1.23 and 1.24
+* Added support with PHP 5.5, PHP 5.6 and HHVM
 
 ### Bug fixes
 
