@@ -26,11 +26,11 @@
 
 * Fix for Special:AdminLinks when using SMW 1.9+.
 
-## Version 0.2.1 (2013-09-26)
+## 0.2.1 (2013-09-26)
 
 * 'swladmins' group removed.
 
-## Version 0.2 (2012-11-15)
+## 0.2 (2012-11-15)
 
 * Special:WatchlistConditions UI improved.
 * Custom text can be sent in emails.
@@ -38,7 +38,7 @@
 * No email sent to a page's own editor, by default.
 * Fixed deleting of groups, which was not working.
 
-## Version 0.1 (2011-07-30)
+## 0.1 (2011-07-30)
 
 Initial release with these features:
 
