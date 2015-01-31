@@ -19,6 +19,9 @@
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
+            <directory suffix=".php">includes</directory>
+            <directory suffix=".php">specials</directory>
+            <directory suffix=".php">api</directory>
         </whitelist>
     </filter>
 </phpunit>

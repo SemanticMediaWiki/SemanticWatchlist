@@ -21,6 +21,9 @@ install:
 script:
   - bash ./tests/travis/run-tests.sh
 
+after_success:
+  - bash ./tests/travis/upload-coverage-report.sh
+
 notifications:
   email:
     on_success: change
