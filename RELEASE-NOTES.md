@@ -1,7 +1,6 @@
 # Semantic Watchlist
 
-## 1.0.0
-Not a release yet.
+## 1.0.0 (2014-01-31)
 
 ### New features
 
@@ -21,18 +20,15 @@ Not a release yet.
 
 * #12 Enabled unit testing
 
-## 0.2.2
-2013-12-10
+## 0.2.2 (2013-12-10)
 
 * Fix for Special:AdminLinks when using SMW 1.9+.
 
-## Version 0.2.1
-2013-09-26
+## Version 0.2.1 (2013-09-26)
 
 * 'swladmins' group removed.
 
-## Version 0.2
-2012-11-15
+## Version 0.2 (2012-11-15)
 
 * Special:WatchlistConditions UI improved.
 * Custom text can be sent in emails.
@@ -40,8 +36,7 @@ Not a release yet.
 * No email sent to a page's own editor, by default.
 * Fixed deleting of groups, which was not working.
 
-## Version 0.1
-2011-07-30
+## Version 0.1 (2011-07-30)
 
 Initial release with these features:
 
