@@ -1,5 +1,7 @@
 <?php
 
+use SWL\HookRegistry;
+
 /**
  * Semantic Watchlist (SWL) - Provides a watchlist and notifier for changes to semantic properties.
  *
@@ -119,15 +121,7 @@ require_once 'SemanticWatchlist.settings.php';
 $GLOBALS['wgAvailableRights'][] = 'semanticwatch';
 $GLOBALS['wgAvailableRights'][] = 'semanticwatchgroups';
 
-// TEMPORARY until the Composer classmap is fixed
-$GLOBALS['wgAutoloadClasses']['SWL\Setup']                                  = __DIR__ . '/src/Setup.php';
-$GLOBALS['wgAutoloadClasses']['SWL\Database\DatabaseUpdater']               = __DIR__ . '/src/Database/DatabaseUpdater.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\PersonalUrls']           = __DIR__ . '/src/MediaWiki/Hooks/PersonalUrls.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\UserSaveOptions']        = __DIR__ . '/src/MediaWiki/Hooks/UserSaveOptions.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\ExtensionSchemaUpdater'] = __DIR__ . '/src/MediaWiki/Hooks/ExtensionSchemaUpdater.php';
-$GLOBALS['wgAutoloadClasses']['SWL\MediaWiki\Hooks\GetPreferences']         = __DIR__ . '/src/MediaWiki/Hooks/GetPreferences.php';
-
-$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSchema.sql';
+$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/swl-table-schema.sql';
 
 /**
  * @codeCoverageIgnore
@@ -136,7 +130,20 @@ $GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/src/Database/SqlDatabaseSch
  */
 call_user_func( function () {
 
-	$setup = new \SWL\Setup( $GLOBALS, __DIR__ );
-	$setup->run();
+	$GLOBALS['wgExtensionFunctions'][] = function() {
+
+		$configuration = array(
+			'egSWLEnableTopLink'         => $GLOBALS['egSWLEnableTopLink'],
+			'egSWLEnableEmailNotify'     => $GLOBALS['egSWLEnableEmailNotify'],
+			'egSwlSqlDatabaseSchemaPath' => $GLOBALS['egSwlSqlDatabaseSchemaPath'],
+			'wgLang' => $GLOBALS['wgLang']
+		);
+
+		$hookRegistry = new HookRegistry(
+			$configuration
+		);
+
+		$hookRegistry->register( $GLOBALS['wgHooks'] );
+	};
 
 } );

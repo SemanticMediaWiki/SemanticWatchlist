@@ -7,10 +7,7 @@ use SWL\MediaWiki\Hooks\UserSaveOptions;
 /**
  * @covers \SWL\MediaWiki\Hooks\UserSaveOptions
  *
- * @ingroup Test
- *
- * @group SWL
- * @group SWLExtension
+ * @group semantic-watchlist
  *
  * @license GNU GPL v2+
  * @since 1.0
@@ -21,7 +18,7 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$databaseUpdater = $this->getMockBuilder( '\SWL\Database\DatabaseUpdater' )
+		$tableUpdater = $this->getMockBuilder( '\SWL\TableUpdater' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -33,13 +30,13 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SWL\MediaWiki\Hooks\UserSaveOptions',
-			new UserSaveOptions( $databaseUpdater, $user, $options )
+			new UserSaveOptions( $tableUpdater, $user, $options )
 		);
 	}
 
 	public function testExecuteWithEmptyOption() {
 
-		$instance = $this->acquireInstanceFor(
+		$instance = $this->createUserSaveOptionsInstance(
 			array(),
 			array()
 		);
@@ -49,7 +46,7 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExecuteWithValidSwlOption() {
 
-		$instance = $this->acquireInstanceFor(
+		$instance = $this->createUserSaveOptionsInstance(
 			array( 'swl_watchgroup_9999' => true ),
 			array( 9999 )
 		);
@@ -59,7 +56,7 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExecuteWithInvalidSwlOption() {
 
-		$instance = $this->acquireInstanceFor(
+		$instance = $this->createUserSaveOptionsInstance(
 			array( '9999' => true ),
 			array()
 		);
@@ -67,14 +64,14 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue( $instance->execute() );
 	}
 
-	private function acquireInstanceFor( $options, $expected ) {
+	private function createUserSaveOptionsInstance( $options, $expected ) {
 
-		$databaseUpdater = $this->getMockBuilder( '\SWL\Database\DatabaseUpdater' )
+		$tableUpdater = $this->getMockBuilder( '\SWL\TableUpdater' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$databaseUpdater->expects( $this->once() )
-			->method( 'updateUsersPerGroupWithGroupIds' )
+		$tableUpdater->expects( $this->once() )
+			->method( 'updateGroupIdsForUser' )
 			->with(
 				$this->anything(),
 				$this->equalTo( $expected ) )
@@ -85,7 +82,7 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		return new UserSaveOptions(
-			$databaseUpdater,
+			$tableUpdater,
 			$user,
 			$options
 		);

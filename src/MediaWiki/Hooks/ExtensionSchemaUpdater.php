@@ -11,7 +11,7 @@ use DatabaseUpdater;
  *
  * @ingroup SWL
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

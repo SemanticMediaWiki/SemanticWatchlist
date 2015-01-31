@@ -2,7 +2,7 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWL\Database\DatabaseUpdater;
+use SWL\tableUpdater;
 
 use User;
 
@@ -14,7 +14,7 @@ use User;
  *
  * @ingroup SWL
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
@@ -22,35 +22,32 @@ use User;
  */
 class UserSaveOptions {
 
-	/* DatabaseUpdater*/
-	protected $databaseUpdater;
+	/**
+	 * @var TableUpdater
+	 */
+	private $tableUpdater;
 
-	/* User*/
-	protected $user;
+	/**
+	 * @var User
+	 */
+	private $user;
 
-	protected $options;
-	protected $configuration;
+	/**
+	 * @var array
+	 */
+	private $options;
 
 	/**
 	 * @since 1.0
 	 *
-	 * @param DatabaseUpdater $databaseUpdater
+	 * @param TableUpdater $tableUpdater
 	 * @param User $user
 	 * @param array &$options
 	 */
-	public function __construct( DatabaseUpdater $databaseUpdater, User $user, array &$options ) {
-		$this->databaseUpdater = $databaseUpdater;
+	public function __construct( TableUpdater $tableUpdater, User $user, array &$options ) {
+		$this->tableUpdater = $tableUpdater;
 		$this->user = $user;
 		$this->options =& $options;
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param array $configuration
-	 */
-	public function setConfiguration( array $configuration ) {
-		$this->configuration = $configuration;
 	}
 
 	/**
@@ -72,7 +69,7 @@ class UserSaveOptions {
 	}
 
 	protected function performUpdate( array $groupIds ) {
-		return $this->databaseUpdater->updateUsersPerGroupWithGroupIds(
+		return $this->tableUpdater->updateGroupIdsForUser(
 			$this->user->getId(),
 			$groupIds
 		);

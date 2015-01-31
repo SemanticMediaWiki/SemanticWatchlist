@@ -1,23 +1,20 @@
 <?php
 
-namespace SWL\Tests\MediaWiki\Hooks;
+namespace SWL\Tests;
 
-use SWL\Database\DatabaseUpdater;
+use SWL\TableUpdater;
 
 /**
- * @covers \SWL\Database\DatabaseUpdater
+ * @covers \SWL\TableUpdater
  *
- * @ingroup Test
- *
- * @group SWL
- * @group SWLExtension
+ * @group semantic-watchlist
  *
  * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
  */
-class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
+class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
@@ -26,12 +23,12 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->getMockForAbstractClass();
 
 		$this->assertInstanceOf(
-			'\SWL\Database\DatabaseUpdater',
-			new DatabaseUpdater( $dbConnection )
+			'\SWL\TableUpdater',
+			new TableUpdater( $dbConnection )
 		);
 	}
 
-	public function testUpdateUsersPerGroupWithGroupIdsToReplaceDatasetByUserId() {
+	public function testUpdateGroupIdsForUserToReplaceDatasetByUserId() {
 
 		$userId = 1111;
 		$groupIds = array( 1, 9999 );
@@ -55,12 +52,14 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->method( 'insert' )
 			->will( $this->returnValue( true ) );
 
-		$instance = new DatabaseUpdater( $dbConnection );
+		$instance = new TableUpdater( $dbConnection );
 
-		$this->assertTrue( $instance->updateUsersPerGroupWithGroupIds( $userId, $groupIds ) );
+		$this->assertTrue(
+			$instance->updateGroupIdsForUser( $userId, $groupIds )
+		);
 	}
 
-	public function testUpdateUsersPerGroupWithGroupIdsToOnlyDeleteDatasetByUserId() {
+	public function testUpdateGroupIdsForUserToOnlyDeleteDatasetByUserId() {
 
 		$userId = 1111;
 		$groupIds = array();
@@ -84,9 +83,11 @@ class DatabaseUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->method( 'insert' )
 			->will( $this->returnValue( true ) );
 
-		$instance = new DatabaseUpdater( $dbConnection );
+		$instance = new TableUpdater( $dbConnection );
 
-		$this->assertTrue( $instance->updateUsersPerGroupWithGroupIds( $userId, $groupIds ) );
+		$this->assertTrue(
+			$instance->updateGroupIdsForUser( $userId, $groupIds )
+		);
 	}
 
 }
