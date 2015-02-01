@@ -13,6 +13,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
+if ( defined( 'SWL_VERSION' ) ) {
+	// Do not initialize more than once.
+	return 1;
+}
+
+define( 'SWL_VERSION', '1.0' );
+
 if ( version_compare( $GLOBALS['wgVersion'], '1.19c', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires MediaWiki 1.19 or above.' );
 }
@@ -24,8 +31,6 @@ if ( !defined( 'SMW_VERSION' ) ) {
 if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires Semantic MediaWiki 1.9 or above.' );
 }
-
-define( 'SWL_VERSION', '1.0' );
 
 $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'path' => __FILE__,
