@@ -5,7 +5,7 @@
 		]
 	},
 	"swl-watchlist-no-items": "Es befinden sich keine Einträge auf Ihrer Beobachtungsliste.",
-	"swl-watchlist-can-mod-groups": "Sie können [[$1|die Gruppen]] anpassen.",
-	"swl-watchlist-can-mod-prefs": "Sie können [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.",
-	"swl-watchlist-no-groups": "Sie beobachten bislang noch keine Gruppen. [[$1|Passen Sie Ihre Einstellungen an]]."
+	"swl-watchlist-can-mod-groups": "Sie können [[$1|die Listen]] anpassen.",
+	"swl-watchlist-can-mod-prefs": "Sie können auch [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.",
+	"swl-watchlist-no-groups": "Bislang nutzen Sie noch keine semantische Beobachtungslisten. [[$1|Sie können zudem Ihre allgemeinen Einstellungen zu semantischen Beobachtungslisten anpassen]]."
 }
