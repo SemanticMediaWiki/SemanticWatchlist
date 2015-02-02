@@ -12,11 +12,40 @@ Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] tha
 watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist)
 that lists changes to these properties.
 
+## Requirements
+
+- PHP 5.3 - 5.6 and HHVM
+- MySQL 5 (or later) and SQLite 3
+- MediaWiki 1.19 - 1.25
+- [Semantic MediaWiki][smw] 2.x (and 1.9.x)
+
+## Installation
+
+The recommended way to install Semantic Watchlist is by using [Composer][composer] with an entry in MediaWiki's `composer.json`.
+
+```json
+{
+	"require": {
+		"mediawiki/semantic-watchlist": "~1.0"
+	}
+}
+```
+1. From your MediaWiki installation directory, execute
+   `composer require mediawiki/semantic-watchlist:~1.0`
+2. Run `php maintenance/update.php` from your MediaWiki installation directory
+   to create the required database tables.
+3. Navigate to _Special:Version_ on your wiki and verify that the package
+   have been successfully installed.
+
+For configuration, see the [configuration documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
+
+## Usage
+
 Users can choose to follow one or more watchlist groups, which are administrator defined, and cover
 a set of properties and a set of pages (category, namespace, or SMW concept). Notification of changes
 to watched properties is also possible via email.
 
-### Feature overview
+### Features
 
 * A watchlist page (Special:SemanticWatchlist) listing changes to properties watched by the user.
 * Per-user optional email notification per edit that changes properties.
@@ -26,33 +55,7 @@ to watched properties is also possible via email.
 * API module to query property changes grouped by edit for a single user.
 * API modules to add, modify and delete the watchlist groups.
 
-## Requirements
-
-- PHP 5.3 - 5.6 and HHVM
-- MediaWiki 1.19 - 1.25
-- Semantic MediaWiki 2.x (and 1.9.x)
-- MySQL 5 (or later) and SQLite 3
-
-## Installation
-
-Semantic Watchlist is installed via [Composer][composer], much the same as Semantic MediaWiki. Just add the
-following to the MediaWiki `composer.json` file and run the `php composer.phar install/update` command.
-
-```json
-{
-	"require": {
-		"mediawiki/semantic-watchlist": "~1.0"
-	}
-}
-```
-After that the required database tables need to be created by executing the following command from your MediaWiki installation directory:  
-`php maintenance/update.php`
-
-For configuration, see the [configuration documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
-
-## Usage
-
-See the [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
+Find a more detailed [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
 
 ## Contribution and support
 
