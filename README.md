@@ -45,6 +45,8 @@ following to the MediaWiki `composer.json` file and run the `php composer.phar i
 	}
 }
 ```
+After that the required database tables need to be created by executing the following command from your MediaWiki installation directory:  
+`php maintenance/update.php`
 
 For configuration, see the [configuration documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
 
