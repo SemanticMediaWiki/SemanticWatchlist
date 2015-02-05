@@ -21,8 +21,8 @@
 		"issues": "https://github.com/SemanticMediaWiki/SemanticWatchlist/issues",
 		"irc": "irc://irc.freenode.net/semantic-mediawiki",
 		"forum": "https://semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
-		"wiki": "https://semantic-mediawiki.org/wiki/",
-		"source": "https://github.com/SemanticWatchlist/SemanticWatchlist"
+		"wiki": "https://semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
+		"source": "https://github.com/SemanticMediaWiki/SemanticWatchlist"
 	},
 	"require": {
 		"php": ">=5.3.0",
