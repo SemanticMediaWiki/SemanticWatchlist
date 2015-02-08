@@ -233,5 +233,9 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			'api.php?action=query&list=semanticwatchlist&swgroupids=1|42&swlimit=34',
 		);
 	}
+
+	public function getVersion() {
+		return __CLASS__ . ': $Id$';
+	}	
 	
 }
