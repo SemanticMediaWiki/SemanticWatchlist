@@ -202,10 +202,6 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		return array(
 			'api.php?action=deleteswlgroup&ids=42|34',
 		);
-	}	
-	
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}		
+	}
 	
 }
