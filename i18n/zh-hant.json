@@ -24,7 +24,7 @@
 	"swl-group-namespace": "命名空間",
 	"swl-group-concept": "概念",
 	"swl-group-add-new-group": "添加新的組",
-	"swl-group-add-group": "添加組",
+	"swl-group-add-group": "新增群組",
 	"swl-custom-remove-property": "移除",
 	"swl-watchlist-position": "顯示從'''#$2'''開始的，最後{{PLURAL:$1|變更|變更}}的'''$1'''。",
 	"swl-watchlist-insertions": "新：",
