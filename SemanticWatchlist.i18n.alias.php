@@ -31,6 +31,12 @@ $specialPageAliases['arz'] = array(
 	'WatchlistConditions' => array( 'شروط_قايمه_المراقبه' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'SemanticWatchlist' => array( 'مانائین_پدگیری_ئی_لیست' ),
+	'WatchlistConditions' => array( 'پدگیری_ئی_لیستی_شرائیت' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'SemanticWatchlist' => array( 'Semantische_Beobachtungsliste' ),
