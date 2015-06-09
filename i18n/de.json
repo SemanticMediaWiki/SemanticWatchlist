@@ -37,7 +37,7 @@
 	"swl-watchlist-pagincontrol": "Zeige ($1) ($2)",
 	"swl-watchlist-firstn": "erste $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|Das erste Ergebnis|Die ersten $1 Ergebnisse}}",
-	"swl-watchlist-no-items": "Es befinden sich keine Einträge auf deiner Beobachtungsliste.",
+	"swl-watchlist-no-items": "Es befinden sich keine Einträge auf der semantischen Beobachtungsliste.",
 	"swl-watchlist-can-mod-groups": "Du kannst [[$1|die Listen]] anpassen.",
 	"swl-watchlist-can-mod-prefs": "Du kannst auch [[$1|die Einstellungen der semantischen Beobachtungsliste]], einschließlich der zu beobachtenden Attribute, anpassen.",
 	"swl-watchlist-no-groups": "Bislang nutzt du noch keine semantische Beobachtungslisten. [[$1|Du kannst deine allgemeinen Einstellungen zu semantischen Beobachtungslisten anpassen]].",

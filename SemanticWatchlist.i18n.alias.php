@@ -25,10 +25,16 @@ $specialPageAliases['ar'] = array(
 	'WatchlistConditions' => array( 'شروط_قائمة_المراقبة' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'SemanticWatchlist' => array( 'قايمه_مراقبه_سيمانتيك' ),
 	'WatchlistConditions' => array( 'شروط_قايمه_المراقبه' ),
+);
+
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'SemanticWatchlist' => array( 'مانائین_پدگیری_ئی_لیست' ),
+	'WatchlistConditions' => array( 'پدگیری_ئی_لیستی_شرائیت' ),
 );
 
 /** German (Deutsch) */
