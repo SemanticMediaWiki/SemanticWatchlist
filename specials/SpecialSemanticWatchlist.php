@@ -440,4 +440,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		return $group !== false;
 	}
 
+	protected function getGroupName() {
+		return 'changes';
+	}
 }

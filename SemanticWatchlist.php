@@ -70,10 +70,8 @@ $GLOBALS['wgAutoloadClasses']['SpecialSemanticWatchlist']	  	= __DIR__ . '/speci
 $GLOBALS['wgAutoloadClasses']['SpecialWatchlistConditions']	    = __DIR__ . '/specials/SpecialWatchlistConditions.php';
 
 $GLOBALS['wgSpecialPages']['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
-$GLOBALS['wgSpecialPageGroups']['SemanticWatchlist'] = 'changes';
 
 $GLOBALS['wgSpecialPages']['WatchlistConditions'] = 'SpecialWatchlistConditions';
-$GLOBALS['wgSpecialPageGroups']['WatchlistConditions'] = 'changes';
 
 $GLOBALS['wgAPIModules']['addswlgroup'] = 'ApiAddWatchlistGroup';
 $GLOBALS['wgAPIModules']['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
