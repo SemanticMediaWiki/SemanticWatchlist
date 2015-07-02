@@ -5,7 +5,8 @@
 			"Invadinado",
 			"Mor",
 			"Fitoschido",
-			"Themasterriot"
+			"Themasterriot",
+			"Macofe"
 		]
 	},
 	"semanticwatchlist-desc": "Permite a los usuarios recibir notificaciones sobre cambios específicos hechos en los datos de Semantic MediaWiki",
@@ -39,12 +40,12 @@
 	"swl-watchlist-pagincontrol": "Ver ($1) ($2)",
 	"swl-watchlist-firstn": "$1 primeras",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|primer resultado|$1 primeros resultados}}",
-	"swl-watchlist-no-items": "No tiene ningún elemento en su lista de vigilancia semántica.",
+	"swl-watchlist-no-items": "No tienes ningún elemento en tu lista de seguimiento semántica.",
 	"swl-watchlist-can-mod-groups": "Puede [[$1|modificar los grupos de la lista de vigilancia]].",
 	"swl-watchlist-can-mod-prefs": "También puede [[$1|modificar las preferencias de su lista de seguimiento]], incluidas las propiedades que quiera vigilar.",
 	"swl-watchlist-no-groups": "Aún no estás vigilando ningún grupo de la lista de seguimiento. [[$1|Modifica las preferencias de tu lista de seguimiento]].",
 	"swl-email-propschanged": "Las propiedades han cambiado en $1",
-	"swl-email-propschanged-long": "{{GENDER:$2|El usuario|La usuaria}} '''$2''' ha modificado una o más propiedades que vigila en '''$1''' el $5 a las $4. Puede ver estas y otras modificaciones [$3 en su lista de seguimiento semántica].",
+	"swl-email-propschanged-long": "{{GENDER:$2|El usuario|La usuaria}} '''$2''' ha modificado una o más propiedades que vigilas en '''$1''' el $5 a las $4. Puedes ver estas y otras modificaciones [$3 en tu lista de seguimiento semántica].",
 	"swl-email-changes": "Cambio de propiedades en [$2 $1]:",
 	"prefs-swl": "Lista de vigilancia semántica",
 	"prefs-swlgroup": "Grupos a vigilar",
