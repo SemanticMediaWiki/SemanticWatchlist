@@ -135,7 +135,4 @@ class SpecialWatchlistConditions extends SpecialPage {
 		);
 	}
 
-	protected function getGroupName() {
-		return 'changes';
-	}
 }
