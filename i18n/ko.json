@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Priviet",
-			"아라"
+			"아라",
+			"Hwangjy9"
 		]
 	},
 	"semanticwatchlist-desc": "시맨틱 미디어위키 데이터가 바뀐 것을 사용자들에게 알립니다.",
@@ -10,7 +11,7 @@
 	"right-semanticwatchgroups": "시맨틱 주시문서 그룹을 [[Special:WatchlistConditions|수정]]",
 	"special-semanticwatchlist": "시맨틱 주시 목록",
 	"special-watchlistconditions": "시맨틱 주시 목록 조건",
-	"swl-group-name": "그룹명:",
+	"swl-group-name": "그룹 이름:",
 	"swl-group-legend": "그룹",
 	"swl-group-properties": "이 그룹은 이 속성의 바뀜을 주시하고 있습니다:",
 	"swl-properties-list": "|로 이름을 구분",
