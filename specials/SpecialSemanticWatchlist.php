@@ -122,7 +122,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		}
 
 		if ( $offset != 0 || count( $sets ) > 0 ) {
-			$wgOut->wrapWikiText( '<p>$1</p>', array( 'swl-watchlist-position',
+			$wgOut->wrapWikiMsg( '<p>$1</p>', array( 'swl-watchlist-position',
 				$wgLang->formatNum( count( $sets ) ),
 				$wgLang->formatNum( $offset + 1 )
 			) );
