@@ -38,7 +38,10 @@
 	"swl-watchlist-pagincontrol": "Ver ($1) ($2)",
 	"swl-watchlist-firstn": "$1 primeiras",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}",
+	"swl-email-propschanged": "Propriedades alteradas em $1",
+	"swl-email-changes": "Alterações de propriedades em [$2 $1]:",
 	"prefs-swl": "Lista das propriedades semânticas vigiadas",
 	"prefs-swlgroup": "Grupos para vigiar",
-	"prefs-swlglobal": "Opções gerais"
+	"prefs-swlglobal": "Opções gerais",
+	"swl-prefs-emailnofity": "Notificar-me por e-mail sobre alterações nas propriedades que estou vigiando"
 }

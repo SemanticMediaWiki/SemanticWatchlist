@@ -41,7 +41,7 @@
 	"swl-watchlist-can-mod-groups": "U kunt de [[$1|volglijstgroepen aanpassen]].",
 	"swl-watchlist-can-mod-prefs": "U kunt ook [[$1|uw volglijstwijzigingen aanpassen]], inclusief welke eigenschappen gevolgd moeten worden.",
 	"swl-watchlist-no-groups": "U volgt nog geen volglijstgroepen. U kunt [[$1|uw volglijstinstellingen aanpassen]].",
-	"swl-email-propschanged": "Eigenschappen zijn veranderd op $1",
+	"swl-email-propschanged": "Eigenschappen zijn gewijzigd op $1",
 	"swl-email-propschanged-long": "Een of meer eigenschappen die u volgt op '''$1''' zijn gewijzigd door gebruiker '''{{GENDER:$2|$2}}''' op $5 om $4. U kunt deze en andere wijzigingen bekijken op [$3 uw semantische volglijst].",
 	"swl-email-changes": "Wijzigingen in eigenschappen op [$2 $1]:",
 	"prefs-swl": "Semantische volglijst",
