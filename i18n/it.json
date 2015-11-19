@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"F. Cosoleto",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"V6rg"
 		]
 	},
 	"swl-group-name": "Nome gruppo:",
@@ -13,7 +14,7 @@
 	"swl-group-saved": "Le impostazioni sono state salvate.",
 	"swl-group-saving": "Salvataggio",
 	"swl-group-category": "categoria",
-	"swl-group-namespace": "namespace",
+	"swl-group-namespace": "نؤمفضا",
 	"swl-group-add-new-group": "Aggiungi un nuovo gruppo",
 	"swl-group-add-group": "Aggiungi gruppo",
 	"swl-custom-remove-property": "Rimuovi",
