@@ -119,7 +119,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 		}
 		
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
+		$dbw->startAtomic( __METHOD__ );
 		
 		// Delete all edits and sets per edits only linked to this group.
 		foreach ( $editsToDelete as $editId ) {
@@ -171,7 +171,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 			$everythingOk = false;
 		}
 		
-		$dbw->commit();
+		$dbw->endAtomic( __METHOD__ );
 
 		return $everythingOk; 
 	}
