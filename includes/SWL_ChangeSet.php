@@ -575,7 +575,7 @@ class SWLChangeSet {
 			}
 		}
 		
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 		
 		foreach ( $changes as $change ) {
 			if ( $change['property'] == '' ) {
@@ -606,7 +606,7 @@ class SWLChangeSet {
 			);
 		}
 		
-		$dbw->commit();
+		$dbw->commit( __METHOD__ );
 		
 		wfRunHooks( 'SWLAfterChangeSetInsert', array( &$this, $groupsToAssociate, $editId ) );
 		
