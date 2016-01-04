@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Jim-by",
-			"Renessaince"
+			"Renessaince",
+			"Red Winged Duck"
 		]
 	},
 	"swl-group-save": "Захаваць",
-	"swl-group-saved": "Захаваны",
+	"swl-group-saved": "Налады былі захаваныя.",
 	"swl-group-saving": "Захаваньне",
 	"swl-group-category": "катэгорыя",
 	"swl-group-namespace": "прастора назваў",
