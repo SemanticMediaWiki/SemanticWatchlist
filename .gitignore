@@ -3,3 +3,6 @@
 *.kate-swp
 .*.swp
 .idea
+
+vendor/
+extensions/

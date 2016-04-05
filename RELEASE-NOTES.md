@@ -1,6 +1,14 @@
 # Semantic Watchlist
 
-## 1.0.0 (2014-01-31)
+## 1.1.0 (2016-04-05)
+
+* The extension has now been tested with PHP 7, MediaWiki up to 1.27 and SMW up to 2.3
+* Fixed a number of bugs (by MWJames)
+* Added and improved translations (by TranslateWiki.net)
+* Improved documentation (by Karsten Hoffmeyer)
+* Improved internal structure (by MWJames, Karsten Hoffmeyer, Geoffrey Mon, Aaron Schulz and umherirrender)
+
+## 1.0.0 (2015-01-31)
 
 ### New features
 
