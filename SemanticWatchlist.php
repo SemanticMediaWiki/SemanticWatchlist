@@ -18,7 +18,7 @@ if ( defined( 'SWL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SWL_VERSION', '1.0' );
+define( 'SWL_VERSION', '1.1.0' );
 
 if ( version_compare( $GLOBALS['wgVersion'], '1.19c', '<' ) ) {
 	die( '<b>Error:</b> Semantic Watchlist requires MediaWiki 1.19 or above.' );
