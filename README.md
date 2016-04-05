@@ -14,9 +14,9 @@ that lists changes to these properties.
 
 ## Requirements
 
-- PHP 5.3 - 5.6 and HHVM
+- PHP 5.3+, including PHP 7 and HHVM
 - MySQL 5 (or later) and SQLite 3
-- MediaWiki 1.19 - 1.25
+- MediaWiki 1.19 - 1.27
 - [Semantic MediaWiki][smw] 2.x (and 1.9.x)
 
 ## Installation
