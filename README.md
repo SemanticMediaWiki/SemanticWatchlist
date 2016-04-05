@@ -55,7 +55,7 @@ to watched properties is also possible via email.
 * API module to query property changes grouped by edit for a single user.
 * API modules to add, modify and delete the watchlist groups.
 
-Find a more detailed [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist).
+Find more detailed [usage documentation on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist). Recent changes can be found in the [release notes](RELEASE-NOTES.md).
 
 ## Contribution and support
 
