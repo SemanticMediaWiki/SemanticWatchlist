@@ -18,6 +18,7 @@
 	"swl-group-add-new-group": "Aggiungi un nuovo gruppo",
 	"swl-group-add-group": "Aggiungi gruppo",
 	"swl-custom-remove-property": "Rimuovi",
+	"swl-custom-input": "Se la proprietà $1 cambia il suo valore a $2, avvisa gli utenti con il seguente testo: $3",
 	"swl-watchlist-insertions": "Nuovo:",
 	"swl-watchlist-deletions": "Vecchio:",
 	"swl-watchlist-pagincontrol": "Vedi ($1) ($2)",

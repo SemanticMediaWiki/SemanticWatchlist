@@ -3,7 +3,8 @@
 		"authors": [
 			"Gomoko",
 			"IAlex",
-			"Sherbrooke"
+			"Sherbrooke",
+			"Wladek92"
 		]
 	},
 	"semanticwatchlist-desc": "Permet aux utilisateurs d'être avertis de modifications spécifiques dans les données de MediaWiki sémantique",
@@ -29,7 +30,7 @@
 	"swl-custom-legend": "Texte personnalisé",
 	"swl-custom-remove-property": "Supprimer",
 	"swl-custom-text-add": "Ajouter un texte personnalisé",
-	"swl-custom-input": "Si la propriété $1 change de valeur en $2, notifier les utilisateurs avec le texte suivant : $3",
+	"swl-custom-input": "Si la propriété $1 change sa valeur en $2, notifier les utilisateurs avec le texte suivant : $3",
 	"swl-watchlist-position": "Afficher {{PLURAL:$1|la dernière modification|les '''$1''' dernières modifications à partir de la modification '''#$2'''}}.",
 	"swl-watchlist-insertions": "Ajouté :",
 	"swl-watchlist-deletions": "Ancien:",
