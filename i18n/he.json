@@ -2,13 +2,34 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Inkbug"
+			"Inkbug",
+			"Guycn2"
 		]
 	},
 	"semanticwatchlist-desc": "מאפשרת למשתמשים לקבל הודעה על שינויים מסוימים בנתונים של מדיה־ויקי סמנטית",
 	"right-semanticwatch": "שימוש ברשימת מעקב סמנטית",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|שינוי]] קבוצות רשימת מעקב סמנטית",
 	"special-semanticwatchlist": "רשימת מעקב סמנטית",
+	"swl-group-name": "שם הקבוצה:",
+	"swl-group-legend": "קבוצה",
+	"swl-properties-list": "יש להפריד את השמות עם תו |",
+	"swl-group-page-selection": "נא לבחור את הדפים שיוספו לרשימת המעקב:",
 	"swl-group-save": "שמירה",
+	"swl-group-remove": "הסרה",
+	"swl-group-saved": "ההגדרות נשמרו.",
+	"swl-group-saving": "מתבצעת שמירה...",
+	"swl-group-category": "קטגוריה",
+	"swl-group-namespace": "מרחב שם",
+	"swl-group-confirm-remove": "האם ברצונך להסיר את הקבוצה \"$1\" מרשימת המעקב?",
+	"swl-group-add-new-group": "הוספת קבוצה חדשה",
+	"swl-group-add-group": "הוספת קבוצה",
+	"swl-custom-legend": "טקסט מותאם אישית",
+	"swl-custom-remove-property": "הסרה",
+	"swl-custom-text-add": "הוספת טקסט מותאם אישית",
+	"swl-custom-input": "אם המאפיין $1 משנה את הערך שלו ל{{grammar:תחילית|$2}}, להודיע למשתמשים עם הטקסט הבא: $3",
+	"swl-watchlist-insertions": "חדש:",
+	"swl-watchlist-deletions": "ישן:",
+	"swl-new-item": "חדש",
+	"swl-watchlist-pagincontrol": "הצגה ($1) ($2)",
 	"swl-prefs-emailnofity": "לשלוח אליי דואר אלקטרוני כאשר יש שינוי במאפיינים במעקב שלי"
 }
