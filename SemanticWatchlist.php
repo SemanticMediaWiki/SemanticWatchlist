@@ -18,14 +18,14 @@ if ( defined( 'SWL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SWL_VERSION', '1.1.0' );
+define( 'SWL_VERSION', '1.2.0-alpha' );
 
-if ( version_compare( $GLOBALS['wgVersion'], '1.19c', '<' ) ) {
-	die( '<b>Error:</b> Semantic Watchlist requires MediaWiki 1.19 or above.' );
+if ( version_compare( $GLOBALS['wgVersion'], '1.23c', '<' ) ) {
+	die( '<b>Error:</b> Semantic Watchlist requires MediaWiki 1.23 or above.' );
 }
 
 if ( !defined( 'SMW_VERSION' ) ) {
-	die( '<b>Error:</b> You need to have <a href="https://semantic-mediawiki.org/">Semantic MediaWiki</a> installed in order to use Semantic Watchlist.' );
+	die( '<b>Error:</b> You need to have <a href="https://www.semantic-mediawiki.org/">Semantic MediaWiki</a> installed in order to use Semantic Watchlist.' );
 }
 
 if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
@@ -38,6 +38,7 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'version' => SWL_VERSION,
 	'author' => array(
 		'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
+		'...'
 	),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
 	'descriptionmsg' => 'semanticwatchlist-desc',
@@ -47,27 +48,27 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 $GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
 
 $GLOBALS['wgMessagesDirs']['semantic-watchlist'] = __DIR__ . '/i18n';
-$GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist']      = __DIR__ . '/SemanticWatchlist.i18n.php';
+$GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist'] = __DIR__ . '/SemanticWatchlist.i18n.php';
 $GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist-alias'] = __DIR__ . '/SemanticWatchlist.i18n.alias.php';
 
-$GLOBALS['wgAutoloadClasses']['SWLHooks']					  	= __DIR__ . '/SemanticWatchlist.hooks.php';
+$GLOBALS['wgAutoloadClasses']['SWLHooks'] = __DIR__ . '/SemanticWatchlist.hooks.php';
 
-$GLOBALS['wgAutoloadClasses']['ApiAddWatchlistGroup']		  	= __DIR__ . '/api/ApiAddWatchlistGroup.php';
-$GLOBALS['wgAutoloadClasses']['ApiDeleteWatchlistGroup']		= __DIR__ . '/api/ApiDeleteWatchlistGroup.php';
-$GLOBALS['wgAutoloadClasses']['ApiEditWatchlistGroup']		 	= __DIR__ . '/api/ApiEditWatchlistGroup.php';
-$GLOBALS['wgAutoloadClasses']['ApiQuerySemanticWatchlist']	 	= __DIR__ . '/api/ApiQuerySemanticWatchlist.php';
+$GLOBALS['wgAutoloadClasses']['ApiAddWatchlistGroup'] = __DIR__ . '/api/ApiAddWatchlistGroup.php';
+$GLOBALS['wgAutoloadClasses']['ApiDeleteWatchlistGroup'] =  __DIR__ . '/api/ApiDeleteWatchlistGroup.php';
+$GLOBALS['wgAutoloadClasses']['ApiEditWatchlistGroup'] = __DIR__ . '/api/ApiEditWatchlistGroup.php';
+$GLOBALS['wgAutoloadClasses']['ApiQuerySemanticWatchlist'] = __DIR__ . '/api/ApiQuerySemanticWatchlist.php';
 
-$GLOBALS['wgAutoloadClasses']['SWLChangeSet']		  			= __DIR__ . '/includes/SWL_ChangeSet.php';
-$GLOBALS['wgAutoloadClasses']['SWLEdit']		  				= __DIR__ . '/includes/SWL_Edit.php';
-$GLOBALS['wgAutoloadClasses']['SWLEmailer']		  			    = __DIR__ . '/includes/SWL_Emailer.php';
-$GLOBALS['wgAutoloadClasses']['SWLGroup']		  				= __DIR__ . '/includes/SWL_Group.php';
-$GLOBALS['wgAutoloadClasses']['SWLGroups']		  				= __DIR__ . '/includes/SWL_Groups.php';
-$GLOBALS['wgAutoloadClasses']['SWLPropertyChange']		  		= __DIR__ . '/includes/SWL_PropertyChange.php';
-$GLOBALS['wgAutoloadClasses']['SWLPropertyChanges']		  	    = __DIR__ . '/includes/SWL_PropertyChanges.php';
-$GLOBALS['wgAutoloadClasses']['SWLCustomTexts']		  		    = __DIR__ . '/includes/SWL_CustomTexts.php';
+$GLOBALS['wgAutoloadClasses']['SWLChangeSet'] = __DIR__ . '/includes/SWL_ChangeSet.php';
+$GLOBALS['wgAutoloadClasses']['SWLEdit'] = __DIR__ . '/includes/SWL_Edit.php';
+$GLOBALS['wgAutoloadClasses']['SWLEmailer'] = __DIR__ . '/includes/SWL_Emailer.php';
+$GLOBALS['wgAutoloadClasses']['SWLGroup'] = __DIR__ . '/includes/SWL_Group.php';
+$GLOBALS['wgAutoloadClasses']['SWLGroups'] = __DIR__ . '/includes/SWL_Groups.php';
+$GLOBALS['wgAutoloadClasses']['SWLPropertyChange'] = __DIR__ . '/includes/SWL_PropertyChange.php';
+$GLOBALS['wgAutoloadClasses']['SWLPropertyChanges'] = __DIR__ . '/includes/SWL_PropertyChanges.php';
+$GLOBALS['wgAutoloadClasses']['SWLCustomTexts'] = __DIR__ . '/includes/SWL_CustomTexts.php';
 
-$GLOBALS['wgAutoloadClasses']['SpecialSemanticWatchlist']	  	= __DIR__ . '/specials/SpecialSemanticWatchlist.php';
-$GLOBALS['wgAutoloadClasses']['SpecialWatchlistConditions']	    = __DIR__ . '/specials/SpecialWatchlistConditions.php';
+$GLOBALS['wgAutoloadClasses']['SpecialSemanticWatchlist'] = __DIR__ . '/specials/SpecialSemanticWatchlist.php';
+$GLOBALS['wgAutoloadClasses']['SpecialWatchlistConditions'] = __DIR__ . '/specials/SpecialWatchlistConditions.php';
 
 $GLOBALS['wgSpecialPages']['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
 $GLOBALS['wgSpecialPageGroups']['SemanticWatchlist'] = 'changes';
