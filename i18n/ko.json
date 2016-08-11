@@ -53,5 +53,5 @@
 	"swl-prefs-category-label": "'''$1''': \"$4\" 분류의 $3 {{PLURAL:$2|속성}}",
 	"swl-prefs-namespace-label": "'''$1''': \"$4\"이름공간의 $3 {{PLURAL:$2|속성}}",
 	"swl-prefs-concept-label": "'''$1''': \"$4\" 개념의 $3 {{PLURAL:$2|속성}}",
-	"swl-err-userid-xor-groupids": "사용자 ID나 그룹 ID 매개변수을 지정해야 하지만, 둘다 지정할 필요는 없습니다."
+	"swl-err-userid-xor-groupids": "사용자 ID나 그룹 ID 매개변수를 지정해야 하지만, 둘 다 지정할 필요는 없습니다."
 }
