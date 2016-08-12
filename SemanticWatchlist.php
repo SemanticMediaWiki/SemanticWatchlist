@@ -48,13 +48,12 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 $GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
 
 $GLOBALS['wgMessagesDirs']['semantic-watchlist'] = __DIR__ . '/i18n';
-$GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist'] = __DIR__ . '/SemanticWatchlist.i18n.php';
 $GLOBALS['wgExtensionMessagesFiles']['semantic-watchlist-alias'] = __DIR__ . '/SemanticWatchlist.i18n.alias.php';
 
 $GLOBALS['wgAutoloadClasses']['SWLHooks'] = __DIR__ . '/SemanticWatchlist.hooks.php';
 
 $GLOBALS['wgAutoloadClasses']['ApiAddWatchlistGroup'] = __DIR__ . '/api/ApiAddWatchlistGroup.php';
-$GLOBALS['wgAutoloadClasses']['ApiDeleteWatchlistGroup'] =  __DIR__ . '/api/ApiDeleteWatchlistGroup.php';
+$GLOBALS['wgAutoloadClasses']['ApiDeleteWatchlistGroup'] = __DIR__ . '/api/ApiDeleteWatchlistGroup.php';
 $GLOBALS['wgAutoloadClasses']['ApiEditWatchlistGroup'] = __DIR__ . '/api/ApiEditWatchlistGroup.php';
 $GLOBALS['wgAutoloadClasses']['ApiQuerySemanticWatchlist'] = __DIR__ . '/api/ApiQuerySemanticWatchlist.php';
 
