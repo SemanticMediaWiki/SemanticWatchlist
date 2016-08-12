@@ -37,7 +37,7 @@ class TableUpdater {
 	 */
 	public function updateGroupIdsForUser( $userId, array $groupIds ) {
 
-		$this->dbConnection->begin();
+		$this->dbConnection->startAtomic( __METHOD__ );
 
 		$this->dbConnection->delete(
 			'swl_users_per_group',
@@ -50,7 +50,7 @@ class TableUpdater {
 			$this->insertGroup( $userId, $groupId );
 		}
 
-		$this->dbConnection->commit();
+		$this->dbConnection->endAtomic( __METHOD__ );
 
 		return true;
 	}
