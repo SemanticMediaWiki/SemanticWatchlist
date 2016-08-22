@@ -1,8 +1,28 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reedy"
+			"Reedy",
+			"Eitvys200"
 		]
 	},
-	"swl-new-item": "Naujas"
+	"swl-group-name": "Grupės pavadinimas:",
+	"swl-group-legend": "Grupė",
+	"swl-properties-list": "Atskirkite pavadinimus su |",
+	"swl-group-page-selection": "Pasirinkite puslapius stebėjimui:",
+	"swl-group-save": "Išsaugoti",
+	"swl-group-remove": "Pašalinti",
+	"swl-group-saved": "Nustatymai buvo išsaugoti.",
+	"swl-group-saving": "Išsaugoma",
+	"swl-group-category": "kategorija",
+	"swl-group-concept": "koncepcija",
+	"swl-group-add-new-group": "Pridėti naują grupę",
+	"swl-group-add-group": "Pridėti grupę",
+	"swl-custom-remove-property": "Pašalinti",
+	"swl-watchlist-insertions": "Naujas:",
+	"swl-watchlist-deletions": "Senas:",
+	"swl-new-item": "Naujas",
+	"swl-watchlist-pagincontrol": "Žiūrėti ($1) ($2)",
+	"swl-watchlist-firstn": "pirmas $1",
+	"swl-email-propschanged": "Nustatymai buvo pakeisti $1",
+	"prefs-swlglobal": "Bendri nustatymai"
 }
