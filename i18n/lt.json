@@ -18,11 +18,16 @@
 	"swl-group-add-new-group": "Pridėti naują grupę",
 	"swl-group-add-group": "Pridėti grupę",
 	"swl-custom-remove-property": "Pašalinti",
+	"swl-custom-input": "Jei savybė $1 pakeičia savo reikšmę į $2, pranešti vartotojams su šiuo tekstu: $3",
 	"swl-watchlist-insertions": "Naujas:",
 	"swl-watchlist-deletions": "Senas:",
 	"swl-new-item": "Naujas",
 	"swl-watchlist-pagincontrol": "Žiūrėti ($1) ($2)",
 	"swl-watchlist-firstn": "pirmas $1",
+	"swl-watchlist-can-mod-groups": "Galite [[$1|keisti stebimųjų sąrašo grupes]].",
 	"swl-email-propschanged": "Nustatymai buvo pakeisti $1",
-	"prefs-swlglobal": "Bendri nustatymai"
+	"swl-email-changes": "Savybių pakeitimai [$2 $1]:",
+	"prefs-swlglobal": "Bendri nustatymai",
+	"swl-prefs-emailnofity": "Pranešti man el. paštu apie mano stebimų savybių pakeitimus",
+	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|savybė|savybės}} $3 iš kategorijos ''$4''"
 }
