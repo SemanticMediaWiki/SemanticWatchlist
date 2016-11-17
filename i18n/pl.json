@@ -32,6 +32,7 @@
 	"swl-watchlist-pagincontrol": "Zobacz ($1) ($2)",
 	"swl-watchlist-firstn": "pierwsze $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}",
+	"swl-email-changes": "Zmiany właściwości w [$2 $1]:",
 	"prefs-swl": "Semantyczna lista obserwowanych",
 	"prefs-swlglobal": "Opcje ogólne"
 }
