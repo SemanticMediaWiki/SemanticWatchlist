@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Inkbug",
-			"Guycn2"
+			"Guycn2",
+			"המקיסט"
 		]
 	},
 	"semanticwatchlist-desc": "מאפשרת למשתמשים לקבל הודעה על שינויים מסוימים בנתונים של מדיה־ויקי סמנטית",
@@ -20,6 +21,7 @@
 	"swl-group-saving": "מתבצעת שמירה...",
 	"swl-group-category": "קטגוריה",
 	"swl-group-namespace": "מרחב שם",
+	"swl-group-concept": "רעיון",
 	"swl-group-confirm-remove": "האם ברצונך להסיר את הקבוצה \"$1\" מרשימת המעקב?",
 	"swl-group-add-new-group": "הוספת קבוצה חדשה",
 	"swl-group-add-group": "הוספת קבוצה",
