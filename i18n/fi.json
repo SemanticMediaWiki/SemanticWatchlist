@@ -3,7 +3,8 @@
 		"authors": [
 			"Crt",
 			"Nedergard",
-			"Nike"
+			"Nike",
+			"Pyscowicz"
 		]
 	},
 	"semanticwatchlist-desc": "Sallii ilmoitukset käyttäjille, kun semanttisen MediaWikin tietoihin on tehty tiettyjä muutoksia.",
@@ -33,6 +34,7 @@
 	"swl-watchlist-position": "Näyttää '''$1''' {{PLURAL:$1|muutoksen|viimeisintä muutosta}}, joista ensimmäinen on '''#$2'''.",
 	"swl-watchlist-insertions": "Uusi:",
 	"swl-watchlist-deletions": "Vanha:",
+	"swl-new-item": "UUSI",
 	"swl-watchlist-pagincontrol": "Näytä ($1) ($2)",
 	"swl-watchlist-firstn": "ensimmäinen $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|Ensimmäinen muutos|Ensimmäiset $1 muutosta}}",
@@ -41,7 +43,7 @@
 	"swl-watchlist-can-mod-prefs": "Voit myös [[$1|muokata tarkkailulistan asetuksia]] ja määrittää tarkkailtavat ominaisuudet.",
 	"swl-watchlist-no-groups": "Tarkkailulistallasi ei ole ryhmiä. [[$1|Muokkaa tarkkailulistan asetuksia]].",
 	"swl-email-propschanged": "Ominaisuuksia on muutettu $1",
-	"swl-email-propschanged-long": "'''$1''' -wikin tarkkailulistallasi on muutoksia, jotka on tehnyt '''$2''' $5 klo $4. Voit tarkastella näitä ja muita muutoksia [$3 semanttisella tarkkailulistallasi].",
+	"swl-email-propschanged-long": "'''$1''' -wikin tarkkailulistallasi on muutoksia, jotka on tehnyt {{GENDER:$2|user}} '''$2''' $5 klo $4. Voit tarkastella näitä ja muita muutoksia [$3 semanttisella tarkkailulistallasi].",
 	"swl-email-changes": "Ominaisuuden muutos [$2 $1]:",
 	"prefs-swl": "Semanttinen tarkkailulista",
 	"prefs-swlgroup": "Tarkkailtavat ryhmät",
