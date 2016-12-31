@@ -11,6 +11,9 @@ matrix:
       php: 5.3
     - env: DB=mysql; MW=master
       php: hhvm
+  allow_failures:
+    # see issue #71
+    - env: MW=master
   exclude:
     - env: THENEEDFORTHIS=FAIL
 
