@@ -38,7 +38,7 @@ final class SWLEmailer {
 		)->parseAsBlock();
 
 		if ( $describeChanges ) {
-			$emailText .= Html::element( 'h3', array(), wfMessage(
+			$emailText .= Html::rawElement( 'h3', array(), wfMessage(
 				'swl-email-changes',
 				$changeSet->getEdit()->getTitle()->getFullText(),
 				$changeSet->getEdit()->getTitle()->getFullURL()
@@ -51,14 +51,24 @@ final class SWLEmailer {
 
 		wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
-		return UserMailer::send(
-			new MailAddress( $user ),
-			new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
-			$title,
-			$emailText,
-			null,
-			'text/html; charset=ISO-8859-1'
-		);
+		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
+			return UserMailer::send(
+				new MailAddress( $user ),
+				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
+				$title,
+				$emailText,
+				null,
+				'text/html; charset=ISO-8859-1'
+			);
+		} else {
+			return UserMailer::send(
+				new MailAddress( $user ),
+				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
+				$title,
+				$emailText,
+				array( 'contentType' => 'text/html; charset=ISO-8859-1' )
+			);
+		}
 	}
 
 	/**
