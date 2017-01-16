@@ -33,7 +33,7 @@
 	"swl-group-add-new-group": "This is the text on the button allowing to add a new group of properties to be watched on [[Special:SemanticWatchlist]].",
 	"swl-group-add-group": "This is the text on the button allowing to add a group of properties to be watched on [[Special:SemanticWatchlist]].\n{{Identical|Add group}}",
 	"swl-custom-legend": "This is the title of the field that lets you specify a custom text for the user notification to be send in case a property included in the group was changed.",
-	"swl-custom-remove-property": "This is the text on the button allowing to remove the custom user notification text of a group.",
+	"swl-custom-remove-property": "This is the text on the button allowing to remove the custom user notification text of a group.\n{{Identical|Remove}}",
 	"swl-custom-text-add": "This is the text on the button allowing to add a custom user notification text to a group.",
 	"swl-custom-input": "This message explains that if the property $1 changes its value to $2 notify users with the text $3\n* $1 - property name\n* $2 - property value\n* $3 - notification text",
 	"swl-watchlist-position": "The message explains how many changes are displayed in the special page ($1) and what's the number of the first one shown ($2): the special page provides results in paginated format. # stands for number.",
