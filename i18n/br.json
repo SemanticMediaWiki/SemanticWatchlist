@@ -20,6 +20,7 @@
 	"swl-group-add-group": "Ouzhpennañ ur strollad",
 	"swl-watchlist-insertions": "Ouzhpennet :",
 	"swl-watchlist-deletions": "Kozh:",
+	"swl-new-item": "NEVEZ",
 	"swl-watchlist-pagincontrol": "Gwelet ($1) ($2)",
 	"swl-watchlist-firstn": "Ar $1 kentañ",
 	"swl-watchlist-firstn-title": "Ar $1 {{PLURAL:$1|disoc'h kentañ|disoc'h kentañ}}",
