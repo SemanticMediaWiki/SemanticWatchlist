@@ -34,7 +34,7 @@
 	"swl-new-item": "НОВО",
 	"swl-watchlist-pagincontrol": "Видете ($1) ($2)",
 	"swl-watchlist-firstn": "први $1",
-	"swl-watchlist-firstn-title": "{{PLURAL:$1|Прв $1 резултат|Први $1 резултати}}",
+	"swl-watchlist-firstn-title": "{{PLURAL:$1|Прва ставка|Први $1 ставки}}",
 	"swl-watchlist-no-items": "Немате ништо во вашите семантички набљудувани.",
 	"swl-watchlist-can-mod-groups": "Можете да ги [[$1|измените групите на набљудувања]].",
 	"swl-watchlist-can-mod-prefs": "Можете и да ги [[$1|измените вашите нагодувања за набљудување]], вклучувајќи кои својства да се набљудуваат.",
