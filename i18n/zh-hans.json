@@ -52,8 +52,8 @@
 	"prefs-swlglobal": "常规选项",
 	"swl-prefs-emailnofity": "电子邮件通知我那些对我所监视属性的变更",
 	"swl-prefs-watchlisttoplink": "在页面顶部显示语义监视列表的链接",
-	"swl-prefs-category-label": "'''$1'''：来自类别''$4''的{{PLURAL:$2|属性|属性}} $3",
-	"swl-prefs-namespace-label": "'''$1'''来自命名空间''$4''的{{PLURAL:$2|属性|属性}} $3",
+	"swl-prefs-category-label": "'''$1'''：来自分类“$4”的{{PLURAL:$2|属性}}$3",
+	"swl-prefs-namespace-label": "'''$1'''：来自名字空间“$4”的{{PLURAL:$2|属性}}$3",
 	"swl-prefs-concept-label": "'''$1'''：来自概念''$4''的{{PLURAL:$2|属性|属性}} $3",
 	"swl-err-userid-xor-groupids": "需要指定用户ID（userid ）或组ID（groupids ），但不要同时两者都指定。"
 }

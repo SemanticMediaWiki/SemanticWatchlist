@@ -38,7 +38,7 @@
 	"swl-watchlist-can-mod-prefs": "您可以[[$1|監視列表首選項]]，包括設置要監視哪些屬性。",
 	"swl-watchlist-no-groups": "您尚未監視任何的監視清單組。[[$1|請修改您的監視清單首選項]]。",
 	"swl-email-propschanged": "位於$1的屬性已變更。",
-	"swl-email-propschanged-long": "您在'''$1'''所監視的一個或多個屬性已被$5之上位於$4的用戶'''$2'''更改。.您可以查看這些變更以及位於[$3 您的語義監視列表]之上的其他變更。",
+	"swl-email-propschanged-long": "您在 '''$1''' 所監視的一個或多個屬性已被 $5 之上位於 $4 的{{GENDER:$2|使用者}} '''$2''' 更改。.您可以查看這些變更以及位於[$3 您的語義監視列表]之上的其他變更。",
 	"swl-email-changes": "[$2 $1]之上的屬性變更：",
 	"prefs-swl": "語義監視清單",
 	"prefs-swlgroup": "要監視的組",
