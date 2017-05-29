@@ -4,7 +4,8 @@
 			"Beta16",
 			"F. Cosoleto",
 			"පසිඳු කාවින්ද",
-			"V6rg"
+			"V6rg",
+			"Kaspo"
 		]
 	},
 	"swl-group-name": "Nome gruppo:",
@@ -17,6 +18,7 @@
 	"swl-group-namespace": "namespace",
 	"swl-group-add-new-group": "Aggiungi un nuovo gruppo",
 	"swl-group-add-group": "Aggiungi gruppo",
+	"swl-custom-legend": "Testo personalizzato",
 	"swl-custom-remove-property": "Rimuovi",
 	"swl-custom-input": "Se la proprietà $1 cambia il suo valore a $2, avvisa gli utenti con il seguente testo: $3",
 	"swl-watchlist-insertions": "Nuovo:",
