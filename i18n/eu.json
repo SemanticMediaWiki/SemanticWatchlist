@@ -1,19 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Subi"
+			"Subi",
+			"Mikel Ibaiba"
 		]
 	},
+	"swl-group-name": "Taldearen izena:",
+	"swl-group-legend": "Taldea",
 	"swl-group-save": "Gorde",
 	"swl-group-remove": "Kendu",
 	"swl-group-saved": "Ezarpenak gorde dira.",
 	"swl-group-saving": "Gordetzen",
 	"swl-group-category": "kategoria",
+	"swl-group-concept": "Kontzeptua",
 	"swl-group-add-new-group": "Gehitu talde berria",
 	"swl-group-add-group": "Gehitu taldea",
 	"swl-custom-remove-property": "Kendu",
 	"swl-watchlist-insertions": "Berria:",
 	"swl-watchlist-deletions": "Zaharra:",
 	"swl-new-item": "BERRIA",
-	"swl-watchlist-pagincontrol": "Ikusi ($1) ($2)"
+	"swl-watchlist-pagincontrol": "Ikusi ($1) ($2)",
+	"swl-watchlist-firstn-title": "Lehen {{PLURAL:$1|emaitza|$1 emaitzak}}",
+	"prefs-swlglobal": "Aukera orokorrak"
 }
