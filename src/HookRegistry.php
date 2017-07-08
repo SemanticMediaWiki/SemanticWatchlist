@@ -43,6 +43,10 @@ class HookRegistry {
 
 		$configuration = $this->configuration;
 
+		$tableUpdater = new TableUpdater(
+			new LazyDBConnectionProvider( DB_MASTER )
+		);
+
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 		 */
@@ -62,9 +66,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
 		 */
-		$wgHooks['UserSaveOptions'][] = function( \User $user, array &$options ) use ( $configuration ) {
-
-			$tableUpdater = new TableUpdater( wfGetDB( DB_MASTER ) );
+		$wgHooks['UserSaveOptions'][] = function( \User $user, array &$options ) use ( $configuration, $tableUpdater ) {
 
 			$userSaveOptions = new UserSaveOptions(
 				$tableUpdater,
@@ -95,7 +97,7 @@ class HookRegistry {
 		$wgHooks['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration ) {
 
 			$userLanguage = Language::factory(
-				$configuration['wgLang']->getCode()
+				$GLOBALS['wgLang']->getCode()
 			);
 
 			$getPreferences = new GetPreferences(

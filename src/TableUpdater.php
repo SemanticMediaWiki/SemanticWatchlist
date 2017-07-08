@@ -16,17 +16,17 @@ use DatabaseBase;
 class TableUpdater {
 
 	/**
-	 * @var DatabaseBase
+	 * @var LazyDBConnectionProvider
 	 */
-	private $dbConnection;
+	private $connectionProvider;
 
 	/**
 	 * @since 1.0
 	 *
-	 * @param DatabaseBase $dbConnection
+	 * @param LazyDBConnectionProvider $connectionProvider
 	 */
-	public function __construct( DatabaseBase $dbConnection ) {
-		$this->dbConnection = $dbConnection;
+	public function __construct( LazyDBConnectionProvider $connectionProvider ) {
+		$this->connectionProvider = $connectionProvider;
 	}
 
 	/**
@@ -37,9 +37,10 @@ class TableUpdater {
 	 */
 	public function updateGroupIdsForUser( $userId, array $groupIds ) {
 
-		$this->dbConnection->startAtomic( __METHOD__ );
+		$connection = $this->connectionProvider->getConnection();
+		$connection->startAtomic( __METHOD__ );
 
-		$this->dbConnection->delete(
+		$connection->delete(
 			'swl_users_per_group',
 			array(
 				'upg_user_id' => $userId
@@ -47,22 +48,18 @@ class TableUpdater {
 		);
 
 		foreach ( $groupIds as $groupId ) {
-			$this->insertGroup( $userId, $groupId );
+			$connection->insert(
+				'swl_users_per_group',
+				array(
+					'upg_user_id'  => $userId,
+					'upg_group_id' => $groupId
+				)
+			);
 		}
 
-		$this->dbConnection->endAtomic( __METHOD__ );
+		$connection->endAtomic( __METHOD__ );
 
 		return true;
-	}
-
-	private function insertGroup( $userId, $groupId ) {
-		$this->dbConnection->insert(
-			'swl_users_per_group',
-			array(
-				'upg_user_id'  => $userId,
-				'upg_group_id' => $groupId
-			)
-		);
 	}
 
 }

@@ -18,13 +18,13 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
+		$connectionProvider = $this->getMockBuilder( '\SWL\LazyDBConnectionProvider' )
 			->disableOriginalConstructor()
-			->getMockForAbstractClass();
+			->getMock();
 
 		$this->assertInstanceOf(
 			'\SWL\TableUpdater',
-			new TableUpdater( $dbConnection )
+			new TableUpdater( $connectionProvider )
 		);
 	}
 
@@ -33,26 +33,38 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array( 1, 9999 );
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
+		$transactionProfiler = $this->getMockBuilder( '\Wikimedia\Rdbms\TransactionProfiler' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$connection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
 			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();
 
-		$dbConnection->expects( $this->once() )
+		$connection->expects( $this->once() )
 			->method( 'delete' )
 			->with(
 				$this->equalTo( 'swl_users_per_group' ),
 				$this->equalTo( array( 'upg_user_id' => $userId ) ) );
 
-		$dbConnection->expects( $this->any() )
+		$connection->expects( $this->any() )
 			->method( 'isOpen' )
 			->will( $this->returnValue( true ) );
 
-		$dbConnection->expects( $this->at( 2 ) )
+		$connection->expects( $this->at( 2 ) )
 			->method( 'insert' )
 			->will( $this->returnValue( true ) );
 
-		$instance = new TableUpdater( $dbConnection );
+		$connectionProvider = $this->getMockBuilder( '\SWL\LazyDBConnectionProvider' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$connectionProvider->expects( $this->any() )
+			->method( 'getConnection' )
+			->will( $this->returnValue( $connection ) );
+
+		$instance = new TableUpdater( $connectionProvider );
 
 		$this->assertTrue(
 			$instance->updateGroupIdsForUser( $userId, $groupIds )
@@ -64,26 +76,34 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array();
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
+		$connection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
 			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();
 
-		$dbConnection->expects( $this->once() )
+		$connection->expects( $this->once() )
 			->method( 'delete' )
 			->with(
 				$this->equalTo( 'swl_users_per_group' ),
 				$this->equalTo( array( 'upg_user_id' => $userId ) ) );
 
-		$dbConnection->expects( $this->any() )
+		$connection->expects( $this->any() )
 			->method( 'isOpen' )
 			->will( $this->returnValue( true ) );
 
-		$dbConnection->expects( $this->never() )
+		$connection->expects( $this->never() )
 			->method( 'insert' )
 			->will( $this->returnValue( true ) );
 
-		$instance = new TableUpdater( $dbConnection );
+		$connectionProvider = $this->getMockBuilder( '\SWL\LazyDBConnectionProvider' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$connectionProvider->expects( $this->any() )
+			->method( 'getConnection' )
+			->will( $this->returnValue( $connection ) );
+
+		$instance = new TableUpdater( $connectionProvider );
 
 		$this->assertTrue(
 			$instance->updateGroupIdsForUser( $userId, $groupIds )
