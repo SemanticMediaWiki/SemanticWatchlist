@@ -8,7 +8,6 @@ use Title;
 
 /**
  * @covers \SWL\HookRegistry
- *
  * @group semantic-watchlist
  *
  * @license GNU GPL v2+
