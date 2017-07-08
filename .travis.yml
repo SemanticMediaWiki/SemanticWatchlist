@@ -1,7 +1,8 @@
+# https://docs.travis-ci.com/user/languages/php
 language: php
 
-env:
-  - THENEEDFORTHIS=FAIL
+# https://docs.travis-ci.com/user/trusty-ci-environment/
+dist: trusty
 
 matrix:
   include:
@@ -16,8 +17,6 @@ matrix:
   allow_failures:
     # see issue #71
     - env: DB=mysql; MW=master
-  exclude:
-    - env: THENEEDFORTHIS=FAIL
 
 install:
   - travis_retry composer self-update
@@ -39,3 +38,8 @@ notifications:
       - "chat.freenode.net#semantic-mediawiki"
     on_success: change
     on_failure: always
+
+
+cache:
+  directories:
+    - $HOME/.composer/cache
