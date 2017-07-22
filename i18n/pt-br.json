@@ -6,7 +6,8 @@
 			"Luckas",
 			"Luckas Blade",
 			"Cainamarques",
-			"Tuliouel"
+			"Tuliouel",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"semanticwatchlist-desc": "Permite que os usuários sejam notificados sobre as alterações específicas nos dados do Semantic MediaWiki",
@@ -32,16 +33,27 @@
 	"swl-custom-legend": "Texto personalizado",
 	"swl-custom-remove-property": "Remover",
 	"swl-custom-text-add": "Adicionar texto personalizado",
+	"swl-watchlist-position": "A mostrar {{PLURAL:$1|a última mudança|as últimas '''$1''' mudanças, a começar pela mudança '''#$2'''}}:",
 	"swl-watchlist-insertions": "Novo:",
 	"swl-watchlist-deletions": "Antigo:",
 	"swl-new-item": "NOVO",
 	"swl-watchlist-pagincontrol": "Ver ($1) ($2)",
 	"swl-watchlist-firstn": "$1 primeiras",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|Primeiro resultado|Primeiros $1 resultados}}",
+	"swl-watchlist-no-items": "A sua lista de propriedades semânticas vigiadas está vazia.",
+	"swl-watchlist-can-mod-groups": "Pode [[$1|alterar os grupos de propriedades semânticas vigiadas]].",
+	"swl-watchlist-can-mod-prefs": "Pode também [[$1|alterar as suas preferências das propriedades semânticas vigiadas]], incluindo definir quais as propriedades que pretende vigiar.",
+	"swl-watchlist-no-groups": "Ainda não está a vigiar nenhum grupo de propriedades semânticas vigiadas. [[$1|Alterar as suas preferências das propriedades semânticas vigiadas]].",
 	"swl-email-propschanged": "Propriedades alteradas em $1",
+	"swl-email-propschanged-long": "Uma ou mais propriedades que está a vigiar em '''$1''' foram alteradas {{GENDER:$2|pelo utilizador|pela utilizadora}} '''$2''' às $4 de $5. Pode ver estas e outras alterações na sua [$3 lista de propriedades semânticas vigiadas].",
 	"swl-email-changes": "Alterações de propriedades em [$2 $1]:",
 	"prefs-swl": "Lista das propriedades semânticas vigiadas",
 	"prefs-swlgroup": "Grupos para vigiar",
 	"prefs-swlglobal": "Opções gerais",
-	"swl-prefs-emailnofity": "Notificar-me por e-mail sobre alterações nas propriedades que estou vigiando"
+	"swl-prefs-emailnofity": "Notificar-me por e-mail sobre alterações nas propriedades que estou vigiando",
+	"swl-prefs-watchlisttoplink": "Mostrar um link para a lista de propriedades semânticas vigiadas no topo da página",
+	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 da categoria ''$4''",
+	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
+	"swl-prefs-concept-label": "'''$1''': {{PLURAL:$2|propriedade|propriedades}} $3 do conceito ''$4''",
+	"swl-err-userid-xor-groupids": "Deve ser especificado, ou o parâmetro de identificação do usuário, ou o parâmetro de identificações de grupos, mas não ambos."
 }

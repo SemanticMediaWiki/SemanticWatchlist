@@ -51,7 +51,7 @@
 	"prefs-swl": "Lista das propriedades semânticas vigiadas",
 	"prefs-swlgroup": "Grupos para vigiar",
 	"prefs-swlglobal": "Opções gerais",
-	"swl-prefs-emailnofity": "Notificar-me por correio electrónico das alterações de propriedades que estou a vigiar",
+	"swl-prefs-emailnofity": "Notificar-me por correio eletrónico das alterações de propriedades que estou a vigiar",
 	"swl-prefs-watchlisttoplink": "Mostrar um link para a lista de propriedades semânticas vigiadas no topo da página",
 	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 da categoria ''$4''",
 	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|Propriedade|Propriedades}} $3 do espaço nominal ''$4''",
