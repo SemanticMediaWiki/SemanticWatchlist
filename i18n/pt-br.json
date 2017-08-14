@@ -33,6 +33,7 @@
 	"swl-custom-legend": "Texto personalizado",
 	"swl-custom-remove-property": "Remover",
 	"swl-custom-text-add": "Adicionar texto personalizado",
+	"swl-custom-input": "Se a propriedade $1 mudar o seu valor para $2, notificar usuários com o seguinte texto: $3",
 	"swl-watchlist-position": "A mostrar {{PLURAL:$1|a última mudança|as últimas '''$1''' mudanças, a começar pela mudança '''#$2'''}}:",
 	"swl-watchlist-insertions": "Novo:",
 	"swl-watchlist-deletions": "Antigo:",
