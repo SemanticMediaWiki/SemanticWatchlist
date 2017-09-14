@@ -299,7 +299,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 
 		$api = new ApiMain( new FauxRequest( $requestData, true ), true );
 		$api->execute();
-		return $api->getResultData();
+		return $api->getResult()->getResultData( null, [
+												 'BC' => [],
+												 'Types' => [],
+												 'Strip' => 'all',
+		] );
 	}
 
 	/**
