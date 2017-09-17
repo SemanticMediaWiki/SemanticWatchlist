@@ -14,7 +14,7 @@ function installToMediaWikiRoot {
 	then
 		composer require 'phpunit/phpunit='$PHPUNIT --prefer-source --update-with-dependencies
 	else
-		composer require 'phpunit/phpunit=3.7.*' --prefer-source --update-with-dependencies
+		composer require 'phpunit/phpunit=4.8.*' --prefer-source --update-with-dependencies
 	fi
 
 	if [ "$SWL" != "" ]
@@ -29,8 +29,7 @@ function installToMediaWikiRoot {
 
 		# Pull request number, "false" if it's not a pull request
 		# After the install via composer an additional get fetch is carried out to
-		# update th repository to make sure that the latests code changes are
-		# deployed for testing
+		# update th repository to make sure that the latests code changes are deployed for testing
 		if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 		then
 			git fetch origin +refs/pull/"$TRAVIS_PULL_REQUEST"/merge:
