@@ -24,3 +24,7 @@ script:
 
 after_success:
   - bash ./tests/travis/upload-coverage-report.sh
+
+cache:
+  directories:
+    - $HOME/.composer/cache
