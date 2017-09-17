@@ -24,8 +24,3 @@ script:
 
 after_success:
   - bash ./tests/travis/upload-coverage-report.sh
-
-notifications:
-  email:
-    on_success: change
-    on_failure: always
