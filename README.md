@@ -14,10 +14,19 @@ that lists changes to these properties.
 
 ## Requirements
 
+Semantic Watchlist 1.2:
+
+- PHP 5.6 - 7.2
+- MediaWiki 1.27 - 1.29
+- [Semantic MediaWiki][smw] 2.0 - 3.0
+- MySQL 5+ or SQLite 3
+
+Semantic Watchlist 1.1:
+
 - PHP 5.3+, including PHP 7 and HHVM
-- MySQL 5 (or later) and SQLite 3
-- MediaWiki 1.19 - 1.27
+- MediaWiki 1.19 - 1.26
 - [Semantic MediaWiki][smw] 2.x (and 1.9.x)
+- MySQL 5+ or SQLite 3
 
 ## Installation
 

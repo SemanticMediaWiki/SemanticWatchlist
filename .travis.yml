@@ -1,29 +1,29 @@
 language: php
 
+sudo: false
+
 matrix:
   include:
-    - env: DB=mysql; MW=REL1_27; TYPE=coverage
+    - env: DBTYPE=mysql; MW=1.27.0; SMW=2.0.0
       php: 5.6
-    - env: DB=sqlite; MW=1.23.14
-      php: 5.5
-    - env: DB=mysql; MW=master
-      php: 7
-    - env: DB=mysql; MW=master
-      php: hhvm
-  allow_failures:
-    # see issue #71
-    - env: DB=mysql; MW=master
+    - env: DBTYPE=mysql; MW=1.27.0; SMW=2.5.4; TYPE=coverage
+      php: 7.0
+    - env: DBTYPE=sqlite; MW=1.28.2; SMW=2.5.4
+      php: 7.0
+    - env: DBTYPE=mysql; MW=1.29.1; SMW=2.5.4
+      php: 7.1
 
 install:
   - travis_retry composer self-update
-  - bash ./tests/travis/install-mediawiki.sh
-  - bash ./tests/travis/install-semantic-watchlist.sh
+  - bash .travis.install.sh
 
-script:
-  - bash ./tests/travis/run-tests.sh
+script: ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/SemanticWatchlist/phpunit.xml.dist
 
 after_success:
-  - bash ./tests/travis/upload-coverage-report.sh
+  - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
+  - ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/SemanticWatchlist/phpunit.xml.dist --coverage-clover coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 cache:
   directories:

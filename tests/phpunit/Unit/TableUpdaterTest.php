@@ -16,6 +16,14 @@ use SWL\TableUpdater;
  */
 class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 
+	public function setUp() {
+		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.28', 'gt' ) ) {
+			$this->markTestSkipped(
+				'Test broken on MW > 1.27, see https://github.com/SemanticMediaWiki/SemanticWatchlist/issues/71'
+			);
+		}
+	}
+
 	public function testCanConstruct() {
 
 		$connectionProvider = $this->getMockBuilder( '\SWL\LazyDBConnectionProvider' )
@@ -32,10 +40,6 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 
 		$userId = 1111;
 		$groupIds = array( 1, 9999 );
-
-		$transactionProfiler = $this->getMockBuilder( '\Wikimedia\Rdbms\TransactionProfiler' )
-			->disableOriginalConstructor()
-			->getMock();
 
 		$connection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
