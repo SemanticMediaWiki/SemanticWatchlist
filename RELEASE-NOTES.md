@@ -4,6 +4,7 @@
 
 Not a release yet
 
+* Added compatibility with the most recent MediaWiki versions
 * Raised minimum MediaWiki version to 1.23
 * Raised minimum PHP version to 5.5
 * #66 Fixed breakage for database transactions in MediaWiki 1.27 and higher
