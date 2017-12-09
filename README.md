@@ -5,8 +5,6 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-watchlist/version.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-watchlist/d/total.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
-[![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-watchlist/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-watchlist)
-
 
 Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] that enables users to
 watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist)
@@ -69,7 +67,7 @@ Find more detailed [usage documentation on MediaWiki.org](https://www.mediawiki.
 ## Contribution and support
 
 If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net.
-You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
+You can subscribe to this list [here](https://sourceforge.net/p/semediawiki/mailman/semediawiki-user/).
 
 If you want to contribute work to the project please subscribe to the
 developers mailing list and have a look at the [contribution guildline](/CONTRIBUTING.md).
@@ -77,7 +75,7 @@ A list of people who have made contributions in the past can be found [here][con
 
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticWatchlist/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticWatchlist/pulls)
-* Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
+* Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
 * Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
 ## Extending Semantic Watchlist
@@ -116,4 +114,4 @@ but can also be executed using `composer phpunit` from the extension base direct
 [contributors]: https://github.com/SemanticMediaWiki/SemanticWatchlist/graphs/contributors
 [licence]: https://www.gnu.org/copyleft/gpl.html
 [travis]: https://travis-ci.org/SemanticMediaWiki/SemanticWatchlist
-[smw-property]: https://semantic-mediawiki.org/wiki/Property
+[smw-property]: https://www.semantic-mediawiki.org/wiki/Property
