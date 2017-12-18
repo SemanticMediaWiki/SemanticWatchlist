@@ -43,7 +43,7 @@
 	"swl-watchlist-can-mod-prefs": "Vous pouvez aussi [[$1|modifier les préférences de votre liste de suivi]], y compris la définition des propriétés à suivre.",
 	"swl-watchlist-no-groups": "Vous ne suivez pour le moment aucun groupe de liste de suivi. [[$1|Modifiez vos préférences de liste de suivi]].",
 	"swl-email-propschanged": "Les propriétés ont changé à $1",
-	"swl-email-propschanged-long": "Une ou plusieurs propriétés que vous suivez à '''$1'' ont été modifiées par l'{{GENDER:$2|utilisateur|utilisatrice}} '''$2''' à $4 sur $5 . Vous pouvez visualiser ces modifications et d'autres sur [$3 votre liste de suivi sémantique].",
+	"swl-email-propschanged-long": "Une ou plusieurs propriétés que vous suivez à '''$1''' ont été modifiées par l’utilisat{{GENDER:$2|eur|rice}} '''$2''' à $4 sur $5 . Vous pouvez visualiser ces modifications et d’autres sur [$3 votre liste de suivi sémantique].",
 	"swl-email-changes": "Changements de propriétés sur [$2 $1] :",
 	"prefs-swl": "Liste de suivi sémantique",
 	"prefs-swlgroup": "Groupes à suivre",
