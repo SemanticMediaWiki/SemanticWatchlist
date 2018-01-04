@@ -31,7 +31,7 @@
 	"swl-custom-remove-property": "Poista",
 	"swl-custom-text-add": "Lisää käyttäjän määrittämä teksti",
 	"swl-custom-input": "Jos ominaisuuden $1 muutettu arvo on $2, ilmoita siitä käyttäjille huomautuksella: $3",
-	"swl-watchlist-position": "Näyttää '''$1''' {{PLURAL:$1|muutoksen|viimeisintä muutosta}}, joista ensimmäinen on '''#$2'''.",
+	"swl-watchlist-position": "Näytetään viimeisin {{PLURAL:$1|muutos|'''$1''' muutokset alkaen muutoksesta '''#$2'''}}:",
 	"swl-watchlist-insertions": "Uusi:",
 	"swl-watchlist-deletions": "Vanha:",
 	"swl-new-item": "UUSI",
