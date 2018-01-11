@@ -57,7 +57,7 @@ class SemanticWatchlist {
 			),
 			'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
 			'descriptionmsg' => 'semanticwatchlist-desc',
-			'license-name'   => 'GPL-3.0+'
+			'license-name'   => 'GPL-3.0-or-later'
 		);
 
 		$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/../src/swl-table-schema.sql';
