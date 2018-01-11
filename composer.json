@@ -8,8 +8,8 @@
 		"Wiki",
 		"MediaWiki"
 	],
-	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
-	"license": "GPL-3.0+",
+	"homepage": "https://www.semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
+	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
 			"name": "Jeroen De Dauw",
@@ -20,8 +20,8 @@
 		"email": "semediawiki-user@lists.sourceforge.net",
 		"issues": "https://github.com/SemanticMediaWiki/SemanticWatchlist/issues",
 		"irc": "irc://irc.freenode.net/semantic-mediawiki",
-		"forum": "https://semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
-		"wiki": "https://semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
+		"forum": "https://www.semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
+		"wiki": "https://www.semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
 		"source": "https://github.com/SemanticMediaWiki/SemanticWatchlist"
 	},
 	"require": {
