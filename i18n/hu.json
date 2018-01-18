@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wolf Rex"
+		]
+	},
+	"swl-group-save": "Mentés",
+	"swl-group-remove": "Eltávolítás",
+	"swl-group-saved": "A beállítások elmentve.",
+	"swl-group-saving": "Mentés",
+	"swl-group-category": "kategória",
+	"swl-group-namespace": "névtér",
+	"swl-custom-legend": "Egyedi szöveg",
+	"swl-custom-remove-property": "Eltávolítás",
+	"swl-custom-text-add": "Egyedi szöveg hozzáadása",
+	"swl-watchlist-insertions": "Új:",
+	"swl-watchlist-deletions": "Régi:",
+	"swl-new-item": "ÚJ",
+	"swl-watchlist-firstn": "első $1"
+}

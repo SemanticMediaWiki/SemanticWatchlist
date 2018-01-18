@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"swl-group-name": "Nom del grop :",
+	"swl-group-legend": "Grop",
+	"swl-group-save": "Enregistrar",
+	"swl-group-remove": "Suprimir",
+	"swl-group-saving": "Enregistrament en cors",
+	"swl-group-category": "categoria",
+	"swl-group-namespace": "espaci de noms",
+	"swl-group-concept": "concèpte",
+	"swl-custom-remove-property": "Suprimir",
+	"swl-watchlist-insertions": "Novèl :",
+	"swl-watchlist-deletions": "Ancian :",
+	"swl-watchlist-pagincontrol": "Veire ($1) ($2)"
+}

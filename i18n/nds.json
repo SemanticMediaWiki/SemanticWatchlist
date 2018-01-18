@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joachim Mos"
+		]
+	},
+	"swl-group-name": "Köppelnaam:",
+	"swl-group-legend": "Köppel",
+	"swl-group-save": "Spiekern",
+	"swl-group-remove": "Wegmaken",
+	"swl-group-saving": "An’t Spiekern",
+	"swl-group-category": "Kategorie",
+	"swl-group-namespace": "Naamruum",
+	"swl-custom-remove-property": "Wegmaken",
+	"swl-watchlist-insertions": "Nee:",
+	"swl-watchlist-deletions": "Oolt:",
+	"swl-new-item": "NEE",
+	"swl-watchlist-pagincontrol": "Wies ($1)($2)",
+	"swl-watchlist-firstn": "Eerst $1"
+}

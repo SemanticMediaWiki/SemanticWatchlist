@@ -12,6 +12,7 @@
 	"swl-group-saved": "Ezarpenak gorde dira.",
 	"swl-group-saving": "Gordetzen",
 	"swl-group-category": "kategoria",
+	"swl-group-namespace": "izen-tartea",
 	"swl-group-concept": "Kontzeptua",
 	"swl-group-add-new-group": "Gehitu talde berria",
 	"swl-group-add-group": "Gehitu taldea",
@@ -20,6 +21,9 @@
 	"swl-watchlist-deletions": "Zaharra:",
 	"swl-new-item": "BERRIA",
 	"swl-watchlist-pagincontrol": "Ikusi ($1) ($2)",
+	"swl-watchlist-firstn": "lehenengo $1",
 	"swl-watchlist-firstn-title": "Lehen {{PLURAL:$1|emaitza|$1 emaitzak}}",
+	"swl-email-changes": "Propietate aldaketak hemen [$2 $1]:",
+	"prefs-swlgroup": "Ikusteko taldeak",
 	"prefs-swlglobal": "Aukera orokorrak"
 }

@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sfic"
+		]
+	},
+	"swl-group-name": "समूह नाम:",
+	"swl-group-legend": "समूह",
+	"swl-group-save": "सहेजें",
+	"swl-group-remove": "निकालें",
+	"swl-group-saving": "सहेजा जा रहा है…",
+	"swl-group-category": "श्रेणी",
+	"swl-group-namespace": "नामस्थान",
+	"swl-group-concept": "अवधारणा",
+	"swl-group-add-group": "समूह जोड़ें",
+	"swl-custom-remove-property": "निकालें",
+	"swl-watchlist-insertions": "नया:",
+	"swl-watchlist-deletions": "पुराना:",
+	"swl-new-item": "नया",
+	"swl-watchlist-pagincontrol": "देखें ($1) ($2)",
+	"swl-watchlist-firstn": "पहला $1"
+}
