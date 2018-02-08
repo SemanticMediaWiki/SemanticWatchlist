@@ -3,7 +3,8 @@
 		"authors": [
 			"Alvaro Vidal-Abarca",
 			"Pitort",
-			"Toniher"
+			"Toniher",
+			"Fitoschido"
 		]
 	},
 	"swl-group-name": "Nom del grup:",
@@ -17,6 +18,7 @@
 	"swl-group-add-group": "Afegeix un grup",
 	"swl-watchlist-insertions": "Nou:",
 	"swl-watchlist-deletions": "Antic:",
+	"swl-new-item": "NOU",
 	"swl-watchlist-firstn-title": "$1 {{PLURAL:$1|primer resultat|primers resultats}}",
 	"swl-email-propschanged": "Les propietats han canviat a $1",
 	"prefs-swlgroup": "Grups a vigilar",
