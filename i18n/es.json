@@ -27,7 +27,7 @@
 	"swl-group-namespace": "espacio de nombres",
 	"swl-group-concept": "concepto",
 	"swl-group-confirm-remove": "¿Estás seguro de que quieres borrar el grupo de la lista de seguimiento \"$1\"?",
-	"swl-group-add-new-group": "Añadir un nuevo grupo",
+	"swl-group-add-new-group": "Añadir un grupo nuevo",
 	"swl-group-add-group": "Añadir grupo",
 	"swl-custom-legend": "Texto personalizado",
 	"swl-custom-remove-property": "Eliminar",
