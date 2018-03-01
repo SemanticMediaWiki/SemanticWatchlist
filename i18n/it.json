@@ -5,7 +5,8 @@
 			"F. Cosoleto",
 			"පසිඳු කාවින්ද",
 			"V6rg",
-			"Kaspo"
+			"Kaspo",
+			"S4b1nuz E.656"
 		]
 	},
 	"swl-group-name": "Nome gruppo:",
@@ -23,6 +24,7 @@
 	"swl-custom-input": "Se la proprietà $1 cambia il suo valore a $2, avvisa gli utenti con il seguente testo: $3",
 	"swl-watchlist-insertions": "Nuovo:",
 	"swl-watchlist-deletions": "Vecchio:",
+	"swl-new-item": "NUOVO",
 	"swl-watchlist-pagincontrol": "Vedi ($1) ($2)",
 	"swl-watchlist-firstn": "primo $1",
 	"swl-watchlist-firstn-title": "Primi $1 {{PLURAL:$1|risultato|risultati}}",
