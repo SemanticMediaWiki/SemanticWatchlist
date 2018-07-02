@@ -4,7 +4,8 @@
 			"Ch.Andrew",
 			"Shirayuki",
 			"LNDDYL",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Kly"
 		]
 	},
 	"semanticwatchlist-desc": "讓用戶獲得關於Semantic MediaWiki數據特定更改的通知",
@@ -14,7 +15,7 @@
 	"special-watchlistconditions": "語義監視清單條件",
 	"swl-group-name": "組名：",
 	"swl-group-legend": "群組",
-	"swl-group-properties": "該組所涵蓋的屬性：",
+	"swl-group-properties": "此群組監視的屬性更改：",
 	"swl-group-page-selection": "監視選擇的頁面：",
 	"swl-group-save": "儲存",
 	"swl-group-remove": "移除",
