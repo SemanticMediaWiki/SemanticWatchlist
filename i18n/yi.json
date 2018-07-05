@@ -5,7 +5,18 @@
 			"පසිඳු කාවින්ද"
 		]
 	},
+	"swl-group-name": "גרופע נאמען:",
+	"swl-group-legend": "גרופע",
 	"swl-group-save": "אויפֿהיטן",
+	"swl-group-remove": "אַראָפּנעמען",
 	"swl-group-category": "קאַטעגאריע",
+	"swl-group-namespace": "נאָמענטייל",
+	"swl-group-concept": "באגריף",
+	"swl-group-add-new-group": "צולייגן א נייע גרופע",
+	"swl-group-add-group": "צולייגן גרופע",
+	"swl-custom-remove-property": "אַראָפּנעמען",
+	"swl-watchlist-insertions": "ניי:",
+	"swl-watchlist-deletions": "אלט:",
+	"swl-new-item": "ניי",
 	"swl-watchlist-firstn": "ערשטער $1"
 }

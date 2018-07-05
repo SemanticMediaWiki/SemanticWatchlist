@@ -25,7 +25,7 @@
 	"swl-group-saved": "As configurações foram gravadas.",
 	"swl-group-saving": "A gravar",
 	"swl-group-category": "categoria",
-	"swl-group-namespace": "domínio",
+	"swl-group-namespace": "espaço nominal",
 	"swl-group-concept": "conceito",
 	"swl-group-confirm-remove": "Tem a certeza de que pretende remover o grupo $1?",
 	"swl-group-add-new-group": "Adicionar um grupo novo",
