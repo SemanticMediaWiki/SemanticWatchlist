@@ -7,6 +7,7 @@
 			"Alan ffm"
 		]
 	},
+	"semanticwatchlist-desc": "Pozwala użytkownikom otrzymywać powiadomienia o konkretnych zmianach w danych Semantic MediaWiki",
 	"right-semanticwatch": "Użyj semantycznej listy obserwowanych",
 	"special-semanticwatchlist": "Semantyczna lista obserwowanych",
 	"special-watchlistconditions": "Warunki semantycznej listy obserwowanych",
@@ -21,12 +22,14 @@
 	"swl-group-category": "kategoria",
 	"swl-group-namespace": "przestrzeń nazw",
 	"swl-group-concept": "koncept",
+	"swl-group-confirm-remove": "Czy na pewno chcesz usunąć grupę obserwowanych „$1”?",
 	"swl-group-add-new-group": "Dodaj nową grupę",
 	"swl-group-add-group": "Dodaj grupę",
 	"swl-custom-legend": "Własny tekst",
 	"swl-custom-remove-property": "Usuń",
 	"swl-custom-text-add": "Dodaj własny tekst",
 	"swl-custom-input": "Jeśli właściwość $1 zmienia swoją wartość na $2, powiadom użytkowników za pomocą następującego tekstu: $3",
+	"swl-watchlist-position": "Wyświetlenie {{PLURAL:$1|ostatniej zmiany|ostatnich '''$1''' zmian począwszy od zmiany '''#$2'''}}:",
 	"swl-watchlist-insertions": "Nowy:",
 	"swl-watchlist-deletions": "Stary:",
 	"swl-new-item": "NOWY",
