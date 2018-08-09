@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"swl-group-name": "Navn på gruppe:",
+	"swl-group-legend": "Gruppe",
+	"swl-group-save": "Gem",
+	"swl-group-remove": "Fjern",
+	"swl-group-saving": "Gemmer",
+	"swl-group-category": "kategori",
+	"swl-group-namespace": "navnerum",
+	"swl-group-add-new-group": "Tilføj en ny gruppe",
+	"swl-group-add-group": "Tilføj gruppe",
+	"swl-custom-remove-property": "Fjern",
+	"swl-watchlist-insertions": "Ny:",
+	"swl-watchlist-deletions": "Gammel:"
+}
