@@ -15,5 +15,6 @@
 	"swl-group-add-group": "Tilføj gruppe",
 	"swl-custom-remove-property": "Fjern",
 	"swl-watchlist-insertions": "Ny:",
-	"swl-watchlist-deletions": "Gammel:"
+	"swl-watchlist-deletions": "Gammel:",
+	"swl-watchlist-firstn": "første $1"
 }
