@@ -60,7 +60,7 @@ class SWLPropertyChange {
 	}
 
 	/**
-	 * Retruns the old value, or null if there is none.
+	 * Returns the old value, or null if there is none.
 	 *
 	 * @return SMWDataItem or null
 	 */
