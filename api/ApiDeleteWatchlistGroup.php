@@ -50,7 +50,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 	 * 
 	 * @param integer $groupId
 	 * 
-	 * @return boolean Sucess indicator
+	 * @return boolean Success indicator
 	 */
 	protected function deleteGroup( $groupId ) {
 		$everythingOk = true;
