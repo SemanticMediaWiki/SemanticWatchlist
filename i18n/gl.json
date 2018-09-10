@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"semanticwatchlist-desc": "Permite aos usuarios recibir notificacións sobre cambios específicos feitos nos datos de Semantic MediaWiki",
@@ -28,7 +29,7 @@
 	"swl-custom-remove-property": "Eliminar",
 	"swl-custom-text-add": "Engadir texto personalizado",
 	"swl-custom-input": "Se a propiedade \"$1\" cambia o seu valor a \"$2\", notifíquese aos usuarios co seguinte texto: $3",
-	"swl-watchlist-position": "Mostrando {{PLURAL:$1|o último cambio|'''$1''' cambios, comezando polo '''nº$2'''}}:",
+	"swl-watchlist-position": "Amosando {{PLURAL:$1|o último cambio|'''$1''' cambios, comezando polo '''nº$2'''}}:",
 	"swl-watchlist-insertions": "Engadido:",
 	"swl-watchlist-deletions": "Vello:",
 	"swl-new-item": "NOVO",
@@ -46,7 +47,7 @@
 	"prefs-swlgroup": "Grupos a vixiar",
 	"prefs-swlglobal": "Opcións xerais",
 	"swl-prefs-emailnofity": "Enviádeme un correo electrónico se hai cambios nas propiedades que vixío",
-	"swl-prefs-watchlisttoplink": "Mostrar unha ligazón cara á lista de vixilancia semántica na parte superior da páxina",
+	"swl-prefs-watchlisttoplink": "Amosar unha ligazón cara á lista de vixilancia semántica na parte superior da páxina",
 	"swl-prefs-category-label": "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 da categoría ''$4''",
 	"swl-prefs-namespace-label": "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do espazo de nomes ''$4''",
 	"swl-prefs-concept-label": "'''$1:''' {{PLURAL:$2|propiedade|propiedades}} $3 do concepto ''$4''",
