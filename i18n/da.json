@@ -17,5 +17,7 @@
 	"swl-custom-remove-property": "Fjern",
 	"swl-watchlist-insertions": "Ny:",
 	"swl-watchlist-deletions": "Gammel:",
-	"swl-watchlist-firstn": "første $1"
+	"swl-new-item": "NY",
+	"swl-watchlist-firstn": "første $1",
+	"swl-watchlist-firstn-title": "Første $1 {{PLURAL:$1|resultat|resultater}}"
 }
