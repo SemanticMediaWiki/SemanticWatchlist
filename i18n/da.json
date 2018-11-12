@@ -18,6 +18,7 @@
 	"swl-watchlist-insertions": "Ny:",
 	"swl-watchlist-deletions": "Gammel:",
 	"swl-new-item": "NY",
+	"swl-watchlist-pagincontrol": "Vis ($1) ($2)",
 	"swl-watchlist-firstn": "første $1",
 	"swl-watchlist-firstn-title": "Første $1 {{PLURAL:$1|resultat|resultater}}"
 }
