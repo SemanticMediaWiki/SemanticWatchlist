@@ -4,7 +4,8 @@
 			"Crt",
 			"Nedergard",
 			"Nike",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Mirzali"
 		]
 	},
 	"semanticwatchlist-desc": "Sallii ilmoitukset käyttäjille, kun semanttisen MediaWikin tietoihin on tehty tiettyjä muutoksia.",
@@ -23,7 +24,7 @@
 	"swl-group-saving": "Tallennetaan",
 	"swl-group-category": "luokka",
 	"swl-group-namespace": "nimiavaruus",
-	"swl-group-concept": "konsepti",
+	"swl-group-concept": "konsept",
 	"swl-group-confirm-remove": "Haluatko varmasti poistaa \"$1\" -tarkkailulistaryhmän?",
 	"swl-group-add-new-group": "Lisää uusi ryhmä",
 	"swl-group-add-group": "Lisää ryhmä",
