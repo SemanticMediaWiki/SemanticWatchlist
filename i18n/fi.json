@@ -5,7 +5,8 @@
 			"Nedergard",
 			"Nike",
 			"Pyscowicz",
-			"Mirzali"
+			"Mirzali",
+			"Valtlait"
 		]
 	},
 	"semanticwatchlist-desc": "Sallii ilmoitukset käyttäjille, kun semanttisen MediaWikin tietoihin on tehty tiettyjä muutoksia.",
@@ -25,7 +26,7 @@
 	"swl-group-category": "luokka",
 	"swl-group-namespace": "nimiavaruus",
 	"swl-group-concept": "konsept",
-	"swl-group-confirm-remove": "Haluatko varmasti poistaa \"$1\" -tarkkailulistaryhmän?",
+	"swl-group-confirm-remove": "Haluatko varmasti poistaa tarkkailulistaryhmän ”$1”?",
 	"swl-group-add-new-group": "Lisää uusi ryhmä",
 	"swl-group-add-group": "Lisää ryhmä",
 	"swl-custom-legend": "Käyttäjän määrittämä teksti",
