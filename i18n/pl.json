@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Jacenty359",
 			"Woytecr",
-			"Alan ffm"
+			"Alan ffm",
+			"CiaPan"
 		]
 	},
 	"semanticwatchlist-desc": "Pozwala użytkownikom otrzymywać powiadomienia o konkretnych zmianach w danych Semantic MediaWiki",
@@ -13,6 +14,7 @@
 	"special-watchlistconditions": "Warunki semantycznej listy obserwowanych",
 	"swl-group-name": "Nazwa grupy:",
 	"swl-group-legend": "Grupa",
+	"swl-group-properties": "Ta grupa obserwuje zmiany we właściwości/właściwościach:",
 	"swl-properties-list": "Oddziel nazwy za pomocą |",
 	"swl-group-page-selection": "Wybierz strony do monitorowania:",
 	"swl-group-save": "Zapisz",
@@ -37,9 +39,18 @@
 	"swl-watchlist-firstn": "pierwsze $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|$1 wynik|Pierwsze $1 wyników}}",
 	"swl-watchlist-no-items": "Nie ma elementów na Twojej semantycznej liście obserwowanych.",
+	"swl-watchlist-can-mod-groups": "Możesz [[$1|modyfikować grupy listy]].",
+	"swl-watchlist-can-mod-prefs": "Możesz też [[$1|modyfikować ustawienia swojej listy]], w tym ustawiać które właściwości obserwujesz.",
+	"swl-watchlist-no-groups": "Na razie nie obserwujesz żadnej grupy listy. [[$1|Zmień ustawienia swojej listy]].",
+	"swl-email-propschanged": "Zmieniły się właściwości $1.",
+	"swl-email-propschanged-long": "{{GENDER:$2|Użytkownik|Użytkowniczka}} '''$2''' {{GENDER:$2|zmienił|zmieniła}} jedną lub więcej z obserwowanych przez Ciebie właściwości w '''$1''' $4, $5. Tę i inne zmiany możesz zobaczyć na [$3 swojej semantycznej liście obserwowanych].",
 	"swl-email-changes": "Zmiany właściwości w [$2 $1]:",
 	"prefs-swl": "Semantyczna lista obserwowanych",
+	"prefs-swlgroup": "Obserwowane grupy",
 	"prefs-swlglobal": "Opcje ogólne",
+	"swl-prefs-emailnofity": "Wyślij mi e-mail gdy zmienią się właściwości, które obserwuję",
+	"swl-prefs-watchlisttoplink": "Pokazuj łącze do Semantycznej Listy Obserwowanych na górze strony",
 	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|właściwość|właściwości}} $3 z kategorii ''$4''",
-	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|właściwość|właściwości}} $3 z przestrzeni nazw ''$4''"
+	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|właściwość|właściwości}} $3 z przestrzeni nazw ''$4''",
+	"swl-err-userid-xor-groupids": "Musisz określić parametr userid albo groupids, ale nie oba."
 }
