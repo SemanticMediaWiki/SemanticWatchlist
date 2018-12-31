@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saederup92"
+			"Saederup92",
+			"Kranix"
 		]
 	},
 	"swl-group-name": "Navn på gruppe:",
@@ -21,5 +22,6 @@
 	"swl-new-item": "NY",
 	"swl-watchlist-pagincontrol": "Vis ($1) ($2)",
 	"swl-watchlist-firstn": "første $1",
-	"swl-watchlist-firstn-title": "Første $1 {{PLURAL:$1|resultat|resultater}}"
+	"swl-watchlist-firstn-title": "Første $1 {{PLURAL:$1|resultat|resultater}}",
+	"prefs-swlgroup": "Grupper, der skal overvåges"
 }
