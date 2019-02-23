@@ -121,14 +121,14 @@
 
 			customTextDiv.append( customTextTable );
 			table.find('.addCustomText').before( customTextDiv );
-		}
+		};
 
 		var addCustomTextButton = $( '<input />' ).attr( {
 			'type': 'button',
 			'value': mw.msg( 'swl-custom-text-add' ),
 			'class' : 'addCustomText'
 		} ).click( function() {
-			self.addCustomTextDiv( new Array( '', '', '' ) )
+			self.addCustomTextDiv( new Array( '', '', '' ) );
 		} );
 
 		table.find('.customTexts').append( addCustomTextButton );
