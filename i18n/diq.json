@@ -2,10 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Marmase",
-			"Mirzali"
+			"Mirzali",
+			"Kumkumuk"
 		]
 	},
+	"swl-group-name": "Namey gome",
+	"swl-group-legend": "Gome",
+	"swl-group-save": "Qeyd ke",
+	"swl-group-remove": "Hewad",
+	"swl-group-saving": "Qeyd beno",
 	"swl-group-category": "kategoriye",
-	"swl-group-namespace": "heruna nameyi",
-	"swl-watchlist-insertions": "Newe:"
+	"swl-group-namespace": "heruna nameyan",
+	"swl-custom-remove-property": "Wedare",
+	"swl-watchlist-insertions": "Newe:",
+	"swl-watchlist-deletions": "Kehan:",
+	"swl-new-item": "NEWE",
+	"swl-watchlist-pagincontrol": "($1) ($2) bımocne"
 }
