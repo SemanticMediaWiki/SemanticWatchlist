@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Vks",
-			"Jaroslav Cerny"
+			"Jaroslav Cerny",
+			"Mormegil"
 		]
 	},
 	"semanticwatchlist-desc": "Zasílejte uživatelům zprávu o určitých změnách v datech Sémantické Mediawiki",
-	"right-semanticwatch": "Používat seznam sledovaných sémantických vlastností",
+	"right-semanticwatch": "Používání seznamu sledovaných sémantických vlastností",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Změnit]] skupiny seznamu sledovaných sémantických vlastností",
 	"special-semanticwatchlist": "Seznam sledovaných sémantických vlastností",
 	"special-watchlistconditions": "Podmínky seznamu sledovaných sémantických vlastností",
