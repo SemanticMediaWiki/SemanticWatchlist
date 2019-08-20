@@ -446,7 +446,7 @@ class SWLChangeSet {
 	/**
 	 * Returns a list of ALL changes, including isertions and deletions.
 	 * 
-	 * @param SMWDIProperty $proprety
+	 * @param SMWDIProperty $property
 	 * 
 	 * @return array of SWLPropertyChange
 	 */
