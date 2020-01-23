@@ -60,27 +60,28 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 * @param string $subPage
 	 */
 	public function execute( $subPage ) {
-		global $wgOut, $wgUser;
+		global $wgOut;
 
 		$this->setHeaders();
 		$this->outputHeader();
 
+		$user = $this->getUser();
 		// If the user is authorized, display the page, if not, show an error.
-		if ( !$this->userCanExecute( $wgUser ) ) {
+		if ( !$this->userCanExecute( $user ) ) {
 			$this->displayRestrictionError();
 			return;
 		}
 
-		$this->registerUserView( $wgUser );
+		$this->registerUserView( $user );
 
 		$wgOut->addHTML( '<p>' );
 
-		if ( $wgUser->isAllowed( 'semanticwatchgroups' ) ) {
+		if ( $user->isAllowed( 'semanticwatchgroups' ) ) {
 			$wgOut->addWikiMsg( 'swl-watchlist-can-mod-groups', 'Special:WatchlistConditions' );
 			$wgOut->addHTML( '&#160' );
 		}
 
-		if ( $this->userHasWatchlistGroups( $wgUser ) ) {
+		if ( $this->userHasWatchlistGroups( $user ) ) {
 			$wgOut->addWikiMsg( 'swl-watchlist-can-mod-prefs', 'Special:Preferences#mw-prefsection-swl' );
 			$wgOut->addHTML( '</p>' );
 
