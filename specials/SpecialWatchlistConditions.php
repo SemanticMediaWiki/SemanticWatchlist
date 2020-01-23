@@ -51,13 +51,13 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 * @param string $arg
 	 */
 	public function execute( $arg ) {
-		global $wgOut, $wgUser;
+		global $wgOut;
 
 		$this->setHeaders();
 		$this->outputHeader();
 
 		// If the user is authorized, display the page, if not, show an error.
-		if ( !$this->userCanExecute( $wgUser ) ) {
+		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
 			return;
 		}

@@ -21,9 +21,9 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 	}
 	
 	public function execute() {
-		global $wgUser;
+		$user = $this->getUser();
 		
-		if ( !$wgUser->isAllowed( 'semanticwatchgroups' ) || $wgUser->isBlocked() ) {
+		if ( !$user->isAllowed( 'semanticwatchgroups' ) || $user->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 		
