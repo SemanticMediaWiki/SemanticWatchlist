@@ -3,12 +3,13 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Base",
-			"Ата"
+			"Ата",
+			"Piramidion"
 		]
 	},
 	"semanticwatchlist-desc": "Дозволяє користувачам бути сповіщеними про зміни у вибраних даних Semantic MediaWiki",
-	"right-semanticwatch": "Використовувати семантичний список спостереження",
-	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Змінювати]] групи семантичного списку спостереження",
+	"right-semanticwatch": "Використання семантичного списку спостереження",
+	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Зміна]] груп семантичного списку спостереження",
 	"special-semanticwatchlist": "Семантичний список спостереження",
 	"special-watchlistconditions": "Умови семантичного списку спостереження",
 	"swl-group-name": "Назва групи:",
