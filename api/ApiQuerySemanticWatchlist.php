@@ -120,7 +120,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			$continueParams = explode( '-', $continue );
 			
 			if ( count( $continueParams ) == 2 ) {
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 				$this->addWhere( 'edit_time <= ' . $dbr->addQuotes( $continueParams[0] ) );
 				$this->addWhere( 'spe_set_id <= ' . $dbr->addQuotes( $continueParams[1] ) );					
 			}

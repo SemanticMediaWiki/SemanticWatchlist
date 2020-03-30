@@ -45,7 +45,7 @@ class SWLCustomTexts {
 			return;
 		}
 		$this->customTexts = array();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'swl_groups',
 			'group_custom_texts',

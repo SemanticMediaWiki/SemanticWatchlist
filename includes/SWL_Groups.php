@@ -31,7 +31,7 @@ final class SWLGroups {
 		if ( self::$groups === false ) {
 			self::$groups = array();
 
-	        $dbr = wfGetDB( DB_SLAVE );
+	        $dbr = wfGetDB( DB_REPLICA );
 
 	        $groups = $dbr->select( 'swl_groups', array(
 				'group_id',
