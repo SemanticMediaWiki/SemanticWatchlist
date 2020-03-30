@@ -1,8 +1,6 @@
 language: php
 
-sudo: false
-
-matrix:
+jobs:
   include:
     - env: DBTYPE=mysql; MW=1.31.6; SMW=3.1.2
       php: 7.2
