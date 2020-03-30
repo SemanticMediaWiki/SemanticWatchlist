@@ -452,7 +452,7 @@ class SWLGroup {
 	 */
 	public function getWatchingUsers() {
 		if ( $this->watchingUsers == false ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			$users = $dbr->select(
 				'swl_users_per_group',

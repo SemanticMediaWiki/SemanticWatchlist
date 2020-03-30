@@ -55,7 +55,7 @@ class ApiDeleteWatchlistGroup extends ApiBase {
 	protected function deleteGroup( $groupId ) {
 		$everythingOk = true;
 		
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		
 		$setsForGroup = $dbr->select(
 			'swl_sets_per_group',

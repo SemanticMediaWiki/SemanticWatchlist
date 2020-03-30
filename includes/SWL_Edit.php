@@ -58,7 +58,7 @@ class SWLEdit {
 	 * @return SWLEdit
 	 */
 	public static function newFromId( $id ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		
 		return self::newFromDBResult( $dbr->select(
 			'swl_edits',

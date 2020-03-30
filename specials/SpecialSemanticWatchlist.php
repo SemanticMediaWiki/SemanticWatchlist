@@ -434,7 +434,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 			return false;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$group = $dbr->selectRow(
 			'swl_users_per_group',

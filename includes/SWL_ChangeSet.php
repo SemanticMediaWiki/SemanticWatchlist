@@ -90,7 +90,7 @@ class SWLChangeSet {
 			)
 		);
 		
-		$dbr = wfGetDb( DB_SLAVE );
+		$dbr = wfGetDb( DB_REPLICA );
 		
 		$changes = $dbr->select(
 			'swl_changes',
