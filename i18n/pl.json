@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps",
-			"Jacenty359",
-			"Woytecr",
 			"Alan ffm",
-			"CiaPan"
+			"Chrumps",
+			"CiaPan",
+			"Jacenty359",
+			"Woytecr"
 		]
 	},
 	"semanticwatchlist-desc": "Pozwala użytkownikom otrzymywać powiadomienia o konkretnych zmianach w danych Semantic MediaWiki",

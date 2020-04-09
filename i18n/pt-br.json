@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amgauna",
+			"Cainamarques",
+			"Eduardo Addad de Oliveira",
 			"Jaideraf",
 			"Luckas",
 			"Luckas Blade",
-			"Cainamarques",
-			"Tuliouel",
-			"Eduardo Addad de Oliveira"
+			"Tuliouel"
 		]
 	},
 	"semanticwatchlist-desc": "Permite que os usuários sejam notificados sobre as alterações específicas nos dados do Semantic MediaWiki",

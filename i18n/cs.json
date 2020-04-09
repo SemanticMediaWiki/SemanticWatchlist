@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vks",
 			"Jaroslav Cerny",
-			"Mormegil"
+			"Mormegil",
+			"Vks"
 		]
 	},
 	"semanticwatchlist-desc": "Zasílejte uživatelům zprávu o určitých změnách v datech Sémantické Mediawiki",

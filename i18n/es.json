@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Armando-Martin",
-			"Invadinado",
-			"Mor",
 			"Fitoschido",
-			"Themasterriot",
-			"Macofe"
+			"Invadinado",
+			"Macofe",
+			"Mor",
+			"Themasterriot"
 		]
 	},
 	"semanticwatchlist-desc": "Permite a los usuarios recibir notificaciones sobre cambios específicos hechos en los datos de Semantic MediaWiki",
