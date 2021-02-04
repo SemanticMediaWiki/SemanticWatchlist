@@ -5,9 +5,12 @@
 		]
 	},
 	"swl-group-save": "భద్రపరచు",
+	"swl-group-remove": "తీసివేయి",
 	"swl-group-category": "వర్గం",
 	"swl-group-namespace": "పేరుబరి",
+	"swl-custom-remove-property": "తీసివేయి",
 	"swl-watchlist-insertions": "కొత్త:",
 	"swl-watchlist-deletions": "పాతవి:",
+	"swl-new-item": "కొత్తది",
 	"swl-watchlist-firstn-title": "మొదటి $1 {{PLURAL:$1|ఫలితం|ఫలితాలు}}"
 }

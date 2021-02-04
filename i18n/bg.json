@@ -3,6 +3,7 @@
 		"authors": [
 			"DCLXVI",
 			"Mitzev",
+			"StanProg",
 			"පසිඳු කාවින්ද"
 		]
 	},
@@ -10,6 +11,7 @@
 	"swl-group-save": "Съхраняване",
 	"swl-group-remove": "Премахване",
 	"swl-group-category": "категория",
+	"swl-group-namespace": "именно пространство",
 	"swl-custom-remove-property": "Премахване",
 	"swl-watchlist-insertions": "Ново:",
 	"swl-watchlist-deletions": "Стари:",
