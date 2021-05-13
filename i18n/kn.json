@@ -1,8 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nayvik"
+			"Nayvik",
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
 		]
 	},
-	"swl-watchlist-insertions": "ಹೊಸ:"
+	"swl-group-name": "ಗುಂಪಿನ ಹೆಸರು:",
+	"swl-group-legend": "ಗುಂಪು",
+	"swl-group-save": "ಉಳಿಸಿ",
+	"swl-group-remove": "ತೆಗೆ",
+	"swl-group-category": "ವರ್ಗ",
+	"swl-group-namespace": "ನಾಮವರ್ಗ",
+	"swl-group-add-new-group": "ಹೊಸ ಗುಂಪನ್ನು ಸೇರಿಸಿ",
+	"swl-group-add-group": "ಗುಂಪನ್ನು ಸೇರಿಸಿ",
+	"swl-custom-remove-property": "ತೆಗೆ",
+	"swl-watchlist-insertions": "ಹೊಸ:",
+	"swl-new-item": "ಹೊಸ",
+	"swl-watchlist-firstn-title": "ಮೊದಲ $1 {{PLURAL:$1|ಫಲಿತಾಂಶ|ಫಲಿತಾಂಶಗಳು}}"
 }
