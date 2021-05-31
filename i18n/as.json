@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gitartha.bordoloi"
+			"Gitartha.bordoloi",
+			"Simbu123"
 		]
 	},
+	"swl-group-namespace": "নামস্থান",
 	"swl-watchlist-insertions": "নতুন:",
 	"swl-new-item": "নতুন"
 }
