@@ -36,7 +36,7 @@
 	"swl-new-item": "NOVÁ",
 	"swl-watchlist-pagincontrol": "Ukázat ($1) ($2)",
 	"swl-watchlist-firstn": "první $1",
-	"swl-watchlist-firstn-title": "První $1 {{PLURAL:$1|výsledek|výsledky}}",
+	"swl-watchlist-firstn-title": "{{PLURAL:$1|První výsledek|První $1 výsledky|Prvních $1 výsledků}}",
 	"swl-watchlist-no-items": "Váš seznam sledovaných sémantických vlastností je prázdný.",
 	"swl-watchlist-can-mod-groups": "Můžete [[$1|změnit skupiny seznamu sledovaných sémantických vlastností]].",
 	"swl-watchlist-can-mod-prefs": "Můžete také [[$1|změnit předvolby seznamu sledovaných položek]], včetně nastavení vlastností, které budou sledovány.",
