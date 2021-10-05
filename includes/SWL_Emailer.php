@@ -49,7 +49,7 @@ final class SWLEmailer {
 
 		$title = wfMessage( 'swl-email-propschanged', array( $changeSet->getEdit()->getTitle()->getFullText() ) )->text();
 
-		wfRunHooks( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
+		Hooks::run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
 		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
 			return UserMailer::send(

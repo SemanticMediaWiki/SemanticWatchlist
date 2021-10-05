@@ -524,7 +524,7 @@ class SWLChangeSet {
 			return 0;
 		}
 		
-		wfRunHooks( 'SWLBeforeChangeSetInsert', array( &$this, &$groupsToAssociate, &$editId ) );
+		Hooks::run( 'SWLBeforeChangeSetInsert', array( &$this, &$groupsToAssociate, &$editId ) );
 		
 		$dbw = wfGetDB( DB_MASTER );
 		
@@ -608,7 +608,7 @@ class SWLChangeSet {
 		
 		$dbw->commit( __METHOD__ );
 		
-		wfRunHooks( 'SWLAfterChangeSetInsert', array( &$this, $groupsToAssociate, $editId ) );
+		Hooks::run( 'SWLAfterChangeSetInsert', array( &$this, $groupsToAssociate, $editId ) );
 		
 		return $id;
 	}

@@ -501,7 +501,7 @@ class SWLGroup {
 		$users = $this->getWatchingUsers();
 
 		if ( $changes->hasChanges( true ) ) {
-			wfRunHooks( 'SWLGroupNotify', array( $this, $users, $changes ) );
+			Hooks::run( 'SWLGroupNotify', array( $this, $users, $changes ) );
 		}
 	}
 
