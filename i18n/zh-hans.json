@@ -6,6 +6,7 @@
 			"Liuxinyu970226",
 			"Shirayuki",
 			"Xiaomingyan",
+			"Xiplus",
 			"Yfdyh000"
 		]
 	},
@@ -24,7 +25,7 @@
 	"swl-group-saved": "设置已保存。",
 	"swl-group-saving": "正在保存",
 	"swl-group-category": "分类",
-	"swl-group-namespace": "名字空间",
+	"swl-group-namespace": "命名空间",
 	"swl-group-concept": "概念",
 	"swl-group-confirm-remove": "您确实要删除\"$1\"监视列表组吗？",
 	"swl-group-add-new-group": "添加新的组",
@@ -53,7 +54,7 @@
 	"swl-prefs-emailnofity": "电子邮件通知我那些对我所监视属性的变更",
 	"swl-prefs-watchlisttoplink": "在页面顶部显示语义监视列表的链接",
 	"swl-prefs-category-label": "'''$1'''：来自分类“$4”的{{PLURAL:$2|属性}}$3",
-	"swl-prefs-namespace-label": "'''$1'''：来自名字空间“$4”的{{PLURAL:$2|属性}}$3",
+	"swl-prefs-namespace-label": "'''$1'''：来自命名空间“$4”的{{PLURAL:$2|属性}}$3",
 	"swl-prefs-concept-label": "'''$1'''：来自概念''$4''的{{PLURAL:$2|属性}} $3",
 	"swl-err-userid-xor-groupids": "需要指定用户ID（userid ）或组ID（groupids ），但不要同时两者都指定。"
 }
