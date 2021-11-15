@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"swl-group-name": "Nomu dû gruppu:",
+	"swl-group-legend": "Gruppu",
+	"swl-group-save": "Sarva",
+	"swl-group-category": "catigurìa",
+	"swl-group-namespace": "namespace",
+	"swl-group-add-new-group": "Agghiunci nu gruppu novu",
+	"swl-group-add-group": "Agghiunci gruppu",
+	"swl-custom-remove-property": "Leva",
+	"swl-watchlist-insertions": "Novu:",
+	"swl-watchlist-deletions": "Vecchiu:",
+	"swl-new-item": "NOVU",
+	"swl-watchlist-pagincontrol": "Talìa ($1) ($2)"
+}
