@@ -1,23 +1,36 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daud I.F. Argana",
 			"IvanLanin",
 			"පසිඳු කාවින්ද"
 		]
 	},
-	"semanticwatchlist-desc": "Memungkinkan penetapan kelompok properti semantik untuk satu atau lebih kategori/ruang nama yang kemudian dapat dipantau perubahannya",
+	"semanticwatchlist-desc": "Memungkinkan pengguna diberi tahu tentang perubahan spesifik di data Semantic MediaWiki",
 	"right-semanticwatch": "Menggunakan daftar pantauan semantik",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Mengubah]] kelompok daftar pantauan semantik",
 	"special-semanticwatchlist": "Daftar Pantau Semantik",
 	"special-watchlistconditions": "Kriteria daftar pantau semantik",
 	"swl-group-name": "Nama kelompok:",
 	"swl-group-legend": "Kelompok",
-	"swl-group-properties": "Properti yang dicakup oleh kelompok ini:",
-	"swl-group-page-selection": "Halaman dalam",
+	"swl-group-properties": "Kelompok ini memantau perubahan di properti(-properti) ini:",
+	"swl-properties-list": "Pisahkan nama dengan |",
+	"swl-group-page-selection": "Pilih halaman untuk dipantau:",
 	"swl-group-save": "Simpan",
 	"swl-group-remove": "Hapus",
+	"swl-group-saved": "Pengaturan telah disimpan",
+	"swl-group-saving": "Menyimpan",
 	"swl-group-category": "kategori",
+	"swl-group-namespace": "ruang nama",
+	"swl-group-concept": "konsep",
+	"swl-group-confirm-remove": "Apakah Anda yakin Anda ingin menghapus kelompok daftar pantauan \"$1\"?",
+	"swl-group-add-new-group": "Tambahkan kelompok baru",
+	"swl-group-add-group": "Tambahkan kelompok",
 	"swl-custom-remove-property": "Hapus",
 	"swl-watchlist-insertions": "Baru:",
-	"swl-watchlist-deletions": "Tua:"
+	"swl-watchlist-deletions": "Tua:",
+	"swl-new-item": "BARU",
+	"swl-watchlist-pagincontrol": "Lihat ($1) ($2)",
+	"swl-watchlist-firstn": "$1 pertama",
+	"swl-watchlist-firstn-title": "$1 {{PLURAL:$1|hasil}} pertama"
 }
