@@ -33,7 +33,7 @@
 	"swl-custom-legend": "متن سفارشی",
 	"swl-custom-remove-property": "حذف",
 	"swl-custom-text-add": "افزودن متن سفارشی",
-	"swl-custom-input": "اگر خاصیت $1 به مقدار $2 تغییر کند، کاربران را با متن زیر مطلع کنː $3",
+	"swl-custom-input": "اگر ویژگی $1 به مقدار $2 تغییر کند، کاربران را با متن زیر مطلع کنː $3",
 	"swl-watchlist-position": "نمایش آخرین {{PLURAL:$1|تغییر|'''$1''' شروع تغییرات با تغییر'''#$2'''}}:",
 	"swl-watchlist-insertions": "تازه:",
 	"swl-watchlist-deletions": "قدیمی:",
