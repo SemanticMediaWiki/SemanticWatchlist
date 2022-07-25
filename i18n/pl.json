@@ -5,11 +5,13 @@
 			"Chrumps",
 			"CiaPan",
 			"Jacenty359",
+			"SemanticPioneer",
 			"Woytecr"
 		]
 	},
 	"semanticwatchlist-desc": "Pozwala użytkownikom otrzymywać powiadomienia o konkretnych zmianach w danych Semantic MediaWiki",
 	"right-semanticwatch": "Użyj semantycznej listy obserwowanych",
+	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modyfikuj]] semantyczne grupy listy obserwowanych",
 	"special-semanticwatchlist": "Semantyczna lista obserwowanych",
 	"special-watchlistconditions": "Warunki semantycznej listy obserwowanych",
 	"swl-group-name": "Nazwa grupy:",
