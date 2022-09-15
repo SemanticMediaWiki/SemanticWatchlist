@@ -30,7 +30,7 @@ class SemanticWatchlist {
 		$configuration = array(
 			'egSWLEnableTopLink'         => $cfg->get('EnableTopLink'),
 			'egSWLEnableEmailNotify'     => $cfg->get('EnableEmailNotify'),
-			'egSwlSqlDatabaseSchemaPath' => __DIR__ . '/../sql/swl-table-schema.sql'
+			'egSWLSqlDatabaseSchemaPath' => $cfg->get('SqlDatabaseSchemaPath')
 		);
 
 		$hookRegistry = new HookRegistry(

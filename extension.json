@@ -20,7 +20,7 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"SemanticWatchlistAlias": "i18n/extra/SemanticMediaWiki.alias.php"
+		"SemanticWatchlistAlias": "i18n/extra/SemanticWatchlist.alias.php"
 	},
 	"AutoloadNamespaces": {
 		"SWL\\": "src/"
@@ -97,6 +97,11 @@
 		"EnableSelfNotify": {
 			"value": false,
 			"description": "Send email to editor"
+		},
+		"SqlDatabaseSchemaPath": {
+			"value": "sql/swl-table-schema.sql",
+			"description": "SQL schema path",
+			"path": true
 		}
 	},
 	"ConfigRegistry": {

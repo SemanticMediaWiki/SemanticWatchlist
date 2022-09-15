@@ -2,10 +2,11 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWLGroup;
-use User;
 use Language;
 use MWNamespace;
+use SWL\Group;
+use SWL\Groups;
+use User;
 
 /**
  * Adds the preferences relevant to Semantic Watchlist
@@ -72,7 +73,7 @@ class GetPreferences {
 		return true;
 	}
 
-	private function handleGroup( SWLGroup $group ) {
+	private function handleGroup( Group $group ) {
 		$properties = $group->getProperties();
 
 		if ( empty( $properties ) ) {
@@ -112,7 +113,7 @@ class GetPreferences {
 	}
 
 	protected function getAllSwlGroups() {
-		return \SWLGroups::getAll();
+		return Groups::getAll();
 	}
 
 	protected function addEmailNotificationPreference() {

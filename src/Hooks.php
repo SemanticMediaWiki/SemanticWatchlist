@@ -13,6 +13,18 @@
  */
 namespace SWL;
 
+use AlItem;
+use Sanitizer;
+use SWL\Group;
+use SWL\ChangeSet;
+use SWL\Emailer;
+use SWL\Edit;
+use SMWStore;
+use SMWSemanticData;
+use Title;
+use User;
+
+
 final class Hooks {
 
     /**
@@ -31,16 +43,16 @@ final class Hooks {
 		$oldData = $store->getSemanticData( $subject );
 		$title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
 
-		$groups = SWLGroups::getMatchingWatchGroups( $title );
+		$groups = Groups::getMatchingWatchGroups( $title );
 
 		$edit = false;
 
 		foreach ( $groups as /* SWLGroup */ $group ) {
-			$changeSet = SWLChangeSet::newFromSemanticData( $oldData, $newData, $group->getProperties() );
+			$changeSet = ChangeSet::newFromSemanticData( $oldData, $newData, $group->getProperties() );
 
 			if ( $changeSet->hasUserDefinedProperties() ) {
 				if ( $edit === false ) {
-					$edit = new SWLEdit(
+					$edit = new Edit(
 						$title->getArticleID(),
 						$GLOBALS['wgUser']->getName(),
 						wfTimestampNow()
@@ -66,13 +78,13 @@ final class Hooks {
      *
      * @since 0.1
      *
-     * @param SWLGroup $group
+     * @param Group $group
      * @param array $userIDs
      * @param SMWChangeSet $changes
      *
      * @return true
      */
-    public static function onGroupNotify( SWLGroup $group, array $userIDs, SWLChangeSet $changes ) {
+    public static function onGroupNotify( Group $group, array $userIDs, ChangeSet $changes ) {
     	global $egSWLMailPerChange, $egSWLMaxMails;
 
     	foreach ( $userIDs as $userID ) {
@@ -88,7 +100,7 @@ final class Hooks {
 							$mailCount = $user->getOption( 'swl_mail_count', 0 );
 
 							if ( $egSWLMailPerChange || $mailCount < $egSWLMaxMails ) {
-								SWLEmailer::notifyUser( $group, $user, $changes, $egSWLMailPerChange );
+								Emailer::notifyUser( $group, $user, $changes, $egSWLMailPerChange );
 								$user->setOption( 'swl_last_notify', wfTimestampNow() );
 								$user->setOption( 'swl_mail_count', $mailCount + 1 );
 								$user->saveSettings();

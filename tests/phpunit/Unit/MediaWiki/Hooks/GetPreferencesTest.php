@@ -72,7 +72,7 @@ class GetPreferencesTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExecuteOnSingleCategoryGroupPreference() {
 
-		$swlGroup = $this->getMockBuilder( 'SWLGroup' )
+		$swlGroup = $this->getMockBuilder( 'SWL\\Group' )
 			->disableOriginalConstructor()
 			->getMock();
 
