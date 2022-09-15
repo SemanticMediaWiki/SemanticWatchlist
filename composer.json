@@ -37,7 +37,7 @@
 	"autoload": {
 		"psr-4": {
 			"SWL\\": "src/"
-		},
+		}
 	},
 	"config": {
 		"process-timeout": 0
