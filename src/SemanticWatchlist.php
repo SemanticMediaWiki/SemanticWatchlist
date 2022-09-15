@@ -9,77 +9,14 @@ class SemanticWatchlist {
 
 	/**
 	 * @since 1.2
-	 *
-	 * @note It is expected that this function is loaded before LocalSettings.php
-	 * to ensure that settings and global functions are available by the time
-	 * the extension is activated.
-	 */
-	public static function load() {
-		// Load DefaultSettings
-		require_once __DIR__ . '/../DefaultSettings.php';
-
-		if ( defined( 'SWL_VERSION' ) ) {
-			// Do not initialize more than once.
-			return 1;
-		}
-
-		define( 'SWL_VERSION', '1.2.0-alpha' );
-
-		/**
-		 * In case extension.json is being used, the succeeding steps are
-		 * expected to be handled by the ExtensionRegistry aka extension.json
-		 * ...
-		 *
-		 * 	"callback": "SemanticWatchlist::initExtension",
-		 * 	"ExtensionFunctions": [
-		 * 		"SemanticWatchlist::onExtensionFunction"
-		 * 	],
-		 */
-		self::initExtension();
-
-		$GLOBALS['wgExtensionFunctions'][] = function() {
-			SemanticWatchlist::onExtensionFunction();
-		};
-	}
-
-	/**
-	 * @since 1.2
 	 */
 	public static function initExtension() {
+		define( 'SWL_VERSION', '1.2.0-alpha' );
+		require_once __DIR__ . '/../DefaultSettings.php';
 		// Register the extension
-		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
-			'path' => __FILE__,
-			'name' => 'Semantic Watchlist',
-			'version' => SWL_VERSION,
-			'author' => array(
-				'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]',
-				'...'
-			),
-			'url' => 'https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist',
-			'descriptionmsg' => 'semanticwatchlist-desc',
-			'license-name'   => 'GPL-3.0-or-later'
-		);
-
 		$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/../src/swl-table-schema.sql';
 
-		// Register message files
-		$GLOBALS['wgMessagesDirs']['SemanticWatchlist'] = __DIR__ . '/../i18n';
-		$GLOBALS['wgExtensionMessagesFiles']['SemanticWatchlistAlias'] = __DIR__ . '/../SemanticWatchlist.i18n.alias.php';
-
 		$GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
-
-		// wgSpecialPages
-		$GLOBALS['wgSpecialPages']['SemanticWatchlist'] = 'SpecialSemanticWatchlist';
-		$GLOBALS['wgSpecialPageGroups']['SemanticWatchlist'] = 'changes';
-
-		$GLOBALS['wgSpecialPages']['WatchlistConditions'] = 'SpecialWatchlistConditions';
-		$GLOBALS['wgSpecialPageGroups']['WatchlistConditions'] = 'changes';
-
-		// wgAPIModules
-		$GLOBALS['wgAPIModules']['addswlgroup'] = 'ApiAddWatchlistGroup';
-		$GLOBALS['wgAPIModules']['deleteswlgroup'] = 'ApiDeleteWatchlistGroup';
-		$GLOBALS['wgAPIModules']['editswlgroup'] = 'ApiEditWatchlistGroup';
-		$GLOBALS['wgAPIListModules']['semanticwatchlist'] = 'ApiQuerySemanticWatchlist';
 
 		// wgAvailableRights
 		$GLOBALS['wgAvailableRights'][] = 'semanticwatch';

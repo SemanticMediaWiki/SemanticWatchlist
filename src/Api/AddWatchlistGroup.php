@@ -12,7 +12,12 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiAddWatchlistGroup extends ApiBase {
+namespace SWL\Api;
+
+use ApiBase;
+use SWL\Group;
+
+class AddWatchlistGroup extends ApiBase {
 	
 	public function __construct( $main, $action ) {
 		parent::__construct( $main, $action );
@@ -26,9 +31,9 @@ class ApiAddWatchlistGroup extends ApiBase {
 		}			
 		
 		$params = $this->extractRequestParams();
-		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
+		$params['customTexts'] = Group::unserializedCustomTexts( $params['customTexts'] );
 
-		$group = new SWLGroup(
+		$group = new Group(
 			null,
 			$params['name'],
 			$params['categories'],

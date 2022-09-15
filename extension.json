@@ -1,0 +1,58 @@
+{
+	"name": "Semantic Watchlist",
+	"author": [
+	    "[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]",
+	    "Mark A. Hershberger",
+	    "..."
+	],
+    "version": "1.2.0-alpha"
+    "url": "https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist",
+	"descriptionmsg": "semanticwatchlist-desc",
+	"namemsg": "semanticwatchlist-title",
+	"license-name": "GPL-3.0-or-later",
+	"type": "semantic",
+	"requires": {
+		"MediaWiki": ">= 1.35"
+	},
+	"MessagesDirs": {
+		"SemanticWatchlist": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"SWL\\": "src/"
+	},
+	"Hooks": {
+	},
+	"AutoloadClasses": {
+		"SWL": "src/"
+	},
+	"callback": "SWL\\SemanticWatchlist::initExtension",
+	"ExtensionFunctions": [
+		"SWL\\SemanticWatchlist::onExtensionFunction"
+	],
+	"ExtensionMessagesFiles": {
+		"SemanticWatchlistAlias": "i18n/extra/SemanticMediaWiki.alias.php"
+	},
+    "callback": "SemanticWatchlist::initExtension",
+    "ExtensionFunctions": [
+		"SemanticWatchlist::onExtensionFunction"
+    ],
+	"SpecialPages": {
+		"SemanticWatchlist": "SWL\\Special\\Watchlist",
+		"WatchlistConditions": "SWL\\Special\\Conditions"
+	},
+	"SpecialPageGroups": {
+		"SemanticWatchlist": "changes",
+		"WatchlistConditions": "changes"
+	},
+	"APIModules": {
+		"addswlgroup": "SWL\\Api\\AddWatchlistGroup",
+		"deleteswlgroup": "SWL\\Api\\DeleteWatchlistGroup"
+		"editswlgroup": "SWL\\Api\\EditWatchlistGroup"
+	},
+	"APIListModules": {
+		"semanticwatchlist": "SWL\\Api\\QuerySemanticWatchlist"
+	},
+	"manifest_version": 1
+}

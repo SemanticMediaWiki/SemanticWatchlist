@@ -35,18 +35,9 @@
 		}
 	},
 	"autoload": {
-		"files" : [
-			"SemanticWatchlist.php"
-		],
 		"psr-4": {
 			"SWL\\": "src/"
 		},
-		"classmap": [
-			"api/",
-			"includes/",
-			"specials/",
-			"SemanticWatchlist.hooks.php"
-		]
 	},
 	"config": {
 		"process-timeout": 0

@@ -11,7 +11,13 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SWLPropertyChange {
+namespace SWL;
+
+use SMWDataItem;
+use SMWDataValueFactory;
+use SMWDIProperty;
+
+class PropertyChange {
 
 	const TYPE_INSERT = 0;
 	const TYPE_UPDATE = 1;
@@ -32,12 +38,12 @@ class SWLPropertyChange {
 	private $newValue;
 
 	/**
-	 * Creates and returns a new SWLPropertyChange instance from a serialization.
+	 * Creates and returns a new PropertyChange instance from a serialization.
 	 *
 	 * @param string|null $oldValue
 	 * @param string|null $newValue
 	 *
-	 * @return SWLPropertyChange
+	 * @return PropertyChange
 	 */
 	public static function newFromSerialization( SMWDIProperty $property, $oldValue, $newValue ) {
 		$diType = SMWDataValueFactory::getDataItemId( $property->findPropertyTypeID() );
@@ -49,7 +55,7 @@ class SWLPropertyChange {
 	}
 
 	/**
-	 * Create a new SWLPropertyChange.
+	 * Create a new PropertyChange.
 	 *
 	 * @param SMWDataItem $oldValue
 	 * @param SMWDataItem $newValue
@@ -81,7 +87,7 @@ class SWLPropertyChange {
 	/**
 	 * Returns the type of the change.
 	 *
-	 * @return element of the SWLPropertyChange::TYPE_ enum
+	 * @return element of the PropertyChange::TYPE_ enum
 	 */
 	public function getType() {
 		if ( is_null( $this->oldValue ) ) {

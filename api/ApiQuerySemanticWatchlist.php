@@ -46,7 +46,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			}
 
 			if ( !is_null( Title::newFromID( $set->edit_page_id ) ) ) {
-				$resultSets[] = SWLChangeSet::newFromDBResult( $set );
+				$resultSets[] = \SWL\ChangeSet::newFromDBResult( $set );
 			}
 		}
 		

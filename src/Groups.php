@@ -5,18 +5,23 @@
  *
  * @since 0.1
  *
- * @file SWL_Groups.php
+ * @file Groups.php
  * @ingroup SemanticWatchlist
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-final class SWLGroups {
+namespace SWL;
+
+use Title;
+use User;
+
+final class Groups {
 
 	/**
 	 * Cached list of all watchlist groups.
 	 *
-	 * @var array of SWLGroup
+	 * @var array of Group
 	 */
 	private static $groups = false;
 
@@ -25,7 +30,7 @@ final class SWLGroups {
      *
      * @since 0.1
      *
-     * @return array of SWLGroup
+     * @return array of Group
      */
 	public static function getAll() {
 		if ( self::$groups === false ) {
@@ -44,7 +49,7 @@ final class SWLGroups {
 	        ) );
 
 	        foreach ( $groups as $group ) {
-	        	self::$groups[] = SWLGroup::newFromDBResult( $group );
+	        	self::$groups[] = Group::newFromDBResult( $group );
 	        }
 		}
 
@@ -58,12 +63,12 @@ final class SWLGroups {
      *
      * @param Title $title
      *
-     * @return array of SWLGroup
+     * @return array of Group
      */
     public static function getMatchingWatchGroups( Title $title ) {
         $matchingGroups = array();
 
-        foreach ( self::getAll() as /* SWLGroup */ $group ) {
+        foreach ( self::getAll() as /* Group */ $group ) {
             if ( $group->coversPage( $title ) ) {
                 $matchingGroups[] = $group;
             }
@@ -79,12 +84,12 @@ final class SWLGroups {
      *
      * @param User $user
      *
-     * @return array of SWLGroup
+     * @return array of Group
      */
 	public static function getGroupsForUser( User $user ) {
         $matchingGroups = array();
 
-        foreach ( self::getAll() as /* SWLGroup */ $group ) {
+        foreach ( self::getAll() as /* Group */ $group ) {
             if ( $group->isWatchedByUser( $user ) ) {
                 $matchingGroups[] = $group;
             }

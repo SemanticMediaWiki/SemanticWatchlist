@@ -3,7 +3,7 @@
 /**
  * A collection of semantic properties and changes changes made to them.
  * This class is based on SMWSemanticData and can be seen as a simplified
- * version with SWLPropertyChange objects, each holding 2 SMWDataItem objects,
+ * version with PropertyChange objects, each holding 2 SMWDataItem objects,
  * instead of SMWDataItem objects.
  * 
  * @since 0.1
@@ -14,7 +14,13 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SWLPropertyChanges implements Iterator {
+namespace SWL;
+
+use Iterator;
+use SMWDIProperty;
+use SMWPropertyValue;
+
+class PropertyChanges implements Iterator {
 
 	private $pos = 0;
 	private $currentRow = null;	
@@ -27,9 +33,9 @@ class SWLPropertyChanges implements Iterator {
 	static private $propertyPrefix = '';	
 	
 	/**
-	 * Array mapping property keys (string) to arrays of SWLPropertyChange.
+	 * Array mapping property keys (string) to arrays of PropertyChange.
 	 * 
-	 * @var array of SWLPropertyChange
+	 * @var array of PropertyChange
 	 */
 	private $changes = array();
 	
@@ -71,7 +77,7 @@ class SWLPropertyChanges implements Iterator {
 	 *
 	 * @param $property SMWDIProperty
 	 * 
-	 * @return array of SWLPropertyChange
+	 * @return array of PropertyChange
 	 */
 	public function getPropertyChanges( SMWDIProperty $property ) {
 		if ( array_key_exists( $property->getKey(), $this->changes ) ) {
@@ -90,9 +96,9 @@ class SWLPropertyChanges implements Iterator {
 	 * types anyway.
 	 *
 	 * @param SMWDIProperty $property
-	 * @param SWLPropertyChange $change
+	 * @param PropertyChange $change
 	 */
-	public function addPropertyObjectChange( SMWDIProperty $property, SWLPropertyChange $change ) {
+	public function addPropertyObjectChange( SMWDIProperty $property, PropertyChange $change ) {
 		if ( $property->isInverse() ) { // inverse properties cannot be used for annotation
 			return;
 		}
@@ -112,9 +118,9 @@ class SWLPropertyChanges implements Iterator {
 	 * (without namespace prefix).
 	 *
 	 * @param string $propertyName
-	 * @param SWLPropertyChange $change
+	 * @param PropertyChange $change
 	 */
-	public function addPropertyChange( $propertyName, SWLPropertyChange $change ) {
+	public function addPropertyChange( $propertyName, PropertyChange $change ) {
 		$propertyKey = smwfNormalTitleDBKey( $propertyName );
 
 		if ( array_key_exists( $propertyKey, $this->properties ) ) {

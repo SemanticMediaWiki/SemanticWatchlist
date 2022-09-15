@@ -11,7 +11,14 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialWatchlistConditions extends SpecialPage {
+namespace SWL;
+
+use Html;
+use MWNamespace;
+use SpecialPage;
+use SWL\Groups;
+
+class Conditions extends SpecialPage {
 
 	/**
 	 * Constructor.
@@ -68,7 +75,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 
 		$groupsHtml = array();
 
-		foreach ( SWLGroups::getAll() as $group ) {
+		foreach ( Groups::getAll() as $group ) {
 			$groupsHtml[] = $this->getGroupHtml( $group );
 		}
 		$wgOut->addHTML(

@@ -11,7 +11,19 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SWLGroup {
+namespace SWL;
+
+use Hooks;
+use MWNamespace;
+use SMWConceptDescription;
+use SMWDIProperty;
+use SMWDIWikiPage;
+use SMWQuery;
+use SMWValueDescription
+use Title;
+use User;
+
+class Group {
 
 	/**
 	 * The ID of the group; the group_id field in swl_groups.
@@ -87,16 +99,16 @@ class SWLGroup {
 	private $watchingUsers = false;
 
 	/**
-	 * Creates a new instance of SWLGroup from a DB result.
+	 * Creates a new instance of Group from a DB result.
 	 *
 	 * @since 0.1
 	 *
 	 * @param $group
 	 *
-	 * @return SWLGroup
+	 * @return Group
 	 */
 	public static function newFromDBResult( $group ) {
-		return new SWLGroup(
+		return new Group(
 			$group->group_id,
 			$group->group_name,
 			$group->group_categories == '' ? array() : explode( '|', $group->group_categories ),
@@ -491,13 +503,13 @@ class SWLGroup {
 
 	/**
 	 * Gets all the watching users and passes them, together with the specified
-	 * changes and the group object itself, to the SWLGroupNotify hook.
+	 * changes and the group object itself, to the GroupNotify hook.
 	 *
 	 * @since 0.1
 	 *
 	 * @param SMWChangeSet $changes
 	 */
-	public function notifyWatchingUsers( SWLChangeSet $changes ) {
+	public function notifyWatchingUsers( ChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
 
 		if ( $changes->hasChanges( true ) ) {

@@ -5,19 +5,23 @@
  *
  * @since 0.2
  *
- * @file SWL_CustomTexts.php
+ * @file CustomTexts.php
  * @ingroup SemanticWatchlist
  *
  * @author Nischay Nahata
  */
-class SWLCustomTexts {
+namespace SWL;
+
+use SMWDIProperty;
+
+class CustomTexts {
 
 	/**
 	 * Group for this CustomTexts
 	 *
 	 * @since 0.2
 	 *
-	 * @var SWLGroup
+	 * @var Group
 	 */
 	private $group;
 
@@ -30,7 +34,7 @@ class SWLCustomTexts {
 	 */
 	private $customTexts = null;
 
-	public function __construct( SWLGroup $group ) {
+	public function __construct( Group $group ) {
 		$this->group = $group;
 	}
 

@@ -11,7 +11,16 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialSemanticWatchlist extends SpecialPage {
+namespace SWL\Special;
+
+use SWL\ChangeSet;
+use HTML;
+use SpecialPage;
+use SMWOutputs;
+use SMWDataValueFactory;
+use User;
+
+class Watchlist extends SpecialPage {
 
 	/**
 	 * MediaWiki timestamp of when the watchlist was last viewed by the current user.
@@ -113,7 +122,7 @@ class SpecialSemanticWatchlist extends SpecialPage {
 		$sets = array();
 
 		foreach ( $changeSetData['sets'] as $set ) {
-			$sets[] = SWLChangeSet::newFromArray( $set );
+			$sets[] = ChangeSet::newFromArray( $set );
 		}
 
 		$newContinue = false;
@@ -237,14 +246,14 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param array $sets Array of SWLChangeSet
+	 * @param array $sets Array of ChangeSet
 	 */
 	protected function displayWatchlist( array $sets ) {
 		global $wgOut, $wgLang;
 
 		$changeSetsHTML = array();
 
-		foreach ( $sets as /* SWLChangeSet */ $set ) {
+		foreach ( $sets as /* ChangeSet */ $set ) {
 			$dayKey = substr( $set->getEdit()->getTime(), 0, 8 ); // Get the YYYYMMDD part.
 
 			if ( !array_key_exists( $dayKey, $changeSetsHTML ) ) {
@@ -312,11 +321,11 @@ class SpecialSemanticWatchlist extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SWLChangeSet $changeSet
+	 * @param ChangeSet $changeSet
 	 *
 	 * @return string
 	 */
-	protected function getChangeSetHTML( SWLChangeSet $changeSet ) {
+	protected function getChangeSetHTML( ChangeSet $changeSet ) {
 		global $wgLang;
 
 		$edit = $changeSet->getEdit();

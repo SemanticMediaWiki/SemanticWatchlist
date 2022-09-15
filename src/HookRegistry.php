@@ -111,11 +111,11 @@ class HookRegistry {
 			return $getPreferences->execute();
 		};
 
-		$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
-		$wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
+		$wgHooks['AdminLinks'][] = 'SWL\\Hooks::addToAdminLinks';
+		$wgHooks['SMWStore::updateDataBefore'][] = 'SWL\\Hooks::onDataUpdate';
 
 		if ( $configuration['egSWLEnableEmailNotify'] ) {
-			$wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
+			$wgHooks['SWLGroupNotify'][] = 'SWL\\Hooks::onGroupNotify';
 		}
 	}
 

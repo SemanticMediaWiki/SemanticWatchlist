@@ -11,7 +11,9 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-final class SWLHooks {
+namespace SWL;
+
+final class Hooks {
 
     /**
      * Handle the updateDataBefore hook of SMW >1.6, which gets called
