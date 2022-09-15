@@ -11,11 +11,12 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-namespace SWL;
+namespace SWL\Special;
 
 use Html;
 use MWNamespace;
 use SpecialPage;
+use SWL\Group;
 use SWL\Groups;
 
 class Conditions extends SpecialPage {
@@ -110,11 +111,11 @@ class Conditions extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SWLGroup $group
+	 * @param SWL\Group $group
 	 *
 	 * @return string
 	 */
-	protected function getGroupHtml( SWLGroup $group ) {
+	protected function getGroupHtml( Group $group ) {
 		$namespaces = $group->getNamespaces();
 
 		foreach ( $namespaces as &$ns ) {

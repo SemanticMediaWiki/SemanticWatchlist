@@ -2,6 +2,9 @@
 
 namespace SWL;
 
+use MediaWiki\MediaWikiServices;
+use GlobalVarConfig;
+
 /**
  * @codeCoverageIgnore
  */
@@ -12,57 +15,6 @@ class SemanticWatchlist {
 	 */
 	public static function initExtension() {
 		define( 'SWL_VERSION', '1.2.0-alpha' );
-		require_once __DIR__ . '/../DefaultSettings.php';
-		// Register the extension
-		$GLOBALS['egSwlSqlDatabaseSchemaPath'] = __DIR__ . '/../src/swl-table-schema.sql';
-
-		$GLOBALS['egSWLScriptPath'] = $GLOBALS['wgExtensionAssetsPath'] === false ? $GLOBALS['wgScriptPath'] . '/extensions/SemanticWatchlist' : $GLOBALS['wgExtensionAssetsPath'] . '/SemanticWatchlist';
-
-		// wgAvailableRights
-		$GLOBALS['wgAvailableRights'][] = 'semanticwatch';
-		$GLOBALS['wgAvailableRights'][] = 'semanticwatchgroups';
-
-		$moduleTemplate = array(
-			'localBasePath' => __DIR__ . '/..',
-			'remoteBasePath' => $GLOBALS['egSWLScriptPath']
-		);
-
-		$GLOBALS['wgResourceModules']['ext.swl.watchlist'] = $moduleTemplate + array(
-				'styles' => array( 'specials/ext.swl.watchlist.css' ),
-				'scripts' => array(),
-				'dependencies' => array(),
-				'messages' => array()
-			);
-
-		$GLOBALS['wgResourceModules']['ext.swl.watchlistconditions'] = $moduleTemplate + array(
-				'styles' => array( 'specials/ext.swl.watchlistconditions.css' ),
-				'scripts' => array(
-					'specials/jquery.watchlistcondition.js',
-					'specials/ext.swl.watchlistconditions.js'
-				),
-				'dependencies' => array(),
-				'messages' => array(
-					'swl-group-name',
-					'swl-group-legend',
-					'swl-group-properties',
-					'swl-properties-list',
-					'swl-group-remove-property',
-					'swl-group-add-property',
-					'swl-group-page-selection',
-					'swl-group-save',
-					'swl-group-saved',
-					'swl-group-saving',
-					'swl-group-remove',
-					'swl-group-category',
-					'swl-group-namespace',
-					'swl-group-concept',
-					'swl-group-confirm-remove',
-					'swl-custom-legend',
-					'swl-custom-remove-property',
-					'swl-custom-text-add',
-					'swl-custom-input',
-				)
-			);
 	}
 
 	/**
@@ -74,11 +26,11 @@ class SemanticWatchlist {
 		// be done here to ensure SMW is loaded in case
 		// wfLoadExtension( 'SemanticMediaWiki' ) is used
 		self::checkRequirements();
-
+		$cfg = new GlobalVarConfig( "egSWL" );
 		$configuration = array(
-			'egSWLEnableTopLink'         => $GLOBALS['egSWLEnableTopLink'],
-			'egSWLEnableEmailNotify'     => $GLOBALS['egSWLEnableEmailNotify'],
-			'egSwlSqlDatabaseSchemaPath' => $GLOBALS['egSwlSqlDatabaseSchemaPath']
+			'egSWLEnableTopLink'         => $cfg->get('EnableTopLink'),
+			'egSWLEnableEmailNotify'     => $cfg->get('EnableEmailNotify'),
+			'egSwlSqlDatabaseSchemaPath' => __DIR__ . '/../sql/swl-table-schema.sql'
 		);
 
 		$hookRegistry = new HookRegistry(
@@ -89,7 +41,6 @@ class SemanticWatchlist {
 	}
 
 	private static function checkRequirements() {
-
 		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
 			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticWatchlist/">Semantic Watchlist</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
 		}

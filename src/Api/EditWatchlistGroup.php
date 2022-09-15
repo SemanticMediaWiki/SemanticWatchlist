@@ -12,22 +12,27 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiEditWatchlistGroup extends ApiBase {
-	
+namespace SWL\Api;
+
+use ApiBase;
+use SWL\Group;
+
+class EditWatchlistGroup extends ApiBase {
+
 	public function __construct( $main, $action ) {
 		parent::__construct( $main, $action );
 	}
-	
+
 	public function execute() {
 		$user = $this->getUser();
-		
+
 		if ( !$user->isAllowed( 'semanticwatchgroups' ) || $user->isBlocked() ) {
 			$this->dieUsageMsg( array( 'badaccess-groups' ) );
 		}
 
 		$params = $this->extractRequestParams();
-		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
-		$group = new SWLGroup(
+		$params['customTexts'] = Group::unserializedCustomTexts( $params['customTexts'] );
+		$group = new Group(
 			$params['id'],
 			$params['name'],
 			$params['categories'],
@@ -36,7 +41,7 @@ class ApiEditWatchlistGroup extends ApiBase {
 			$params['concepts'],
 			$params['customTexts']
 		);
-		
+
 		$this->getResult()->addValue(
 			null,
 			'success',
@@ -81,7 +86,7 @@ class ApiEditWatchlistGroup extends ApiBase {
 			),
 		);
 	}
-	
+
 	public function getParamDescription() {
 		return array(
 			'id' => 'The ID of the watchlist group to edit',
@@ -93,7 +98,7 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'customTexts' => 'Custom Text to be sent in Emails',
 		);
 	}
-	
+
 	public function getDescription() {
 		return array(
 			'API module to modify semantic watchlist groups.'
@@ -105,10 +110,10 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
 		);
-	}	
-	
+	}
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
-	}		
-	
+	}
+
 }

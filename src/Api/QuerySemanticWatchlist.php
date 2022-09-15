@@ -12,7 +12,13 @@
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiQuerySemanticWatchlist extends ApiQueryBase {
+namespace SWL\Api;
+
+use ApiQueryBase;
+use SWL\ChangeSet;
+use Title;
+
+class QuerySemanticWatchlist extends ApiQueryBase {
 	public function __construct( $main, $action ) {
 		parent :: __construct( $main, $action, 'sw' );
 	}
@@ -23,20 +29,20 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 	public function execute() {
 		// Get the requests parameters.
 		$params = $this->extractRequestParams();
-		
+
 		if ( !( isset( $params['userid'] ) XOR isset( $params['groupids'] ) ) ) {
 			$this->dieUsage( wfMessage( 'swl-err-userid-xor-groupids' )->text(), 'userid-xor-groupids' );
 		}
-		
+
 		$isUserFilter = isset( $params['userid'] );
 		$filter = $isUserFilter ? $params['userid'] : $params['groupids'];
-		
-		$this->setupChangeSetQuery( $filter, $isUserFilter, $params['limit'], $params['continue'] );		
-		
+
+		$this->setupChangeSetQuery( $filter, $isUserFilter, $params['limit'], $params['continue'] );
+
 		$sets = $this->select( __METHOD__ );
-		$count = 0;	
+		$count = 0;
 		$resultSets = array();
-		
+
 		foreach ( $sets as $set ) {
 			if ( ++$count > $params['limit'] ) {
 				// We've reached the one extra which shows that
@@ -46,35 +52,35 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			}
 
 			if ( !is_null( Title::newFromID( $set->edit_page_id ) ) ) {
-				$resultSets[] = \SWL\ChangeSet::newFromDBResult( $set );
+				$resultSets[] = ChangeSet::newFromDBResult( $set );
 			}
 		}
-		
+
 		if ( $params['merge'] ) {
 			$this->mergeSets( $resultSets );
 		}
-		
+
 		foreach ( $resultSets as &$set ) {
 			$set = $set->toArray();
-			
+
 			foreach ( $set['changes'] as $propName => $changes ) {
 				$this->getResult()->setIndexedTagName( $set['changes'][$propName], 'change' );
 			}
 		}
-		
+
 		$this->getResult()->setIndexedTagName( $resultSets, 'set' );
-		
+
 		$this->getResult()->addValue(
 			null,
 			'sets',
 			$resultSets
 		);
 	}
-	
+
 	/**
 	 * Gets a list of change sets belonging to any of the watchlist groups
 	 * watched by the user, newest first.
-	 * 
+	 *
 	 * @param mixed $filter User ID or array of group IDs
 	 * @param boolean $isUserFilter
 	 * @param integer $limit
@@ -82,24 +88,24 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 	 */
 	protected function setupChangeSetQuery( $filter, $isUserFilter, $limit, $continue ) {
 		$tables = array( 'swl_edits', 'swl_sets_per_edit', 'swl_sets_per_group' );
-		
+
 		if ( $isUserFilter ) {
 			$tables[] = 'swl_users_per_group';
 		}
-		
+
 		$this->addTables( $tables );
 
 		$this->addJoinConds( array(
 			'swl_sets_per_edit' => array( 'INNER JOIN', array( 'edit_id=spe_edit_id' ) ),
 			'swl_sets_per_group' => array( 'INNER JOIN', array( 'spe_set_id=spg_set_id' ) ),
 		) );
-		
+
 		if ( $isUserFilter ) {
 			$this->addJoinConds( array(
 				'swl_users_per_group' => array( 'INNER JOIN', array( 'spg_group_id=upg_group_id' ) ),
 			) );
 		}
-		
+
 		$this->addFields( array(
 			'spe_set_id',
 			'edit_user_name',
@@ -107,69 +113,69 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			'edit_time',
 			'edit_id'
 		) );
-		
+
 		$this->addWhere( array(
 			( $isUserFilter ? 'upg_user_id' : 'spg_group_id' ) => $filter
 		) );
-		
+
 		$this->addOption( 'DISTINCT' );
 		$this->addOption( 'LIMIT', $limit + 1 );
 		$this->addOption( 'ORDER BY', 'edit_time DESC, spe_set_id DESC' );
-		
+
 		if ( !is_null( $continue ) ) {
 			$continueParams = explode( '-', $continue );
-			
+
 			if ( count( $continueParams ) == 2 ) {
 				$dbr = wfGetDB( DB_REPLICA );
 				$this->addWhere( 'edit_time <= ' . $dbr->addQuotes( $continueParams[0] ) );
-				$this->addWhere( 'spe_set_id <= ' . $dbr->addQuotes( $continueParams[1] ) );					
+				$this->addWhere( 'spe_set_id <= ' . $dbr->addQuotes( $continueParams[1] ) );
 			}
 			else {
 				// TODO: error
 			}
-		}		
+		}
 	}
-	
+
 	/**
 	 * Merge change sets belonging to the same edit into one sinlge change set.
-	 * 
+	 *
 	 * @since 0.1
-	 * 
+	 *
 	 * @param array $sets
 	 */
-	protected function mergeSets( array &$sets ) {		
+	protected function mergeSets( array &$sets ) {
 		if ( count( $sets ) > 1 ) {
 			$setsPerEdits = array();
-			
+
 			// List the sets per edit.
 			foreach ( $sets as $set ) {
 				if ( !array_key_exists( $set->getEdit()->getId(), $setsPerEdits ) ) {
 					$setsPerEdits[$set->getEdit()->getId()] = array();
 				}
-				
+
 				$setsPerEdits[$set->getEdit()->getId()][] = $set;
 			}
-			
+
 			$mergedSets = array();
-			
-			// For all edits with more then one set, merge all sets in the first one, 
+
+			// For all edits with more then one set, merge all sets in the first one,
 			// and add it to the $mergedSets list.
 			foreach ( $setsPerEdits as $setsForEdit ) {
 				$setCount = count( $setsForEdit );
-				
+
 				if ( $setCount > 1 ) {
 					for ( $i = 1; $i < $setCount; $i++ ) {
 						$setsForEdit[0]->mergeInChangeSet( $setsForEdit[$i] );
-					}	
+					}
 				}
-				
+
 				$mergedSets[] = $setsForEdit[0];
 			}
-			
+
 			$sets = $mergedSets;
 		}
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see includes/api/ApiBase#getAllowedParams()
@@ -196,7 +202,7 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 			),
 			'continue' => null,
 		);
-		
+
 	}
 
 	/**
@@ -236,6 +242,6 @@ class ApiQuerySemanticWatchlist extends ApiQueryBase {
 
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
-	}	
-	
+	}
+
 }

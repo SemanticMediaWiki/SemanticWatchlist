@@ -19,7 +19,7 @@ use SMWConceptDescription;
 use SMWDIProperty;
 use SMWDIWikiPage;
 use SMWQuery;
-use SMWValueDescription
+use SMWValueDescription;
 use Title;
 use User;
 
@@ -518,4 +518,3 @@ class Group {
 	}
 
 }
-
