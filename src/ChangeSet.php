@@ -250,7 +250,7 @@ class ChangeSet {
 			
 			// If the bigger group is not-equal to the smaller one, items will be left,
 			// that are either insertions or deletions, depending on the group.
-			if ( count( $bigGroup > 0 ) ) {
+			if ( count( $bigGroup ) > 0 ) {
 				$semanticData = $oldIsBigger ? $deletions : $insertions;
 				
 				foreach ( $bigGroup as /* SMWDataItem */ $dataItem ) {
