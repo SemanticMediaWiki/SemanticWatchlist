@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yupik"
+		]
+	},
+	"swl-group-name": "Joukknõmm:",
+	"swl-group-legend": "Joukk",
+	"swl-group-save": "Ruõkk",
+	"swl-group-remove": "Jaukkâd",
+	"swl-group-category": "Kategoria",
+	"swl-group-add-new-group": "Lââʹzzet ođđ joouk",
+	"swl-group-add-group": "Lââʹzzet joouk",
+	"swl-custom-remove-property": "Jaukkâd",
+	"swl-watchlist-insertions": "Ođđ:",
+	"swl-new-item": "OĐĐ",
+	"swl-watchlist-pagincontrol": "Čuäʹjet ($1) ($2)",
+	"swl-watchlist-firstn": "vuõssmõs $1"
+}
