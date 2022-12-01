@@ -4,6 +4,7 @@
 			"Gomoko",
 			"IAlex",
 			"Sherbrooke",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -28,7 +29,7 @@
 	"swl-group-add-new-group": "Ajouter un nouveau groupe",
 	"swl-group-add-group": "Ajouter un groupe",
 	"swl-custom-legend": "Texte personnalisé",
-	"swl-custom-remove-property": "Supprimer",
+	"swl-custom-remove-property": "Retirer",
 	"swl-custom-text-add": "Ajouter un texte personnalisé",
 	"swl-custom-input": "Si la propriété $1 change sa valeur en $2, notifier les utilisateurs avec le texte suivant : $3",
 	"swl-watchlist-position": "Afficher {{PLURAL:$1|la dernière modification|les '''$1''' dernières modifications à partir de la modification '''#$2'''}}.",
