@@ -9,6 +9,7 @@
 	"special-semanticwatchlist": "Semantični spisek nadzorov",
 	"special-watchlistconditions": "Pogoji semantičnega spiska nadzorov",
 	"swl-group-legend": "Skupina",
+	"swl-group-page-selection": "Izberite strani za opazovanje:",
 	"swl-group-save": "Shrani",
 	"swl-group-saving": "Shranjevanje",
 	"swl-group-category": "kategorija",
@@ -22,5 +23,6 @@
 	"swl-watchlist-pagincontrol": "Ogled ($1) ($2)",
 	"swl-watchlist-firstn": "prvih $1",
 	"swl-watchlist-no-groups": "Trenutno še ne opazujete nobene skupine spiskov nadzorov. [[$1|Spremenite svoje nastavitve spiska nadzorov]].",
-	"prefs-swl": "Semantični spisek nadzorov"
+	"prefs-swl": "Semantični spisek nadzorov",
+	"prefs-swlgroup": "Skupine za opazovanje"
 }
