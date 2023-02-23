@@ -12,8 +12,6 @@ use MediaWiki\User\UserIdentity;
  *
  * https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
  *
- * TODO rename file and class to match actual hook (SaveUserOptions)
- *
  * @ingroup SWL
  *
  * @license GNU GPL v2+
@@ -22,7 +20,7 @@ use MediaWiki\User\UserIdentity;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class UserSaveOptions {
+class SaveUserOptions {
 
 	/**
 	 * @var TableUpdater

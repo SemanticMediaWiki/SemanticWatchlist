@@ -10,9 +10,6 @@ use User;
  * Called after the navigation links have been set up, before they are shown.
  * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
  *
- * TODO rename file and class to match actual hook
- * (SkinTemplateNavigation::Universal)
- * 
  * @ingroup SWL
  *
  * @licence GNU GPL v2+
@@ -21,7 +18,7 @@ use User;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author mwjames
  */
-class PersonalUrls {
+class SkinTemplateNavigationUniversal {
 
 	protected $personalUrls;
 	protected $title;

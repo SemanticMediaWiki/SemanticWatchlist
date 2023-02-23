@@ -2,8 +2,8 @@
 
 namespace SWL;
 
-use SWL\MediaWiki\Hooks\PersonalUrls;
-use SWL\MediaWiki\Hooks\UserSaveOptions;
+use SWL\MediaWiki\Hooks\SkinTemplateNavigationUniversal;
+use SWL\MediaWiki\Hooks\SaveUserOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 use SWL\TableUpdater;
@@ -54,16 +54,16 @@ class HookRegistry {
 		$wgHooks['SkinTemplateNavigation::Universal'][] =
 			function( $skinTemplate, &$links ) use ( $configuration ) {
 
-			$personalUrls = new PersonalUrls(
+			$linkHandler = new SkinTemplateNavigationUniversal(
 				$links['user-menu'],
 				$skinTemplate->getTitle(),
 				$skinTemplate->getUser(),
 				MediaWikiServices::getInstance()->getUserOptionsManager()
 			);
 
-			$personalUrls->setConfiguration( $configuration );
+			$linkHandler->setConfiguration( $configuration );
 
-			return $personalUrls->execute();
+			return $linkHandler->execute();
 		};
 
 		/**
@@ -75,14 +75,14 @@ class HookRegistry {
 			array $originalOptions
 		) use ( $configuration, $tableUpdater ) {
 
-			$userSaveOptions = new UserSaveOptions(
+			$saveUserOptions = new SaveUserOptions(
 				$tableUpdater,
 				$user,
 				$modifications,
 				$originalOptions
 			);
 
-			return $userSaveOptions->execute();
+			return $saveUserOptions->execute();
 		};
 
 		/**
