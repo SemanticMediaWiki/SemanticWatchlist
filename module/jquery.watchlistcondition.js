@@ -155,7 +155,7 @@
 		);
 	};
 
-	this.doSave = function( callback ) {
+	this.doSave = function() {
 		var customTexts = new Array();
 		self.find( '.customText' ).each( function( index, element ) {
 			element = $( element );
@@ -164,6 +164,7 @@
 		var args = {
 			'action': ( this.group.id == '' ? 'addswlgroup' : 'editswlgroup' ),
 			'format': 'json',
+			'formatversion': 2,
 			'id': this.group.id,
 			'name': self.attr( 'groupname' ),
 			'properties': self.attr( 'properties' ),
@@ -171,28 +172,44 @@
 		};
 		args[self.find('select :selected').attr('type')] = self.find( '.conditionInput' ).val();
 
-	 	$.getJSON(
-			mw.util.wikiScript( 'api' ),
-			args,
-			function( data ) {
-				callback( data.success );
+		var api = new mw.Api();
+		// TODO make POST
+		return api.get( args ).then(
+			function (data) {
+				return data.success;
+			},
+			function (data) {
+				return data.success;
 			}
 		);
 	};
 
 	this.doDelete = function( callback ) {
-		$.getJSON(
-			mw.util.wikiScript( 'api' ),
-			{
-				'action': 'deleteswlgroup',
-				'format': 'json',
-				'ids': this.group.id
+		var api = new mw.Api();
+		// TODO make POST
+		return api.get( {
+			'action': 'deleteswlgroup',
+			'format': 'json',
+			'formatversion': 2,
+			'ids': this.group.id
+		} ).then(
+			function( data ) {
+				return data.deleteswlgroup && data.deleteswlgroup.success;
 			},
 			function( data ) {
-				callback( data.success );
+				return data.deleteswlgroup && data.deleteswlgroup.success;
 			}
 		);
 	};
+
+	this.updateDb = function() {
+		var shouldDelete = self.attr( 'display' ) === 'none';
+		if (shouldDelete) {
+			return this.doDelete();
+		} else {
+			return this.doSave();
+		}
+	}
 
 	return this;
 

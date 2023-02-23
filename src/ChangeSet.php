@@ -324,7 +324,28 @@ class ChangeSet {
 	public function hasUserDefinedProperties() {
 		$properties = array();
 		
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+		$allProps = $this->getAllProperties();
+		
+		wfDebugLog(
+			'SemanticWatchlist',
+			'Checking {count} properties for any that are user defined',
+			'all',
+			[
+				'count' => count( $allProps ),
+			]
+		);
+		foreach ( $allProps as /* SMWDIProperty */ $property ) {
+			$userDefined = $property->isUserDefined();
+			
+			wfDebugLog(
+				'SemanticWatchlist',
+				'Property {pname} is user defined: {udef}',
+				'all',
+				[
+					'pname' => $property->getKey() ?? '-null-',
+					'udef' => $userDefined ? 'yes' : 'no',
+				]
+			);
 			if ( $property->isUserDefined() ) {
 				$properties[] = $property;
 			}
@@ -584,7 +605,7 @@ class ChangeSet {
 			}
 		}
 		
-		$dbw->begin( __METHOD__ );
+		$dbw->startAtomic( __METHOD__ );
 		
 		foreach ( $changes as $change ) {
 			if ( $change['property'] == '' ) {
@@ -615,7 +636,7 @@ class ChangeSet {
 			);
 		}
 		
-		$dbw->commit( __METHOD__ );
+		$dbw->endAtomic( __METHOD__ );
 		
 		Hooks::run( 'SWLAfterChangeSetInsert', array( &$this, $groupsToAssociate, $editId ) );
 		

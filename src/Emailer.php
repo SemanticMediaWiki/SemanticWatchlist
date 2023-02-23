@@ -18,8 +18,9 @@ use Hooks;
 use SpecialPage;
 use User;
 use UserMailer;
+use MailAddress;
 use SMWDataValueFactory;
-use SMWPDIProperty;
+use SMW\DIProperty;
 
 final class Emailer {
 
@@ -61,24 +62,13 @@ final class Emailer {
 
 		Hooks::run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
-		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
-			return UserMailer::send(
-				new MailAddress( $user ),
-				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
-				$title,
-				$emailText,
-				null,
-				'text/html; charset=ISO-8859-1'
-			);
-		} else {
-			return UserMailer::send(
-				new MailAddress( $user ),
-				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
-				$title,
-				$emailText,
-				array( 'contentType' => 'text/html; charset=ISO-8859-1' )
-			);
-		}
+		return UserMailer::send(
+			new MailAddress( $user ),
+			new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
+			$title,
+			$emailText,
+			array( 'contentType' => 'text/html; charset=ISO-8859-1' )
+		);
 	}
 
 	/**
@@ -93,8 +83,8 @@ final class Emailer {
 	 */
 	private static function getChangeListHTML( ChangeSet $changeSet, Group $group ) {
 		$propertyHTML = array();
-		$customTexts = newC ustomTexts( $group );
-		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+		$customTexts = new CustomTexts( $group );
+		foreach ( $changeSet->getAllProperties() as /* DIProperty */ $property ) {
 			$propertyHTML[] = self::getPropertyHTML( $property, $changeSet->getAllPropertyChanges( $property ), $customTexts );
 		}
 
@@ -106,12 +96,12 @@ final class Emailer {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param array $changes
 	 * @param CustomTexts $customTexts
 	 * @return string
 	 */
-	private static function getPropertyHTML( SMWDIProperty $property, array $changes, CustomTexts $customTexts ) {
+	private static function getPropertyHTML( DIProperty $property, array $changes, CustomTexts $customTexts ) {
 		$insertions = array();
 		$deletions = array();
 		$customMessages = array();

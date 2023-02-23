@@ -14,6 +14,8 @@
 namespace SWL;
 
 use AlItem;
+use MediaWiki\MediaWikiServices;
+use RequestContext;
 use Sanitizer;
 use SWL\Group;
 use SWL\ChangeSet;
@@ -39,6 +41,7 @@ final class Hooks {
      * @return true
      */
 	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
+		wfDebugLog( 'SemanticWatchlist', __METHOD__ . ' was called' );
 		$subject = $newData->getSubject();
 		$oldData = $store->getSemanticData( $subject );
 		$title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
@@ -50,11 +53,21 @@ final class Hooks {
 		foreach ( $groups as /* SWLGroup */ $group ) {
 			$changeSet = ChangeSet::newFromSemanticData( $oldData, $newData, $group->getProperties() );
 
-			if ( $changeSet->hasUserDefinedProperties() ) {
+			$hasUserDefinedProps = $changeSet->hasUserDefinedProperties();
+			wfDebugLog(
+				'SemanticWatchlist',
+				'Group #{groupId} has user defined properties: {udef}',
+				'all',
+				[
+					'groupId' => $group->getId(),
+					'udef' => $hasUserDefinedProps ? 'yes' : 'no',
+				]
+			);
+			if ( $hasUserDefinedProps ) {
 				if ( $edit === false ) {
 					$edit = new Edit(
 						$title->getArticleID(),
-						$GLOBALS['wgUser']->getName(),
+						RequestContext::getMain()->getUser()->getName(),
 						wfTimestampNow()
 					);
 
@@ -87,28 +100,34 @@ final class Hooks {
     public static function onGroupNotify( Group $group, array $userIDs, ChangeSet $changes ) {
     	global $egSWLMailPerChange, $egSWLMaxMails;
 
+		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+
     	foreach ( $userIDs as $userID ) {
     		$user = User::newFromId( $userID );
 
-    		if ( $user->getOption( 'swl_email', false ) ) {
-				if ( $user->getName() != $changes->getEdit()->getUser()->getName() || $GLOBALS['egSWLEnableSelfNotify'] ) {
-					if ( !method_exists( 'Sanitizer', 'validateEmail' ) || Sanitizer::validateEmail( $user->getEmail() ) ) {
-						$lastNotify = $user->getOption( 'swl_last_notify' );
-						$lastWatch = $user->getOption( 'swl_last_watch' );
+			if ( $userOptionsManager->getOption( $user, 'swl_email', false )
+				&& (
+					$user->getName() != $changes->getEdit()->getUser()->getName()
+					|| $GLOBALS['egSWLEnableSelfNotify']
+				)
+				&& Sanitizer::validateEmail( $user->getEmail() )
+			) {
+				$lastNotify = $userOptionsManager->getOption( $user, 'swl_last_notify' );
+				$lastWatch = $userOptionsManager->getOption( $user, 'swl_last_watch' );
 
-						if ( is_null( $lastNotify ) || is_null( $lastWatch ) || $lastNotify < $lastWatch ) {
-							$mailCount = $user->getOption( 'swl_mail_count', 0 );
+				if ( is_null( $lastNotify ) || is_null( $lastWatch ) || $lastNotify < $lastWatch ) {
+					$mailCount = $userOptionsManager->getOption(
+						$user, 'swl_mail_count', 0 );
 
-							if ( $egSWLMailPerChange || $mailCount < $egSWLMaxMails ) {
-								Emailer::notifyUser( $group, $user, $changes, $egSWLMailPerChange );
-								$user->setOption( 'swl_last_notify', wfTimestampNow() );
-								$user->setOption( 'swl_mail_count', $mailCount + 1 );
-								$user->saveSettings();
-							}
-						}
+					if ( $egSWLMailPerChange || $mailCount < $egSWLMaxMails ) {
+						Emailer::notifyUser( $group, $user, $changes, $egSWLMailPerChange );
+						$userOptionsManager->setOption( $user, 'swl_last_notify', wfTimestampNow() );
+						$userOptionsManager->setOption( $user, 'swl_mail_count', $mailCount + 1 );
+						$userOptionsManager->saveOptions( $user );
 					}
 				}
-    		}
+
+			}
     	}
 
         return true;

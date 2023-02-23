@@ -2,7 +2,8 @@
 
 namespace SWL;
 
-use DatabaseBase;
+use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 use RuntimeException;
 
 /**
@@ -14,7 +15,7 @@ use RuntimeException;
 class LazyDBConnectionProvider {
 
 	/**
-	 * @var DatabaseBase|null
+	 * @var IDatabase|null
 	 */
 	protected $connection = null;
 
@@ -51,20 +52,23 @@ class LazyDBConnectionProvider {
 	 *
 	 * @since 1.2
 	 *
-	 * @return DatabaseBase
+	 * @return IDatabase
 	 * @throws RuntimeException
 	 */
 	public function getConnection() {
 
 		if ( $this->connection === null ) {
-			$this->connection = wfGetLB( $this->wiki )->getConnection( $this->connectionId, $this->groups, $this->wiki );
+			$this->connection = MediaWikiServices::getInstance()
+				->getDBLoadBalancerFactory()
+				->getMainLB( $this->wiki )
+				->getConnection( $this->connectionId, $this->groups, $this->wiki );
 		}
 
 		if ( $this->isConnection( $this->connection ) ) {
 			return $this->connection;
 		}
 
-		throw new RuntimeException( 'Expected a DatabaseBase instance' );
+		throw new RuntimeException( 'Expected a IDatabase instance' );
 	}
 
 	/**
@@ -74,12 +78,15 @@ class LazyDBConnectionProvider {
 	 */
 	public function releaseConnection() {
 		if ( $this->wiki !== false && $this->connection !== null ) {
-			wfGetLB( $this->wiki )->reuseConnection( $this->connection );
+			MediaWikiServices::getInstance()
+				->getDBLoadBalancerFactory()
+				->getMainLB( $this->wiki )
+				->reuseConnection( $this->connection );
 		}
 	}
 
 	protected function isConnection( $connection ) {
-		return $connection instanceof DatabaseBase;
+		return $connection instanceof IDatabase;
 	}
 
 }

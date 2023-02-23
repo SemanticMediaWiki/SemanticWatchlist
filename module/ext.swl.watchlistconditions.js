@@ -52,32 +52,24 @@
 		}, 1000 );
 	}
 
-	function saveGroupElement( element, button ) {
+	function saveGroupElement( element, anyFailed ) {
 		element.watchlistcondition(
 			groupFromElement( element ),
 			{}
 		);
-		if( element.attr( 'display' ) === 'none' ) {
-			element.doDelete( function( success ) {
-				if ( success ) {
-					saveSuccess( button );
-				}
-				else {
-					alert( 'Could not remove the watchlist group-' + element.group.name );
-					button.disabled = false;
-				}
-			} );
-		} else {
-			element.doSave(function( success ) {
-				if ( success ) {
-					saveSuccess( button );
-				}
-				else {
-					alert( 'Could not update the watchlist group-' + element.group.name );
-					button.disabled = false;
-				}
-			});
-		}
+		var shouldDelete = element.attr( 'display' ) === 'none';
+		var failAction = shouldDelete ? 'remove' : 'update';
+		return element.updateDb()
+				.then(
+					function ( success ) {
+						if ( !success ) {
+							alert( 'Could not ' + failAction +
+									' the watchlist group-' + element.group.name );
+							return true;
+						}
+						return anyFailed;
+					}
+				);
 	}
 
 	$( '.swl_group' ).each(function( index, domElement ) {
@@ -87,9 +79,24 @@
 	$( '#swl-save-all' ).click( function() {
 		this.disabled = true;
 		var button = this;
+		// wait for each element to finish saving before doing the next to
+		// avoid database conflicts. Value passed between the promises is if
+		// any of them failed
+		var finishedPromise = $.Deferred().resolve( false ).promise();
 		$( '.swl_group' ).each(function( index, domElement ) {
-			saveGroupElement( $( domElement ), button );
+			finishedPromise = finishedPromise.then( function ( anyFailed ) {
+				return saveGroupElement( $( domElement ), anyFailed );
+			} );
 		});
+		finishedPromise.then(
+			function ( anyFailed ) {
+				if ( anyFailed ) {
+					button.disabled = false;
+				} else {
+					saveSuccess( button );
+				}
+			}
+		);
 	} );
 
 	function addGroupToDB( groupName, callback ) {

@@ -2,13 +2,17 @@
 
 namespace SWL\MediaWiki\Hooks;
 
+use MediaWiki\User\UserOptionsManager;
 use Title;
 use User;
 
 /**
- * Called after the personal URLs have been set up, before they are shown.
- * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/PersonalUrls
+ * Called after the navigation links have been set up, before they are shown.
+ * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
  *
+ * TODO rename file and class to match actual hook
+ * (SkinTemplateNavigation::Universal)
+ * 
  * @ingroup SWL
  *
  * @licence GNU GPL v2+
@@ -22,6 +26,7 @@ class PersonalUrls {
 	protected $personalUrls;
 	protected $title;
 	protected $user;
+	protected $userOptionsManager;
 
 	/**
 	 * @since 1.0
@@ -29,11 +34,18 @@ class PersonalUrls {
 	 * @param array &$personalUrls
 	 * @param Title &$title
 	 * @param User $user
+	 * @param UserOptionsManager $userOptionsManager
 	 */
-	public function __construct( array &$personalUrls, Title $title, User $user ) {
+	public function __construct(
+		array &$personalUrls,
+		Title $title,
+		User $user,
+		UserOptionsManager $userOptionsManager
+	) {
 		$this->personalUrls =& $personalUrls;
 		$this->title = $title;
 		$this->user = $user;
+		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/**
@@ -59,7 +71,8 @@ class PersonalUrls {
 	}
 
 	protected function isEnabledForUser() {
-		return $this->user->isLoggedIn() && $this->user->getOption( 'swl_watchlisttoplink' );
+		return $this->user->isRegistered() &&
+			$this->userOptionsManager->getOption( $this->user, 'swl_watchlisttoplink' );
 	}
 
 	protected function addSwlTopLinkUrl() {

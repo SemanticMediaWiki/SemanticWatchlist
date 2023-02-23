@@ -25,9 +25,16 @@ class EditWatchlistGroup extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser();
-
-		if ( !$user->isAllowed( 'semanticwatchgroups' ) || $user->isBlocked() ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+		
+		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
+			$this->dieWithError( [
+				'apierror-permissiondenied',
+				$this->msg( 'action-semanticwatchgroups' )
+			] );
+		}
+		$block = $user->getBlock();
+		if ( $block ) {
+			$this->dieBlocked( $block );
 		}
 
 		$params = $this->extractRequestParams();

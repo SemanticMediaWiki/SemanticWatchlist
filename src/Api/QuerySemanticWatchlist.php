@@ -14,6 +14,7 @@
  */
 namespace SWL\Api;
 
+use ApiBase;
 use ApiQueryBase;
 use SWL\ChangeSet;
 use Title;
@@ -30,9 +31,7 @@ class QuerySemanticWatchlist extends ApiQueryBase {
 		// Get the requests parameters.
 		$params = $this->extractRequestParams();
 
-		if ( !( isset( $params['userid'] ) XOR isset( $params['groupids'] ) ) ) {
-			$this->dieUsage( wfMessage( 'swl-err-userid-xor-groupids' )->text(), 'userid-xor-groupids' );
-		}
+		$this->requireOnlyOneParameter( $params, 'userid', 'groupids' );
 
 		$isUserFilter = isset( $params['userid'] );
 		$filter = $isUserFilter ? $params['userid'] : $params['groupids'];

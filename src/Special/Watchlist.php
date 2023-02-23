@@ -13,11 +13,15 @@
  */
 namespace SWL\Special;
 
+use ApiMain;
+use FauxRequest;
 use SWL\ChangeSet;
 use HTML;
+use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use SMWOutputs;
 use SMWDataValueFactory;
+use SMW\DIProperty;
 use User;
 
 class Watchlist extends SpecialPage {
@@ -158,15 +162,16 @@ class Watchlist extends SpecialPage {
 	 * @param User $user
 	 */
 	protected function registerUserView( User $user ) {
-		$this->lastViewed = $user->getOption( 'swl_last_view' );
+		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+		$this->lastViewed = $userOptionsManager->getOption( $user, 'swl_last_view' );
 
 		if ( is_null( $this->lastViewed ) ) {
 			$this->lastViewed = wfTimestampNow();
 		}
 
-		$user->setOption( 'swl_last_view', wfTimestampNow() );
-		$user->setOption( 'swl_mail_count',0 );
-		$user->saveSettings();
+		$userOptionsManager->setOption( $user, 'swl_last_view', wfTimestampNow() );
+		$userOptionsManager->setOption( $user, 'swl_mail_count', 0 );
+		$userOptionsManager->saveOptions( $user );
 	}
 
 	/**
@@ -187,7 +192,7 @@ class Watchlist extends SpecialPage {
 			$nextLink = Html::element(
 				'a',
 				array(
-					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array(
+					'href' => $this->getPageTitle( $subPage )->getLocalURL( wfArrayToCGI( array(
 						'limit' => $limit,
 						'continue' => $newContinue,
 						'offset' => $offset + $limit
@@ -211,7 +216,7 @@ class Watchlist extends SpecialPage {
 			$firstLink = Html::element(
 				'a',
 				array(
-					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( array( 'limit' => $limit ) ) ),
+					'href' => $this->getPageTitle( $subPage )->getLocalURL( wfArrayToCGI( array( 'limit' => $limit ) ) ),
 					'title' => $this->msg( 'swl-watchlist-firstn-title', $limit )->escaped()
 				),
 				$firstMsg
@@ -227,7 +232,7 @@ class Watchlist extends SpecialPage {
 			$limitLinks[] = Html::element(
 				'a',
 				array(
-					'href' => $this->getTitle( $subPage )->getLocalURL( wfArrayToCGI( $limitLinkArgs ) ),
+					'href' => $this->getPageTitle( $subPage )->getLocalURL( wfArrayToCGI( $limitLinkArgs ) ),
 					'title' => $this->msg( 'shown-title', $limitValue )->escaped()
 				),
 				$wgLang->formatNum( $limitValue )
@@ -301,7 +306,7 @@ class Watchlist extends SpecialPage {
 			'action' => 'query',
 			'list' => 'semanticwatchlist',
 			'format' => 'json',
-			'swuserid' => $GLOBALS['wgUser']->getId(),
+			'swuserid' => $this->getUser()->getId(),
 			'swlimit' => $limit,
 			'swcontinue' => $continue,
 			'swmerge' => '1'
@@ -375,7 +380,7 @@ class Watchlist extends SpecialPage {
 
 		$propertyHTML= array();
 
-		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+		foreach ( $changeSet->getAllProperties() as /* DIProperty */ $property ) {
 			$propertyHTML[] = $this->getPropertyHTML( $property, $changeSet->getAllPropertyChanges( $property ) );
 		}
 
@@ -389,12 +394,12 @@ class Watchlist extends SpecialPage {
 	/**
 	 * Returns the HTML for the changes to a single propety.
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param array $changes Array of SWLPropertyChange
 	 *
 	 * @return string
 	 */
-	protected function getPropertyHTML( SMWDIProperty $property, array $changes ) {
+	protected function getPropertyHTML( DIProperty $property, array $changes ) {
 		$insertions = array();
 		$deletions = array();
 
@@ -439,7 +444,7 @@ class Watchlist extends SpecialPage {
 	 * @return boolean
 	 */
 	protected function userHasWatchlistGroups( User $user ) {
-		if ( !$user->isLoggedIn() ) {
+		if ( !$user->isRegistered() ) {
 			return false;
 		}
 

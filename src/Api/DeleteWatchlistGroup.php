@@ -26,9 +26,16 @@ class DeleteWatchlistGroup extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser();
-
-		if ( !$user->isAllowed( 'semanticwatchgroups' ) || $user->isBlocked() ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+		
+		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
+			$this->dieWithError( [
+				'apierror-permissiondenied',
+				$this->msg( 'action-semanticwatchgroups' )
+			] );
+		}
+		$block = $user->getBlock();
+		if ( $block ) {
+			$this->dieBlocked( $block );
 		}
 
 		$params = $this->extractRequestParams();
@@ -38,11 +45,12 @@ class DeleteWatchlistGroup extends ApiBase {
 		foreach ( $params['ids'] as $id ) {
 			$everythingOk = $this->deleteGroup( $id ) && $everythingOk;
 		}
+		$res = [ 'success' => $everythingOk ];
 
 		$this->getResult()->addValue(
 			null,
-			'success',
-			$everythingOk
+			$this->getModuleName(),
+			$res
 		);
 	}
 
@@ -60,6 +68,18 @@ class DeleteWatchlistGroup extends ApiBase {
 		$everythingOk = true;
 
 		$dbr = wfGetDB( DB_REPLICA );
+
+		// Verify if the group even exists
+		$groupRow = $dbr->selectRow(
+			'swl_groups',
+			'*',
+			[ 'group_id' => $groupId ],
+			__METHOD__
+		);
+		if ( $groupRow === false ) {
+			return false;
+		}
+
 
 		$setsForGroup = $dbr->select(
 			'swl_sets_per_group',

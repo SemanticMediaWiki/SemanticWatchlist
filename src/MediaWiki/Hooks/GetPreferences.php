@@ -66,6 +66,10 @@ class GetPreferences {
 			$this->preferences['swl_watchlisttoplink'] = $this->addTopLinkPreference();
 		}
 
+		// Used by Watchlist, register them
+		$this->preferences['swl_last_view'] = [ 'type' => 'api' ];
+		$this->preferences['swl_mail_count'] = [ 'type' => 'api' ];
+
 		foreach ( $groups as /* SWLGroup */ $group ) {
 			$this->handleGroup( $group );
 		}

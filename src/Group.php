@@ -356,9 +356,21 @@ class Group {
 	 * @return boolean
 	 */
 	public function coversPage( Title $title ) {
-		return $this->categoriesCoverPage( $title )
+		$covers = $this->categoriesCoverPage( $title )
 			|| $this->namespacesCoversPage( $title )
 			|| $this->conceptsCoverPage( $title );
+		wfDebugLog(
+			'SemanticWatchlist',
+			'Group #{groupId} ({groupName}) covers {title}: {covers}',
+			'all',
+			[
+				'groupId' => $this->id,
+				'groupName' => $this->name,
+				'title' => $title->getPrefixedText(),
+				'covers' => $covers ? 'yes' : 'no',
+			]
+		);
+		return $covers;
 	}
 
 	/**

@@ -7,7 +7,8 @@ use SWL\MediaWiki\Hooks\UserSaveOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 use SWL\TableUpdater;
-
+use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use User;
 use Title;
 use Language;
@@ -48,14 +49,16 @@ class HookRegistry {
 		);
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
 		 */
-		$wgHooks['PersonalUrls'][] = function( array &$personal_urls, \Title $title, \SkinTemplate $skin ) use ( $configuration ) {
+		$wgHooks['SkinTemplateNavigation::Universal'][] =
+			function( $skinTemplate, &$links ) use ( $configuration ) {
 
 			$personalUrls = new PersonalUrls(
-				$personal_urls,
-				$title,
-				$skin->getUser()
+				$links['user-menu'],
+				$skinTemplate->getTitle(),
+				$skinTemplate->getUser(),
+				MediaWikiServices::getInstance()->getUserOptionsManager()
 			);
 
 			$personalUrls->setConfiguration( $configuration );
@@ -64,14 +67,19 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
 		 */
-		$wgHooks['UserSaveOptions'][] = function( \User $user, array &$options ) use ( $configuration, $tableUpdater ) {
+		$wgHooks['SaveUserOptions'][] = function(
+			UserIdentity $user,
+			array &$modifications,
+			array $originalOptions
+		) use ( $configuration, $tableUpdater ) {
 
 			$userSaveOptions = new UserSaveOptions(
 				$tableUpdater,
 				$user,
-				$options
+				$modifications,
+				$originalOptions
 			);
 
 			return $userSaveOptions->execute();

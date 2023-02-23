@@ -60,6 +60,12 @@ class CustomTexts {
 
 		foreach( $set as $elem ) {
 			$parts = explode( '~', $elem );
+			// TODO I have no idea what this represents, but the setting a few
+			// lines down had some undefined offset (1) errors, just
+			// skipping for now
+			if ( count($parts) < 3 ) {
+				continue;
+			}
 			if( !array_key_exists( $parts[0], $this->customTexts ) ) {
 				$this->customTexts[$parts[0]] = array();
 			}
