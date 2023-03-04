@@ -111,7 +111,8 @@ class HookRegistry {
 			$getPreferences = new GetPreferences(
 				$user,
 				$userLanguage,
-				$preferences
+				$preferences,
+				MediaWikiServices::getInstance()->getNamespaceInfo()
 			);
 
 			$getPreferences->setConfiguration( $configuration );

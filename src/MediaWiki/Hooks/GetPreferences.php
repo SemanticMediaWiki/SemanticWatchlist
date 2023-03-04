@@ -3,7 +3,7 @@
 namespace SWL\MediaWiki\Hooks;
 
 use Language;
-use MWNamespace;
+use NamespaceInfo;
 use SWL\Group;
 use SWL\Groups;
 use User;
@@ -26,6 +26,7 @@ class GetPreferences {
 	protected $language;
 	protected $preferences;
 	protected $configuration;
+	protected $namespaceInfo;
 
 	/**
 	 * @since 1.0
@@ -33,11 +34,18 @@ class GetPreferences {
 	 * @param User $user
 	 * @param Language $language
 	 * @param array &$preferences
+	 * @param NamespaceInfo $namespaceInfo
 	 */
-	public function __construct( User $user, Language $language, array &$preferences ) {
+	public function __construct(
+		User $user,
+		Language $language,
+		array &$preferences,
+		NamespaceInfo $namespaceInfo
+	) {
 		$this->user = $user;
 		$this->language = $language;
 		$this->preferences =& $preferences;
+		$this->namespaceInfo = $namespaceInfo;
 	}
 
 	/**
@@ -93,7 +101,9 @@ class GetPreferences {
 			case count( $group->getNamespaces() ) > 0 :
 				$type = 'namespace';
 				$name = $group->getNamespaces();
-				$name = $name[0] == 0 ? wfMessage( 'main' )->text() : MWNamespace::getCanonicalName( $name[0] );
+				$name = $name[0] == 0
+							? wfMessage( 'main' )->text()
+							: $this->namespaceInfo->getCanonicalName( $name[0] );
 				break;
 			case count( $group->getConcepts() ) > 0 :
 				$type = 'concept';

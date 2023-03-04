@@ -14,7 +14,7 @@
 namespace SWL;
 
 use Hooks;
-use MWNamespace;
+use MediaWiki\MediaWikiServices;
 use SMWConceptDescription;
 use SMWDIProperty;
 use SMWDIWikiPage;
@@ -148,7 +148,8 @@ class Group {
 				$this->namespaces[] = 0;
 			}
 			else {
-				$ns = MWNamespace::getCanonicalIndex( strtolower( $ns ) );
+				$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+				$ns = $nsInfo->getCanonicalIndex( strtolower( $ns ) );
 
 				if ( !is_null( $ns ) ) {
 					$this->namespaces[] = $ns;
@@ -414,8 +415,8 @@ class Group {
 			return false;
 		}
 
-		global $wgContLang;
-		$catPrefix = $wgContLang->getNSText( NS_CATEGORY ) . ':';
+		$contentLang = MediaWikiServices::getInstance()->getContentLanguage();
+		$catPrefix = $contentLang->getNsText( NS_CATEGORY ) . ':';
 
 		foreach ( $this->categories as $groupCategory ) {
 			$foundMatch = in_array( $catPrefix . $groupCategory, $cats );
