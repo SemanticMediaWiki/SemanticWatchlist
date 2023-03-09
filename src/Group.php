@@ -15,9 +15,12 @@ namespace SWL;
 
 use Hooks;
 use MediaWiki\MediaWikiServices;
-use SMWConceptDescription;
+use SMW\DIWikiPage;
+use SMW\Query\QueryResult;
+use SMW\Query\Language\ConceptDescription;
+use SMW\Query\Language\Conjunction;
+use SMW\Query\Language\ValueDescription;
 use SMWDIProperty;
-use SMWDIWikiPage;
 use SMWQuery;
 use SMWValueDescription;
 use Title;
@@ -385,12 +388,12 @@ class Group {
 	 */
 	public function namespacesCoversPage( Title $title ) {
 		if ( count( $this->namespaces ) > 0 ) {
-			if ( !in_array( $title->getNamespace(), $this->namespaces ) ) {
-				return false;
+			if ( in_array( $title->getNamespace(), $this->namespaces ) ) {
+				return true;
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 	/**
@@ -404,7 +407,7 @@ class Group {
 	 */
 	public function categoriesCoverPage( Title $title ) {
 		if ( count( $this->categories ) == 0 ) {
-			return true;
+			return false;
 		}
 
 		$foundMatch = false;
@@ -440,25 +443,26 @@ class Group {
 	 */
 	public function conceptsCoverPage( Title $title ) {
 		if ( count( $this->concepts ) == 0 ) {
-			return true;
+			return false;
 		}
 
 		$foundMatch = false;
 
 		foreach ( $this->concepts as $groupConcept ) {
-			$queryDescription = new SMWConjunction();
+			$queryDescription = new Conjunction();
 
 			$conceptTitle = Title::newFromText( $groupConcept, SMW_NS_CONCEPT );
 			if ( !$conceptTitle->exists() ) continue;
 
-			$queryDescription->addDescription( new SMWConceptDescription( SMWDIWikiPage::newFromTitle( $conceptTitle ) ) );
-			$queryDescription->addDescription( new SMWValueDescription( SMWDIWikiPage::newFromTitle( $title ) ) );
+			$queryDescription->addDescription( new ConceptDescription( DIWikiPage::newFromTitle( $conceptTitle ) ) );
+			$queryDescription->addDescription( new ValueDescription( DIWikiPage::newFromTitle( $title ) ) );
 
 			$query = new SMWQuery( $queryDescription );
-			$query->querymode = SMWQuery::MODE_COUNT;
+			// TODO when this is set, the query doesn't work anymore, why?
+			// $query->querymode = SMWQuery::MODE_COUNT;
 
-			/* SMWQueryResult */ $result = smwfGetStore()->getQueryResult( $query );
-			$foundMatch = $result instanceof SMWQueryResult ? $result->getCount() > 0 : $result > 0;
+			/* QueryResult */ $result = smwfGetStore()->getQueryResult( $query );
+			$foundMatch = $result instanceof QueryResult ? $result->getCount() > 0 : $result > 0;
 
 			if ( $foundMatch ) {
 				break;
