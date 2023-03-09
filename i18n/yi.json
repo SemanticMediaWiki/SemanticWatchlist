@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pacha Tchernof",
 			"פוילישער",
 			"පසිඳු කාවින්ද"
 		]
 	},
 	"swl-group-name": "גרופע נאמען:",
-	"swl-group-legend": "גרופע",
+	"swl-group-legend": "גרופּע",
 	"swl-group-save": "אויפֿהיטן",
 	"swl-group-remove": "אַראָפּנעמען",
-	"swl-group-category": "קאַטעגאריע",
+	"swl-group-category": "קאַטעגאָריע",
 	"swl-group-namespace": "נאָמענטייל",
 	"swl-group-concept": "באגריף",
 	"swl-group-add-new-group": "צולייגן א נייע גרופע",
