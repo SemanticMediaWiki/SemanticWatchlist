@@ -11,7 +11,22 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SWLGroup {
+namespace SWL;
+
+use Hooks;
+use MediaWiki\MediaWikiServices;
+use SMW\DIWikiPage;
+use SMW\Query\QueryResult;
+use SMW\Query\Language\ConceptDescription;
+use SMW\Query\Language\Conjunction;
+use SMW\Query\Language\ValueDescription;
+use SMWDIProperty;
+use SMWQuery;
+use SMWValueDescription;
+use Title;
+use User;
+
+class Group {
 
 	/**
 	 * The ID of the group; the group_id field in swl_groups.
@@ -87,16 +102,16 @@ class SWLGroup {
 	private $watchingUsers = false;
 
 	/**
-	 * Creates a new instance of SWLGroup from a DB result.
+	 * Creates a new instance of Group from a DB result.
 	 *
 	 * @since 0.1
 	 *
 	 * @param $group
 	 *
-	 * @return SWLGroup
+	 * @return Group
 	 */
 	public static function newFromDBResult( $group ) {
-		return new SWLGroup(
+		return new Group(
 			$group->group_id,
 			$group->group_name,
 			$group->group_categories == '' ? array() : explode( '|', $group->group_categories ),
@@ -136,7 +151,8 @@ class SWLGroup {
 				$this->namespaces[] = 0;
 			}
 			else {
-				$ns = MWNamespace::getCanonicalIndex( strtolower( $ns ) );
+				$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+				$ns = $nsInfo->getCanonicalIndex( strtolower( $ns ) );
 
 				if ( !is_null( $ns ) ) {
 					$this->namespaces[] = $ns;
@@ -344,9 +360,21 @@ class SWLGroup {
 	 * @return boolean
 	 */
 	public function coversPage( Title $title ) {
-		return $this->categoriesCoverPage( $title )
+		$covers = $this->categoriesCoverPage( $title )
 			|| $this->namespacesCoversPage( $title )
 			|| $this->conceptsCoverPage( $title );
+		wfDebugLog(
+			'SemanticWatchlist',
+			'Group #{groupId} ({groupName}) covers {title}: {covers}',
+			'all',
+			[
+				'groupId' => $this->id,
+				'groupName' => $this->name,
+				'title' => $title->getPrefixedText(),
+				'covers' => $covers ? 'yes' : 'no',
+			]
+		);
+		return $covers;
 	}
 
 	/**
@@ -360,12 +388,12 @@ class SWLGroup {
 	 */
 	public function namespacesCoversPage( Title $title ) {
 		if ( count( $this->namespaces ) > 0 ) {
-			if ( !in_array( $title->getNamespace(), $this->namespaces ) ) {
-				return false;
+			if ( in_array( $title->getNamespace(), $this->namespaces ) ) {
+				return true;
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 	/**
@@ -379,7 +407,7 @@ class SWLGroup {
 	 */
 	public function categoriesCoverPage( Title $title ) {
 		if ( count( $this->categories ) == 0 ) {
-			return true;
+			return false;
 		}
 
 		$foundMatch = false;
@@ -390,8 +418,8 @@ class SWLGroup {
 			return false;
 		}
 
-		global $wgContLang;
-		$catPrefix = $wgContLang->getNSText( NS_CATEGORY ) . ':';
+		$contentLang = MediaWikiServices::getInstance()->getContentLanguage();
+		$catPrefix = $contentLang->getNsText( NS_CATEGORY ) . ':';
 
 		foreach ( $this->categories as $groupCategory ) {
 			$foundMatch = in_array( $catPrefix . $groupCategory, $cats );
@@ -415,25 +443,26 @@ class SWLGroup {
 	 */
 	public function conceptsCoverPage( Title $title ) {
 		if ( count( $this->concepts ) == 0 ) {
-			return true;
+			return false;
 		}
 
 		$foundMatch = false;
 
 		foreach ( $this->concepts as $groupConcept ) {
-			$queryDescription = new SMWConjunction();
+			$queryDescription = new Conjunction();
 
 			$conceptTitle = Title::newFromText( $groupConcept, SMW_NS_CONCEPT );
 			if ( !$conceptTitle->exists() ) continue;
 
-			$queryDescription->addDescription( new SMWConceptDescription( SMWDIWikiPage::newFromTitle( $conceptTitle ) ) );
-			$queryDescription->addDescription( new SMWValueDescription( SMWDIWikiPage::newFromTitle( $title ) ) );
+			$queryDescription->addDescription( new ConceptDescription( DIWikiPage::newFromTitle( $conceptTitle ) ) );
+			$queryDescription->addDescription( new ValueDescription( DIWikiPage::newFromTitle( $title ) ) );
 
 			$query = new SMWQuery( $queryDescription );
-			$query->querymode = SMWQuery::MODE_COUNT;
+			// TODO when this is set, the query doesn't work anymore, why?
+			// $query->querymode = SMWQuery::MODE_COUNT;
 
-			/* SMWQueryResult */ $result = smwfGetStore()->getQueryResult( $query );
-			$foundMatch = $result instanceof SMWQueryResult ? $result->getCount() > 0 : $result > 0;
+			/* QueryResult */ $result = smwfGetStore()->getQueryResult( $query );
+			$foundMatch = $result instanceof QueryResult ? $result->getCount() > 0 : $result > 0;
 
 			if ( $foundMatch ) {
 				break;
@@ -491,13 +520,13 @@ class SWLGroup {
 
 	/**
 	 * Gets all the watching users and passes them, together with the specified
-	 * changes and the group object itself, to the SWLGroupNotify hook.
+	 * changes and the group object itself, to the GroupNotify hook.
 	 *
 	 * @since 0.1
 	 *
 	 * @param SMWChangeSet $changes
 	 */
-	public function notifyWatchingUsers( SWLChangeSet $changes ) {
+	public function notifyWatchingUsers( ChangeSet $changes ) {
 		$users = $this->getWatchingUsers();
 
 		if ( $changes->hasChanges( true ) ) {
@@ -506,4 +535,3 @@ class SWLGroup {
 	}
 
 }
-

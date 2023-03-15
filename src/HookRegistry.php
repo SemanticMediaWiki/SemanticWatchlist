@@ -2,12 +2,13 @@
 
 namespace SWL;
 
-use SWL\MediaWiki\Hooks\PersonalUrls;
-use SWL\MediaWiki\Hooks\UserSaveOptions;
+use SWL\MediaWiki\Hooks\SkinTemplateNavigationUniversal;
+use SWL\MediaWiki\Hooks\SaveUserOptions;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 use SWL\TableUpdater;
-
+use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use User;
 use Title;
 use Language;
@@ -48,33 +49,40 @@ class HookRegistry {
 		);
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
 		 */
-		$wgHooks['PersonalUrls'][] = function( array &$personal_urls, \Title $title, \SkinTemplate $skin ) use ( $configuration ) {
+		$wgHooks['SkinTemplateNavigation::Universal'][] =
+			function( $skinTemplate, &$links ) use ( $configuration ) {
 
-			$personalUrls = new PersonalUrls(
-				$personal_urls,
-				$title,
-				$skin->getUser()
+			$linkHandler = new SkinTemplateNavigationUniversal(
+				$links['user-menu'],
+				$skinTemplate->getTitle(),
+				$skinTemplate->getUser(),
+				MediaWikiServices::getInstance()->getUserOptionsManager()
 			);
 
-			$personalUrls->setConfiguration( $configuration );
+			$linkHandler->setConfiguration( $configuration );
 
-			return $personalUrls->execute();
+			return $linkHandler->execute();
 		};
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UserSaveOptions
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
 		 */
-		$wgHooks['UserSaveOptions'][] = function( \User $user, array &$options ) use ( $configuration, $tableUpdater ) {
+		$wgHooks['SaveUserOptions'][] = function(
+			UserIdentity $user,
+			array &$modifications,
+			array $originalOptions
+		) use ( $configuration, $tableUpdater ) {
 
-			$userSaveOptions = new UserSaveOptions(
+			$saveUserOptions = new SaveUserOptions(
 				$tableUpdater,
 				$user,
-				$options
+				$modifications,
+				$originalOptions
 			);
 
-			return $userSaveOptions->execute();
+			return $saveUserOptions->execute();
 		};
 
 		/**
@@ -103,7 +111,8 @@ class HookRegistry {
 			$getPreferences = new GetPreferences(
 				$user,
 				$userLanguage,
-				$preferences
+				$preferences,
+				MediaWikiServices::getInstance()->getNamespaceInfo()
 			);
 
 			$getPreferences->setConfiguration( $configuration );
@@ -111,11 +120,11 @@ class HookRegistry {
 			return $getPreferences->execute();
 		};
 
-		$wgHooks['AdminLinks'][] = 'SWLHooks::addToAdminLinks';
-		$wgHooks['SMWStore::updateDataBefore'][] = 'SWLHooks::onDataUpdate';
+		$wgHooks['AdminLinks'][] = 'SWL\\Hooks::addToAdminLinks';
+		$wgHooks['SMWStore::updateDataBefore'][] = 'SWL\\Hooks::onDataUpdate';
 
 		if ( $configuration['egSWLEnableEmailNotify'] ) {
-			$wgHooks['SWLGroupNotify'][] = 'SWLHooks::onGroupNotify';
+			$wgHooks['SWLGroupNotify'][] = 'SWL\\Hooks::onGroupNotify';
 		}
 	}
 

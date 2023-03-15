@@ -54,7 +54,7 @@ class ExtensionSchemaUpdater {
 	}
 
 	private function hasDatabaseSchema() {
-		return isset( $this->configuration['egSwlSqlDatabaseSchemaPath'] );
+		return isset( $this->configuration['egSWLSqlDatabaseSchemaPath'] );
 	}
 
 	protected function performUpdate() {
@@ -79,7 +79,7 @@ class ExtensionSchemaUpdater {
 		return array(
 			'addTable',
 			$tableName,
-			$this->configuration['egSwlSqlDatabaseSchemaPath'],
+			$this->configuration['egSWLSqlDatabaseSchemaPath'],
 			true
 		);
 	}

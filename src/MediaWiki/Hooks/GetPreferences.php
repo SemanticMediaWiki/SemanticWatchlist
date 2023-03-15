@@ -2,10 +2,11 @@
 
 namespace SWL\MediaWiki\Hooks;
 
-use SWLGroup;
-use User;
 use Language;
-use MWNamespace;
+use NamespaceInfo;
+use SWL\Group;
+use SWL\Groups;
+use User;
 
 /**
  * Adds the preferences relevant to Semantic Watchlist
@@ -25,6 +26,7 @@ class GetPreferences {
 	protected $language;
 	protected $preferences;
 	protected $configuration;
+	protected $namespaceInfo;
 
 	/**
 	 * @since 1.0
@@ -32,11 +34,18 @@ class GetPreferences {
 	 * @param User $user
 	 * @param Language $language
 	 * @param array &$preferences
+	 * @param NamespaceInfo $namespaceInfo
 	 */
-	public function __construct( User $user, Language $language, array &$preferences ) {
+	public function __construct(
+		User $user,
+		Language $language,
+		array &$preferences,
+		NamespaceInfo $namespaceInfo
+	) {
 		$this->user = $user;
 		$this->language = $language;
 		$this->preferences =& $preferences;
+		$this->namespaceInfo = $namespaceInfo;
 	}
 
 	/**
@@ -65,6 +74,10 @@ class GetPreferences {
 			$this->preferences['swl_watchlisttoplink'] = $this->addTopLinkPreference();
 		}
 
+		// Used by Watchlist, register them
+		$this->preferences['swl_last_view'] = [ 'type' => 'api' ];
+		$this->preferences['swl_mail_count'] = [ 'type' => 'api' ];
+
 		foreach ( $groups as /* SWLGroup */ $group ) {
 			$this->handleGroup( $group );
 		}
@@ -72,7 +85,7 @@ class GetPreferences {
 		return true;
 	}
 
-	private function handleGroup( SWLGroup $group ) {
+	private function handleGroup( Group $group ) {
 		$properties = $group->getProperties();
 
 		if ( empty( $properties ) ) {
@@ -88,7 +101,9 @@ class GetPreferences {
 			case count( $group->getNamespaces() ) > 0 :
 				$type = 'namespace';
 				$name = $group->getNamespaces();
-				$name = $name[0] == 0 ? wfMessage( 'main' )->text() : MWNamespace::getCanonicalName( $name[0] );
+				$name = $name[0] == 0
+							? wfMessage( 'main' )->text()
+							: $this->namespaceInfo->getCanonicalName( $name[0] );
 				break;
 			case count( $group->getConcepts() ) > 0 :
 				$type = 'concept';
@@ -112,7 +127,7 @@ class GetPreferences {
 	}
 
 	protected function getAllSwlGroups() {
-		return \SWLGroups::getAll();
+		return Groups::getAll();
 	}
 
 	protected function addEmailNotificationPreference() {

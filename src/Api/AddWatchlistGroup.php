@@ -1,18 +1,23 @@
 <?php
 
 /**
- * API module to modify semantic watchlist groups.
+ * API module to add semantic watchlist groups.
  *
  * @since 0.1
  *
- * @file ApiEditWatchlistGroup.php
+ * @file ApiAddWatchlistGroup.php
  * @ingroup SemanticWatchlist
  * @ingroup API
  *
  * @licence GNU GPL v3+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class ApiEditWatchlistGroup extends ApiBase {
+namespace SWL\Api;
+
+use ApiBase;
+use SWL\Group;
+
+class AddWatchlistGroup extends ApiBase {
 	
 	public function __construct( $main, $action ) {
 		parent::__construct( $main, $action );
@@ -21,14 +26,22 @@ class ApiEditWatchlistGroup extends ApiBase {
 	public function execute() {
 		$user = $this->getUser();
 		
-		if ( !$user->isAllowed( 'semanticwatchgroups' ) || $user->isBlocked() ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
+		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
+			$this->dieWithError( [
+				'apierror-permissiondenied',
+				$this->msg( 'action-semanticwatchgroups' )
+			] );
 		}
-
+		$block = $user->getBlock();
+		if ( $block ) {
+			$this->dieBlocked( $block );
+		}
+		
 		$params = $this->extractRequestParams();
-		$params['customTexts'] = SWLGroup::unserializedCustomTexts( $params['customTexts'] );
-		$group = new SWLGroup(
-			$params['id'],
+		$params['customTexts'] = Group::unserializedCustomTexts( $params['customTexts'] );
+
+		$group = new Group(
+			null,
 			$params['name'],
 			$params['categories'],
 			$params['namespaces'],
@@ -42,14 +55,22 @@ class ApiEditWatchlistGroup extends ApiBase {
 			'success',
 			$group->writeToDB()
 		);
+		
+		$this->getResult()->addValue(
+			'group',
+			'id',
+			$group->getId()
+		);
+		
+		$this->getResult()->addValue(
+			'group',
+			'name',
+			$group->getName()
+		);
 	}
 
 	public function getAllowedParams() {
 		return array(
-			'id' => array(
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
-			),
 			'name' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
@@ -84,7 +105,6 @@ class ApiEditWatchlistGroup extends ApiBase {
 	
 	public function getParamDescription() {
 		return array(
-			'id' => 'The ID of the watchlist group to edit',
 			'name' => 'The name of the group, used for display in the user preferences',
 			'properties' => 'The properties this watchlist group covers',
 			'categories' => 'The categories this watchlist group covers',
@@ -96,14 +116,14 @@ class ApiEditWatchlistGroup extends ApiBase {
 	
 	public function getDescription() {
 		return array(
-			'API module to modify semantic watchlist groups.'
+			'API module to add semantic watchlist groups.'
 		);
 	}
 
 	protected function getExamples() {
 		return array(
-			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
-			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
+			'api.php?action=addswlgroup&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
+			'api.php?action=addswlgroup&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
 		);
 	}	
 	

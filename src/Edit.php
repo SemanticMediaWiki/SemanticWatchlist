@@ -5,13 +5,19 @@
  *
  * @since 0.1
  *
- * @file SWL_Edit.php
+ * @file Edit.php
  * @ingroup SemanticWatchlist
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SWLEdit {
+namespace SWL;
+
+use Hooks;
+use Title;
+use User;
+
+class Edit {
 
 	/**
 	 * The ID of the page the edit was made to.
@@ -49,13 +55,13 @@ class SWLEdit {
 	private $id;
 
 	/**
-	 * Creates and returns a new instance of SWLEdit by getting it's info from the database.
+	 * Creates and returns a new instance of Edit by getting it's info from the database.
 	 *
 	 * @since 0.1
 	 *
 	 * @param integer $id
 	 *
-	 * @return SWLEdit
+	 * @return Edit
 	 */
 	public static function newFromId( $id ) {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -73,13 +79,13 @@ class SWLEdit {
 	}
 
 	/**
-	 * Creates and returns a new instance of SWLEdit from a database result.
+	 * Creates and returns a new instance of Edit from a database result.
 	 *
 	 * @since 0.1
 	 *
 	 * @param ResultWrapper $edit
 	 *
-	 * @return SWLEdit
+	 * @return Edit
 	 */
 	public static function newFromDBResult( $edit ) {
 		return new self(

@@ -11,7 +11,19 @@
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SpecialWatchlistConditions extends SpecialPage {
+namespace SWL\Special;
+
+use Html;
+use MediaWiki\MediaWikiServices;
+use NamespaceInfo;
+use SpecialPage;
+use SWL\Group;
+use SWL\Groups;
+
+class Conditions extends SpecialPage {
+
+	/* @var NamespaceInfo */
+	private $nsInfo;
 
 	/**
 	 * Constructor.
@@ -20,6 +32,8 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 */
 	public function __construct() {
 		parent::__construct( 'WatchlistConditions', 'semanticwatchgroups' );
+		// TODO inject the service
+		$this->nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 	}
 
 	/**
@@ -68,7 +82,7 @@ class SpecialWatchlistConditions extends SpecialPage {
 
 		$groupsHtml = array();
 
-		foreach ( SWLGroups::getAll() as $group ) {
+		foreach ( Groups::getAll() as $group ) {
 			$groupsHtml[] = $this->getGroupHtml( $group );
 		}
 		$wgOut->addHTML(
@@ -103,15 +117,15 @@ class SpecialWatchlistConditions extends SpecialPage {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SWLGroup $group
+	 * @param SWL\Group $group
 	 *
 	 * @return string
 	 */
-	protected function getGroupHtml( SWLGroup $group ) {
+	protected function getGroupHtml( Group $group ) {
 		$namespaces = $group->getNamespaces();
 
 		foreach ( $namespaces as &$ns ) {
-			$ns = $ns == 0 ? 'Main' : MWNamespace::getCanonicalName( $ns );
+			$ns = $ns == 0 ? 'Main' : $this->nsInfo->getCanonicalName( $ns );
 		}
 
 		return Html::rawElement(

@@ -10,10 +10,12 @@ namespace SWL\Tests;
  *
  * @author mwjames
  */
+use GlobalVarConfig;
 class ConfigurationIntegrityTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanReadDatabaseSchema() {
-		$this->assertTrue( is_readable( $GLOBALS['egSwlSqlDatabaseSchemaPath'] ) );
+		$cfg = new GlobalVarConfig( "egSWL" );
+		$this->assertTrue( is_readable( $cfg->get('SqlDatabaseSchemaPath') ) );
 	}
 
 }

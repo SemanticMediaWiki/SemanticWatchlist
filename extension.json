@@ -1,0 +1,160 @@
+{
+	"name": "Semantic Watchlist",
+	"author": [
+		"[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]",
+		"Mark A. Hershberger",
+		"..."
+	],
+	"version": "1.2.0-alpha",
+	"url": "https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist",
+	"descriptionmsg": "semanticwatchlist-desc",
+	"namemsg": "semanticwatchlist-title",
+	"license-name": "GPL-3.0-or-later",
+	"type": "semantic",
+	"requires": {
+		"MediaWiki": ">= 1.35"
+	},
+	"MessagesDirs": {
+		"SemanticWatchlist": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"SemanticWatchlistAlias": "i18n/extra/SemanticWatchlist.alias.php"
+	},
+	"AutoloadNamespaces": {
+		"SWL\\": "src/"
+	},
+	"Hooks": {
+	},
+	"AutoloadClasses": {
+		"SWL": "src/"
+	},
+	"callback": "SWL\\SemanticWatchlist::initExtension",
+	"ExtensionFunctions": [
+		"SWL\\SemanticWatchlist::onExtensionFunction"
+	],
+	"SpecialPages": {
+		"SemanticWatchlist": "SWL\\Special\\Watchlist",
+		"WatchlistConditions": "SWL\\Special\\Conditions"
+	},
+	"SpecialPageGroups": {
+		"SemanticWatchlist": "changes",
+		"WatchlistConditions": "changes"
+	},
+	"APIModules": {
+		"addswlgroup": "SWL\\Api\\AddWatchlistGroup",
+		"deleteswlgroup": "SWL\\Api\\DeleteWatchlistGroup",
+		"editswlgroup": "SWL\\Api\\EditWatchlistGroup"
+	},
+	"APIListModules": {
+		"semanticwatchlist": "SWL\\Api\\QuerySemanticWatchlist"
+	},
+	"AvailableRights": [
+		"semanticwatch",
+		"semanticwatchgroups"
+	],
+	"GroupPermissions": {
+		"*": {
+			"semanticwatch": false,
+			"semanticwatchgroups": false
+		},
+		"user": {
+			"semanticwatch": true,
+			"semanticwatchgroups": false
+		},
+		"autoconfirmed": {
+			"semanticwatch": true,
+			"semanticwatchgroups": false
+		},
+		"bot": {
+			"semanticwatch": false,
+			"semanticwatchgroups": false
+		},
+		"sysop": {
+			"semanticwatch": true,
+			"semanticwatchgroups": true
+		}
+	},
+	"config_prefix": "egSWL",
+	"config": {
+		"EnableEmailNotify": {
+			"value": true,
+			"description": "Enable email notification or not?"
+		},
+		"MailPerChange": {
+			"value": true,
+			"description": "Send an email for every change (as opposed to a \"something changed email\" for the first 'MaxMails'] changes)?"
+		},
+		"MaxMails": {
+			"value": 1,
+			"description": "The maximum amount of generic emails to send about changes until the user actually checks his semantic watchlist."
+		},
+		"EnableTopLink": {
+			"value": true,
+			"description": "Enable displaying a top link to the semantic watchlist?"
+		},
+		"EnableSelfNotify": {
+			"value": false,
+			"description": "Send email to editor"
+		},
+		"SqlDatabaseSchemaPath": {
+			"value": "sql/swl-table-schema.sql",
+			"description": "SQL schema path",
+			"path": true
+		}
+	},
+	"ConfigRegistry": {
+		"SemanticWatchlist": "GlobalVarConfig::newInstance"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "module",
+		"remoteExtPath": "SemanticWatchlist/module"
+	},
+	"ResourceModules": {
+		"ext.swl.watchlist": {
+			"styles": [
+				"ext.swl.watchlist.css"
+			]
+		},
+		"ext.swl.watchlistconditions": {
+			"styles": [
+				"ext.swl.watchlistconditions.css"
+			],
+			"scripts": [
+				"jquery.watchlistcondition.js",
+				"ext.swl.watchlistconditions.js"
+			],
+			"messages": [
+				"swl-group-name",
+				"swl-group-legend",
+				"swl-group-properties",
+				"swl-properties-list",
+				"swl-group-remove-property",
+				"swl-group-add-property",
+				"swl-group-page-selection",
+				"swl-group-save",
+				"swl-group-saved",
+				"swl-group-saving",
+				"swl-group-remove",
+				"swl-group-category",
+				"swl-group-namespace",
+				"swl-group-concept",
+				"swl-group-confirm-remove",
+				"swl-custom-legend",
+				"swl-custom-remove-property",
+				"swl-custom-text-add",
+				"swl-custom-input"
+			],
+			"dependencies": [
+				"mediawiki.api",
+				"es6-polyfills"
+			]
+		}
+	},
+	"DefaultUserOptions": {
+		"swl_email": true,
+		"swl_watchlisttoplink": true
+	},
+	"manifest_version": 2
+}

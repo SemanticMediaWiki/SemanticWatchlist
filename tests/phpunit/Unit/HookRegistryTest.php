@@ -164,8 +164,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	private function assertThatHookIsExcutable( $wgHooks, $hookName, $arguments ) {
 		foreach ( $wgHooks[ $hookName ] as $hook ) {
-			$this->assertInternalType(
-				'boolean',
+			$this->assertIsBool(
 				call_user_func_array( $hook, $arguments )
 			);
 		}

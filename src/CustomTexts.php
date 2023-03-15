@@ -5,19 +5,23 @@
  *
  * @since 0.2
  *
- * @file SWL_CustomTexts.php
+ * @file CustomTexts.php
  * @ingroup SemanticWatchlist
  *
  * @author Nischay Nahata
  */
-class SWLCustomTexts {
+namespace SWL;
+
+use SMWDIProperty;
+
+class CustomTexts {
 
 	/**
 	 * Group for this CustomTexts
 	 *
 	 * @since 0.2
 	 *
-	 * @var SWLGroup
+	 * @var Group
 	 */
 	private $group;
 
@@ -30,7 +34,7 @@ class SWLCustomTexts {
 	 */
 	private $customTexts = null;
 
-	public function __construct( SWLGroup $group ) {
+	public function __construct( Group $group ) {
 		$this->group = $group;
 	}
 
@@ -56,6 +60,12 @@ class SWLCustomTexts {
 
 		foreach( $set as $elem ) {
 			$parts = explode( '~', $elem );
+			// TODO I have no idea what this represents, but the setting a few
+			// lines down had some undefined offset (1) errors, just
+			// skipping for now
+			if ( count($parts) < 3 ) {
+				continue;
+			}
 			if( !array_key_exists( $parts[0], $this->customTexts ) ) {
 				$this->customTexts[$parts[0]] = array();
 			}

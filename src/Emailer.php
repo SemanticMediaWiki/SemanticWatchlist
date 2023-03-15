@@ -5,27 +5,38 @@
  *
  * @since 0.1
  *
- * @file SWL_Emailer.php
+ * @file Emailer.php
  * @ingroup SemanticWatchlist
  *
  * @licence GNU GPL v3 or later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-final class SWLEmailer {
+namespace SWL;
+
+use Html;
+use Hooks;
+use SpecialPage;
+use User;
+use UserMailer;
+use MailAddress;
+use SMWDataValueFactory;
+use SMW\DIProperty;
+
+final class Emailer {
 
 	/**
 	 * Notifies a single user of the changes made to properties in a single edit.
 	 *
 	 * @since 0.1
 	 *
-	 * @param SWLGroup $group
+	 * @param Group $group
 	 * @param User $user
-	 * @param SWLChangeSet $changeSet
+	 * @param ChangeSet $changeSet
 	 * @param boolean $describeChanges
 	 *
 	 * @return Status
 	 */
-	public static function notifyUser( SWLGroup $group, User $user, SWLChangeSet $changeSet, $describeChanges ) {
+	public static function notifyUser( Group $group, User $user, ChangeSet $changeSet, $describeChanges ) {
 		global $wgLang, $wgPasswordSender, $wgPasswordSenderName;
 
 		$emailText = wfMessage(
@@ -51,24 +62,13 @@ final class SWLEmailer {
 
 		Hooks::run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
-		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
-			return UserMailer::send(
-				new MailAddress( $user ),
-				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
-				$title,
-				$emailText,
-				null,
-				'text/html; charset=ISO-8859-1'
-			);
-		} else {
-			return UserMailer::send(
-				new MailAddress( $user ),
-				new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
-				$title,
-				$emailText,
-				array( 'contentType' => 'text/html; charset=ISO-8859-1' )
-			);
-		}
+		return UserMailer::send(
+			new MailAddress( $user ),
+			new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
+			$title,
+			$emailText,
+			array( 'contentType' => 'text/html; charset=ISO-8859-1' )
+		);
 	}
 
 	/**
@@ -76,15 +76,15 @@ final class SWLEmailer {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SWLChangeSet $changeSet
-	 * @param SWLGroup $group
+	 * @param ChangeSet $changeSet
+	 * @param Group $group
 	 *
 	 * @return string
 	 */
-	private static function getChangeListHTML( SWLChangeSet $changeSet, SWLGroup $group ) {
+	private static function getChangeListHTML( ChangeSet $changeSet, Group $group ) {
 		$propertyHTML = array();
-		$customTexts = new SWLCustomTexts( $group );
-		foreach ( $changeSet->getAllProperties() as /* SMWDIProperty */ $property ) {
+		$customTexts = new CustomTexts( $group );
+		foreach ( $changeSet->getAllProperties() as /* DIProperty */ $property ) {
 			$propertyHTML[] = self::getPropertyHTML( $property, $changeSet->getAllPropertyChanges( $property ), $customTexts );
 		}
 
@@ -96,19 +96,19 @@ final class SWLEmailer {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param array $changes
-	 * @param SWLCustomTexts $customTexts
+	 * @param CustomTexts $customTexts
 	 * @return string
 	 */
-	private static function getPropertyHTML( SMWDIProperty $property, array $changes, $customTexts ) {
+	private static function getPropertyHTML( DIProperty $property, array $changes, CustomTexts $customTexts ) {
 		$insertions = array();
 		$deletions = array();
 		$customMessages = array();
 		$justCustomMessage = false;
 
 		// Convert the changes into a list of insertions and a list of deletions.
-		foreach ( $changes as /* SWLPropertyChange */ $change ) {
+		foreach ( $changes as /* PropertyChange */ $change ) {
 			$justCustomMessage = false;
 			if ( !is_null( $change->getNewValue() ) && $customTexts->getPropertyCustomText( $property, $change->getNewValue()->getSerialization() ) ) {
 				$customMessages[] = $customTexts->getPropertyCustomText( $property, $change->getNewValue()->getSerialization() );

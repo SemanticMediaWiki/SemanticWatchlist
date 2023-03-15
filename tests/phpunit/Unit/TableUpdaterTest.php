@@ -16,7 +16,7 @@ use SWL\TableUpdater;
  */
 class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 
-	public function setUp() {
+	public function setUp(): void {
 		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.28', 'gt' ) ) {
 			$this->markTestSkipped(
 				'Test broken on MW > 1.27, see https://github.com/SemanticMediaWiki/SemanticWatchlist/issues/71'
