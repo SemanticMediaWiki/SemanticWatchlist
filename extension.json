@@ -3,9 +3,10 @@
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw] for [http://www.wikiworks.com/ WikiWorks]",
 		"Mark A. Hershberger",
+		"[https://www.wikiteq.com/ WikiTeq]",
 		"..."
 	],
-	"version": "1.2.0-alpha",
+	"version": "1.3.0",
 	"url": "https://www.mediawiki.org/wiki/Extension:Semantic_Watchlist",
 	"descriptionmsg": "semanticwatchlist-desc",
 	"namemsg": "semanticwatchlist-title",

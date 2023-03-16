@@ -1,8 +1,16 @@
 # Semantic Watchlist
 
+## 1.3.0
+
+Released on March 16, 2023.
+
+* Added compatibility with MediaWiki 1.39
+* Raised minimum MediaWiki version to 1.35
+* Raised minimum PHP version to 7.3
+
 ## 1.2.0
 
-Not a release yet
+Was not released
 
 * Added compatibility with the most recent MediaWiki versions
 * Raised minimum MediaWiki version to 1.23
