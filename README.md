@@ -12,6 +12,13 @@ that lists changes to these properties.
 
 ## Requirements
 
+Semantic Watchlist 1.3:
+
+- PHP 7.3 or above
+- MediaWiki 1.35 or above
+- [Semantic MediaWiki][smw] 2.0 - 3.0
+- MySQL 5+ or SQLite 3
+
 Semantic Watchlist 1.2:
 
 - PHP 5.6 - 7.2
