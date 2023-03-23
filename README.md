@@ -16,7 +16,7 @@ Semantic Watchlist 1.3:
 
 - PHP 7.3 or above
 - MediaWiki 1.35 or above
-- [Semantic MediaWiki][smw] 2.0 - 3.0
+- [Semantic MediaWiki][smw] 3.0 - 4.0
 - MySQL 5+ or SQLite 3
 
 Semantic Watchlist 1.2:
