@@ -15,6 +15,7 @@ namespace SWL;
 
 use Html;
 use Hooks;
+use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use User;
 use UserMailer;
@@ -60,7 +61,8 @@ final class Emailer {
 
 		$title = wfMessage( 'swl-email-propschanged', array( $changeSet->getEdit()->getTitle()->getFullText() ) )->text();
 
-		Hooks::run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
 		return UserMailer::send(
 			new MailAddress( $user ),
