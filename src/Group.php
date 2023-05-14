@@ -530,7 +530,8 @@ class Group {
 		$users = $this->getWatchingUsers();
 
 		if ( $changes->hasChanges( true ) ) {
-			Hooks::run( 'SWLGroupNotify', array( $this, $users, $changes ) );
+			MediaWikiServices::getInstance()->getHookContainer()
+				->run( 'SWLGroupNotify', array( $this, $users, $changes ) );
 		}
 	}
 

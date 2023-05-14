@@ -14,6 +14,7 @@
 namespace SWL;
 
 use Hooks;
+use MediaWiki\MediaWikiServices;
 use Title;
 use User;
 
@@ -154,7 +155,8 @@ class Edit {
 	 * @return boolean Success indicator
 	 */
 	private function insertIntoDB() {
-		Hooks::run( 'SWLBeforeEditInsert', array( &$this ) );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->run( 'SWLBeforeEditInsert', array( &$this ) );
 
 		$dbr = wfGetDB( DB_MASTER );
 
@@ -169,7 +171,7 @@ class Edit {
 
 		$this->id = $dbr->insertId();
 
-		Hooks::run( 'SWLAfterEditInsert', array( &$this ) );
+		$hookContainer->run( 'SWLAfterEditInsert', array( &$this ) );
 
 		return $result;
 	}
