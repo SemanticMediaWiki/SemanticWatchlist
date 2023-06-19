@@ -65,11 +65,11 @@ final class Emailer {
 		$hookContainer->run( 'SWLBeforeEmailNotify', array( $group, $user, $changeSet, $describeChanges, &$title, &$emailText ) );
 
 		return UserMailer::send(
-			new MailAddress( $user ),
+			MailAddress::newFromUser( $user ),
 			new MailAddress( $wgPasswordSender, $wgPasswordSenderName ),
 			$title,
 			$emailText,
-			array( 'contentType' => 'text/html; charset=ISO-8859-1' )
+			array( 'contentType' => 'text/html; charset=UTF-8' )
 		);
 	}
 
