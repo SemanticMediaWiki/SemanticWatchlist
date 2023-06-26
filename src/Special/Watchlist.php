@@ -345,7 +345,7 @@ class Watchlist extends SpecialPage {
 				Html::element(
 					'a',
 					array( 'href' => $edit->getTitle()->getLocalURL() ),
-					$edit->getTitle()->getText()
+					$edit->getTitle()->getPrefixedText()
 				) . ' (' .
 				Html::element(
 					'a',
