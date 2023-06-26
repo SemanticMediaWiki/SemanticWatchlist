@@ -115,10 +115,10 @@ class GetPreferences {
 		}
 
 		foreach ( $properties as &$property ) {
-			$property = "''$property''";
+			$property = "''" . wfEscapeWikiText( $property ) . "''";
 		}
 
-		$this->preferences['swl_watchgroup_' . $group->getId()] = $this->addGoupPreference(
+		$this->preferences['swl_watchgroup_' . $group->getId()] = $this->addGroupPreference(
 			$type,
 			$group->getName(),
 			$name,
@@ -150,16 +150,16 @@ class GetPreferences {
 	 * @search swl-prefs-category-label, swl-prefs-namespace-label,
 	 * swl-prefs-concept-label
 	 */
-	protected function addGoupPreference( $type, $group, $name, $properties ) {
+	protected function addGroupPreference( $type, $group, $name, $properties ) {
 		return  array(
 			'type' => 'toggle',
-			'label' => wfMessage(
+			'label-message' => wfMessage(
 				"swl-prefs-$type-label",
-				$group,
+				wfEscapeWikiText( $group ),
 				count( $properties ),
 				$this->language->listToText( $properties ),
-				$name
-			)->inLanguage( $this->language )->text(),
+				wfEscapeWikiText( $name )
+			),
 			'section' => 'swl/swlgroup',
 		);
 	}
