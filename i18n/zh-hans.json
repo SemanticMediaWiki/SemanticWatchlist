@@ -47,7 +47,7 @@
 	"swl-watchlist-can-mod-prefs": "您也可以[[$1|修改您的监视列表设置]]，包括设置要监视的属性。",
 	"swl-watchlist-no-groups": "您尚未监视任何监视列表组。[[$1|请修改您的监视列表设置]]。",
 	"swl-email-propschanged": "$1的属性已更改",
-	"swl-email-propschanged-long": "您在'''$1'''监视的一个或多个属性已被{{GENDER:$2|用户}}'''$2'''在$5 $4更改。您可以查看这些更改和[$3 您的语义监视列表]内的其他更改。",
+	"swl-email-propschanged-long": "您在'''$1'''监视的一个或多个属性已被{{GENDER:$2|用户}}'''$2'''在$5 $4更改。您可以在[$3 您的语义监视列表]查看这些更改和其他更改。",
 	"swl-email-changes": "[$2 $1]的属性更改：",
 	"prefs-swl": "语义监视列表",
 	"prefs-swlgroup": "要监视的组",
