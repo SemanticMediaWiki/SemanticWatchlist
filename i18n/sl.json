@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Upwinxp"
 		]
 	},
 	"semanticwatchlist-desc": "Omogoča, da so uporabniki obveščeni o posebnih spremembah podatkov Semantičnega MediaWikija",
@@ -40,7 +41,7 @@
 	"swl-watchlist-can-mod-prefs": "Prav tako lahko [[$1|spremenite nastavitve svojega spiska nadzorov]], vključno z nastavitvijo lastnosti, ki jih želite opazovati.",
 	"swl-watchlist-no-groups": "Trenutno še ne opazujete nobene skupine spiskov nadzorov. [[$1|Spremenite svoje nastavitve spiska nadzorov]].",
 	"swl-email-propschanged": "Lastnosti so se spremenile na $1",
-	"swl-email-propschanged-long": "{{GENDER:$2|Uporabnik '''$2''' je $4 ob $5 spremenil|Uporabnica '''$2''' je $4 ob $5 spremenila|Uporabnik_ca '''$2''' je $4 ob $5 spremenil_a}} eno ali več lastnosti, ki jih opazujete v spletišču '''$1'''. Te in druge spremembe si lahko ogledate na [$3 svojem semantičnem spisku nadzorov].",
+	"swl-email-propschanged-long": "{{GENDER:$2|Uporabnik '''$2''' je $4 ob $5 spremenil|Uporabnica '''$2''' je $4 ob $5 spremenila|Uporabnik/ca '''$2''' je $4 ob $5 spremenil/a}} eno ali več lastnosti, ki jih opazujete v spletišču '''$1'''. Te in druge spremembe si lahko ogledate na [$3 svojem semantičnem spisku nadzorov].",
 	"swl-email-changes": "Spremembe lastnosti na strani [$2 $1]:",
 	"prefs-swl": "Semantični spisek nadzorov",
 	"prefs-swlgroup": "Skupine za opazovanje",
