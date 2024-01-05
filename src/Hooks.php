@@ -14,18 +14,15 @@
 namespace SWL;
 
 use AlItem;
+use ALRow;
+use ALTree;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Sanitizer;
-use SWL\Group;
-use SWL\ChangeSet;
-use SWL\Emailer;
-use SWL\Edit;
-use SMWStore;
 use SMWSemanticData;
+use SMWStore;
 use Title;
 use User;
-
 
 final class Hooks {
 
@@ -136,20 +133,23 @@ final class Hooks {
 	/**
 	 * Adds a link to Admin Links page.
 	 *
+	 * @param ALTree $admin_links_tree
 	 * @since 0.1
-	 *
-	 * @return true
 	 */
-	public static function addToAdminLinks( &$admin_links_tree ) {
-	    $displaying_data_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_browsesearch' )->text() );
+	public static function addToAdminLinks( ALTree $admin_links_tree ) {
+		$displaying_data_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_browsesearch' )->text() );
 
-	    // Escape if SMW hasn't added links.
-	    if ( is_null( $displaying_data_section ) ) return true;
-	    $smw_docu_row = $displaying_data_section->getRow( 'smw' );
+		// Escape if SMW hasn't added links.
+		if ( !$displaying_data_section ) {
+			return;
+		}
+		$smw_row = $displaying_data_section->getRow( 'smw' );
+		if ( !$smw_row ) {
+			$smw_row = new ALRow( 'smw-watchlist' );
+			$displaying_data_section->addRow( $smw_row );
+		}
 
-	    $smw_docu_row->addItem( AlItem::newFromSpecialPage( 'WatchlistConditions' ) );
-
-	    return true;
+		$smw_row->addItem( AlItem::newFromSpecialPage( 'WatchlistConditions' ) );
 	}
 
 }
