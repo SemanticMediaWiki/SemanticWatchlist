@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeroen De Dauw"
+			"Jeroen De Dauw",
+			"Daniel Scherzer"
 		]
 	},
+	"semanticwatchlist-title": "SemanticWatchlist",
 	"semanticwatchlist-desc": "Lets users be notified of specific changes to Semantic MediaWiki data",
 	"right-semanticwatch": "Use semantic watchlist",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modify]] the semantic watchlist groups",
