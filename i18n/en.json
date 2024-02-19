@@ -1,12 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeroen De Dauw"
+			"Jeroen De Dauw",
+			"Daniel Scherzer"
 		]
 	},
 	"semanticwatchlist-desc": "Lets users be notified of specific changes to Semantic MediaWiki data",
 	"right-semanticwatch": "Use semantic watchlist",
+	"action-semanticwatch": "use semantic watchlist",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modify]] the semantic watchlist groups",
+	"action-semanticwatchgroups": "modify the semantic watchlist groups",
 	"special-semanticwatchlist": "Semantic Watchlist",
 	"special-watchlistconditions": "Semantic watchlist conditions",
 	"swl-group-name": "Group name:",
