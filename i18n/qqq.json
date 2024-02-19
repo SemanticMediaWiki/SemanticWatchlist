@@ -9,12 +9,15 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"아라"
+			"아라",
+			"Daniel Scherzer"
 		]
 	},
 	"semanticwatchlist-desc": "{{desc|name=Semantic Watchlist|url=https://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}",
 	"right-semanticwatch": "{{doc-right|semanticwatch}}",
+	"action-semanticwatch": "{{doc-action|semanticwatch}}",
 	"right-semanticwatchgroups": "{{doc-right|semanticwatchgroups}}",
+	"action-semanticwatchgroups": "{{doc-action|semanticwatchgroups}}",
 	"special-semanticwatchlist": "{{doc-special|SemanticWatchlist}}",
 	"special-watchlistconditions": "{{doc-special|WatchlistConditions}}",
 	"swl-group-name": "This is the title of the field that lets you specify the name of a group of properties to be watched on [[Special:SemanticWatchlist]].\n{{Identical|Group name}}",
