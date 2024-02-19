@@ -13,6 +13,7 @@
 			"Daniel Scherzer"
 		]
 	},
+	"semanticwatchlist-title": "Extension name on [[Special:Version]]",
 	"semanticwatchlist-desc": "{{desc|name=Semantic Watchlist|url=https://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}",
 	"right-semanticwatch": "{{doc-right|semanticwatch}}",
 	"action-semanticwatch": "{{doc-action|semanticwatch}}",

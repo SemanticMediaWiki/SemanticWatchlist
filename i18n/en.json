@@ -5,6 +5,7 @@
 			"Daniel Scherzer"
 		]
 	},
+	"semanticwatchlist-title": "SemanticWatchlist",
 	"semanticwatchlist-desc": "Lets users be notified of specific changes to Semantic MediaWiki data",
 	"right-semanticwatch": "Use semantic watchlist",
 	"action-semanticwatch": "use semantic watchlist",
