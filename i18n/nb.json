@@ -5,9 +5,12 @@
 			"Jon Harald Søby"
 		]
 	},
+	"semanticwatchlist-title": "Semantisk overvåkningsliste",
 	"semanticwatchlist-desc": "Lar brukere bli informert om spesifikke endringer i Semantic MediaWiki-data.",
 	"right-semanticwatch": "Bruk semantisk overvåkningsliste",
+	"action-semanticwatch": "bruke semantisk overvåkningsliste",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Endre]] gruppene for semantiske overvåkningslister",
+	"action-semanticwatchgroups": "endre semantiske overvåkningslistegrupper",
 	"special-semanticwatchlist": "Semantisk overvåkningsliste",
 	"special-watchlistconditions": "Betingelser for semantisk overvåkningsliste",
 	"swl-group-name": "Gruppenavn:",

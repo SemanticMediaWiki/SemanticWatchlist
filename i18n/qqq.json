@@ -1,6 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
+			"Daniel Scherzer",
 			"EugeneZelenko",
 			"Jeroen De Dauw",
 			"Kghbln",
@@ -9,11 +11,10 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"아라",
-			"Daniel Scherzer"
+			"아라"
 		]
 	},
-	"semanticwatchlist-title": "Extension name on [[Special:Version]]",
+	"semanticwatchlist-title": "{{name}}\nExtension name on [[Special:Version]]",
 	"semanticwatchlist-desc": "{{desc|name=Semantic Watchlist|url=https://www.mediawiki.org/wiki/Extension:SemanticWatchlist}}",
 	"right-semanticwatch": "{{doc-right|semanticwatch}}",
 	"action-semanticwatch": "{{doc-action|semanticwatch}}",
