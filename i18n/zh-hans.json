@@ -8,12 +8,15 @@
 			"Shirayuki",
 			"Xiaomingyan",
 			"Xiplus",
-			"Yfdyh000"
+			"Yfdyh000",
+			"沈澄心"
 		]
 	},
 	"semanticwatchlist-desc": "让用户收到语义MediaWiki数据的特定更改的通知",
 	"right-semanticwatch": "使用语义监视列表",
+	"action-semanticwatch": "使用语义监视列表",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|修改]]语义监视列表组",
+	"action-semanticwatchgroups": "修改语义监视列表组",
 	"special-semanticwatchlist": "语义监视列表",
 	"special-watchlistconditions": "语义监视列表条件",
 	"swl-group-name": "组名：",
