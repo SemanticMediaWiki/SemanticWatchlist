@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alien333",
 			"Gomoko",
 			"IAlex",
 			"Sherbrooke",
@@ -10,6 +11,7 @@
 	},
 	"semanticwatchlist-desc": "Permet aux utilisateurs d'être avertis de modifications spécifiques dans les données de MediaWiki sémantique",
 	"right-semanticwatch": "Utiliser la liste de suivi sémantique",
+	"action-semanticwatch": "utiliser la liste de suivi sémantique",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modifier]] les groupes de la liste de suivi sémantique",
 	"special-semanticwatchlist": "Liste de suivi sémantique",
 	"special-watchlistconditions": "Paramètres de la liste de suivi sémantique",

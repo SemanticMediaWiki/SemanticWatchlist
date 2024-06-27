@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Romaine",
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin"
@@ -8,7 +9,9 @@
 	},
 	"semanticwatchlist-desc": "Laat gebruikers een volglijst samenstellen op basis van wijzigingen in gegevens van Semantic MediaWiki",
 	"right-semanticwatch": "Semantische volglijst gebruiken",
+	"action-semanticwatch": "semantische volglijst gebruiken",
 	"right-semanticwatchgroups": "De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]",
+	"action-semanticwatchgroups": "wijzig de semantische volglijstgroepen",
 	"special-semanticwatchlist": "Semantische volglijst",
 	"special-watchlistconditions": "Voorwaarden voor semantische volglijst",
 	"swl-group-name": "Groepsnaam:",
