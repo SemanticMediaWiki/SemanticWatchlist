@@ -4,8 +4,32 @@
 			"Умар"
 		]
 	},
+	"swl-group-name": "Тобан цӀе:",
+	"swl-group-legend": "Тоба",
+	"swl-group-save": "Ӏалашйан",
+	"swl-group-remove": "ДӀайаккха",
+	"swl-group-saved": "Нисдаран гӀирс Ӏалашбина.",
 	"swl-group-saving": "Ӏалашйар",
+	"swl-group-category": "категори",
 	"swl-group-namespace": "цӀерийн меттиг",
+	"swl-group-concept": "концепт",
+	"swl-group-confirm-remove": "Баккъалла а лаьий хьуна \"$1\" тергаме тоба дӀайаккха?",
+	"swl-group-add-new-group": "Керла тоба тӀетоха",
+	"swl-group-add-group": "Тоба тӀетоха",
+	"swl-custom-remove-property": "ДӀайаккха",
+	"swl-watchlist-insertions": "Керла:",
+	"swl-watchlist-deletions": "Шира:",
 	"swl-new-item": "КЕРЛА",
-	"swl-prefs-emailnofity": "Аса тергал еш йолучарна хийцам бича электронан поште баийта хаам"
+	"swl-watchlist-pagincontrol": "Хьажа ($1) ($2)",
+	"swl-watchlist-firstn": "хьалхара $1",
+	"swl-watchlist-firstn-title": "{{PLURAL:$1|Хьалхара|1=}} $1 {{PLURAL:$1|жамӀ}}",
+	"swl-watchlist-no-items": "Семантикин тергаме могӀаман чохь элементаш йац.",
+	"prefs-swl": "Семантикин тергаме могӀам",
+	"prefs-swlgroup": "Тергаман тобанаш",
+	"prefs-swlglobal": "Йукъара параметраш",
+	"swl-prefs-emailnofity": "Аса тергал еш йолучарна хийцам бича электронан поште баийта хаам",
+	"swl-prefs-watchlisttoplink": "Гойту агӀонан лакхахь семантикин тергаме могӀамна хьажорг",
+	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|билгало}} $3 ''$4'' категори чуьра",
+	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|билгало}} $3 ''$4'' цӀерийн меттигера",
+	"swl-prefs-concept-label": "'''$1''': {{PLURAL:$2|билгало}} $3 ''$4'' концептера"
 }
