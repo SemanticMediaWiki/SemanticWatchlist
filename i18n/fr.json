@@ -4,6 +4,7 @@
 			"Alien333",
 			"Gomoko",
 			"IAlex",
+			"Kubuya kanane leopold",
 			"Sherbrooke",
 			"Verdy p",
 			"Wladek92"
@@ -13,6 +14,7 @@
 	"right-semanticwatch": "Utiliser la liste de suivi sémantique",
 	"action-semanticwatch": "utiliser la liste de suivi sémantique",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modifier]] les groupes de la liste de suivi sémantique",
+	"action-semanticwatchgroups": "Modifier les groupe de listes de surveillance semantiques.",
 	"special-semanticwatchlist": "Liste de suivi sémantique",
 	"special-watchlistconditions": "Paramètres de la liste de suivi sémantique",
 	"swl-group-name": "Nom du groupe:",
