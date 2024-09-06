@@ -134,7 +134,7 @@ class Edit {
 	 * @return boolean Success indicator
 	 */
 	private function updateInDB() {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 
 		return  $dbr->update(
 			'swl_edits',
@@ -158,7 +158,7 @@ class Edit {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		$hookContainer->run( 'SWLBeforeEditInsert', array( &$this ) );
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 
 		$result = $dbr->insert(
 			'swl_edits',

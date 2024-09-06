@@ -558,7 +558,7 @@ class ChangeSet {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		$hookContainer->run( 'SWLBeforeChangeSetInsert', array( &$this, &$groupsToAssociate, &$editId ) );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->insert(
 			'swl_sets',
