@@ -186,7 +186,7 @@ class Group {
 	 * @return boolean Success indicator
 	 */
 	private function updateInDB() {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 		return  $dbr->update(
 			'swl_groups',
 			array(
@@ -209,7 +209,7 @@ class Group {
 	 * @return boolean Success indicator
 	 */
 	private function insertIntoDB() {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 
 		$result = $dbr->insert(
 			'swl_groups',

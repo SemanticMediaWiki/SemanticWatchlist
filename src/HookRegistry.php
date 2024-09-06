@@ -45,7 +45,7 @@ class HookRegistry {
 		$configuration = $this->configuration;
 
 		$tableUpdater = new TableUpdater(
-			new LazyDBConnectionProvider( DB_MASTER )
+			new LazyDBConnectionProvider( DB_PRIMARY )
 		);
 
 		/**
