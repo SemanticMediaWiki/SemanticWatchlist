@@ -18,14 +18,14 @@ use ApiBase;
 use SWL\Group;
 
 class AddWatchlistGroup extends ApiBase {
-	
+
 	public function __construct( $main, $action ) {
 		parent::__construct( $main, $action );
 	}
-	
+
 	public function execute() {
 		$user = $this->getUser();
-		
+
 		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
 			$this->dieWithError( [
 				'apierror-permissiondenied',
@@ -36,7 +36,7 @@ class AddWatchlistGroup extends ApiBase {
 		if ( $block ) {
 			$this->dieBlocked( $block );
 		}
-		
+
 		$params = $this->extractRequestParams();
 		$params['customTexts'] = Group::unserializedCustomTexts( $params['customTexts'] );
 
@@ -49,19 +49,19 @@ class AddWatchlistGroup extends ApiBase {
 			$params['concepts'],
 			$params['customTexts']
 		);
-		
+
 		$this->getResult()->addValue(
 			null,
 			'success',
 			$group->writeToDB()
 		);
-		
+
 		$this->getResult()->addValue(
 			'group',
 			'id',
 			$group->getId()
 		);
-		
+
 		$this->getResult()->addValue(
 			'group',
 			'name',
@@ -102,7 +102,7 @@ class AddWatchlistGroup extends ApiBase {
 			),
 		);
 	}
-	
+
 	public function getParamDescription() {
 		return array(
 			'name' => 'The name of the group, used for display in the user preferences',
@@ -113,7 +113,7 @@ class AddWatchlistGroup extends ApiBase {
 			'customTexts' => 'Custom Text to be sent in Emails',
 		);
 	}
-	
+
 	public function getDescription() {
 		return array(
 			'API module to add semantic watchlist groups.'
@@ -125,10 +125,18 @@ class AddWatchlistGroup extends ApiBase {
 			'api.php?action=addswlgroup&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
 			'api.php?action=addswlgroup&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
 		);
-	}	
-	
+	}
+
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	public function isWriteMode() {
+		return true;
+	}
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
-	}		
-	
+	}
+
 }

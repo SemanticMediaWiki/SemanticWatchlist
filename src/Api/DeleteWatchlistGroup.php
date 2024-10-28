@@ -26,7 +26,7 @@ class DeleteWatchlistGroup extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser();
-		
+
 		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
 			$this->dieWithError( [
 				'apierror-permissiondenied',
@@ -226,6 +226,14 @@ class DeleteWatchlistGroup extends ApiBase {
 		return array(
 			'api.php?action=deleteswlgroup&ids=42|34',
 		);
+	}
+
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	public function isWriteMode() {
+		return true;
 	}
 
 	public function getVersion() {

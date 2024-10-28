@@ -173,8 +173,7 @@
 		args[self.find('select :selected').attr('type')] = self.find( '.conditionInput' ).val();
 
 		var api = new mw.Api();
-		// TODO make POST
-		return api.get( args ).then(
+		return api.postWithEditToken( args ).then(
 			function (data) {
 				return data.success;
 			},
@@ -186,8 +185,7 @@
 
 	this.doDelete = function( callback ) {
 		var api = new mw.Api();
-		// TODO make POST
-		return api.get( {
+		return api.postWithEditToken( {
 			'action': 'deleteswlgroup',
 			'format': 'json',
 			'formatversion': 2,
