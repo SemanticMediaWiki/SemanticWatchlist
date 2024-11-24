@@ -18,6 +18,7 @@ use FauxRequest;
 use SWL\ChangeSet;
 use HTML;
 use MediaWiki\MediaWikiServices;
+use Profiler;
 use SpecialPage;
 use SMWOutputs;
 use SMWDataValueFactory;
@@ -84,6 +85,10 @@ class Watchlist extends SpecialPage {
 			$this->displayRestrictionError();
 			return;
 		}
+
+		// TODO: refactor this page to not make writes on GET requests; for now,
+		// silencing the performance alerts
+		Profiler::instance()->getTransactionProfiler()->resetExpectations();
 
 		$this->registerUserView( $user );
 
