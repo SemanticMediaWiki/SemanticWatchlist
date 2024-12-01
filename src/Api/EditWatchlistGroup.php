@@ -25,7 +25,7 @@ class EditWatchlistGroup extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser();
-		
+
 		if ( !$user->isAllowed( 'semanticwatchgroups' ) ) {
 			$this->dieWithError( [
 				'apierror-permissiondenied',
@@ -117,6 +117,14 @@ class EditWatchlistGroup extends ApiBase {
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff',
 			'api.php?action=editswlgroup&id=42&name=My group of awesome&properties=Has awesomeness|Has epicness&categories=Awesome stuff&customTexts=Has awesomeness~true~Changed to awesome now',
 		);
+	}
+
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	public function isWriteMode() {
+		return true;
 	}
 
 	public function getVersion() {
