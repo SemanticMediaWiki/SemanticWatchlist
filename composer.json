@@ -43,6 +43,10 @@
 		"test": [
 			"@phpunit"
 		],
-		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
+		"test-coverage": [
+			"@phpunit-coverage"
+		],
+		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",
+		"phpunit-coverage": "php ${MW_INSTALL_PATH:-../..}/tests/phpunit/phpunit.php -c phpunit.xml.dist --testdox --coverage-text --coverage-html coverage/php --coverage-clover coverage/php/coverage.xml"
 	}
 }
