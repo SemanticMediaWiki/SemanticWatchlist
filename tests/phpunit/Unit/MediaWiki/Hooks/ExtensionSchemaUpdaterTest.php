@@ -17,7 +17,7 @@ use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
  *
  * @author mwjames
  */
-class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
+class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
@@ -89,7 +89,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addExtensionUpdate' )
 			->will( $this->returnValue( true ) );
 
-		$configuration = array( 'egSwlSqlDatabaseSchemaPath' => 'foo' );
+		$configuration = array( 'egSWLSqlDatabaseSchemaPath' => 'foo' );
 
 		$instance = new ExtensionSchemaUpdater( $databaseUpdater );
 		$instance->setConfiguration( $configuration );

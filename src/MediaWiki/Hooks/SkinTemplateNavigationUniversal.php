@@ -8,7 +8,7 @@ use User;
 
 /**
  * Called after the navigation links have been set up, before they are shown.
- * https://secure.wikimedia.org/wikipedia/mediawiki/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
+ * https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation::Universal
  *
  * @ingroup SWL
  *
@@ -28,18 +28,18 @@ class SkinTemplateNavigationUniversal {
 	/**
 	 * @since 1.0
 	 *
-	 * @param array &$personalUrls
+	 * @param array|null &$personalUrls
 	 * @param Title &$title
 	 * @param User $user
 	 * @param UserOptionsManager $userOptionsManager
 	 */
 	public function __construct(
-		array &$personalUrls,
+		?array &$personalUrls,
 		Title $title,
 		User $user,
 		UserOptionsManager $userOptionsManager
 	) {
-		$this->personalUrls =& $personalUrls;
+		$this->personalUrls =& $personalUrls ?? [];
 		$this->title = $title;
 		$this->user = $user;
 		$this->userOptionsManager = $userOptionsManager;

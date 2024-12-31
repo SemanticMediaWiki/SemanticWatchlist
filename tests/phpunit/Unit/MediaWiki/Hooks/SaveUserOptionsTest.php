@@ -2,10 +2,10 @@
 
 namespace SWL\Tests\MediaWiki\Hooks;
 
-use SWL\MediaWiki\Hooks\UserSaveOptions;
+use SWL\MediaWiki\Hooks\SaveUserOptions;
 
 /**
- * @covers \SWL\MediaWiki\Hooks\UserSaveOptions
+ * @covers \SWL\MediaWiki\Hooks\SaveUserOptions
  *
  * @group semantic-watchlist
  *
@@ -14,7 +14,7 @@ use SWL\MediaWiki\Hooks\UserSaveOptions;
  *
  * @author mwjames
  */
-class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
+class SaveUserOptionsTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
@@ -26,19 +26,21 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$options = array();
+		$options = [];
+
+		$modifications = [];
 
 		$this->assertInstanceOf(
-			'\SWL\MediaWiki\Hooks\UserSaveOptions',
-			new UserSaveOptions( $tableUpdater, $user, $options )
+			'\SWL\MediaWiki\Hooks\SaveUserOptions',
+			new SaveUserOptions( $tableUpdater, $user, $modifications, $options )
 		);
 	}
 
 	public function testExecuteWithEmptyOption() {
 
 		$instance = $this->createUserSaveOptionsInstance(
-			array(),
-			array()
+			[],
+			[]
 		);
 
 		$this->assertTrue( $instance->execute() );
@@ -47,8 +49,8 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 	public function testExecuteWithValidSwlOption() {
 
 		$instance = $this->createUserSaveOptionsInstance(
-			array( 'swl_watchgroup_9999' => true ),
-			array( 9999 )
+			[ 'swl_watchgroup_9999' => true ],
+			[ 9999 ]
 		);
 
 		$this->assertTrue( $instance->execute() );
@@ -57,8 +59,8 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 	public function testExecuteWithInvalidSwlOption() {
 
 		$instance = $this->createUserSaveOptionsInstance(
-			array( '9999' => true ),
-			array()
+			[ '9999' => true ],
+			[]
 		);
 
 		$this->assertTrue( $instance->execute() );
@@ -81,9 +83,12 @@ class UserSaveOptionsTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		return new UserSaveOptions(
+		$modifications = [];
+
+		return new SaveUserOptions(
 			$tableUpdater,
 			$user,
+			$modifications,
 			$options
 		);
 	}
