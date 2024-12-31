@@ -15,13 +15,13 @@ use Title;
  *
  * @author mwjames
  */
-class HookRegistryTest extends \PHPUnit_Framework_TestCase {
+class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
 			'\SWL\HookRegistry',
-			new HookRegistry( array() )
+			new HookRegistry( [] )
 		);
 	}
 
@@ -39,14 +39,14 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$configuration = array(
+		$configuration = [
 			'egSWLEnableTopLink'         => false,
 			'egSWLEnableEmailNotify'     => false,
 			'egSwlSqlDatabaseSchemaPath' => '../foo',
 			'wgLang' => $language
-		);
+		];
 
-		$wgHooks = array();
+		$wgHooks = [];
 
 		$instance = new HookRegistry( $configuration );
 		$instance->register( $wgHooks );
@@ -55,16 +55,18 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$wgHooks
 		);
 
-		$this->doTestPersonalUrls( $wgHooks, $user );
-		$this->doTestUserSaveOptions( $wgHooks, $user );
+		$this->doTestSkinTemplateNavigationUniversal( $wgHooks, $user );
+		$this->doTestSaveUserOptions( $wgHooks, $user );
 		$this->doTestLoadExtensionSchemaUpdates( $wgHooks );
 		$this->doTestGetPreferences( $wgHooks, $user );
 		$this->doTestStoreUpdate( $wgHooks );
 	}
 
-	private function doTestPersonalUrls( $wgHooks, $user ) {
+	private function doTestSkinTemplateNavigationUniversal( $wgHooks, $user ) {
 
-		$title = Title::newFromText( __METHOD__ );
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$skinTemplate = $this->getMockBuilder( '\SkinTemplate' )
 			->disableOriginalConstructor()
@@ -74,56 +76,61 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getUser' )
 			->will( $this->returnValue( $user ) );
 
-		$personal_urls = array();
+		$skinTemplate->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$personal_urls = [];
 
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
-			'PersonalUrls',
-			array( &$personal_urls, $title, $skinTemplate )
+			'SkinTemplateNavigation::Universal',
+			[ $skinTemplate, &$personal_urls ]
 		);
 	}
 
-	private function doTestUserSaveOptions( $wgHooks, $user ) {
+	private function doTestSaveUserOptions( $wgHooks, $user ) {
 
-		$options = array();
+		$options = [];
+		$modifications = [];
 
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
-			'UserSaveOptions',
-			array( $user, &$options )
+			'SaveUserOptions',
+			[ $user, &$modifications, &$options ]
 		);
 	}
 
 	private function doTestLoadExtensionSchemaUpdates( $wgHooks ) {
 
-		$databaseBase = $this->getMockBuilder( '\DatabaseBase' )
+		$database = $this->getMockBuilder( '\Database' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
 		$databaseUpdater = $this->getMockBuilder( '\DatabaseUpdater' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getDB' ) )
+			->setMethods( [ 'getDB' ] )
 			->getMockForAbstractClass();
 
 		$databaseUpdater->expects( $this->any() )
 			->method( 'getDB' )
-			->will( $this->returnValue( $databaseBase ) );
+			->will( $this->returnValue( $database ) );
 
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'LoadExtensionSchemaUpdates',
-			array( $databaseUpdater )
+			[ $databaseUpdater ]
 		);
 	}
 
 	private function doTestGetPreferences( $wgHooks, $user ) {
 
-		$preferences = array();
+		$preferences = [];
 
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'GetPreferences',
-			array( $user, &$preferences )
+			[ $user, &$preferences ]
 		);
 	}
 
@@ -141,11 +148,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->any() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$semanticData->expects( $this->any() )
 			->method( 'getProperties' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -158,7 +165,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'SMWStore::updateDataBefore',
-			array( $store, $semanticData )
+			[ $store, $semanticData ]
 		);
 	}
 

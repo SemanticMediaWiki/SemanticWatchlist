@@ -13,7 +13,7 @@
 	"license-name": "GPL-3.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.35"
+		"MediaWiki": ">= 1.39"
 	},
 	"MessagesDirs": {
 		"SemanticWatchlist": [
@@ -25,11 +25,6 @@
 	},
 	"AutoloadNamespaces": {
 		"SWL\\": "src/"
-	},
-	"Hooks": {
-	},
-	"AutoloadClasses": {
-		"SWL": "src/"
 	},
 	"callback": "SWL\\SemanticWatchlist::initExtension",
 	"ExtensionFunctions": [

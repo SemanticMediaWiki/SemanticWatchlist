@@ -2,6 +2,8 @@
 
 namespace SWL\Tests\MediaWiki\Hooks;
 
+use NamespaceInfo;
+use MediaWiki\MediaWikiServices;
 use SWL\MediaWiki\Hooks\GetPreferences;
 use SMW\DIProperty;
 
@@ -18,71 +20,77 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class GetPreferencesTest extends \PHPUnit_Framework_TestCase {
+class GetPreferencesTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$language = $this->getMockBuilder( 'Language' )
+		$language = $this->getMockBuilder( '\Language' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$preferences = array();
+		$preferences = [];
+
+		$namespaceInfo = $this->createMock( NamespaceInfo::class );
 
 		$this->assertInstanceOf(
 			'\SWL\MediaWiki\Hooks\GetPreferences',
-			new GetPreferences( $user, $language, $preferences )
+			new GetPreferences( $user, $language, $preferences, $namespaceInfo )
 		);
 	}
 
 	public function testExecuteOnEnabledEmailNotifyPreference() {
 
-		$swlGroup    = array();
-		$preferences = array();
+		$swlGroup    = [];
+		$preferences = [];
 
-		$configuration = array(
+		$configuration = [
 			'egSWLEnableEmailNotify' => true,
 			'egSWLEnableTopLink'     => false
-		);
+		];
 
-		$instance = $this->acquireInstance( $configuration, $swlGroup, $preferences );
+		$namespaceInfo = $this->createMock( NamespaceInfo::class );
+
+		$instance = $this->acquireInstance( $configuration, $swlGroup, $preferences, $namespaceInfo );
 
 		$this->assertTrue( $instance->execute() );
-		$this->assertCount( 1, $preferences );
+		$this->assertCount( 3, $preferences );
 	}
 
 	public function testExecuteOnEnabledTopLinkPreference() {
 
-		$swlGroup    = array();
-		$preferences = array();
+		$swlGroup    = [];
+		$preferences = [];
 
-		$configuration = array(
+		$configuration = [
 			'egSWLEnableEmailNotify' => false,
 			'egSWLEnableTopLink'     => true
-		);
+		];
 
-		$instance = $this->acquireInstance( $configuration, $swlGroup, $preferences );
+		$namespaceInfo = $this->createMock( NamespaceInfo::class );
+
+		$instance = $this->acquireInstance( $configuration, $swlGroup, $preferences, $namespaceInfo );
 
 		$this->assertTrue( $instance->execute() );
-		$this->assertCount( 1, $preferences );
+		$this->assertCount( 3, $preferences );
 	}
 
 	public function testExecuteOnSingleCategoryGroupPreference() {
 
-		$swlGroup = $this->getMockBuilder( 'SWL\\Group' )
+		$swlGroup = $this->getMockBuilder( '\SWL\Group' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$swlGroup->expects( $this->once() )
 			->method( 'getProperties' )
-			->will( $this->returnValue( array( 'FooProperty' ) ) );
+			->will( $this->returnValue( [ 'FooProperty' ] ) );
 
 		$swlGroup->expects( $this->exactly( 2 ) )
 			->method( 'getCategories' )
-			->will( $this->returnValue( array( 'FooCategory' ) ) );
+			->will( $this->returnValue( [ 'FooCategory' ] ) );
 
 		$swlGroup->expects( $this->once() )
 			->method( 'getId' )
@@ -92,26 +100,28 @@ class GetPreferencesTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getName' )
 			->will( $this->returnValue( 'Foo' ) );
 
-		$preferences = array();
+		$preferences = [];
 
-		$configuration = array(
+		$configuration = [
 			'egSWLEnableEmailNotify' => false,
 			'egSWLEnableTopLink'     => false
-		);
+		];
 
-		$instance = $this->acquireInstance( $configuration, array( $swlGroup ), $preferences );
+		$namespaceInfo = $this->createMock( NamespaceInfo::class );
+
+		$instance = $this->acquireInstance( $configuration, [ $swlGroup ], $preferences, $namespaceInfo );
 
 		$this->assertTrue( $instance->execute() );
-		$this->assertCount( 1, $preferences );
+		$this->assertCount( 3, $preferences );
 	}
 
-	protected function acquireInstance( $configuration, $swlGroup, &$preferences ) {
+	protected function acquireInstance( $configuration, $swlGroup, &$preference, $namespaceInfo ) {
 
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$language = $this->getMockBuilder( 'Language' )
+		$language = $this->getMockBuilder( '\Language' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -120,8 +130,8 @@ class GetPreferencesTest extends \PHPUnit_Framework_TestCase {
 			->will( $this->returnValue( 'en' ) );
 
 		$instance = $this->getMockBuilder( '\SWL\MediaWiki\Hooks\GetPreferences' )
-			->setConstructorArgs( array( $user, $language, &$preferences ) )
-			->setMethods( array( 'getAllSwlGroups' ) )
+			->setConstructorArgs( [ $user, $language, &$preference, $namespaceInfo ] )
+			->setMethods( [ 'getAllSwlGroups' ] )
 			->getMock();
 
 		$instance->expects( $this->once() )
