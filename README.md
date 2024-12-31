@@ -1,12 +1,11 @@
 # Semantic Watchlist
 
-[![Build Status](https://secure.travis-ci.org/SemanticMediaWiki/SemanticWatchlist.svg?branch=master)](http://travis-ci.org/SemanticMediaWiki/SemanticWatchlist)
-[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticWatchlist/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-watchlist/version.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
-[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-watchlist/d/total.png)](https://packagist.org/packages/mediawiki/semantic-watchlist)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/SemanticMediaWiki/SemanticWatchlist/ci.yml?branch=master)](https://github.com/SemanticMediaWiki/SemanticWatchlist/actions?query=workflow%3ACI)
+[![Code Coverage](https://codecov.io/gh/SemanticMediaWiki/SemanticWatchlist/branch/master/graph/badge.svg)](https://codecov.io/gh/SemanticMediaWiki/SemanticWatchlist)
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-watchlist/v/stable)](https://packagist.org/packages/mediawiki/semantic-watchlist)
+[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-watchlist/downloads)](https://packagist.org/packages/mediawiki/semantic-watchlist)
 
-Semantic Watchlist (a.k.a. SWL) is an extension to [Semantic MediaWiki][smw] that enables users to
+Semantic Watchlist is an extension to [Semantic MediaWiki][smw] that enables users to
 watch [semantic properties][smw-property] by adding a new watchlist page (Special:SemanticWatchlist)
 that lists changes to these properties.
 
