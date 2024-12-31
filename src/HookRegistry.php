@@ -104,7 +104,7 @@ class HookRegistry {
 		 */
 		$wgHooks['GetPreferences'][] = function( User $user, array &$preferences ) use ( $configuration ) {
 
-			$userLanguage = Language::factory(
+			$userLanguage = MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage(
 				$GLOBALS['wgLang']->getCode()
 			);
 
