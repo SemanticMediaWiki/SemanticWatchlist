@@ -41,7 +41,7 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array( 1, 9999 );
 
-		$connection = $this->getMockBuilder( 'DatabaseBase' )
+		$connection = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
 			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();
@@ -80,7 +80,7 @@ class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
 		$userId = 1111;
 		$groupIds = array();
 
-		$connection = $this->getMockBuilder( 'DatabaseBase' )
+		$connection = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
 			->setMethods( array( 'isOpen', 'delete', 'insert' ) )
 			->getMockForAbstractClass();

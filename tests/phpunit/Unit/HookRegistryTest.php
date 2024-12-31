@@ -103,7 +103,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	private function doTestLoadExtensionSchemaUpdates( $wgHooks ) {
 
-		$database = $this->getMockBuilder( '\Database' )
+		$database = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
