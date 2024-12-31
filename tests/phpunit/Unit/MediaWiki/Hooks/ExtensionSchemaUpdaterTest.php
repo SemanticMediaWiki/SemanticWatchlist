@@ -21,7 +21,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 
-		$databaseUpdater = $this->getMockBuilder( 'DatabaseUpdater' )
+		$databaseUpdater = $this->getMockBuilder( '\DatabaseUpdater' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -33,7 +33,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 
 	public function testNoExtensionUpdateForInvalidDBType() {
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
+		$dbConnection = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -41,7 +41,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getType' )
 			->will( $this->returnValue( 'foo' ) );
 
-		$databaseUpdater = $this->getMockBuilder( 'DatabaseUpdater' )
+		$databaseUpdater = $this->getMockBuilder( '\DatabaseUpdater' )
 			->disableOriginalConstructor()
 			->setMethods( array(
 				'getDB',
@@ -66,7 +66,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testExtensionUpdateForValidDBType( $dbType ) {
 
-		$dbConnection = $this->getMockBuilder( 'DatabaseBase' )
+		$dbConnection = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -74,7 +74,7 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getType' )
 			->will( $this->returnValue( $dbType ) );
 
-		$databaseUpdater = $this->getMockBuilder( 'DatabaseUpdater' )
+		$databaseUpdater = $this->getMockBuilder( '\DatabaseUpdater' )
 			->disableOriginalConstructor()
 			->setMethods( array(
 				'getDB',
