@@ -8,7 +8,7 @@ ifeq (,$(wildcard ./build/))
     $(shell git submodule update --init --remote)
 endif
 
-EXTENSION=SemanticResultFormats
+EXTENSION=SemanticWatchlist
 
 # docker images
 MW_VERSION?=1.39
