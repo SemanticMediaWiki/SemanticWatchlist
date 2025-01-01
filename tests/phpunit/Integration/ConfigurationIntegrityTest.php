@@ -11,7 +11,7 @@ namespace SWL\Tests;
  * @author mwjames
  */
 use GlobalVarConfig;
-class ConfigurationIntegrityTest extends \PHPUnit_Framework_TestCase {
+class ConfigurationIntegrityTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanReadDatabaseSchema() {
 		$cfg = new GlobalVarConfig( "egSWL" );
