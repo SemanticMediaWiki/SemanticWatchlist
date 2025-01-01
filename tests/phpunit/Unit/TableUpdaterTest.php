@@ -14,7 +14,7 @@ use SWL\TableUpdater;
  *
  * @author mwjames
  */
-class TableUpdaterTest extends \PHPUnit_Framework_TestCase {
+class TableUpdaterTest extends \PHPUnit\Framework\TestCase {
 
 	public function setUp(): void {
 		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.28', 'gt' ) ) {
