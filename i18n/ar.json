@@ -1,13 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد",
 			"علاء"
 		]
 	},
 	"semanticwatchlist-desc": "يتيح للمستخدمين أن يتم إخطارهم بتغييرات محددة لبيانات ميدياويكي الدلالية",
 	"right-semanticwatch": "استخدام قائمة المراقبة الدلالية",
+	"action-semanticwatch": "استخدم قائمة المراقبة الدلالية",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|تعديل]] مجموعات قائمة المراقبة الدلالية",
+	"action-semanticwatchgroups": "تعديل مجموعات قائمة المراقبة الدلالية",
 	"special-semanticwatchlist": "قائمة المراقبة الدلالية",
 	"special-watchlistconditions": "شروط قائمة المراقبة الدلالية",
 	"swl-group-name": "اسم المجموعة:",
