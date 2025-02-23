@@ -19,8 +19,8 @@ use ALTree;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Sanitizer;
-use SMWSemanticData;
-use SMWStore;
+use SMW\SemanticData;
+use SMW\Store;
 use Title;
 use User;
 
@@ -32,12 +32,12 @@ final class Hooks {
      *
      * @since 0.1
      *
-     * @param SMWStore $store
-     * @param SMWChangeSet $changes
+     * @param Store $store
+     * @param SemanticData $newData
      *
      * @return true
      */
-	public static function onDataUpdate( SMWStore $store, SMWSemanticData $newData ) {
+	public static function onDataUpdate( Store $store, SemanticData $newData ) {
 		wfDebugLog( 'SemanticWatchlist', __METHOD__ . ' was called' );
 		$subject = $newData->getSubject();
 		$oldData = $store->getSemanticData( $subject );
