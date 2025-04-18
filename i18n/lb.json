@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"right-semanticwatch": "Semantesch Iwwerwaachungslëscht benotzen",
@@ -38,5 +39,5 @@
 	"prefs-swl": "Semantesch Iwwerwaachungslëscht",
 	"prefs-swlgroup": "Gruppe fir z'iwwerwaachen",
 	"prefs-swlglobal": "Allgemeng Optiounen",
-	"swl-prefs-emailnofity": "Mir eng Mail schécke wann Attributer déi ech iwwerwaachen geännert ginn"
+	"swl-prefs-emailnofity": "Mir eng Mail schécken, wann Attributer, déi ech iwwerwaachen, geännert ginn"
 }
