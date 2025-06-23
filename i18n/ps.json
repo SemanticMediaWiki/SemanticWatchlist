@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"swl-group-name": "د ډلې نوم:",
 	"swl-group-save": "خوندي کول",
-	"swl-group-saved": "امستنې مو خوندي شوې.",
+	"swl-group-saved": "اوڼنې مو خوندي‌شوې.",
 	"swl-group-saving": "خوندي کېدنې کې دی...",
 	"swl-group-category": "وېشنيزه",
 	"swl-group-namespace": "نوم‌تشيال",
