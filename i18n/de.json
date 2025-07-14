@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"*surak*",
 			"Kghbln",
 			"Metalhead64",
 			"Purodha"
@@ -8,7 +9,9 @@
 	},
 	"semanticwatchlist-desc": "Ermöglicht die Benachrichtigung von Benutzern zu bestimmten Änderungen an semantischen Daten",
 	"right-semanticwatch": "Semantische Beobachtungslisten verwenden",
+	"action-semanticwatch": "semantische Beobachtungslisten zu verwenden",
 	"right-semanticwatchgroups": "Semantische Beobachtungslisten [[Special:WatchlistConditions|anpassen]]",
+	"action-semanticwatchgroups": "die semantischen Beobachtungslistengruppen zu ändern",
 	"special-semanticwatchlist": "Semantische Beobachtungsliste",
 	"special-watchlistconditions": "Einstellungen zu semantischen Beobachtungslisten",
 	"swl-group-name": "Listenname:",
