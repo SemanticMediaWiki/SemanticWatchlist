@@ -4,9 +4,16 @@
 			"Умар"
 		]
 	},
+	"semanticwatchlist-desc": "Декъашхошна бакъо ло Semantic MediaWiki хаамашна тӀехь цхьацца хийцамаш барх лаьцна хаамаш схьаэца",
+	"right-semanticwatch": "Семантикин тергаме могӀам лелабе",
+	"action-semanticwatch": "Семантикин тергаме могӀам лелабе",
+	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Хийца]] семантикин тергаман могӀаман тобанаш",
+	"action-semanticwatchgroups": "хийца семантикин тергаман могӀаман тобанаш",
 	"special-semanticwatchlist": "Семантикин тергаме могӀам",
+	"special-watchlistconditions": "Семантикин тергаман могӀаман билламаш",
 	"swl-group-name": "Тобанан цӀе:",
 	"swl-group-legend": "Тоба",
+	"swl-group-properties": "ХӀокху тобано терго йо хийцамаш башхаллехь/башхаллашкахь:",
 	"swl-properties-list": "Къаьстина цӀераш | гӀоьнца",
 	"swl-group-page-selection": "Тергам бан агӀо хьаржа:",
 	"swl-group-save": "Ӏалашйан",
@@ -22,6 +29,8 @@
 	"swl-custom-legend": "Лелоран текст",
 	"swl-custom-remove-property": "ДӀайаккха",
 	"swl-custom-text-add": "Лелоран текст тӀетоха",
+	"swl-custom-input": "Нагахь санна $1 башхало шен маьӀна $2 хийцахь, декъашхошна хаам бе хӀокху текстаца: $3",
+	"swl-watchlist-position": "{{PLURAL:$1|Гайтина '''$1''' тӀаьххьара хийцам}}, '''#$2''' хийцам тӀера дӀадолалуш:",
 	"swl-watchlist-insertions": "Керла:",
 	"swl-watchlist-deletions": "Шира:",
 	"swl-new-item": "КЕРЛА",
@@ -29,6 +38,11 @@
 	"swl-watchlist-firstn": "хьалхара $1",
 	"swl-watchlist-firstn-title": "{{PLURAL:$1|Хьалхара|1=}} $1 {{PLURAL:$1|жамӀ}}",
 	"swl-watchlist-no-items": "Семантикин тергаме могӀаман чохь элементаш йац.",
+	"swl-watchlist-can-mod-groups": "Хьан йиш йу [[$1|хийца тергаман могӀаман тобанаш]].",
+	"swl-watchlist-can-mod-prefs": "Хьан йиш йу иштта [[$1|хийца хьайн тергаман могӀаман параметраш]], цу йукъахь муьлха башхаллаш йу хьажа деза.",
+	"swl-watchlist-no-groups": "Цкъачунна цхьана а могӀаман тобанашна терго ца йо ахь. [[$1|Хийца хьайн тергаман могӀаман нисдаран гӀирс]].",
+	"swl-email-propschanged": "$1 тӀехь башхалла хийцайелла",
+	"swl-email-propschanged-long": "'''$1''' чохь хьо хьоьжу цхьаъ йа масех башхаллаш хийцина {{GENDER:$2|декъашхочо}} '''$2''' $5 чохь $4. И а, кхин а хийцамаш хьуна ган йиш йу [$3 хьан семантикин тергаман могӀамехь].",
 	"swl-email-changes": "Башхалла хийцар [$2 $1]:",
 	"prefs-swl": "Семантикин тергаме могӀам",
 	"prefs-swlgroup": "Тергаман тобанаш",
@@ -37,5 +51,6 @@
 	"swl-prefs-watchlisttoplink": "Гойту агӀонан лакхахь семантикин тергаме могӀамна хьажорг",
 	"swl-prefs-category-label": "'''$1''': {{PLURAL:$2|билгало}} $3 ''$4'' категори чуьра",
 	"swl-prefs-namespace-label": "'''$1''': {{PLURAL:$2|билгало}} $3 ''$4'' цӀерийн меттигера",
-	"swl-prefs-concept-label": "'''$1''': {{PLURAL:$2|башхалла}} $3 ''$4'' концептера"
+	"swl-prefs-concept-label": "'''$1''': {{PLURAL:$2|башхалла}} $3 ''$4'' концептера",
+	"swl-err-userid-xor-groupids": "Йа декъашхочун ID параметр, йа тобанан ID параметр билгалйаккха йеза, амма ший а билгалйаха ца йеза."
 }
