@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alien333",
+			"Escargot bleu",
 			"Gomoko",
 			"IAlex",
 			"Kubuya kanane leopold",
@@ -14,7 +15,7 @@
 	"right-semanticwatch": "Utiliser la liste de suivi sémantique",
 	"action-semanticwatch": "utiliser la liste de suivi sémantique",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Modifier]] les groupes de la liste de suivi sémantique",
-	"action-semanticwatchgroups": "Modifier les groupe de listes de surveillance semantiques.",
+	"action-semanticwatchgroups": "Modifier les groupe de listes de suivi semantiques.",
 	"special-semanticwatchlist": "Liste de suivi sémantique",
 	"special-watchlistconditions": "Paramètres de la liste de suivi sémantique",
 	"swl-group-name": "Nom du groupe:",
@@ -29,7 +30,7 @@
 	"swl-group-category": "catégorie",
 	"swl-group-namespace": "espace de noms",
 	"swl-group-concept": "concept",
-	"swl-group-confirm-remove": "Êtes-vous sûr de vouloir supprimer \"$1\" du groupe de la liste de surveillance?",
+	"swl-group-confirm-remove": "Êtes-vous sûr de vouloir supprimer \"$1\" du groupe de la liste de suivi ?",
 	"swl-group-add-new-group": "Ajouter un nouveau groupe",
 	"swl-group-add-group": "Ajouter un groupe",
 	"swl-custom-legend": "Texte personnalisé",
