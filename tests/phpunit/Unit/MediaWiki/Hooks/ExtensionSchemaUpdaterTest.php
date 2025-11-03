@@ -85,9 +85,8 @@ class ExtensionSchemaUpdaterTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getDB' )
 			->will( $this->returnValue( $dbConnection ) );
 
-		$databaseUpdater->expects( $this->at( 6 ) )
-			->method( 'addExtensionUpdate' )
-			->will( $this->returnValue( true ) );
+		$databaseUpdater->expects( $this->exactly( 6 ) )
+			->method( 'addExtensionUpdate' );
 
 		$configuration = array( 'egSWLSqlDatabaseSchemaPath' => 'foo' );
 

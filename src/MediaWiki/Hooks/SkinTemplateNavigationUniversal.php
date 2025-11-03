@@ -20,6 +20,8 @@ use User;
  */
 class SkinTemplateNavigationUniversal {
 
+	private array $configuration = [];
+
 	protected $personalUrls;
 	protected $title;
 	protected $user;

@@ -21,7 +21,7 @@ use MediaWiki\MediaWikiServices;
 use Profiler;
 use SpecialPage;
 use SMWOutputs;
-use SMWDataValueFactory;
+use SMW\DataValueFactory;
 use SMW\DIProperty;
 use User;
 
@@ -411,10 +411,10 @@ class Watchlist extends SpecialPage {
 		// Convert the changes into a list of insertions and a list of deletions.
 		foreach ( $changes as /* SWLPropertyChange */ $change ) {
 			if ( !is_null( $change->getOldValue() ) ) {
-				$deletions[] = SMWDataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getLongHTMLText();
+				$deletions[] = DataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getLongHTMLText();
 			}
 			if ( !is_null( $change->getNewValue() ) ) {
-				$insertions[] = SMWDataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getLongHTMLText();
+				$insertions[] = DataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getLongHTMLText();
 			}
 		}
 
@@ -453,12 +453,15 @@ class Watchlist extends SpecialPage {
 			return false;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_REPLICA );
 
 		$group = $dbr->selectRow(
 			'swl_users_per_group',
 			array( 'upg_group_id' ),
-			array( 'upg_user_id' => $user->getId() )
+			array( 'upg_user_id' => $user->getId() ),
+			__METHOD__
 		);
 
 		return $group !== false;

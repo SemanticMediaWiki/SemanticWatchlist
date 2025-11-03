@@ -17,8 +17,8 @@
 namespace SWL;
 
 use Iterator;
-use SMWDIProperty;
-use SMWPropertyValue;
+use SMW\DIProperty;
+use SMW\DataValues\PropertyValue;
 
 class PropertyChanges implements Iterator {
 
@@ -40,9 +40,9 @@ class PropertyChanges implements Iterator {
 	private $changes = array();
 	
 	/**
-	 * Array mapping property keys (string) to SMWDIProperty objects.
+	 * Array mapping property keys (string) to DIProperty objects.
 	 *
-	 * @var array of SMWDIProperty
+	 * @var array of DIProperty
 	 */
 	private $properties = array();
 	
@@ -56,7 +56,7 @@ class PropertyChanges implements Iterator {
 	/**
 	 * Get the array of all properties that have changes.
 	 *
-	 * @return array of SMWDIProperty
+	 * @return array of DIProperty
 	 */
 	public function getProperties() {
 		return $this->properties;
@@ -75,11 +75,11 @@ class PropertyChanges implements Iterator {
 	/**
 	 * Get the array of all stored values for some property.
 	 *
-	 * @param $property SMWDIProperty
+	 * @param $property DIProperty
 	 * 
 	 * @return array of PropertyChange
 	 */
-	public function getPropertyChanges( SMWDIProperty $property ) {
+	public function getPropertyChanges( DIProperty $property ) {
 		if ( array_key_exists( $property->getKey(), $this->changes ) ) {
 			return $this->changes[$property->getKey()];
 		} else {
@@ -95,10 +95,10 @@ class PropertyChanges implements Iterator {
 	 * change, all parts of SMW are prepared to handle mismatched data item
 	 * types anyway.
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param PropertyChange $change
 	 */
-	public function addPropertyObjectChange( SMWDIProperty $property, PropertyChange $change ) {
+	public function addPropertyObjectChange( DIProperty $property, PropertyChange $change ) {
 		if ( $property->isInverse() ) { // inverse properties cannot be used for annotation
 			return;
 		}
@@ -131,7 +131,7 @@ class PropertyChanges implements Iterator {
 				self::$propertyPrefix = $wgContLang->getNsText( SMW_NS_PROPERTY ) . ':';
 			} // explicitly use prefix to cope with things like [[Property:User:Stupid::somevalue]]
 
-			$propertyDV = SMWPropertyValue::makeUserProperty( self::$propertyPrefix . $propertyName );
+			$propertyDV = PropertyValue::makeUserProperty( self::$propertyPrefix . $propertyName );
 
 			if ( !$propertyDV->isValid() ) { // error, maybe illegal title text
 				return;
@@ -146,38 +146,40 @@ class PropertyChanges implements Iterator {
 	/**
 	 * Removes all changes for a certian property.
 	 * 
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 */
-	public function removeChangesForProperty( SMWDIProperty $property ) {
+	public function removeChangesForProperty( DIProperty $property ) {
 		if ( array_key_exists( $property->getKey(), $this->changes ) ) {
 			unset( $this->changes[$property->getKey()] );
 			unset( $this->properties[$property->getKey()] );
 		}
 	}
 	
-	function rewind() {
+	function rewind(): void {
 		$this->pos = 0;
 		$this->currentRow = null;
 	}
 
-	function current() {
+	function current(): mixed {
 		if ( is_null( $this->currentRow ) ) {
 			$this->next();
 		}
 		return $this->currentRow;
 	}
 
-	function key() {
+	function key(): mixed {
 		return $this->pos;
 	}
 
+	#[\ReturnTypeWillChange]
 	function next() {
 		$this->pos++;
 		$this->currentRow = array_key_exists( $this->pos, $this->changes ) ? $this->changes[$this->pos] : false;
+		// TODO this doesn't match the iterator interface
 		return $this->currentRow;
 	}
 
-	function valid() {
+	function valid(): bool {
 		return $this->current() !== false;
 	}
 	
