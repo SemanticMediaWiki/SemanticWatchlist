@@ -12,7 +12,8 @@
  */
 namespace SWL;
 
-use SMWDIProperty;
+use MediaWiki\MediaWikiServices;
+use SMW\DIProperty;
 
 class CustomTexts {
 
@@ -49,7 +50,9 @@ class CustomTexts {
 			return;
 		}
 		$this->customTexts = array();
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'swl_groups',
 			'group_custom_texts',
@@ -79,12 +82,12 @@ class CustomTexts {
 	 *
 	 * @since 0.2
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param String $newValue
 	 *
 	 * @return String or false
 	 */
-	public function getPropertyCustomText( SMWDIProperty $property, $newValue ) {
+	public function getPropertyCustomText( DIProperty $property, $newValue ) {
 		$this->initCustomTexts();
 		if( array_key_exists( $property->getLabel(), $this->customTexts ) && array_key_exists( $newValue, $this->customTexts[$property->getLabel()] ) ) {
 			return $this->customTexts[$property->getLabel()][$newValue];

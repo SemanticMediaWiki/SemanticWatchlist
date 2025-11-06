@@ -37,7 +37,9 @@ class SemanticWatchlist {
 			$configuration
 		);
 
-		$hookRegistry->register( $GLOBALS['wgHooks'] );
+		$hookRegistry->register(
+			MediaWikiServices::getInstance()->getHookContainer()
+		);
 	}
 
 	private static function checkRequirements() {

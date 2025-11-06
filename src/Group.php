@@ -20,9 +20,8 @@ use SMW\Query\QueryResult;
 use SMW\Query\Language\ConceptDescription;
 use SMW\Query\Language\Conjunction;
 use SMW\Query\Language\ValueDescription;
-use SMWDIProperty;
+use SMW\DIProperty;
 use SMWQuery;
-use SMWValueDescription;
 use Title;
 use User;
 
@@ -186,8 +185,11 @@ class Group {
 	 * @return boolean Success indicator
 	 */
 	private function updateInDB() {
-		$dbr = wfGetDB( DB_PRIMARY );
-		return  $dbr->update(
+		$dbw = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_PRIMARY );
+
+		return  $dbw->update(
 			'swl_groups',
 			array(
 				'group_name' => $this->name,
@@ -197,7 +199,8 @@ class Group {
 				'group_concepts' => implode( '|', $this->concepts ),
 				'group_custom_texts' => implode( '|', $this->getSerializedCustomTexts() ),
 			),
-			array( 'group_id' => $this->id )
+			array( 'group_id' => $this->id ),
+			__METHOD__
 		);
 	}
 
@@ -209,9 +212,11 @@ class Group {
 	 * @return boolean Success indicator
 	 */
 	private function insertIntoDB() {
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_PRIMARY );
 
-		$result = $dbr->insert(
+		$result = $dbw->insert(
 			'swl_groups',
 			array(
 				'group_name' => $this->name,
@@ -220,10 +225,11 @@ class Group {
 				'group_namespaces' => implode( '|', $this->namespaces ),
 				'group_concepts' => implode( '|', $this->concepts ),
 				'group_custom_texts' => implode( '|', $this->getSerializedCustomTexts() ),
-			)
+			),
+			__METHOD__
 		);
 
-		$this->id = $dbr->insertId();
+		$this->id = $dbw->insertId();
 
 		return $result;
 	}
@@ -251,7 +257,7 @@ class Group {
 	}
 
 	/**
-	 * Returns the properties specified by the group as strings (serializations of SMWDIProperty).
+	 * Returns the properties specified by the group as strings (serializations of DIProperty).
 	 *
 	 * @since 0.1
 	 *
@@ -262,17 +268,17 @@ class Group {
 	}
 
 	/**
-	 * Returns the properties specified by the group as SMWDIProperty objects.
+	 * Returns the properties specified by the group as DIProperty objects.
 	 *
 	 * @since 0.1
 	 *
-	 * @return array[SMWDIProperty]
+	 * @return array[DIProperty]
 	 */
 	public function getPropertyObjects() {
 		$properties = array();
 
 		foreach ( $this->properties as $property ) {
-			$properties[] = SMWDIProperty::newFromSerialization( $property );
+			$properties[] = DIProperty::newFromSerialization( $property );
 		}
 
 		return $properties;
@@ -481,7 +487,9 @@ class Group {
 	 */
 	public function getWatchingUsers() {
 		if ( $this->watchingUsers == false ) {
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()
+				->getDBLoadBalancer()
+				->getConnection( DB_REPLICA );
 
 			$users = $dbr->select(
 				'swl_users_per_group',
@@ -490,7 +498,8 @@ class Group {
 				),
 				array(
 					'upg_group_id' => $this->getId()
-				)
+				),
+				__METHOD__
 			);
 
 			$userIds = array();

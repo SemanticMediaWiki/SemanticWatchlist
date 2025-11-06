@@ -65,7 +65,9 @@ class Edit {
 	 * @return Edit
 	 */
 	public static function newFromId( $id ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_REPLICA );
 
 		return self::newFromDBResult( $dbr->select(
 			'swl_edits',
@@ -75,7 +77,8 @@ class Edit {
 				'edit_page_id',
 				'edit_time'
 			),
-			array( 'edit_id' => $id )
+			array( 'edit_id' => $id ),
+			__METHOD__
 		) );
 	}
 
@@ -134,16 +137,19 @@ class Edit {
 	 * @return boolean Success indicator
 	 */
 	private function updateInDB() {
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_PRIMARY );
 
-		return  $dbr->update(
+		return  $dbw->update(
 			'swl_edits',
 			array(
 				'edit_user_name' => $this->userName,
 				'edit_page_id' => $this->pageId,
 				'edit_time' => $this->time
 			),
-			array( 'edit_id' => $this->id )
+			array( 'edit_id' => $this->id ),
+			__METHOD__
 		);
 	}
 
@@ -158,18 +164,21 @@ class Edit {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		$hookContainer->run( 'SWLBeforeEditInsert', array( &$this ) );
 
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_PRIMARY );
 
-		$result = $dbr->insert(
+		$result = $dbw->insert(
 			'swl_edits',
 			array(
 				'edit_user_name' => $this->userName,
 				'edit_page_id' => $this->pageId,
 				'edit_time' => $this->time
-			)
+			),
+			__METHOD__
 		);
 
-		$this->id = $dbr->insertId();
+		$this->id = $dbw->insertId();
 
 		$hookContainer->run( 'SWLAfterEditInsert', array( &$this ) );
 

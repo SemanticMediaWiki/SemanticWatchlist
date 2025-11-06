@@ -13,6 +13,7 @@
  */
 namespace SWL;
 
+use MediaWiki\MediaWikiServices;
 use Title;
 use User;
 
@@ -36,17 +37,24 @@ final class Groups {
 		if ( self::$groups === false ) {
 			self::$groups = array();
 
-	        $dbr = wfGetDB( DB_REPLICA );
+            $dbr = MediaWikiServices::getInstance()
+                ->getDBLoadBalancer()
+                ->getConnection( DB_REPLICA );
 
-	        $groups = $dbr->select( 'swl_groups', array(
-				'group_id',
-				'group_name',
-				'group_categories',
-				'group_namespaces',
-				'group_properties',
-				'group_concepts',
-				'group_custom_texts'
-	        ) );
+            $groups = $dbr->select(
+                'swl_groups',
+                array(
+                    'group_id',
+                    'group_name',
+                    'group_categories',
+                    'group_namespaces',
+                    'group_properties',
+                    'group_concepts',
+                    'group_custom_texts',
+                ),
+                [],
+                __METHOD__
+            );
 
 	        foreach ( $groups as $group ) {
 	        	self::$groups[] = Group::newFromDBResult( $group );

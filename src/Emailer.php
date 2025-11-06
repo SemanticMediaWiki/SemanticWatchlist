@@ -20,7 +20,7 @@ use SpecialPage;
 use User;
 use UserMailer;
 use MailAddress;
-use SMWDataValueFactory;
+use SMW\DataValueFactory;
 use SMW\DIProperty;
 
 final class Emailer {
@@ -118,10 +118,10 @@ final class Emailer {
 			}
 			if( !$justCustomMessage ) {
 				if ( !is_null( $change->getOldValue() ) ) {
-					$deletions[] = SMWDataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getShortHTMLText();
+					$deletions[] = DataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getShortHTMLText();
 				}
 				if ( !is_null( $change->getNewValue() ) ) {
-					$insertions[] = SMWDataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getShortHTMLText();
+					$insertions[] = DataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getShortHTMLText();
 				}
 			}
 		}

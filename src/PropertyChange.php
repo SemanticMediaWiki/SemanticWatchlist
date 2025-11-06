@@ -15,7 +15,7 @@ namespace SWL;
 
 use SMWDataItem;
 use SMW\DataTypeRegistry;
-use SMWDIProperty;
+use SMW\DIProperty;
 
 class PropertyChange {
 
@@ -45,7 +45,7 @@ class PropertyChange {
 	 *
 	 * @return PropertyChange
 	 */
-	public static function newFromSerialization( SMWDIProperty $property, $oldValue, $newValue ) {
+	public static function newFromSerialization( DIProperty $property, $oldValue, $newValue ) {
 		$typeId = $property->findPropertyTypeID();
 		$diType = DataTypeRegistry::getInstance()->getDataItemId( $typeId );
 

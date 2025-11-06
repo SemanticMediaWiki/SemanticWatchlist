@@ -2,6 +2,8 @@
 
 namespace SWL\Tests;
 
+use MediaWiki\HookContainer\HookContainer;
+use MediaWikiIntegrationTestCase;
 use SWL\HookRegistry;
 use SMW\DIWikiPage;
 use Title;
@@ -9,13 +11,14 @@ use Title;
 /**
  * @covers \SWL\HookRegistry
  * @group semantic-watchlist
+ * @group Database
  *
  * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
  */
-class HookRegistryTest extends \PHPUnit\Framework\TestCase {
+class HookRegistryTest extends MediaWikiIntegrationTestCase {
 
 	public function testCanConstruct() {
 
@@ -46,23 +49,25 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			'wgLang' => $language
 		];
 
-		$wgHooks = [];
-
 		$instance = new HookRegistry( $configuration );
-		$instance->register( $wgHooks );
 
-		$this->assertNotEmpty(
-			$wgHooks
-		);
+		$hooks = $this->getServiceContainer()->getHookContainer();
+		// Clear existing handlers so that only the ones from SWL are there
+		$hooks->clear( 'SkinTemplateNavigation::Universal' );
+		$hooks->clear( 'SaveUserOptions' );
+		$hooks->clear( 'LoadExtensionSchemaUpdates' );
+		$hooks->clear( 'GetPreferences' );
+		$hooks->clear( 'SMWStore::updateDataBefore' );
+		$instance->register( $hooks );
 
-		$this->doTestSkinTemplateNavigationUniversal( $wgHooks, $user );
-		$this->doTestSaveUserOptions( $wgHooks, $user );
-		$this->doTestLoadExtensionSchemaUpdates( $wgHooks );
-		$this->doTestGetPreferences( $wgHooks, $user );
-		$this->doTestStoreUpdate( $wgHooks );
+		$this->doTestSkinTemplateNavigationUniversal( $hooks, $user );
+		$this->doTestSaveUserOptions( $hooks, $user );
+		$this->doTestLoadExtensionSchemaUpdates( $hooks );
+		$this->doTestGetPreferences( $hooks, $user );
+		$this->doTestStoreUpdate( $hooks );
 	}
 
-	private function doTestSkinTemplateNavigationUniversal( $wgHooks, $user ) {
+	private function doTestSkinTemplateNavigationUniversal( $hooks, $user ) {
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -83,25 +88,25 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		$personal_urls = [];
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
+			$hooks,
 			'SkinTemplateNavigation::Universal',
 			[ $skinTemplate, &$personal_urls ]
 		);
 	}
 
-	private function doTestSaveUserOptions( $wgHooks, $user ) {
+	private function doTestSaveUserOptions( $hooks, $user ) {
 
 		$options = [];
 		$modifications = [];
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
+			$hooks,
 			'SaveUserOptions',
 			[ $user, &$modifications, &$options ]
 		);
 	}
 
-	private function doTestLoadExtensionSchemaUpdates( $wgHooks ) {
+	private function doTestLoadExtensionSchemaUpdates( $hooks ) {
 
 		$database = $this->getMockBuilder( '\Wikimedia\Rdbms\Database' )
 			->disableOriginalConstructor()
@@ -117,24 +122,24 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->will( $this->returnValue( $database ) );
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
+			$hooks,
 			'LoadExtensionSchemaUpdates',
 			[ $databaseUpdater ]
 		);
 	}
 
-	private function doTestGetPreferences( $wgHooks, $user ) {
+	private function doTestGetPreferences( $hooks, $user ) {
 
 		$preferences = [];
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
+			$hooks,
 			'GetPreferences',
 			[ $user, &$preferences ]
 		);
 	}
 
-	public function doTestStoreUpdate( $wgHooks ) {
+	public function doTestStoreUpdate( $hooks ) {
 
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( __METHOD__ ) );
 
@@ -163,18 +168,16 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			->will( $this->returnValue( $semanticData ) );
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
+			$hooks,
 			'SMWStore::updateDataBefore',
 			[ $store, $semanticData ]
 		);
 	}
 
-	private function assertThatHookIsExcutable( $wgHooks, $hookName, $arguments ) {
-		foreach ( $wgHooks[ $hookName ] as $hook ) {
-			$this->assertIsBool(
-				call_user_func_array( $hook, $arguments )
-			);
-		}
+	private function assertThatHookIsExcutable( $hooks, $hookName, $arguments ) {
+		$this->assertIsBool(
+			$hooks->run( $hookName, $arguments )
+		);
 	}
 
 }

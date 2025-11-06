@@ -15,10 +15,10 @@ namespace SWL;
 
 use Hooks;
 use MediaWiki\MediaWikiServices;
-use SMWDIProperty;
-use SMWDIWikiPage;
+use SMW\DIProperty;
+use SMW\DIWikiPage;
 use SMWDataItem;
-use SMWSemanticData;
+use SMW\SemanticData;
 use Title;
 
 class ChangeSet {
@@ -26,21 +26,21 @@ class ChangeSet {
 	/**
 	 * The subject the changes apply to.
 	 *
-	 * @var SMWDIWikiPage
+	 * @var DIWikiPage
 	 */
 	private $subject;
 
 	/**
 	 * Object holding semantic data that got inserted.
 	 *
-	 * @var SMWSemanticData
+	 * @var SemanticData
 	 */
 	private $insertions;
 
 	/**
 	 * Object holding semantic data that got deleted.
 	 *
-	 * @var SMWSemanticData
+	 * @var SemanticData
 	 */
 	private $deletions;
 
@@ -87,7 +87,7 @@ class ChangeSet {
 	 */
 	public static function newFromDBResult( $set ) {
 		$changeSet = new ChangeSet(
-			SMWDIWikiPage::newFromTitle( Title::newFromID( $set->edit_page_id ) ),
+			DIWikiPage::newFromTitle( Title::newFromID( $set->edit_page_id ) ),
 			null,
 			null,
 			null,
@@ -100,7 +100,9 @@ class ChangeSet {
 			)
 		);
 
-		$dbr = wfGetDb( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_REPLICA );
 
 		$changes = $dbr->select(
 			'swl_changes',
@@ -112,11 +114,12 @@ class ChangeSet {
 			),
 			array(
 				'change_set_id' => $set->spe_set_id
-			)
+			),
+			__METHOD__
 		);
 
 		foreach ( $changes as $change ) {
-			$property = SMWDIProperty::doUnserialize( $change->change_property, '__pro' );
+			$property = DIProperty::doUnserialize( $change->change_property, '__pro' );
 
 			$changeSet->addChange(
 				$property,
@@ -139,7 +142,7 @@ class ChangeSet {
 	 */
 	public static function newFromArray( array $changeSetArray ) {
 		$changeSet = new ChangeSet(
-			SMWDIWikiPage::newFromTitle( Title::newFromID( $changeSetArray['page_id'] ) ),
+			DIWikiPage::newFromTitle( Title::newFromID( $changeSetArray['page_id'] ) ),
 			null,
 			null,
 			null,
@@ -153,7 +156,7 @@ class ChangeSet {
 		);
 
 		foreach ( $changeSetArray['changes'] as $propName => $changes ) {
-			$property = SMWDIProperty::doUnserialize( $propName, '__pro' );
+			$property = DIProperty::doUnserialize( $propName, '__pro' );
 
 			foreach ( $changes as $change ) {
 				$changeSet->addChange(
@@ -171,15 +174,15 @@ class ChangeSet {
 	}
 
 	/**
-	 * Creates and returns a new SMWChangeSet from 2 SMWSemanticData objects.
+	 * Creates and returns a new SMWChangeSet from 2 SemanticData objects.
 	 *
-	 * @param SMWSemanticData $old
-	 * @param SMWSemanticData $new
+	 * @param SemanticData $old
+	 * @param SemanticData $new
 	 * @param array $filterProperties Optional list of properties (string serializations) to filter on. Null for no filtering.
 	 *
 	 * @return SMWChangeSet
 	 */
-	public static function newFromSemanticData( SMWSemanticData $old, SMWSemanticData $new, array $filterProperties = null ) {
+	public static function newFromSemanticData( SemanticData $old, SemanticData $new, array $filterProperties = null ) {
 		$subject = $old->getSubject();
 
 		if ( $subject != $new->getSubject() ) {
@@ -187,8 +190,8 @@ class ChangeSet {
 		}
 
 		$changes = new PropertyChanges();
-		$insertions = new SMWSemanticData( $subject );
-		$deletions = new SMWSemanticData( $subject );
+		$insertions = new SemanticData( $subject );
+		$deletions = new SemanticData( $subject );
 
 		$oldProperties = array();
 		$newProperties = array();
@@ -211,7 +214,7 @@ class ChangeSet {
 		// Find the insertions.
 		self::findSingleDirectionChanges( $insertions, $newProperties, $new, $oldProperties, $filterProperties );
 
-		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
+		foreach ( $oldProperties as $propertyKey => /* DIProperty */ $diProperty ) {
 			$oldDataItems = array();
 			$newDataItems = array();
 
@@ -264,21 +267,21 @@ class ChangeSet {
 	}
 
 	/**
-	 * Finds the inserts or deletions and adds them to the passed SMWSemanticData object.
+	 * Finds the inserts or deletions and adds them to the passed SemanticData object.
 	 * These values will also be removed from the first list of properties and their values,
 	 * so it can be used for one-to-one change finding later on.
 	 *
-	 * @param SMWSemanticData $changeSet
+	 * @param SemanticData $changeSet
 	 * @param array $oldProperties
-	 * @param SMWSemanticData $oldData
+	 * @param SemanticData $oldData
 	 * @param array $newProperties
 	 */
-	private static function findSingleDirectionChanges( SMWSemanticData &$changeSet,
-		array &$oldProperties, SMWSemanticData $oldData, array $newProperties ) {
+	private static function findSingleDirectionChanges( SemanticData &$changeSet,
+		array &$oldProperties, SemanticData $oldData, array $newProperties ) {
 
 		$deletionKeys = array();
 
-		foreach ( $oldProperties as $propertyKey => /* SMWDIProperty */ $diProperty ) {
+		foreach ( $oldProperties as $propertyKey => /* DIProperty */ $diProperty ) {
 			if ( !array_key_exists( $propertyKey, $newProperties ) ) {
 				foreach ( $oldData->getPropertyValues( $diProperty ) as /* SMWDataItem */ $dataItem ) {
 					$changeSet->addPropertyObjectValue( $diProperty, $dataItem );
@@ -295,21 +298,21 @@ class ChangeSet {
 	/**
 	 * Create a new instance of a change set.
 	 *
-	 * @param SMWDIWikiPage $subject
+	 * @param DIWikiPage $subject
 	 * @param PropertyChanges $changes Can be null
-	 * @param SMWSemanticData $insertions Can be null
-	 * @param SMWSemanticData $deletions Can be null
+	 * @param SemanticData $insertions Can be null
+	 * @param SemanticData $deletions Can be null
 	 * @param integer $id Can be null
 	 * @param Edit $edit Can be null
 	 */
-	public function __construct( SMWDIWikiPage $subject, /* PropertyChanges */ $changes = null,
-		/* SMWSemanticData */ $insertions = null, /* SMWSemanticData */ $deletions = null,
+	public function __construct( DIWikiPage $subject, /* PropertyChanges */ $changes = null,
+		/* SemanticData */ $insertions = null, /* SemanticData */ $deletions = null,
 		$id = null, /* Edit */ $edit = null ) {
 
 		$this->subject = $subject;
 		$this->changes = is_null( $changes ) ? new PropertyChanges() : $changes;
-		$this->insertions = is_null( $insertions ) ? new SMWSemanticData( $subject ): $insertions;
-		$this->deletions = is_null( $deletions ) ? new SMWSemanticData( $subject ): $deletions;
+		$this->insertions = is_null( $insertions ) ? new SemanticData( $subject ): $insertions;
+		$this->deletions = is_null( $deletions ) ? new SemanticData( $subject ): $deletions;
 
 		$this->id = $id;
 		$this->edit = $edit;
@@ -335,7 +338,7 @@ class ChangeSet {
 				'count' => count( $allProps ),
 			]
 		);
-		foreach ( $allProps as /* SMWDIProperty */ $property ) {
+		foreach ( $allProps as /* DIProperty */ $property ) {
 			$userDefined = $property->isUserDefined();
 
 			wfDebugLog(
@@ -369,18 +372,18 @@ class ChangeSet {
 	}
 
 	/**
-	 * Returns a SMWSemanticData object holding all inserted SMWDataItem objects.
+	 * Returns a SemanticData object holding all inserted SMWDataItem objects.
 	 *
-	 * @return SMWSemanticData
+	 * @return SemanticData
 	 */
 	public function getInsertions() {
 		return $this->insertions;
 	}
 
 	/**
-	 * Returns a SMWSemanticData object holding all deleted SMWDataItem objects.
+	 * Returns a SemanticData object holding all deleted SMWDataItem objects.
 	 *
-	 * @return SMWSemanticData
+	 * @return SemanticData
 	 */
 	public function getDeletions() {
 		return $this->deletions;
@@ -398,21 +401,21 @@ class ChangeSet {
 	/**
 	 * Returns the subject these changes apply to.
 	 *
-	 * @return SMWDIWikiPage
+	 * @return DIWikiPage
 	 */
 	public function getSubject() {
 		return $this->subject;
 	}
 
 	/**
-	 * Adds a PropertyChange to the set for the specified SMWDIProperty.
+	 * Adds a PropertyChange to the set for the specified DIProperty.
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param PropertyChange $change
 	 */
-	public function addChange( SMWDIProperty $property, PropertyChange $change ) {
+	public function addChange( DIProperty $property, PropertyChange $change ) {
 		switch ( $change->getType() ) {
 			case PropertyChange::TYPE_UPDATE:
 				$this->changes->addPropertyObjectChange( $property, $change );
@@ -427,33 +430,33 @@ class ChangeSet {
 	}
 
 	/**
-	 * Adds a SMWDataItem representing an insertion to the set for the specified SMWDIProperty.
+	 * Adds a SMWDataItem representing an insertion to the set for the specified DIProperty.
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param SMWDataItem $dataItem
 	 */
-	public function addInsertion( SMWDIProperty $property, SMWDataItem $dataItem ) {
+	public function addInsertion( DIProperty $property, SMWDataItem $dataItem ) {
 		$this->insertions->addPropertyObjectValue( $property, $dataItem );
 	}
 
 	/**
-	 * Adds a SMWDataItem representing a deletion to the set for the specified SMWDIProperty.
+	 * Adds a SMWDataItem representing a deletion to the set for the specified DIProperty.
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param SMWDataItem $dataItem
 	 */
-	public function addDeletion( SMWDIProperty $property, SMWDataItem $dataItem ) {
+	public function addDeletion( DIProperty $property, SMWDataItem $dataItem ) {
 		$this->deletions->addPropertyObjectValue( $property, $dataItem );
 	}
 
 	/**
 	 * Returns a list of all properties.
 	 *
-	 * @return array of SMWDIProperty
+	 * @return array of DIProperty
 	 */
 	public function getAllProperties() {
 		return array_merge(
@@ -466,9 +469,9 @@ class ChangeSet {
 	/**
 	 * Removes all changes for a certian property.
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 */
-	public function removeChangesForProperty( SMWDIProperty $property ) {
+	public function removeChangesForProperty( DIProperty $property ) {
 		$this->getChanges()->removeChangesForProperty( $property );
 		$this->getInsertions()->removeDataForProperty( $property );
 		$this->getDeletions()->removeDataForProperty( $property );
@@ -477,11 +480,11 @@ class ChangeSet {
 	/**
 	 * Returns a list of ALL changes, including isertions and deletions.
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 *
 	 * @return array of PropertyChange
 	 */
-	public function getAllPropertyChanges( SMWDIProperty $property ) {
+	public function getAllPropertyChanges( DIProperty $property ) {
 		$changes = array();
 
 		foreach ( $this->changes->getPropertyChanges( $property ) as /* PropertyChange */ $change ) {
@@ -517,7 +520,7 @@ class ChangeSet {
  			'changes' => array()
 		);
 
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+		foreach ( $this->getAllProperties() as /* DIProperty */ $property ) {
 			$propChanges = array();
 
 			foreach ( $this->getAllPropertyChanges( $property ) as /* PropertyChange */ $change ) {
@@ -558,11 +561,14 @@ class ChangeSet {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		$hookContainer->run( 'SWLBeforeChangeSetInsert', array( &$this, &$groupsToAssociate, &$editId ) );
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()
+			->getDBLoadBalancer()
+			->getConnection( DB_PRIMARY );
 
 		$dbw->insert(
 			'swl_sets',
-			array( 'set_id' => null )
+			array( 'set_id' => null ),
+			__METHOD__
 		);
 
 		$id = $dbw->insertId();
@@ -572,12 +578,13 @@ class ChangeSet {
 			array(
 				'spe_set_id' => $id,
 				'spe_edit_id' => $editId
-			)
+			),
+			__METHOD__
 		);
 
 		$changes = array();
 
-		foreach ( $this->getAllProperties() as /* SMWDIProperty */ $property ) {
+		foreach ( $this->getAllProperties() as /* DIProperty */ $property ) {
 			if ( $property->isUserDefined() ) {
 				$propSerialization = $property->getSerialization();
 
@@ -624,7 +631,8 @@ class ChangeSet {
 					'change_property' => $change['property'],
 					'change_old_value' => $change['old'],
 					'change_new_value' => $change['new']
-				)
+				),
+				__METHOD__
 			);
 		}
 
@@ -634,7 +642,8 @@ class ChangeSet {
 				array(
 					'spg_group_id' => $group->getId(),
 					'spg_set_id' => $id
-				)
+				),
+				__METHOD__
 			);
 		}
 
@@ -687,12 +696,12 @@ class ChangeSet {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param string $value
 	 *
 	 * @return boolean
 	 */
-	public function hasInsertion( SMWDIProperty $property, $value ) {
+	public function hasInsertion( DIProperty $property, $value ) {
 		$has = false;
 
 		foreach ( $this->insertions->getPropertyValues( $property ) as /* SMWDataItem */ $insertion ) {
@@ -710,12 +719,12 @@ class ChangeSet {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param string $value
 	 *
 	 * @return boolean
 	 */
-	public function hasDeletion( SMWDIProperty $property, $value ) {
+	public function hasDeletion( DIProperty $property, $value ) {
 		$has = false;
 
 		foreach ( $this->deletions->getPropertyValues( $property ) as /* SMWDataItem */ $deletion ) {
@@ -733,12 +742,12 @@ class ChangeSet {
 	 *
 	 * @since 0.1
 	 *
-	 * @param SMWDIProperty $property
+	 * @param DIProperty $property
 	 * @param PropertyChange $change
 	 *
 	 * @return boolean
 	 */
-	public function hasChange( SMWDIProperty $property, PropertyChange $change ) {
+	public function hasChange( DIProperty $property, PropertyChange $change ) {
 		$has = false;
 
 		foreach ( $this->changes->getPropertyChanges( $property ) as /* PropertyChange */ $propChange ) {
