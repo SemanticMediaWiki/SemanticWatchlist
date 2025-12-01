@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"पर्वत सुबेदी",
+			"बडा काजी"
+		]
+	},
+	"swl-group-name": "समूह नाम:",
+	"swl-group-legend": "समूह",
+	"swl-group-save": "सङ्ग्रह गर्नुहोस्",
+	"swl-group-remove": "हटाउनुहोस्",
+	"swl-group-saving": "सङ्ग्रह गर्दै",
+	"swl-group-category": "श्रेणी",
+	"swl-group-namespace": "नामपद",
+	"swl-group-concept": "अवधारणा",
+	"swl-group-add-new-group": "नयाँ समूह थप्नुहोस्",
+	"swl-group-add-group": "समूह थप्नुहोस्",
+	"swl-custom-legend": "अनुकूलन पाठ",
+	"swl-custom-remove-property": "हटाउनुहोस्",
+	"swl-custom-text-add": "अनुकूलन पाठ थप्नुहोस्",
+	"swl-watchlist-insertions": "नयाँ:",
+	"swl-watchlist-deletions": "पुरानो:",
+	"swl-new-item": "नयाँ",
+	"swl-watchlist-pagincontrol": "($1) ($2) हेर्नुहोस्",
+	"swl-watchlist-firstn": "पहिलो $1",
+	"swl-watchlist-firstn-title": "पहिलो $1 {{PLURAL:$1|परिणाम|परिणामहरू}}",
+	"prefs-swlgroup": "हेर्नका लागि समूहहरू",
+	"prefs-swlglobal": "सामान्य विकल्पहरू"
+}
