@@ -137,7 +137,7 @@ class DeleteWatchlistGroup extends ApiBase {
 				)
 			);
 
-			if ( $dbr->numRows( $groupsForEdit ) < 2 ) {
+			if ( $groupsForEdit->numRows() < 2 ) {
 				$editsToDelete[] = $edit->spe_edit_id;
 			}
 		}
