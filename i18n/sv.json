@@ -3,12 +3,15 @@
 		"authors": [
 			"Lokal Profil",
 			"Martinwiss",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
 	"semanticwatchlist-desc": "Informera användare om vissa ändringar av semantiska data",
 	"right-semanticwatch": "Använd semantiska övervakningslistor",
+	"action-semanticwatch": "använd semantisk bevakningslista",
 	"right-semanticwatchgroups": "[[Special:WatchlistConditions|Ändra]] grupperna för semantiska övervakningslistor",
+	"action-semanticwatchgroups": "ändra de semantiska bevakningslistgrupperna",
 	"special-semanticwatchlist": "Semantiska övervakningslistor",
 	"special-watchlistconditions": "Inställningar för semantiska övervakningslistor",
 	"swl-group-name": "Gruppnamn:",
