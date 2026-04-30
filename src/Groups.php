@@ -14,8 +14,8 @@
 namespace SWL;
 
 use MediaWiki\MediaWikiServices;
-use Title;
-use User;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 final class Groups {
 
