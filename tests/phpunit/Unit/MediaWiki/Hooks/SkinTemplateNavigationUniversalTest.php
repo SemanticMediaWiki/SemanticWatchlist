@@ -3,6 +3,7 @@
 namespace SWL\Tests\MediaWiki\Hooks;
 
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserOptionsManager;
 use SWL\MediaWiki\Hooks\SkinTemplateNavigationUniversal;
 
@@ -25,11 +26,11 @@ class SkinTemplateNavigationUniversalTest extends \PHPUnit\Framework\TestCase {
 
 		$personalUrls = [];
 
-		$title = $this->getMockBuilder( 'Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$user = $this->getMockBuilder( 'User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -48,7 +49,7 @@ class SkinTemplateNavigationUniversalTest extends \PHPUnit\Framework\TestCase {
 
 		$title = Title::newFromText( __METHOD__ );
 
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -76,7 +77,7 @@ class SkinTemplateNavigationUniversalTest extends \PHPUnit\Framework\TestCase {
 
 		$title = Title::newFromText( __METHOD__ );
 
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -96,7 +97,7 @@ class SkinTemplateNavigationUniversalTest extends \PHPUnit\Framework\TestCase {
 
 		$title = Title::newFromText( __METHOD__ );
 
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
