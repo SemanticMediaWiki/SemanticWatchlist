@@ -2,9 +2,9 @@
 
 namespace SWL\Tests\MediaWiki\Hooks;
 
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsManager;
 use SWL\MediaWiki\Hooks\SkinTemplateNavigationUniversal;
-use Title;
 
 /**
  * @covers \SWL\MediaWiki\Hooks\SkinTemplateNavigationUniversal
