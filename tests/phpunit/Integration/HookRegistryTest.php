@@ -69,7 +69,7 @@ class HookRegistryTest extends MediaWikiIntegrationTestCase {
 
 	private function doTestSkinTemplateNavigationUniversal( $hooks, $user ) {
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
