@@ -3,8 +3,8 @@
 namespace SWL\MediaWiki\Hooks;
 
 use MediaWiki\User\UserOptionsManager;
-use Title;
-use User;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 /**
  * Called after the navigation links have been set up, before they are shown.
