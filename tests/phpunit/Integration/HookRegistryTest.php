@@ -4,9 +4,9 @@ namespace SWL\Tests;
 
 use MediaWiki\HookContainer\HookContainer;
 use MediaWikiIntegrationTestCase;
+use MediaWiki\Title\Title;
 use SWL\HookRegistry;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @covers \SWL\HookRegistry
