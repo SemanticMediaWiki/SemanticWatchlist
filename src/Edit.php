@@ -13,10 +13,9 @@
  */
 namespace SWL;
 
-use Hooks;
 use MediaWiki\MediaWikiServices;
-use Title;
-use User;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 class Edit {
 

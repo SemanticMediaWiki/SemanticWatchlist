@@ -9,9 +9,9 @@ use SWL\MediaWiki\Hooks\ExtensionSchemaUpdater;
 use SWL\TableUpdater;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use User;
-use Title;
 use Language;
 
 /**

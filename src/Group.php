@@ -15,6 +15,8 @@ namespace SWL;
 
 use Hooks;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use SMW\DIWikiPage;
 use SMW\Query\QueryResult;
 use SMW\Query\Language\ConceptDescription;
@@ -22,8 +24,6 @@ use SMW\Query\Language\Conjunction;
 use SMW\Query\Language\ValueDescription;
 use SMW\DIProperty;
 use SMWQuery;
-use Title;
-use User;
 
 class Group {
 

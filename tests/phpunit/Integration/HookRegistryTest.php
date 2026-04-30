@@ -4,9 +4,9 @@ namespace SWL\Tests;
 
 use MediaWiki\HookContainer\HookContainer;
 use MediaWikiIntegrationTestCase;
+use MediaWiki\Title\Title;
 use SWL\HookRegistry;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @covers \SWL\HookRegistry
@@ -69,7 +69,7 @@ class HookRegistryTest extends MediaWikiIntegrationTestCase {
 
 	private function doTestSkinTemplateNavigationUniversal( $hooks, $user ) {
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

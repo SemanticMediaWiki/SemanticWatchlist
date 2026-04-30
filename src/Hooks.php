@@ -17,12 +17,12 @@ use AlItem;
 use ALRow;
 use ALTree;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use RequestContext;
 use Sanitizer;
 use SMW\SemanticData;
 use SMW\Store;
-use Title;
-use User;
 
 final class Hooks {
 
