@@ -13,13 +13,12 @@
  */
 namespace SWL;
 
-use Hooks;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMWDataItem;
 use SMW\SemanticData;
-use Title;
 
 class ChangeSet {
 
