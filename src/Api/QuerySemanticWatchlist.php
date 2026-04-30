@@ -16,8 +16,8 @@ namespace SWL\Api;
 
 use ApiBase;
 use ApiQueryBase;
+use MediaWiki\Title\Title;
 use SWL\ChangeSet;
-use Title;
 
 class QuerySemanticWatchlist extends ApiQueryBase {
 	public function __construct( $main, $action ) {
