@@ -9,7 +9,7 @@
 	"swl-group-name": "د ډلې نوم:",
 	"swl-group-save": "خوندي کول",
 	"swl-group-saved": "اوڼنې مو خوندي‌شوې.",
-	"swl-group-saving": "خوندي کېدنې کې دی...",
+	"swl-group-saving": "خوندي کول",
 	"swl-group-category": "وېشنيزه",
 	"swl-group-namespace": "نوم‌تشيال",
 	"swl-group-add-new-group": "يوه نوې ډله ورگډول",
@@ -17,5 +17,5 @@
 	"swl-watchlist-insertions": "نوی:",
 	"swl-watchlist-deletions": "زوړ:",
 	"swl-new-item": "نوی",
-	"swl-watchlist-pagincontrol": "کتل ($1) ($2)"
+	"swl-watchlist-pagincontrol": "($1) ($2) کتل"
 }
