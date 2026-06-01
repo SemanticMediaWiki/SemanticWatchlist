@@ -1,12 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"HakanIST"
 		]
 	},
+	"semanticwatchlist-title": "AnlamsalİzlemeListesi",
 	"semanticwatchlist-desc": "Kullanıcıların Semantic MediaWiki verilerindeki belirli değişiklikler hakkında bilgilendirilmesini sağlar",
 	"right-semanticwatch": "Anlamsal izleme listesi kullan",
+	"action-semanticwatch": "anlamsal izleme listesini kullan",
 	"right-semanticwatchgroups": "Semantik izleme listesi grupları [[Special:WatchlistConditions|değiştir]]",
+	"action-semanticwatchgroups": "anlamsal izleme listesi gruplarını değiştir",
 	"special-semanticwatchlist": "Semantic İzleme Listesi",
 	"special-watchlistconditions": "Semantic izleme listesi koşulları",
 	"swl-group-name": "Grup adı:",
