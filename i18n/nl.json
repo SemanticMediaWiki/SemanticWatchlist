@@ -7,7 +7,7 @@
 			"Sjoerddebruin"
 		]
 	},
-	"semanticwatchlist-desc": "Laat gebruikers een volglijst samenstellen op basis van wijzigingen in gegevens van Semantic MediaWiki",
+	"semanticwatchlist-desc": "Laat gebruikers een volglijst samenstellen op basis van specifieke wijzigingen in gegevens van Semantic MediaWiki",
 	"right-semanticwatch": "Semantische volglijst gebruiken",
 	"action-semanticwatch": "semantische volglijst gebruiken",
 	"right-semanticwatchgroups": "De semantische volglijstgroepen [[Special:WatchlistConditions|aanpassen]]",
