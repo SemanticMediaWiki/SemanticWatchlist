@@ -37,7 +37,7 @@
 	"swl-watchlist-deletions": "زوړ:",
 	"swl-new-item": "نوی",
 	"swl-watchlist-pagincontrol": "($1) ($2) کتل",
-	"swl-watchlist-firstn": "لومړی",
+	"swl-watchlist-firstn": "لومړی $1",
 	"swl-watchlist-firstn-title": "لومړۍ $1 {{PLURAL:$1|پايله|پايلې}}",
 	"swl-watchlist-no-items": "تاسو خپل مانا پوهنيزه کتنلړ کې هېڅ توکی نه لرئ.",
 	"swl-watchlist-can-mod-groups": "تاسو د [[$1|کتنلړ ډلې بدلولی]] شئ.",
