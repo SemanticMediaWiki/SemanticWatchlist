@@ -40,7 +40,7 @@
 	"swl-new-item": "새문서",
 	"swl-watchlist-pagincontrol": "보기 ($1) ($2)",
 	"swl-watchlist-firstn": "첫 $1",
-	"swl-watchlist-firstn-title": "첫 $1 {{PLURAL:$1|결과}}",
+	"swl-watchlist-firstn-title": "첫 $1개 {{PLURAL:$1|결과}}",
 	"swl-watchlist-no-items": "시맨틱 주시문서 목록에 항목이 없습니다.",
 	"swl-watchlist-can-mod-groups": "[[$1|주시문서 그룹을 수정]]할 수 있습니다.",
 	"swl-watchlist-can-mod-prefs": "어떤 속성을 주시할 지 [[$1|주시문서 환경 설정을 수정할수 있습니다]].",
