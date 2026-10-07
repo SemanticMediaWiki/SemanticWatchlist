@@ -131,7 +131,7 @@ class HookRegistry {
 		);
 
 		$hookContainer->register( 'AdminLinks', 'SWL\\Hooks::addToAdminLinks' );
-		$hookContainer->register( 'SMWStore::updateDataBefore', 'SWL\\Hooks::onDataUpdate' );
+		$hookContainer->register( 'SMW::Store::BeforeDataUpdateComplete', 'SWL\\Hooks::onDataUpdate' );
 
 		if ( $configuration['egSWLEnableEmailNotify'] ) {
 			$hookContainer->register( 'SWLGroupNotify', 'SWL\\Hooks::onGroupNotify' );
