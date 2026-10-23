@@ -57,7 +57,7 @@ class HookRegistryTest extends MediaWikiIntegrationTestCase {
 		$hooks->clear( 'SaveUserOptions' );
 		$hooks->clear( 'LoadExtensionSchemaUpdates' );
 		$hooks->clear( 'GetPreferences' );
-		$hooks->clear( 'SMWStore::updateDataBefore' );
+		$hooks->clear( 'SMW::Store::BeforeDataUpdateComplete' );
 		$instance->register( $hooks );
 
 		$this->doTestSkinTemplateNavigationUniversal( $hooks, $user );
@@ -169,7 +169,7 @@ class HookRegistryTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertThatHookIsExcutable(
 			$hooks,
-			'SMWStore::updateDataBefore',
+			'SMW::Store::BeforeDataUpdateComplete',
 			[ $store, $semanticData ]
 		);
 	}

@@ -46,8 +46,8 @@ class PropertyChange {
 	 * @return PropertyChange
 	 */
 	public static function newFromSerialization( DIProperty $property, $oldValue, $newValue ) {
-		$typeId = $property->findPropertyTypeID();
-		$diType = DataTypeRegistry::getInstance()->getDataItemId( $typeId );
+		$typeId = $property->findPropertyValueType();
+		$diType = DataTypeRegistry::getInstance()->getDataItemByType( $typeId );
 
 		return new self(
 			is_null( $oldValue ) ? null : SMWDataItem::newFromSerialization( $diType, $oldValue ),

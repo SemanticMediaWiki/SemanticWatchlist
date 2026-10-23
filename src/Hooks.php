@@ -27,8 +27,8 @@ use SMW\Store;
 final class Hooks {
 
     /**
-     * Handle the updateDataBefore hook of SMW >1.6, which gets called
-     * every time the value of a propery changes somewhere.
+     * Handle SMW::Store::BeforeDataUpdateComplete, which gets called
+     * every time the value of a property changes somewhere.
      *
      * @since 0.1
      *

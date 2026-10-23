@@ -411,10 +411,10 @@ class Watchlist extends SpecialPage {
 		// Convert the changes into a list of insertions and a list of deletions.
 		foreach ( $changes as /* SWLPropertyChange */ $change ) {
 			if ( !is_null( $change->getOldValue() ) ) {
-				$deletions[] = DataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getLongHTMLText();
+				$deletions[] = DataValueFactory::getInstance()->newDataValueByItem( $change->getOldValue(), $property )->getLongHTMLText();
 			}
 			if ( !is_null( $change->getNewValue() ) ) {
-				$insertions[] = DataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getLongHTMLText();
+				$insertions[] = DataValueFactory::getInstance()->newDataValueByItem( $change->getNewValue(), $property )->getLongHTMLText();
 			}
 		}
 
