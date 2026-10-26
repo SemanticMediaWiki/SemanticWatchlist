@@ -3,10 +3,12 @@
 		"authors": [
 			"Jim-by",
 			"Red Winged Duck",
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"swl-group-save": "Захаваць",
+	"swl-group-remove": "Прыбраць",
 	"swl-group-saved": "Налады былі захаваныя.",
 	"swl-group-saving": "Захаваньне",
 	"swl-group-category": "катэгорыя",
@@ -14,6 +16,7 @@
 	"swl-group-concept": "канцэпт",
 	"swl-group-add-new-group": "Дадаць новую групу",
 	"swl-group-add-group": "Дадаць групу",
+	"swl-custom-remove-property": "Прыбраць",
 	"swl-watchlist-insertions": "Новая:",
 	"swl-watchlist-deletions": "Старая:",
 	"swl-watchlist-pagincontrol": "Прагляд ($1) ($2)",
