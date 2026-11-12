@@ -5,6 +5,8 @@ namespace SWL\Tests\Integration\Special;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
+use PermissionsError;
+use SpecialPageExecutor;
 
 /**
  * Uses the integration base class for MediaWiki's special page factory, and the database for the test user.
@@ -15,8 +17,11 @@ use MediaWikiIntegrationTestCase;
  */
 class WatchlistTest extends MediaWikiIntegrationTestCase {
 
-	public function testUserWithoutSemanticwatchRightCannotUsePage(): void {
-		$this->assertFalse( $this->newPage()->userCanExecute( $this->newUserWithRights( [] ) ) );
+	public function testUserWithoutSemanticwatchRightIsRefused(): void {
+		$user = $this->newUserWithRights( [ 'read' ] );
+
+		$this->expectException( PermissionsError::class );
+		( new SpecialPageExecutor() )->executeSpecialPage( $this->newPage(), '', null, null, $user );
 	}
 
 	public function testUserWithSemanticwatchRightCanUsePage(): void {
