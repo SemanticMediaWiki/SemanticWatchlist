@@ -14,15 +14,15 @@
 namespace SWL\Special;
 
 use ApiMain;
-use FauxRequest;
-use SWL\ChangeSet;
-use HTML;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Request\FauxRequest;
 use Profiler;
-use SpecialPage;
-use SMWOutputs;
 use SMW\DataValueFactory;
 use SMW\DIProperty;
+use SMWOutputs;
+use SpecialPage;
+use SWL\ChangeSet;
 use User;
 
 class Watchlist extends SpecialPage {

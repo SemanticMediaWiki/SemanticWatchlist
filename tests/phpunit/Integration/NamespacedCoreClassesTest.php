@@ -1,0 +1,128 @@
+<?php
+
+namespace SWL\Tests;
+
+use MediaWiki\Context\RequestContext;
+use MediaWikiIntegrationTestCase;
+use SMW\DIProperty;
+use SWL\CustomTexts;
+use SWL\Emailer;
+use SWL\Group;
+use SWL\Special\Conditions;
+use SWL\Special\Watchlist;
+use Wikimedia\TestingAccessWrapper;
+
+/**
+ * The pages call MediaWiki\Html\Html and MediaWiki\Request\FauxRequest.
+ * Those names have no global alias since MediaWiki 1.44.
+ *
+ * @covers \SWL\Emailer
+ * @covers \SWL\Special\Conditions
+ * @covers \SWL\Special\Watchlist
+ * @group semantic-watchlist
+ * @group Database
+ */
+class NamespacedCoreClassesTest extends MediaWikiIntegrationTestCase {
+
+	public function testConditionsRendersAGroupWithNamespacedHtml() {
+		$this->setUserLang( 'qqx' );
+		$page = $this->newConditionsPage();
+		$page->setContext( RequestContext::getMain() );
+
+		$html = TestingAccessWrapper::newFromObject( $page )->getGroupHtml(
+			new Group( 7, 'Cities', [], [ NS_TALK ], [], [], [] )
+		);
+
+		$this->assertStringContainsString( 'id="swl_group_7"', $html );
+		$this->assertStringContainsString( 'namespaces="Talk"', $html );
+		$this->assertStringContainsString( '<legend', $html );
+	}
+
+	public function testWatchlistPagingControlRendersWithNamespacedHtml() {
+		$this->setUserLang( 'qqx' );
+		$page = $this->newWatchlistPage();
+		$page->setContext( RequestContext::getMain() );
+
+		$html = TestingAccessWrapper::newFromObject( $page )->getPagingControlHTML(
+			20,
+			'',
+			'',
+			false,
+			0
+		);
+
+		$this->assertStringContainsString( '<p>', $html );
+		$this->assertStringContainsString( 'limit=20', $html );
+		$this->assertStringContainsString( 'limit=50', $html );
+	}
+
+	public function testWatchlistChangeSetQueryBuildsAFauxRequest() {
+		$this->ensureChangeSetTables();
+		$page = $this->newWatchlistPage();
+		$page->setContext( RequestContext::getMain() );
+
+		$result = TestingAccessWrapper::newFromObject( $page )->getChangeSetsData( 1, '' );
+
+		$this->assertIsArray( $result );
+		$this->assertSame( [], $result['sets'] );
+	}
+
+	/**
+	 * sql/swl-table-schema.sql is MySQL. A database that could not import it
+	 * has none of these tables, so the test creates the columns the query reads.
+	 */
+	private function ensureChangeSetTables(): void {
+		$db = $this->getDb();
+		if ( $db->tableExists( 'swl_edits', __METHOD__ ) ) {
+			return;
+		}
+
+		$definitions = [
+			'swl_edits' => 'edit_id INT NOT NULL PRIMARY KEY, '
+				. 'edit_user_name VARCHAR(255) NOT NULL, '
+				. 'edit_page_id INT NOT NULL, '
+				. 'edit_time CHAR(14) NOT NULL DEFAULT \'\'',
+			'swl_sets_per_edit' => 'spe_set_id INT NOT NULL, spe_edit_id INT NOT NULL, '
+				. 'PRIMARY KEY (spe_set_id, spe_edit_id)',
+			'swl_sets_per_group' => 'spg_group_id INT NOT NULL, spg_set_id INT NOT NULL, '
+				. 'PRIMARY KEY (spg_group_id, spg_set_id)',
+			'swl_users_per_group' => 'upg_group_id INT NOT NULL, upg_user_id INT NOT NULL, '
+				. 'PRIMARY KEY (upg_group_id, upg_user_id)',
+		];
+		foreach ( $definitions as $table => $sql ) {
+			$db->query(
+				'CREATE TEMPORARY TABLE ' . $db->tableName( $table ) . " ($sql)",
+				__METHOD__
+			);
+		}
+	}
+
+	public function testEmailerRendersPropertyHtmlWithNamespacedHtml() {
+		if ( !class_exists( DIProperty::class ) ) {
+			$this->markTestSkipped( 'SemanticMediaWiki is not loaded' );
+		}
+
+		$property = $this->createMock( DIProperty::class );
+		$property->method( 'getLabel' )->willReturn( 'Foo' );
+		$texts = new CustomTexts( new Group( 1, 'G', [], [], [], [], [] ) );
+
+		$html = TestingAccessWrapper::newFromClass( Emailer::class )
+			->getPropertyHTML( $property, [], $texts );
+
+		$this->assertStringContainsString( 'Foo', $html );
+		$this->assertStringContainsString( '<b', $html );
+		$this->assertStringContainsString( 'swl-prop-div', $html );
+	}
+
+	private function newConditionsPage(): Conditions {
+		$page = $this->getServiceContainer()->getSpecialPageFactory()->getPage( 'WatchlistConditions' );
+		$this->assertInstanceOf( Conditions::class, $page );
+		return $page;
+	}
+
+	private function newWatchlistPage(): Watchlist {
+		$page = $this->getServiceContainer()->getSpecialPageFactory()->getPage( 'SemanticWatchlist' );
+		$this->assertInstanceOf( Watchlist::class, $page );
+		return $page;
+	}
+}

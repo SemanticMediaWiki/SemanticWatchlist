@@ -13,7 +13,7 @@
  */
 namespace SWL\Special;
 
-use Html;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use NamespaceInfo;
 use SpecialPage;
