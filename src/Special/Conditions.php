@@ -31,12 +31,11 @@ class Conditions extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		// Before 1.46 userCanExecute() reads this argument, not getRestriction().
-		// Since 1.46 the extra argument is deprecated, and in 1.47 it throws.
-		if ( version_compare( MW_VERSION, '1.46', '<' ) ) {
-			parent::__construct( 'WatchlistConditions', 'semanticwatchgroups' );
-		} else {
+		if ( version_compare( MW_VERSION, '1.46', '>=' ) ) {
 			parent::__construct( 'WatchlistConditions' );
+		} else {
+			// Before 1.46, MediaWiki checks the restriction given here, not getRestriction()
+			parent::__construct( 'WatchlistConditions', 'semanticwatchgroups' );
 		}
 		// TODO inject the service
 		$this->nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();

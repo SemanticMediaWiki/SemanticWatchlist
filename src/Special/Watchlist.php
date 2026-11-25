@@ -42,12 +42,11 @@ class Watchlist extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		// Before 1.46 userCanExecute() reads this argument, not getRestriction().
-		// Since 1.46 the extra argument is deprecated, and in 1.47 it throws.
-		if ( version_compare( MW_VERSION, '1.46', '<' ) ) {
-			parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
-		} else {
+		if ( version_compare( MW_VERSION, '1.46', '>=' ) ) {
 			parent::__construct( 'SemanticWatchlist' );
+		} else {
+			// Before 1.46, MediaWiki checks the restriction given here, not getRestriction()
+			parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
 		}
 	}
 

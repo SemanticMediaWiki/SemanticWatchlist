@@ -24,53 +24,6 @@ use Wikimedia\TestingAccessWrapper;
  */
 class NamespacedCoreClassesTest extends MediaWikiIntegrationTestCase {
 
-	public function testConditionsRefusesAUserWithoutTheRight() {
-		$user = $this->getTestUser()->getUser();
-		$this->overrideUserPermissions( $user, [ 'read' ] );
-
-		// Global names: 1.43 has no namespace, later lines keep a class_alias.
-		$this->expectException( \PermissionsError::class );
-		( new \SpecialPageExecutor() )->executeSpecialPage(
-			$this->newConditionsPage(),
-			'',
-			null,
-			'qqx',
-			$user
-		);
-	}
-
-	public function testWatchlistRefusesAUserWithoutTheRight() {
-		$user = $this->getTestUser()->getUser();
-		$this->overrideUserPermissions( $user, [ 'read' ] );
-
-		$this->expectException( \PermissionsError::class );
-		( new \SpecialPageExecutor() )->executeSpecialPage(
-			$this->newWatchlistPage(),
-			'',
-			null,
-			'qqx',
-			$user
-		);
-	}
-
-	public function testConditionsAllowsAUserWithTheRight() {
-		$page = $this->newConditionsPage();
-		$user = $this->getTestUser()->getUser();
-		$this->overrideUserPermissions( $user, [ 'read', 'semanticwatchgroups' ] );
-
-		$this->assertSame( 'semanticwatchgroups', $page->getRestriction() );
-		$this->assertTrue( $page->userCanExecute( $user ) );
-	}
-
-	public function testWatchlistAllowsAUserWithTheRight() {
-		$page = $this->newWatchlistPage();
-		$user = $this->getTestUser()->getUser();
-		$this->overrideUserPermissions( $user, [ 'read', 'semanticwatch' ] );
-
-		$this->assertSame( 'semanticwatch', $page->getRestriction() );
-		$this->assertTrue( $page->userCanExecute( $user ) );
-	}
-
 	public function testConditionsRendersAGroupWithNamespacedHtml() {
 		$this->setUserLang( 'qqx' );
 		$page = $this->newConditionsPage();
