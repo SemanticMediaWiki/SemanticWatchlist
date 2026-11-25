@@ -14,15 +14,15 @@
 namespace SWL\Special;
 
 use ApiMain;
-use MediaWiki\Request\FauxRequest;
-use SWL\ChangeSet;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Request\FauxRequest;
 use Profiler;
-use SpecialPage;
-use SMWOutputs;
 use SMW\DataValueFactory;
 use SMW\DIProperty;
+use SMWOutputs;
+use SpecialPage;
+use SWL\ChangeSet;
 use User;
 
 class Watchlist extends SpecialPage {
@@ -42,7 +42,17 @@ class Watchlist extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
+		// Before 1.46 userCanExecute() reads this argument, not getRestriction().
+		// Since 1.46 the extra argument is deprecated, and in 1.47 it throws.
+		if ( version_compare( MW_VERSION, '1.46', '<' ) ) {
+			parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
+		} else {
+			parent::__construct( 'SemanticWatchlist' );
+		}
+	}
+
+	public function getRestriction(): string {
+		return 'semanticwatch';
 	}
 
 	/**
