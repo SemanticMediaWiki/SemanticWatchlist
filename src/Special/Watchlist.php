@@ -42,7 +42,16 @@ class Watchlist extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
+		if ( version_compare( MW_VERSION, '1.46', '>=' ) ) {
+			parent::__construct( 'SemanticWatchlist' );
+		} else {
+			// Before 1.46, MediaWiki checks the restriction given here, not getRestriction()
+			parent::__construct( 'SemanticWatchlist', 'semanticwatch' );
+		}
+	}
+
+	public function getRestriction(): string {
+		return 'semanticwatch';
 	}
 
 	/**

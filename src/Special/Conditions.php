@@ -31,9 +31,18 @@ class Conditions extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function __construct() {
-		parent::__construct( 'WatchlistConditions', 'semanticwatchgroups' );
+		if ( version_compare( MW_VERSION, '1.46', '>=' ) ) {
+			parent::__construct( 'WatchlistConditions' );
+		} else {
+			// Before 1.46, MediaWiki checks the restriction given here, not getRestriction()
+			parent::__construct( 'WatchlistConditions', 'semanticwatchgroups' );
+		}
 		// TODO inject the service
 		$this->nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+	}
+
+	public function getRestriction(): string {
+		return 'semanticwatchgroups';
 	}
 
 	/**
