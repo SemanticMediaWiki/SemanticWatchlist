@@ -13,15 +13,15 @@
  */
 namespace SWL;
 
-use MediaWiki\Html\Html;
 use Hooks;
+use MailAddress;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use SMW\DataValueFactory;
+use SMW\DIProperty;
 use SpecialPage;
 use User;
 use UserMailer;
-use MailAddress;
-use SMW\DataValueFactory;
-use SMW\DIProperty;
 
 final class Emailer {
 

@@ -72,7 +72,7 @@ class NamespacedCoreClassesTest extends MediaWikiIntegrationTestCase {
 	 * has none of these tables, so the test creates the columns the query reads.
 	 */
 	private function ensureChangeSetTables(): void {
-		$db = $this->db;
+		$db = $this->getDb();
 		if ( $db->tableExists( 'swl_edits', __METHOD__ ) ) {
 			return;
 		}
