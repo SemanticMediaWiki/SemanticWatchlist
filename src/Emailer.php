@@ -118,10 +118,10 @@ final class Emailer {
 			}
 			if( !$justCustomMessage ) {
 				if ( !is_null( $change->getOldValue() ) ) {
-					$deletions[] = DataValueFactory::newDataItemValue( $change->getOldValue(), $property )->getShortHTMLText();
+					$deletions[] = DataValueFactory::getInstance()->newDataValueByItem( $change->getOldValue(), $property )->getShortHTMLText();
 				}
 				if ( !is_null( $change->getNewValue() ) ) {
-					$insertions[] = DataValueFactory::newDataItemValue( $change->getNewValue(), $property )->getShortHTMLText();
+					$insertions[] = DataValueFactory::getInstance()->newDataValueByItem( $change->getNewValue(), $property )->getShortHTMLText();
 				}
 			}
 		}
