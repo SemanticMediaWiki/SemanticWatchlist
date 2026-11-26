@@ -60,7 +60,7 @@ class Watchlist extends SpecialPage {
 	 * @since 0.1
 	 */
 	public function getDescription() {
-		return $this->msg( 'special-' . strtolower( $this->getName() ) )->text();
+		return $this->msg( 'special-' . strtolower( $this->getName() ) );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Watchlist extends SpecialPage {
 		global $wgOut;
 		$wgOut->setArticleRelated( false );
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
-		$wgOut->setPageTitle( $this->getDescription() );
+		$wgOut->setPageTitle( $this->getDescription()->text() );
 	}
 
 	/**
