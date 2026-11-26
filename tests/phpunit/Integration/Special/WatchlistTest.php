@@ -2,6 +2,7 @@
 
 namespace SWL\Tests\Integration\Special;
 
+use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -26,6 +27,10 @@ class WatchlistTest extends MediaWikiIntegrationTestCase {
 
 	public function testUserWithSemanticwatchRightCanUsePage(): void {
 		$this->assertTrue( $this->newPage()->userCanExecute( $this->newUserWithRights( [ 'semanticwatch' ] ) ) );
+	}
+
+	public function testDescriptionIsAMessage(): void {
+		$this->assertInstanceOf( Message::class, $this->newPage()->getDescription() );
 	}
 
 	private function newPage(): SpecialPage {
